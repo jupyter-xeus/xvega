@@ -1,0 +1,8 @@
+#ifndef XVEGA_CONFIG_HPP
+#define XVEGA_CONFIG_HPP
+
+#define XVEGA_VERSION_MAJOR 0
+#define XVEGA_VERSION_MINOR 1
+#define XVEGA_VERSION_PATCH 1
+
+#endif
