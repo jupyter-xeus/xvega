@@ -38,6 +38,15 @@ message(STATUS "Found nlohmann_json: ${nlohmann_json_INCLUDE_DIRS}/nlohmann_json
 set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/xvega.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/base/xvega-basic.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/xjson.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_data.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_marks.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp
 )
 
 add_library(xvega INTERFACE)
@@ -60,8 +69,8 @@ install(TARGETS xvega
 export(EXPORT ${PROJECT_NAME}-targets
        FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
 
-install(FILES ${XVEGA_HEADERS}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xvega)
+install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 set(XVEGA_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}" CACHE STRING "install path for xvegaConfig.cmake")
 
