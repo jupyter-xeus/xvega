@@ -9,7 +9,7 @@ namespace xv
         for(auto const& x : v.data())
         {
             std::string column_name = x.first;
-            std::vector<xtl::variant<double, std::string>> values = x.second;
+            std::vector<xtl::variant<double, int, std::string>> values = x.second;
             i = 0;
             for(auto& k: values)
             {
