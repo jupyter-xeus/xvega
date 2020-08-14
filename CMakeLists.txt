@@ -41,6 +41,53 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/base/xvega-basic.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/aggregate.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/axis.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/bin.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/condition.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/datetime.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/datum.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/field.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/header.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/impute.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/legend.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/repeatRef.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/scale.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/sort.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/stack.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/timeunit.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/value.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/detail-channel/detail.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/facet-channels/column.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/facet-channels/facet.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/facet-channels/row.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/hyperlink-channels/href.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/color.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/fill.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/fillOpacity.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/opacity.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/shape.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/size.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/stroke.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/strokeDash.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/strokeOpacity.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/mark-property-channels/strokeWidth.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/order-channel/order.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/latitude.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/longitude.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/latitude2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/longitude2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/x.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/y.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/x2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/y2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/xerror.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/xerror2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/yerror.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/yerror2.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/key.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/text.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/xjson.hpp

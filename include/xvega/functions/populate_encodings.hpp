@@ -5,36 +5,25 @@ namespace xv
     void populate_encodings(const Chart& v)
     {
         int len_encodings = v.encodings().size();
-        if(len_encodings==1)
+        auto j = json_template;
+        for(int i=0; i<len_encodings; i++)
         {
-            if(!v.encodings()[0].x().field().empty())
+            if(len_encodings>1)
             {
-                json_template["encoding"]["x"]["field"] = v.encodings()[0].x().field();
-                json_template["encoding"]["x"]["type"] = v.encodings()[0].x().type();
+                j["layer"][i] = nl::json::object();
+                j = j["layer"][i];
             }
 
-            if(!v.encodings()[0].y().field().empty())
+            j["encoding"] = v.encodings()[i];
+
+            if(len_encodings>1)
             {
-                json_template["encoding"]["y"]["field"] = v.encodings()[0].y().field();
-                json_template["encoding"]["y"]["type"] = v.encodings()[0].y().type();
+                json_template["layer"][i]["encoding"] = j["encoding"];
             }
         }
-        else
+        if(len_encodings == 1)
         {
-            for(int k=0; k<len_encodings; k++)
-            {
-                if(!v.encodings()[k].x().field().empty())
-                {
-                    json_template["layer"][k]["encoding"]["x"]["field"] = v.encodings()[k].x().field();
-                    json_template["layer"][k]["encoding"]["x"]["type"] = v.encodings()[k].x().type();
-                }
-
-                if(!v.encodings()[k].y().field().empty())
-                {
-                    json_template["layer"][k]["encoding"]["y"]["field"] = v.encodings()[k].y().field();
-                    json_template["layer"][k]["encoding"]["y"]["type"] = v.encodings()[k].y().type();
-                }
-            }
+            json_template["encoding"] = j["encoding"];
         }
     }
 }
