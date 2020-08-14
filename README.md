@@ -1,6 +1,6 @@
 # XVega
 
-A C++ backend for vega-lite (link).
+A C++ backend for vega-lite (https://vega.github.io/vega-lite/).
 
 **This is an early developer preview under active development.**
 
