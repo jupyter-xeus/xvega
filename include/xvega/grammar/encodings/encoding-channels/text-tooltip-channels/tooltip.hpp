@@ -4,6 +4,12 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+// Copyright (c) 2020, QuantStack and XVega Contributors
+//
+// Distributed under the terms of the BSD 3-Clause License.
+//
+// The full license is in the file LICENSE, distributed with this software.
+
 #include "../../encoding-channel-options/aggregate.hpp"
 #include "../../encoding-channel-options/bin.hpp"
 #include "../../encoding-channel-options/field.hpp"

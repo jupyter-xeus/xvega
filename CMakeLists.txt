@@ -1,3 +1,9 @@
+# Copyright (c) 2020, QuantStack and XVega Contributors
+#
+# Distributed under the terms of the BSD 3-Clause License.
+#
+# The full license is in the file LICENSE, distributed with this software.
+
 cmake_minimum_required(VERSION 3.1)
 project(xvega)
 
@@ -90,7 +96,6 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/xjson.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_data.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp
