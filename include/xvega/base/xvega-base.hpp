@@ -12,10 +12,27 @@
 #include "../grammar/encodings.hpp"
 #include <iostream>
 
+#include "../grammar/marks/mark_arc.hpp"
+#include "../grammar/marks/mark_area.hpp"
+#include "../grammar/marks/mark_bar.hpp"
+#include "../grammar/marks/mark_circle.hpp"
+#include "../grammar/marks/mark_geoshape.hpp"
+#include "../grammar/marks/mark_image.hpp"
+#include "../grammar/marks/mark_line.hpp"
+#include "../grammar/marks/mark_point.hpp"
+#include "../grammar/marks/mark_rect.hpp"
+#include "../grammar/marks/mark_rule.hpp"
+#include "../grammar/marks/mark_square.hpp"
+#include "../grammar/marks/mark_text.hpp"
+#include "../grammar/marks/mark_tick.hpp"
+#include "../grammar/marks/mark_trail.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
+    using marksType = xtl::variant<mark_arc, mark_area, mark_bar, mark_circle, mark_geoshape, mark_image, mark_line, mark_point, mark_rect, mark_rule, mark_square, mark_text, mark_tick, mark_trail>;
+
     inline const nl::json& base_vegalite_json()
     {
         static const nl::json json_template = {
@@ -29,7 +46,7 @@ namespace xv
     struct Chart : public xp::xobserved<Chart>
     {
         XPROPERTY(dataFrame, Chart, data);
-        XPROPERTY(std::vector<Marks>, Chart, marks);
+        XPROPERTY(std::vector<marksType>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);

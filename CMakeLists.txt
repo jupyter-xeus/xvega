@@ -46,6 +46,20 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/base/xvega-basic.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_arc.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_area.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_bar.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_circle.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_geoshape.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_image.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_line.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_point.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_rect.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_rule.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_square.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_text.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_tick.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_trail.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/aggregate.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channel-options/axis.hpp
