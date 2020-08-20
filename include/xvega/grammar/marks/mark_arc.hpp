@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_ARC
-#define XVEGA_MARK_ARC
+#ifndef XVEGA_MARK_ARC_HPP
+#define XVEGA_MARK_ARC_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_arc : public Marks<mark_arc>
+    struct mark_arc : public mark<mark_arc>
     {
-        using base_type = Marks<mark_arc>;
+        using base_type = mark<mark_arc>;
 
         // Arc Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_arc, radius);
@@ -38,54 +38,18 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Arc Mark Properties
-            if(radius().has_value())
-            {
-                j["radius"] = radius().value();
-            }
-            if(radius2().has_value())
-            {
-                j["radius2"] = radius2().value();
-            }
-            if(innerRadius().has_value())
-            {
-                j["innerRadius"] = innerRadius().value();
-            }
-            if(outerRadius().has_value())
-            {
-                j["outerRadius"] = outerRadius().value();
-            }
-            if(theta().has_value())
-            {
-                j["theta"] = theta().value();
-            }
-            if(theta2().has_value())
-            {
-                j["theta2"] = theta2().value();
-            }
-            if(cornerRadius().has_value())
-            {
-                j["cornerRadius"] = cornerRadius().value();
-            }
-            if(padAngle().has_value())
-            {
-                j["padAngle"] = padAngle().value();
-            }
-            if(radiusOffset().has_value())
-            {
-                j["radiusOffset"] = radiusOffset().value();
-            }
-            if(radius2Offset().has_value())
-            {
-                j["radius2Offset"] = radius2Offset().value();
-            }
-            if(thetaOffset().has_value())
-            {
-                j["thetaOffset"] = thetaOffset().value();
-            }
-            if(theta2Offset().has_value())
-            {
-                j["theta2Offset"] = theta2Offset().value();
-            }
+            serialize(j, radius(), "radius");
+            serialize(j, radius2(), "radius2");
+            serialize(j, innerRadius(), "innerRadius");
+            serialize(j, outerRadius(), "outerRadius");
+            serialize(j, theta(), "theta");
+            serialize(j, theta2(), "theta2");
+            serialize(j, cornerRadius(), "cornerRadius");
+            serialize(j, padAngle(), "padAngle");
+            serialize(j, radiusOffset(), "radiusOffset");
+            serialize(j, radius2Offset(), "radius2Offset");
+            serialize(j, thetaOffset(), "thetaOffset");
+            serialize(j, theta2Offset(), "theta2Offset");
         }
     };
 }

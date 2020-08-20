@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_IMAGE
-#define XVEGA_MARK_IMAGE
+#ifndef XVEGA_MARK_IMAGE_HPP
+#define XVEGA_MARK_IMAGE_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_image : public Marks<mark_image>
+    struct mark_image : public mark<mark_image>
     {
-        using base_type = Marks<mark_image>;
+        using base_type = mark<mark_image>;
 
         // Image Mark Properties
         XPROPERTY(xtl::xoptional<anyType>, mark_image, url);
@@ -30,22 +30,10 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Image Mark Properties
-            if(url().has_value())
-            {
-                j["url"] = url().value();
-            }
-            if(aspect().has_value())
-            {
-                j["aspect"] = aspect().value();
-            }
-            if(align().has_value())
-            {
-                j["align"] = align().value();
-            }
-            if(baseline().has_value())
-            {
-                j["baseline"] = baseline().value();
-            }
+            serialize(j, url(), "url");
+            serialize(j, aspect(), "aspect");
+            serialize(j, align(), "align");
+            serialize(j, baseline(), "baseline");
         }
     };
 }

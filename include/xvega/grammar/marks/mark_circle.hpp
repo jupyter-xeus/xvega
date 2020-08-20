@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_CIRCLE
-#define XVEGA_MARK_CIRCLE
+#ifndef XVEGA_MARK_CIRCLE_HPP
+#define XVEGA_MARK_CIRCLE_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_circle : public Marks<mark_circle>
+    struct mark_circle : public mark<mark_circle>
     {
-        using base_type = Marks<mark_circle>;
+        using base_type = mark<mark_circle>;
 
         // Circle Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_circle, size);
@@ -27,10 +27,7 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Circle Mark Properties
-            if(size().has_value())
-            {
-                j["size"] = size().value();
-            }
+            serialize(j, size(), "size");
         }
     };
 }

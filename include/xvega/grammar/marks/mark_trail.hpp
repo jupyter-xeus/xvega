@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_TRAIL
-#define XVEGA_MARK_TRAIL
+#ifndef XVEGA_MARK_TRAIL_HPP
+#define XVEGA_MARK_TRAIL_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_trail : public Marks<mark_trail>
+    struct mark_trail : public mark<mark_trail>
     {
-        using base_type = Marks<mark_trail>;
+        using base_type = mark<mark_trail>;
 
         // Trail Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
@@ -27,10 +27,7 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Trail Mark Properties
-            if(orient().has_value())
-            {
-                j["orient"] = orient().value();
-            }
+            serialize(j, orient(), "orient");
         }
     };
 }

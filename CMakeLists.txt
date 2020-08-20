@@ -110,6 +110,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/position-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/serialize.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_data.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp

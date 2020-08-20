@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_TEXT
-#define XVEGA_MARK_TEXT
+#ifndef XVEGA_MARK_TEXT_HPP
+#define XVEGA_MARK_TEXT_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_text : public Marks<mark_text>
+    struct mark_text : public mark<mark_text>
     {
-        using base_type = Marks<mark_text>;
+        using base_type = mark<mark_text>;
 
         // Text Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_text, angle);
@@ -42,70 +42,22 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Text Mark Properties
-            if(angle().has_value())
-            {
-                j["angle"] = angle().value();
-            }
-            if(align().has_value())
-            {
-                j["align"] = align().value();
-            }
-            if(baseline().has_value())
-            {
-                j["baseline"] = baseline().value();
-            }
-            if(dir().has_value())
-            {
-                j["dir"] = dir().value();
-            }
-            if(dx().has_value())
-            {
-                j["dx"] = dx().value();
-            }
-            if(dy().has_value())
-            {
-                j["dy"] = dy().value();
-            }
-            if(ellipsis().has_value())
-            {
-                j["ellipsis"] = ellipsis().value();
-            }
-            if(font().has_value())
-            {
-                j["font"] = font().value();
-            }
-            if(fontSize().has_value())
-            {
-                j["fontSize"] = fontSize().value();
-            }
-            if(fontStyle().has_value())
-            {
-                j["fontStyle"] = fontStyle().value();
-            }
-            if(fontWeight().has_value())
-            {
-                j["fontWeight"] = fontWeight().value();
-            }
-            if(limit().has_value())
-            {
-                j["limit"] = limit().value();
-            }
-            if(lineHeight().has_value())
-            {
-                j["lineHeight"] = lineHeight().value();
-            }
-            if(radius().has_value())
-            {
-                j["radius"] = radius().value();
-            }
-            if(text().has_value())
-            {
-                j["text"] = text().value();
-            }
-            if(theta().has_value())
-            {
-                j["theta"] = theta().value();
-            }
+            serialize(j, angle(), "angle");
+            serialize(j, align(), "align");
+            serialize(j, baseline(), "baseline");
+            serialize(j, dir(), "dir");
+            serialize(j, dx(), "dx");
+            serialize(j, dy(), "dy");
+            serialize(j, ellipsis(), "ellipsis");
+            serialize(j, font(), "font");
+            serialize(j, fontSize(), "fontSize");
+            serialize(j, fontStyle(), "fontStyle");
+            serialize(j, fontWeight(), "fontWeight");
+            serialize(j, limit(), "limit");
+            serialize(j, lineHeight(), "lineHeight");
+            serialize(j, radius(), "radius");
+            serialize(j, text(), "text");
+            serialize(j, theta(), "theta");
         }
     };
 }

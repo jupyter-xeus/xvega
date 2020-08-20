@@ -4,17 +4,18 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARKS
-#define XVEGA_MARKS
+#ifndef XVEGA_MARKS_HPP
+#define XVEGA_MARKS_HPP
 
 #include "xproperty/xobserved.hpp"
 #include "../utils/xeither.hpp"
 #include "../utils/custom_datatypes.hpp"
+#include "../utils/serialize.hpp"
 
 namespace xv
 {
     template<class D>
-    struct Marks : public xp::xobserved<D>
+    struct mark : public xp::xobserved<D>
     {
         // General Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, D, type, xtl::missing<std::string>(), XEITHER_OPTIONAL("arc", "bar", "circle", "square", "tick", "line", "area", "point", "geoshape", "rule", "text", "image"));
@@ -61,153 +62,62 @@ namespace xv
         void to_json(nl::json& j) const
         {
             // Fill in General Mark Properties
-            if(type().has_value())
-            {
-                j["type"] = type().value();
-            }
-            if(aria().has_value())
-            {
-                j["aria"] = aria().value();
-            }
-            if(description().has_value())
-            {
-                j["description"] = description().value();
-            }
-            if(style().has_value())
-            {
-                j["style"] = style().value();
-            }
-            if(tooltip().has_value())
-            {
-                j["tooltip"] = tooltip().value();
-            }
-            if(clip().has_value())
-            {
-                j["clip"] = clip().value();
-            }
-            if(invalid().has_value())
-            {
-                j["invalid"] = invalid().value();
-            }
-            if(order().has_value())
-            {
-                j["order"] = order().value();
-            }
+            serialize(j, type(), "type");
+            serialize(j, aria(), "aria");
+            serialize(j, description(), "description");
+            serialize(j, style(), "style");
+            serialize(j, tooltip(), "tooltip");
+            serialize(j, clip(), "clip");
+            serialize(j, invalid(), "invalid");
+            serialize(j, order(), "order");
 
             // Fill in Position and Offset Properties
-            if(x().has_value())
-            {
-                j["x"] = x().value();
-            }
-            if(x2().has_value())
-            {
-                j["x2"] = x2().value();
-            }
-            if(width().has_value())
-            {
-                j["width"] = width().value();
-            }
-            if(height().has_value())
-            {
-                j["height"] = height().value();
-            }
-            if(y().has_value())
-            {
-                j["y"] = y().value();
-            }
-            if(y2().has_value())
-            {
-                j["y2"] = y2().value();
-            }
-            if(xOffset().has_value())
-            {
-                j["xOffset"] = xOffset().value();
-            }
-            if(x2Offset().has_value())
-            {
-                j["x2Offset"] = x2Offset().value();
-            }
-            if(yOffset().has_value())
-            {
-                j["yOffset"] = yOffset().value();
-            }
-            if(y2Offset().has_value())
-            {
-                j["y2Offset"] = y2Offset().value();
-            }
+            serialize(j, x(), "x");
+            serialize(j, x2(), "x2");
+            serialize(j, width(), "width");
+            serialize(j, height(), "height");
+            serialize(j, y(), "y");
+            serialize(j, y2(), "y2");
+            serialize(j, xOffset(), "xOffset");
+            serialize(j, x2Offset(), "x2Offset");
+            serialize(j, yOffset(), "yOffset");
+            serialize(j, y2Offset(), "y2Offset");
 
             // Fill in Color Properties
-            if(filled().has_value())
-            {
-                j["filled"] = filled().value();
-            }
-            if(color().has_value())
-            {
-                j["color"] = color().value();
-            }
-            if(fill().has_value())
-            {
-                j["fill"] = fill().value();
-            }
-            if(stroke().has_value())
-            {
-                j["stroke"] = stroke().value();
-            }
-            if(blend().has_value())
-            {
-                j["blend"] = blend().value();
-            }
-            if(opacity().has_value())
-            {
-                j["opacity"] = opacity().value();
-            }
-            if(fillOpacity().has_value())
-            {
-                j["fillOpacity"] = fillOpacity().value();
-            }
-            if(strokeOpacity().has_value())
-            {
-                j["strokeOpacity"] = strokeOpacity().value();
-            }
-            if(strokeCap().has_value())
-            {
-                j["strokeCap"] = strokeCap().value();
-            }
-            if(strokeDash().has_value())
-            {
-                j["strokeDash"] = strokeDash().value();
-            }
-            if(strokeDashOffset().has_value())
-            {
-                j["strokeDashOffset"] = strokeDashOffset().value();
-            }
-            if(strokeJoin().has_value())
-            {
-                j["strokeJoin"] = strokeJoin().value();
-            }
-            if(strokeMiterLimit().has_value())
-            {
-                j["strokeMiterLimit"] = strokeMiterLimit().value();
-            }
-            if(strokeWidth().has_value())
-            {
-                j["strokeWidth"] = strokeWidth().value();
-            }
+            serialize(j, filled(), "filled");
+            serialize(j, color(), "color");
+            serialize(j, fill(), "fill");
+            serialize(j, stroke(), "stroke");
+            serialize(j, blend(), "blend");
+            serialize(j, opacity(), "opacity");
+            serialize(j, fillOpacity(), "fillOpacity");
+            serialize(j, strokeOpacity(), "strokeOpacity");
+            serialize(j, strokeCap(), "strokeCap");
+            serialize(j, strokeDash(), "strokeDash");
+            serialize(j, strokeDashOffset(), "strokeDashOffset");
+            serialize(j, strokeJoin(), "strokeJoin");
+            serialize(j, strokeMiterLimit(), "strokeMiterLimit");
+            serialize(j, strokeWidth(), "strokeWidth");
 
             // Fill in Hyperlink Properties
-            if(href().has_value())
-            {
-                j["href"] = href().value();
-            }
-            if(cursor().has_value())
-            {
-                j["cursor"] = cursor().value();
-            }
+            serialize(j, href(), "href");
+            serialize(j, cursor(), "cursor");
         }
+
+        protected:
+            mark() = default;
+            ~mark() = default;
+
+            mark(const mark&) = default;
+            mark& operator=(const mark&) = default;
+
+            mark(mark&&) = default;
+            mark& operator=(mark&&) = default;
+        
     };
 
     template<class D>
-    void to_json(nl::json& j, const Marks<D>& data)
+    void to_json(nl::json& j, const mark<D>& data)
     {
         data.derived_cast().to_json(j);
     }

@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_GEOSHAPE
-#define XVEGA_MARK_GEOSHAPE
+#ifndef XVEGA_MARK_GEOSHAPE_HPP
+#define XVEGA_MARK_GEOSHAPE_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_geoshape : public Marks<mark_geoshape>
+    struct mark_geoshape : public mark<mark_geoshape>
     {
-        using base_type = Marks<mark_geoshape>;
+        using base_type = mark<mark_geoshape>;
 
         mark_geoshape()
         {

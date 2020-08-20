@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_SQUARE
-#define XVEGA_MARK_SQUARE
+#ifndef XVEGA_MARK_SQUARE_HPP
+#define XVEGA_MARK_SQUARE_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_square : public Marks<mark_square>
+    struct mark_square : public mark<mark_square>
     {
-        using base_type = Marks<mark_square>;
+        using base_type = mark<mark_square>;
 
         // Square Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_square, size);
@@ -27,10 +27,7 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Square Mark Properties
-            if(size().has_value())
-            {
-                j["size"] = size().value();
-            }
+            serialize(j, size(), "size");
         }
     };
 }

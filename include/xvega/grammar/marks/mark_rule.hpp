@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_RULE
-#define XVEGA_MARK_RULE
+#ifndef XVEGA_MARK_RULE_HPP
+#define XVEGA_MARK_RULE_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_rule : public Marks<mark_rule>
+    struct mark_rule : public mark<mark_rule>
     {
-        using base_type = Marks<mark_rule>;
+        using base_type = mark<mark_rule>;
 
         mark_rule()
         {

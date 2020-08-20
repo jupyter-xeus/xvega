@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_BAR
-#define XVEGA_MARK_BAR
+#ifndef XVEGA_MARK_BAR_HPP
+#define XVEGA_MARK_BAR_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_bar : public Marks<mark_bar>
+    struct mark_bar : public mark<mark_bar>
     {
-        using base_type = Marks<mark_bar>;
+        using base_type = mark<mark_bar>;
 
         // Bar Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_bar, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
@@ -36,46 +36,16 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Bar Mark Properties
-            if(orient().has_value())
-            {
-                j["orient"] = orient().value();
-            }
-            if(align().has_value())
-            {
-                j["align"] = align().value();
-            }
-            if(baseline().has_value())
-            {
-                j["baseline"] = baseline().value();
-            }
-            if(binSpacing().has_value())
-            {
-                j["binSpacing"] = binSpacing().value();
-            }
-            if(cornerRadius().has_value())
-            {
-                j["cornerRadius"] = cornerRadius().value();
-            }
-            if(cornerRadiusEnd().has_value())
-            {
-                j["cornerRadiusEnd"] = cornerRadiusEnd().value();
-            }
-            if(cornerRadiusTopLeft().has_value())
-            {
-                j["cornerRadiusTopLeft"] = cornerRadiusTopLeft().value();
-            }
-            if(cornerRadiusTopRight().has_value())
-            {
-                j["cornerRadiusTopRight"] = cornerRadiusTopRight().value();
-            }
-            if(cornerRadiusBottomLeft().has_value())
-            {
-                j["cornerRadiusBottomLeft"] = cornerRadiusBottomLeft().value();
-            }
-            if(cornerRadiusBottomRight().has_value())
-            {
-                j["cornerRadiusBottomRight"] = cornerRadiusBottomRight().value();
-            }
+            serialize(j, orient(), "orient");
+            serialize(j, align(), "align");
+            serialize(j, baseline(), "baseline");
+            serialize(j, binSpacing(), "binSpacing");
+            serialize(j, cornerRadius(), "cornerRadius");
+            serialize(j, cornerRadiusEnd(), "cornerRadiusEnd");
+            serialize(j, cornerRadiusTopLeft(), "cornerRadiusTopLeft");
+            serialize(j, cornerRadiusTopRight(), "cornerRadiusTopRight");
+            serialize(j, cornerRadiusBottomLeft(), "cornerRadiusBottomLeft");
+            serialize(j, cornerRadiusBottomRight(), "cornerRadiusBottomRight");
         }
     };
 }

@@ -31,7 +31,22 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using marksType = xtl::variant<mark_arc, mark_area, mark_bar, mark_circle, mark_geoshape, mark_image, mark_line, mark_point, mark_rect, mark_rule, mark_square, mark_text, mark_tick, mark_trail>;
+    using marks_type = xtl::variant<
+                            mark_arc, 
+                            mark_area, 
+                            mark_bar, 
+                            mark_circle, 
+                            mark_geoshape, 
+                            mark_image, 
+                            mark_line, 
+                            mark_point, 
+                            mark_rect, 
+                            mark_rule, 
+                            mark_square, 
+                            mark_text, 
+                            mark_tick, 
+                            mark_trail
+                            >;
 
     inline const nl::json& base_vegalite_json()
     {
@@ -46,7 +61,7 @@ namespace xv
     struct Chart : public xp::xobserved<Chart>
     {
         XPROPERTY(dataFrame, Chart, data);
-        XPROPERTY(std::vector<marksType>, Chart, marks);
+        XPROPERTY(std::vector<marks_type>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);

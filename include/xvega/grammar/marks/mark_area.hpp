@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_AREA
-#define XVEGA_MARK_AREA
+#ifndef XVEGA_MARK_AREA_HPP
+#define XVEGA_MARK_AREA_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_area : public Marks<mark_area>
+    struct mark_area : public mark<mark_area>
     {
-        using base_type = Marks<mark_area>;
+        using base_type = mark<mark_area>;
 
         // Area Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_area, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
@@ -33,34 +33,13 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Area Mark Properties
-            if(align().has_value())
-            {
-                j["align"] = align().value();
-            }
-            if(baseline().has_value())
-            {
-                j["baseline"] = baseline().value();
-            }
-            if(orient().has_value())
-            {
-                j["orient"] = orient().value();
-            }
-            if(interpolate().has_value())
-            {
-                j["interpolate"] = interpolate().value();
-            }
-            if(tension().has_value())
-            {
-                j["tension"] = tension().value();
-            }
-            if(line().has_value())
-            {
-                j["line"] = line().value();
-            }
-            if(point().has_value())
-            {
-                j["point"] = point().value();
-            }
+            serialize(j, align(), "align");
+            serialize(j, baseline(), "baseline");
+            serialize(j, orient(), "orient");
+            serialize(j, interpolate(), "interpolate");
+            serialize(j, tension(), "tension");
+            serialize(j, line(), "line");
+            serialize(j, point(), "point");
         }
     };
 }

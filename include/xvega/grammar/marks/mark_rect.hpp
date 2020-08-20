@@ -4,16 +4,16 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_MARK_RECT
-#define XVEGA_MARK_RECT
+#ifndef XVEGA_MARK_RECT_HPP
+#define XVEGA_MARK_RECT_HPP
 
 #include "../marks.hpp"
 
 namespace xv
 {
-    struct mark_rect : public Marks<mark_rect>
+    struct mark_rect : public mark<mark_rect>
     {
-        using base_type = Marks<mark_rect>;
+        using base_type = mark<mark_rect>;
 
         // Rect Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_rect, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
@@ -29,18 +29,9 @@ namespace xv
         {
             base_type::to_json(j);
             // Fill in Rect Mark Properties
-            if(align().has_value())
-            {
-                j["align"] = align().value();
-            }
-            if(baseline().has_value())
-            {
-                j["baseline"] = baseline().value();
-            }
-            if(cornerRadius().has_value())
-            {
-                j["cornerRadius"] = cornerRadius().value();
-            }
+            serialize(j, align(), "align");
+            serialize(j, baseline(), "baseline");
+            serialize(j, cornerRadius(), "cornerRadius");
         }
     };
 }
