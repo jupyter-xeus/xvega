@@ -16,52 +16,33 @@
 #include "../../encoding-channel-options/sort.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
 
     struct Order : public xp::xobserved<Order>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Order, aggregate);
-        XPROPERTY(xtl::xoptional<binType>, Order, bin);
-        XPROPERTY(xtl::xoptional<fieldType>, Order, field);
-        XPROPERTY(xtl::xoptional<sortType>, Order, sort);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Order, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Order, title);
+        XPROPERTY(xtl::xoptional<agg_type>, Order, aggregate);
+        XPROPERTY(xtl::xoptional<bin_type>, Order, bin);
+        XPROPERTY(xtl::xoptional<field_type>, Order, field);
+        XPROPERTY(xtl::xoptional<sort_type>, Order, sort);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Order, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Order, title);
         XPROPERTY(xtl::xoptional<std::string>, Order, type);
     };
 
     void to_json(nl::json& j, const Order& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.sort().has_value())
-        {
-            j["sort"] = data.sort().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.bin(), "bin");
+        serialize(j, data.field(), "field");
+        serialize(j, data.sort(), "sort");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
+        serialize(j, data.type(), "type");
     }
 }

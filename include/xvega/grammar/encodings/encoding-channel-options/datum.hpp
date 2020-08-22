@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using datumType = xtl::variant<double, int, std::string, DateTime, RepeatRef>;
+    using datum_type = xtl::variant<double, int, std::string, DateTime, RepeatRef>;
 }
 
 #endif

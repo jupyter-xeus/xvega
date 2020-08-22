@@ -20,77 +20,43 @@
 #include "../../encoding-channel-options/stack.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
 
     struct Y : public xp::xobserved<Y>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Y, aggregate);
-        XPROPERTY(xtl::xoptional<axisType>, Y, axis);
+        XPROPERTY(xtl::xoptional<agg_type>, Y, aggregate);
+        XPROPERTY(xtl::xoptional<axis_type>, Y, axis);
         XPROPERTY(xtl::xoptional<double>, Y, band);
-        XPROPERTY(xtl::xoptional<binType>, Y, bin);
-        XPROPERTY(xtl::xoptional<fieldType>, Y, field);
-        XPROPERTY(xtl::xoptional<imputeType>, Y, impute);
-        XPROPERTY(xtl::xoptional<scaleType>, Y, scale);
-        XPROPERTY(xtl::xoptional<sortType>, Y, sort);
-        XPROPERTY(xtl::xoptional<stackType>, Y, stack);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Y, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Y, title);
+        XPROPERTY(xtl::xoptional<bin_type>, Y, bin);
+        XPROPERTY(xtl::xoptional<field_type>, Y, field);
+        XPROPERTY(xtl::xoptional<impute_type>, Y, impute);
+        XPROPERTY(xtl::xoptional<scale_type>, Y, scale);
+        XPROPERTY(xtl::xoptional<sort_type>, Y, sort);
+        XPROPERTY(xtl::xoptional<stack_type>, Y, stack);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Y, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Y, title);
         XPROPERTY(xtl::xoptional<std::string>, Y, type);
     };
 
     void to_json(nl::json& j, const Y& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.axis().has_value())
-        {
-            j["axis"] = data.axis().value();
-        }
-        if(data.band().has_value())
-        {
-            j["band"] = data.band().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.impute().has_value())
-        {
-            j["impute"] = data.impute().value();
-        }
-        if(data.scale().has_value())
-        {
-            j["scale"] = data.scale().value();
-        }
-        if(data.sort().has_value())
-        {
-            j["sort"] = data.sort().value();
-        }
-        if(data.stack().has_value())
-        {
-            j["stack"] = data.stack().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.axis(), "axis");
+        serialize(j, data.band(), "band");
+        serialize(j, data.bin(), "bin");
+        serialize(j, data.field(), "field");
+        serialize(j, data.impute(), "impute");
+        serialize(j, data.scale(), "scale");
+        serialize(j, data.sort(), "sort");
+        serialize(j, data.stack(), "stack");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
+        serialize(j, data.type(), "type");
     }
 }

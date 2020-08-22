@@ -17,7 +17,7 @@
 
 namespace xv
 {
-    using fieldType = xtl::variant<std::string, RepeatRef>;
+    using field_type = xtl::variant<std::string, RepeatRef>;
 }
 
 #endif

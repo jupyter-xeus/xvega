@@ -13,6 +13,8 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
@@ -25,17 +27,11 @@ namespace xv
 
     void to_json(nl::json& j, const Aggregate& data)
     {
-        if(data.argmax().has_value())
-        {
-            j["argmax"] = data.argmax().value();
-        }
-        if(data.argmin().has_value())
-        {
-            j["argmin"] = data.argmin().value();
-        }
+        serialize(j, data.argmax(), "argmax");
+        serialize(j, data.argmin(), "argmin");
     }
 
-    using aggType = xtl::variant<Aggregate, std::string>;
+    using agg_type = xtl::variant<Aggregate, std::string>;
 }
 
 #endif

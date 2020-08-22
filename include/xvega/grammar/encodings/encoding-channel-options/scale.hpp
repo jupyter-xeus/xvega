@@ -14,31 +14,41 @@
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"
+#include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
 
-    using anyArrayType = xtl::variant<std::vector<std::string>, std::vector<double>, std::vector<int>, std::vector<bool>, std::vector<DateTime>>;
-    using numDatetimeType = xtl::variant<double, int, DateTime>;
-    using stringNumType = xtl::variant<double, int, std::string>;
-    using scaleRangeType = xtl::variant<std::string, std::vector<double>, std::vector<int>, std::vector<std::string>, nl::json>;
+    using any_array_type = xtl::variant<
+                                std::vector<std::string>, 
+                                std::vector<double>, 
+                                std::vector<int>, 
+                                std::vector<bool>, 
+                                std::vector<DateTime>
+                                >;
+    using num_datetime_type = xtl::variant<double, int, DateTime>;
+    using string_num_type = xtl::variant<double, int, std::string>;
+    using scale_range_type = xtl::variant<
+                                  std::string, 
+                                  std::vector<double>, 
+                                  std::vector<int>, 
+                                  std::vector<std::string>, 
+                                  nl::json
+                                  >;
 
     struct DomainUnionWith : public xp::xobserved<DomainUnionWith>
     {
-        XPROPERTY(xtl::xoptional<anyArrayType>, DomainUnionWith, unionWith);
+        XPROPERTY(xtl::xoptional<any_array_type>, DomainUnionWith, unionWith);
     };
 
     void to_json(nl::json& j, const DomainUnionWith& data)
     {
-        if(data.unionWith().has_value())
-        {
-            j["unionWith"] = data.unionWith().value();
-        }
+        serialize(j, data.unionWith(), "unionWith");
     };
 
-    using scaleDomainType = xtl::variant<anyArrayType, std::string, nl::json, DomainUnionWith>;
+    using scale_domain_type = xtl::variant<any_array_type, std::string, nl::json, DomainUnionWith>;
 
     struct ScaleBin : public xp::xobserved<ScaleBin>
     {
@@ -49,21 +59,12 @@ namespace xv
 
     void to_json(nl::json& j, const ScaleBin& data)
     {
-        if(data.start().has_value())
-        {
-            j["start"] = data.start().value();
-        }
-        if(data.stop().has_value())
-        {
-            j["stop"] = data.stop().value();
-        }
-        if(data.step().has_value())
-        {
-            j["step"] = data.step().value();
-        }
+        serialize(j, data.start(), "start");
+        serialize(j, data.stop(), "stop");
+        serialize(j, data.step(), "step");
     }
 
-    using scaleBinType = xtl::variant<std::vector<double>, std::vector<int>, ScaleBin>;
+    using scale_bin_type = xtl::variant<std::vector<double>, std::vector<int>, ScaleBin>;
 
     struct Scheme : public xp::xobserved<Scheme>
     {
@@ -74,21 +75,12 @@ namespace xv
 
     void to_json(nl::json& j, const Scheme& data)
     {
-        if(data.name().has_value())
-        {
-            j["name"] = data.name().value();
-        }
-        if(data.extent().has_value())
-        {
-            j["extent"] = data.extent().value();
-        }
-        if(data.count().has_value())
-        {
-            j["count"] = data.count().value();
-        }
+        serialize(j, data.name(), "name");
+        serialize(j, data.extent(), "extent");
+        serialize(j, data.count(), "count");
     }
 
-    using scaleSchemeType = xtl::variant<std::string, Scheme>;
+    using scale_scheme_type = xtl::variant<std::string, Scheme>;
 
     struct ScaleInterpolate : public xp::xobserved<ScaleInterpolate>
     {
@@ -98,17 +90,11 @@ namespace xv
 
     void to_json(nl::json& j, const ScaleInterpolate& data)
     {
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
-        if(data.gamma().has_value())
-        {
-            j["gamma"] = data.gamma().value();
-        }
+        serialize(j, data.type(), "type");
+        serialize(j, data.gamma(), "gamma");
     }
 
-    using scaleInterpolateType = xtl::variant<std::string, ScaleInterpolate>;
+    using scale_interpolate_type = xtl::variant<std::string, ScaleInterpolate>;
 
     struct TimeIntervalStep : public xp::xobserved<TimeIntervalStep>
     {
@@ -118,34 +104,28 @@ namespace xv
 
     void to_json(nl::json& j, const TimeIntervalStep& data)
     {
-        if(data.interval().has_value())
-        {
-            j["interval"] = data.interval().value();
-        }
-        if(data.step().has_value())
-        {
-            j["step"] = data.step().value();
-        }
+        serialize(j, data.interval(), "interval");
+        serialize(j, data.step(), "step");
     }
 
-    using niceType = xtl::variant<double, int, std::string, bool, TimeIntervalStep>;
+    using nice_type = xtl::variant<double, int, std::string, bool, TimeIntervalStep>;
 
     struct Scale : public xp::xobserved<Scale>
     {
         XPROPERTY(xtl::xoptional<std::string>, Scale, type);
-        XPROPERTY(xtl::xoptional<scaleDomainType>, Scale, domain);
-        XPROPERTY(xtl::xoptional<numDatetimeType>, Scale, domainMax);
-        XPROPERTY(xtl::xoptional<numDatetimeType>, Scale, domainMin);
+        XPROPERTY(xtl::xoptional<scale_domain_type>, Scale, domain);
+        XPROPERTY(xtl::xoptional<num_datetime_type>, Scale, domainMax);
+        XPROPERTY(xtl::xoptional<num_datetime_type>, Scale, domainMin);
         XPROPERTY(xtl::xoptional<double>, Scale, domainMid);
-        XPROPERTY(xtl::xoptional<scaleRangeType>, Scale, range);
-        XPROPERTY(xtl::xoptional<stringNumType>, Scale, rangeMin);
-        XPROPERTY(xtl::xoptional<stringNumType>, Scale, rangeMax);
-        XPROPERTY(xtl::xoptional<scaleSchemeType>, Scale, scheme);
+        XPROPERTY(xtl::xoptional<scale_range_type>, Scale, range);
+        XPROPERTY(xtl::xoptional<string_num_type>, Scale, rangeMin);
+        XPROPERTY(xtl::xoptional<string_num_type>, Scale, rangeMax);
+        XPROPERTY(xtl::xoptional<scale_scheme_type>, Scale, scheme);
         XPROPERTY(xtl::xoptional<bool>, Scale, reverse);
         XPROPERTY(xtl::xoptional<bool>, Scale, round);
         XPROPERTY(xtl::xoptional<bool>, Scale, clamp);
-        XPROPERTY(xtl::xoptional<scaleInterpolateType>, Scale, interpolate);
-        XPROPERTY(xtl::xoptional<niceType>, Scale, nice);
+        XPROPERTY(xtl::xoptional<scale_interpolate_type>, Scale, interpolate);
+        XPROPERTY(xtl::xoptional<nice_type>, Scale, nice);
         XPROPERTY(xtl::xoptional<double>, Scale, padding);
         XPROPERTY(xtl::xoptional<bool>, Scale, zero);
         XPROPERTY(xtl::xoptional<double>, Scale, exponent);
@@ -154,106 +134,37 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Scale, align);
         XPROPERTY(xtl::xoptional<double>, Scale, paddingInner);
         XPROPERTY(xtl::xoptional<double>, Scale, paddingOuter);
-        XPROPERTY(xtl::xoptional<scaleBinType>, Scale, bins);
+        XPROPERTY(xtl::xoptional<scale_bin_type>, Scale, bins);
     };
 
     void to_json(nl::json& j, const Scale& data)
     {
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
-        if(data.domain().has_value())
-        {
-            j["domain"] = data.domain().value();
-        }
-        if(data.domainMax().has_value())
-        {
-            j["domainMax"] = data.domainMax().value();
-        }
-        if(data.domainMin().has_value())
-        {
-            j["domainMin"] = data.domainMin().value();
-        }
-        if(data.domainMid().has_value())
-        {
-            j["domainMid"] = data.domainMid().value();
-        }
-        if(data.range().has_value())
-        {
-            j["range"] = data.range().value();
-        }
-        if(data.rangeMin().has_value())
-        {
-            j["rangeMin"] = data.rangeMin().value();
-        }
-        if(data.rangeMax().has_value())
-        {
-            j["rangeMax"] = data.rangeMax().value();
-        }
-        if(data.scheme().has_value())
-        {
-            j["scheme"] = data.scheme().value();
-        }
-        if(data.reverse().has_value())
-        {
-            j["reverse"] = data.reverse().value();
-        }
-        if(data.round().has_value())
-        {
-            j["round"] = data.round().value();
-        }
-        if(data.clamp().has_value())
-        {
-            j["clamp"] = data.clamp().value();
-        }
-        if(data.interpolate().has_value())
-        {
-            j["interpolate"] = data.interpolate().value();
-        }
-        if(data.nice().has_value())
-        {
-            j["nice"] = data.nice().value();
-        }
-        if(data.padding().has_value())
-        {
-            j["padding"] = data.padding().value();
-        }
-        if(data.zero().has_value())
-        {
-            j["zero"] = data.zero().value();
-        }
-        if(data.exponent().has_value())
-        {
-            j["exponent"] = data.exponent().value();
-        }
-        if(data.base().has_value())
-        {
-            j["base"] = data.base().value();
-        }
-        if(data.constant().has_value())
-        {
-            j["constant"] = data.constant().value();
-        }
-        if(data.align().has_value())
-        {
-            j["align"] = data.align().value();
-        }
-        if(data.paddingInner().has_value())
-        {
-            j["paddingInner"] = data.paddingInner().value();
-        }
-        if(data.paddingOuter().has_value())
-        {
-            j["paddingOuter"] = data.paddingOuter().value();
-        }
-        if(data.bins().has_value())
-        {
-            j["bins"] = data.bins().value();
-        }
+        serialize(j, data.type(), "type");
+        serialize(j, data.domain(), "domain");
+        serialize(j, data.domainMax(), "domainMax");
+        serialize(j, data.domainMin(), "domainMin");
+        serialize(j, data.domainMid(), "domainMid");
+        serialize(j, data.range(), "range");
+        serialize(j, data.rangeMin(), "rangeMin");
+        serialize(j, data.rangeMax(), "rangeMax");
+        serialize(j, data.scheme(), "scheme");
+        serialize(j, data.reverse(), "reverse");
+        serialize(j, data.round(), "round");
+        serialize(j, data.clamp(), "clamp");
+        serialize(j, data.interpolate(), "interpolate");
+        serialize(j, data.nice(), "nice");
+        serialize(j, data.padding(), "padding");
+        serialize(j, data.zero(), "zero");
+        serialize(j, data.exponent(), "exponent");
+        serialize(j, data.base(), "base");
+        serialize(j, data.constant(), "constant");
+        serialize(j, data.align(), "align");
+        serialize(j, data.paddingInner(), "paddingInner");
+        serialize(j, data.paddingOuter(), "paddingOuter");
+        serialize(j, data.bins(), "bins");
     }
 
-    using scaleType = xtl::variant<Scale, std::nullptr_t>;
+    using scale_type = xtl::variant<Scale, std::nullptr_t>;
 }
 
 #endif

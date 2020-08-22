@@ -44,6 +44,8 @@
 #include "./encodings/encoding-channels/facet-channels/facet.hpp"
 #include "./encodings/encoding-channels/facet-channels/column.hpp"
 
+#include "../utils/serialize.hpp"
+
 namespace xv
 {
     struct Encodings : public xp::xobserved<Encodings>
@@ -89,129 +91,42 @@ namespace xv
 
     void to_json(nl::json& j, const Encodings& data)
     {
-        if(data.x().has_value())
-        {
-            j["x"] = data.x().value();
-        }
-        if(data.y().has_value())
-        {
-            j["y"] = data.y().value();
-        }
-        if(data.x2().has_value())
-        {
-            j["x2"] = data.x2().value();
-        }
-        if(data.y2().has_value())
-        {
-            j["y2"] = data.y2().value();
-        }
-        if(data.xError().has_value())
-        {
-            j["xError"] = data.xError().value();
-        }
-        if(data.yError().has_value())
-        {
-            j["yError"] = data.yError().value();
-        }
-        if(data.xError2().has_value())
-        {
-            j["xError2"] = data.xError2().value();
-        }
-        if(data.yError2().has_value())
-        {
-            j["yError2"] = data.yError2().value();
-        }
-        if(data.longitude().has_value())
-        {
-            j["longitude"] = data.longitude().value();
-        }
-        if(data.latitude().has_value())
-        {
-            j["latitude"] = data.latitude().value();
-        }
-        if(data.longitude2().has_value())
-        {
-            j["longitude2"] = data.longitude2().value();
-        }
-        if(data.latitude2().has_value())
-        {
-            j["latitude2"] = data.latitude2().value();
-        }
-        if(data.color().has_value())
-        {
-            j["color"] = data.color().value();
-        }
-        if(data.fill().has_value())
-        {
-            j["fill"] = data.fill().value();
-        }
-        if(data.fillOpacity().has_value())
-        {
-            j["fillOpacity"] = data.fillOpacity().value();
-        }
-        if(data.opacity().has_value())
-        {
-            j["opacity"] = data.opacity().value();
-        }
-        if(data.shape().has_value())
-        {
-            j["shape"] = data.shape().value();
-        }
-        if(data.size().has_value())
-        {
-            j["size"] = data.size().value();
-        }
-        if(data.stroke().has_value())
-        {
-            j["stroke"] = data.stroke().value();
-        }
-        if(data.strokeDash().has_value())
-        {
-            j["strokeDash"] = data.strokeDash().value();
-        }
-        if(data.strokeOpacity().has_value())
-        {
-            j["strokeOpacity"] = data.strokeOpacity().value();
-        }
-        if(data.strokeWidth().has_value())
-        {
-            j["strokeWidth"] = data.strokeWidth().value();
-        }
-        if(data.text().has_value())
-        {
-            j["text"] = data.text().value();
-        }
-        if(data.key().has_value())
-        {
-            j["key"] = data.key().value();
-        }
-        if(data.tooltip().has_value())
-        {
-            j["tooltip"] = data.tooltip().value();
-        }
-        if(data.href().has_value())
-        {
-            j["href"] = data.href().value();
-        }
-        if(data.detail().has_value())
-        {
-            j["detail"] = data.detail().value();
-        }
-        if(data.order().has_value())
-        {
-            j["order"] = data.order().value();
-        }
-        if(data.row().has_value())
-        {
-            j["row"] = data.row().value();
-        }
-        if(data.facet().has_value())
-        {
-            j["facet"] = data.facet().value();
-        }
-        if(data.column().has_value())
-        {
-            j["column"] = data.column().value();
-        }
+        serialize(j, data.x(), "x");
+        serialize(j, data.y(), "y");
+        serialize(j, data.x2(), "x2");
+        serialize(j, data.y2(), "y2");
+        serialize(j, data.xError(), "xError");
+        serialize(j, data.yError(), "yError");
+        serialize(j, data.xError2(), "xError2");
+        serialize(j, data.yError2(), "yError2");
+        serialize(j, data.longitude(), "longitude");
+        serialize(j, data.latitude(), "latitude");
+        serialize(j, data.longitude2(), "longitude2");
+        serialize(j, data.latitude2(), "latitude2");
+        
+        serialize(j, data.color(), "color");
+        serialize(j, data.fill(), "fill");
+        serialize(j, data.fillOpacity(), "fillOpacity");
+        serialize(j, data.opacity(), "opacity");
+        serialize(j, data.shape(), "shape");
+        serialize(j, data.size(), "size");
+        serialize(j, data.stroke(), "stroke");
+        serialize(j, data.strokeDash(), "strokeDash");
+        serialize(j, data.strokeOpacity(), "strokeOpacity");
+        serialize(j, data.strokeWidth(), "strokeWidth");
+
+        serialize(j, data.text(), "text");
+        serialize(j, data.key(), "key");
+        serialize(j, data.tooltip(), "tooltip");
+        
+        serialize(j, data.href(), "href");
+
+        serialize(j, data.detail(), "detail");
+
+        serialize(j, data.order(), "order");
+
+        serialize(j, data.row(), "row");
+        serialize(j, data.facet(), "facet");
+        serialize(j, data.column(), "column");
     }
 }

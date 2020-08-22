@@ -13,17 +13,19 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using anyType = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
+    using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
 
     struct Value
     {
-        xtl::xoptional<anyType> value;
+        xtl::xoptional<any_type> value;
 
-        Value(anyType val)
+        Value(any_type val)
         {
             value = val;
         }
@@ -31,10 +33,7 @@ namespace xv
 
     void to_json(nl::json& j, const Value& data)
     {
-        if(data.value.has_value())
-        {
-            j["value"] = data.value.value();
-        }
+        serialize(j, data.value, "value");
     }
 }
 

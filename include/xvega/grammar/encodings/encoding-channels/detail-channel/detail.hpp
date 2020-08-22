@@ -15,47 +15,31 @@
 #include "../../encoding-channel-options/field.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
 
     struct Detail : public xp::xobserved<Detail>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Detail, aggregate);
-        XPROPERTY(xtl::xoptional<binType>, Detail, bin);
-        XPROPERTY(xtl::xoptional<fieldType>, Detail, field);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Detail, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Detail, title);
+        XPROPERTY(xtl::xoptional<agg_type>, Detail, aggregate);
+        XPROPERTY(xtl::xoptional<bin_type>, Detail, bin);
+        XPROPERTY(xtl::xoptional<field_type>, Detail, field);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Detail, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Detail, title);
         XPROPERTY(xtl::xoptional<std::string>, Detail, type);
     };
 
     void to_json(nl::json& j, const Detail& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.bin(), "bin");
+        serialize(j, data.field(), "field");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
+        serialize(j, data.type(), "type");
     }
 }

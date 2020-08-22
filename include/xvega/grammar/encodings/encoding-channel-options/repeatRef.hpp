@@ -12,6 +12,8 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
@@ -23,10 +25,7 @@ namespace xv
 
     void to_json(nl::json& j, const RepeatRef& data)
     {
-        if(data.repeat().has_value())
-        {
-            j["repeat"] = data.repeat().value();
-        }
+        serialize(j, data.repeat(), "repeat");
     }
 }
 

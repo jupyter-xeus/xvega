@@ -15,42 +15,29 @@
 #include "../../encoding-channel-options/field.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
 
     struct Y2 : public xp::xobserved<Y2>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Y2, aggregate);
-        XPROPERTY(xtl::xoptional<binType>, Y2, bin);
-        XPROPERTY(xtl::xoptional<fieldType>, Y2, field);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Y2, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Y2, title);
+        XPROPERTY(xtl::xoptional<agg_type>, Y2, aggregate);
+        XPROPERTY(xtl::xoptional<bin_type>, Y2, bin);
+        XPROPERTY(xtl::xoptional<field_type>, Y2, field);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Y2, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Y2, title);
     };
 
     void to_json(nl::json& j, const Y2& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.bin(), "bin");
+        serialize(j, data.field(), "field");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
     }
 }

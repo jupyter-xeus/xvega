@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using stackType = xtl::variant<std::string, std::nullptr_t, bool>;
+    using stack_type = xtl::variant<std::string, std::nullptr_t, bool>;
 }
 
 #endif
