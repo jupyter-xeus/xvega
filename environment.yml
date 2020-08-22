@@ -1,0 +1,9 @@
+name: xvega
+channels:
+  - conda-forge
+dependencies:
+# host Dependencies
+  - xeus-cling
+  - xproperty
+# build dependencies
+  - cmake
