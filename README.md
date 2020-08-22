@@ -1,5 +1,7 @@
 # XVega
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantStack/xvega/master?urlpath=lab?filepath=notebooks%2Fdemo.ipynb)
+
 A C++ backend for vega-lite (https://vega.github.io/vega-lite/).
 
 **This is an early developer preview under active development.**
