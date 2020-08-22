@@ -60,7 +60,7 @@ namespace xv
 
     struct Chart : public xp::xobserved<Chart>
     {
-        XPROPERTY(dataFrame, Chart, data);
+        XPROPERTY(data_frame, Chart, data);
         XPROPERTY(std::vector<marks_type>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
         XPROPERTY(xtl::xoptional<double>, Chart, width);

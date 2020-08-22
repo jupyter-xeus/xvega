@@ -21,8 +21,8 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_area, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
         XPROPERTY(xtl::xoptional<std::string>, mark_area, interpolate, xtl::missing<std::string>(), XEITHER_OPTIONAL("basis", "basis-open", "basis-closed", "bundle", "cardinal", "cardinal-open", "cardinal-closed", "catmull-rom", "linear", "linear-closed", "monotone", "natural", "step", "step-before", "step-after"));
         XPROPERTY(xtl::xoptional<double>, mark_area, tension);
-        XPROPERTY(xtl::xoptional<boolObjectType>, mark_area, line);
-        XPROPERTY(xtl::xoptional<boolStringObjectType>, mark_area, point);
+        XPROPERTY(xtl::xoptional<bool_object_type>, mark_area, line);
+        XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_area, point);
 
         mark_area()
         {

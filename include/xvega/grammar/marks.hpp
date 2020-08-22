@@ -22,18 +22,18 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, D, aria);
         XPROPERTY(xtl::xoptional<std::string>, D, description);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, style);
-        XPROPERTY(xtl::xoptional<tooltipType>, D, tooltip);
+        XPROPERTY(xtl::xoptional<tooltip_type>, D, tooltip);
         XPROPERTY(xtl::xoptional<bool>, D, clip);
-        XPROPERTY(xtl::xoptional<stringNoneType>, D, invalid);
-        XPROPERTY(xtl::xoptional<boolNoneType>, D, order);
+        XPROPERTY(xtl::xoptional<string_none_type>, D, invalid);
+        XPROPERTY(xtl::xoptional<bool_none_type>, D, order);
 
         // Position and Offset Properties
-        XPROPERTY(xtl::xoptional<stringNumType>, D, x);
-        XPROPERTY(xtl::xoptional<stringNumType>, D, x2);
+        XPROPERTY(xtl::xoptional<string_num_type>, D, x);
+        XPROPERTY(xtl::xoptional<string_num_type>, D, x2);
         XPROPERTY(xtl::xoptional<double>, D, width);
         XPROPERTY(xtl::xoptional<double>, D, height);
-        XPROPERTY(xtl::xoptional<stringNumType>, D, y);
-        XPROPERTY(xtl::xoptional<stringNumType>, D, y2);
+        XPROPERTY(xtl::xoptional<string_num_type>, D, y);
+        XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
         XPROPERTY(xtl::xoptional<double>, D, xOffset);
         XPROPERTY(xtl::xoptional<double>, D, x2Offset);
         XPROPERTY(xtl::xoptional<double>, D, yOffset);
@@ -41,9 +41,9 @@ namespace xv
 
         // Color Properties
         XPROPERTY(xtl::xoptional<bool>, D, filled);
-        XPROPERTY(xtl::xoptional<colorType>, D, color);
-        XPROPERTY(xtl::xoptional<colorNoneType>, D, fill);
-        XPROPERTY(xtl::xoptional<colorNoneType>, D, stroke);
+        XPROPERTY(xtl::xoptional<color_type>, D, color);
+        XPROPERTY(xtl::xoptional<color_none_type>, D, fill);
+        XPROPERTY(xtl::xoptional<color_none_type>, D, stroke);
         XPROPERTY(xtl::xoptional<std::string>, D, blend, xtl::missing<std::string>(), XEITHER_OPTIONAL("multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"));
         XPROPERTY(xtl::xoptional<double>, D, opacity);
         XPROPERTY(xtl::xoptional<double>, D, fillOpacity);
