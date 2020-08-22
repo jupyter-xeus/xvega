@@ -14,18 +14,25 @@
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"
+#include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-
-    using stringNoneType = xtl::variant<std::nullptr_t, std::string>;
-    using stringObjectType = xtl::variant<nl::json, std::string>;
-    using boolNumType = xtl::variant<double, int, bool>;
-    using boolStringType = xtl::variant<std::string, bool>;
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-    using anyArrayType = xtl::variant<std::vector<std::string>, std::vector<double>, std::vector<int>, std::vector<bool>, std::vector<DateTime>>;
+    using string_num_type = xtl::variant<double, int, std::string>;
+    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
+    using string_object_type = xtl::variant<nl::json, std::string>;
+    using bool_num_type = xtl::variant<double, int, bool>;
+    using bool_string_type = xtl::variant<std::string, bool>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using any_array_type = xtl::variant<
+                                std::vector<std::string>, 
+                                std::vector<double>, 
+                                std::vector<int>, 
+                                std::vector<bool>, 
+                                std::vector<DateTime>
+                                >;
 
     struct Axis : public xp::xobserved<Axis>
     {
@@ -45,33 +52,33 @@ namespace xv
         // Domain Axis Properties
         XPROPERTY(xtl::xoptional<bool>, Axis, domain);
         XPROPERTY(xtl::xoptional<std::string>, Axis, domainCap); // Not Present in Altair Docs, but present in Vega-Lite Docs
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, domainColor);
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, domainColor);
         XPROPERTY(xtl::xoptional<double>, Axis, domainOpacity);
         XPROPERTY(xtl::xoptional<double>, Axis, domainWidth);
         XPROPERTY(xtl::xoptional<std::vector<double>>, Axis, domainDash);
         XPROPERTY(xtl::xoptional<double>, Axis, domainDashOffset);
 
         // Label Axis Properties
-        XPROPERTY(xtl::xoptional<stringObjectType>, Axis, format);
+        XPROPERTY(xtl::xoptional<string_object_type>, Axis, format);
         XPROPERTY(xtl::xoptional<std::string>, Axis, formatType);
         XPROPERTY(xtl::xoptional<bool>, Axis, labels);
         XPROPERTY(xtl::xoptional<std::string>, Axis, labelAlign); // Implement ConditionalAxisLabelAlign
         XPROPERTY(xtl::xoptional<double>, Axis, labelAngle);
         XPROPERTY(xtl::xoptional<std::string>, Axis, labelBaseline); // Implement ConditionalAxisLabelBaseline
-        XPROPERTY(xtl::xoptional<boolNumType>, Axis, labelBound);
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, labelColor); // Implement ConditionalAxisColor
+        XPROPERTY(xtl::xoptional<bool_num_type>, Axis, labelBound);
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, labelColor); // Implement ConditionalAxisColor
         XPROPERTY(xtl::xoptional<std::string>, Axis, labelExpr);
-        XPROPERTY(xtl::xoptional<boolNumType>, Axis, labelFlush);
+        XPROPERTY(xtl::xoptional<bool_num_type>, Axis, labelFlush);
         XPROPERTY(xtl::xoptional<double>, Axis, labelFlushOffset);
         XPROPERTY(xtl::xoptional<std::string>, Axis, labelFont); // Implement ConditionalAxisString
         XPROPERTY(xtl::xoptional<double>, Axis, labelFontSize); // Implement ConditionalAxisNumber
         XPROPERTY(xtl::xoptional<std::string>, Axis, labelFontStyle); // Implement ConditionalAxisLabelFontStyle
-        XPROPERTY(xtl::xoptional<stringNumType>, Axis, labelFontWeight); // Implement ConditionalAxisLabelFontWeight
+        XPROPERTY(xtl::xoptional<string_num_type>, Axis, labelFontWeight); // Implement ConditionalAxisLabelFontWeight
         XPROPERTY(xtl::xoptional<double>, Axis, labelLimit);
         XPROPERTY(xtl::xoptional<double>, Axis, labelLineHeight);
         XPROPERTY(xtl::xoptional<double>, Axis, labelOffset); // Implement ConditionalAxisNumber
         XPROPERTY(xtl::xoptional<double>, Axis, labelOpacity); // Implement ConditionalAxisNumber
-        XPROPERTY(xtl::xoptional<boolStringType>, Axis, labelOverlap);
+        XPROPERTY(xtl::xoptional<bool_string_type>, Axis, labelOverlap);
         XPROPERTY(xtl::xoptional<double>, Axis, labelPadding); // Implement ConditionalAxisNumber
         XPROPERTY(xtl::xoptional<double>, Axis, labelSeparation);
 
@@ -79,7 +86,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, Axis, ticks);
         XPROPERTY(xtl::xoptional<std::string>, Axis, tickBand);
         XPROPERTY(xtl::xoptional<std::string>, Axis, tickCap); // Not Present in Altair Docs, but present in Vega-Lite Docs
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, tickColor); // Implement ConditionalAxisColor
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, tickColor); // Implement ConditionalAxisColor
         XPROPERTY(xtl::xoptional<double>, Axis, tickCount); // Difference in Altair and Vega-Lite docs for it's type
         XPROPERTY(xtl::xoptional<std::vector<double>>, Axis, tickDash); // Implement ConditionalAxisNumberArray
         XPROPERTY(xtl::xoptional<double>, Axis, tickDashOffset); // Implement ConditionalAxisNumber, Present in Altair Docs, but not present in Vega-Lite Docs
@@ -90,19 +97,19 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, Axis, tickRound);
         XPROPERTY(xtl::xoptional<double>, Axis, tickSize); // Implement ConditionalAxisNumber
         XPROPERTY(xtl::xoptional<double>, Axis, tickWidth); // Implement ConditionalAxisNumber
-        XPROPERTY(xtl::xoptional<anyArrayType>, Axis, values);
+        XPROPERTY(xtl::xoptional<any_array_type>, Axis, values);
 
         // Title Axis Properties
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Axis, title);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Axis, title);
         XPROPERTY(xtl::xoptional<std::string>, Axis, titleAlign);
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, titleAnchor);
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, titleAnchor);
         XPROPERTY(xtl::xoptional<double>, Axis, titleAngle);
         XPROPERTY(xtl::xoptional<std::string>, Axis, titleBaseline);
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, titleColor);
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, titleColor);
         XPROPERTY(xtl::xoptional<std::string>, Axis, titleFont);
         XPROPERTY(xtl::xoptional<double>, Axis, titleFontSize);
         XPROPERTY(xtl::xoptional<std::string>, Axis, titleFontStyle);
-        XPROPERTY(xtl::xoptional<stringNumType>, Axis, titleFontWeight);
+        XPROPERTY(xtl::xoptional<string_num_type>, Axis, titleFontWeight);
         XPROPERTY(xtl::xoptional<double>, Axis, titleLimit);
         XPROPERTY(xtl::xoptional<double>, Axis, titleLineHeight);
         XPROPERTY(xtl::xoptional<double>, Axis, titleOpacity);
@@ -113,7 +120,7 @@ namespace xv
         // Grid Axis Properties
         XPROPERTY(xtl::xoptional<bool>, Axis, grid);
         XPROPERTY(xtl::xoptional<std::string>, Axis, gridCap); // Not Present in Altair Docs, but present in Vega-Lite Docs
-        XPROPERTY(xtl::xoptional<stringNoneType>, Axis, gridColor); // Implement ConditionalAxisColor
+        XPROPERTY(xtl::xoptional<string_none_type>, Axis, gridColor); // Implement ConditionalAxisColor
         XPROPERTY(xtl::xoptional<std::vector<double>>, Axis, gridDash); // Implement ConditionalAxisNumberArray
         XPROPERTY(xtl::xoptional<double>, Axis, gridDashOffset); // Implement ConditionalAxisNumber, Present in Altair Docs, but not present in Vega-Lite Docs
         XPROPERTY(xtl::xoptional<double>, Axis, gridOpacity); // Implement ConditionalAxisNumber
@@ -122,321 +129,98 @@ namespace xv
 
     void to_json(nl::json& j, const Axis& data)
     {
-        if(data.aria().has_value())
-        {
-            j["aria"] = data.aria().value();
-        }
-        if(data.bandPosition().has_value())
-        {
-            j["bandPosition"] = data.bandPosition().value();
-        }
-        if(data.description().has_value())
-        {
-            j["description"] = data.description().value();
-        }
-        if(data.maxExtent().has_value())
-        {
-            j["maxExtent"] = data.maxExtent().value();
-        }
-        if(data.minExtent().has_value())
-        {
-            j["minExtent"] = data.minExtent().value();
-        }
-        if(data.orient().has_value())
-        {
-            j["orient"] = data.orient().value();
-        }
-        if(data.offset().has_value())
-        {
-            j["offset"] = data.offset().value();
-        }
-        if(data.position().has_value())
-        {
-            j["position"] = data.position().value();
-        }
-        if(data.style().has_value())
-        {
-            j["style"] = data.style().value();
-        }
-        if(data.translate().has_value())
-        {
-            j["translate"] = data.translate().value();
-        }
-        if(data.zindex().has_value())
-        {
-            j["zindex"] = data.zindex().value();
-        }
-        if(data.domain().has_value())
-        {
-            j["domain"] = data.domain().value();
-        }
-        if(data.domainCap().has_value())
-        {
-            j["domainCap"] = data.domainCap().value();
-        }
-        if(data.domainColor().has_value())
-        {
-            j["domainColor"] = data.domainColor().value();
-        }
-        if(data.domainOpacity().has_value())
-        {
-            j["domainOpacity"] = data.domainOpacity().value();
-        }
-        if(data.domainWidth().has_value())
-        {
-            j["domainWidth"] = data.domainWidth().value();
-        }
-        if(data.domainDash().has_value())
-        {
-            j["domainDash"] = data.domainDash().value();
-        }
-        if(data.domainDashOffset().has_value())
-        {
-            j["domainDashOffset"] = data.domainDashOffset().value();
-        }
-        if(data.format().has_value())
-        {
-            j["format"] = data.format().value();
-        }
-        if(data.formatType().has_value())
-        {
-            j["formatType"] = data.formatType().value();
-        }
-        if(data.labels().has_value())
-        {
-            j["labels"] = data.labels().value();
-        }
-        if(data.labelAlign().has_value())
-        {
-            j["labelAlign"] = data.labelAlign().value();
-        }
-        if(data.labelAngle().has_value())
-        {
-            j["labelAngle"] = data.labelAngle().value();
-        }
-        if(data.labelBaseline().has_value())
-        {
-            j["labelBaseline"] = data.labelBaseline().value();
-        }
-        if(data.labelBound().has_value())
-        {
-            j["labelBound"] = data.labelBound().value();
-        }
-        if(data.labelColor().has_value())
-        {
-            j["labelColor"] = data.labelColor().value();
-        }
-        if(data.labelExpr().has_value())
-        {
-            j["labelExpr"] = data.labelExpr().value();
-        }
-        if(data.labelFlush().has_value())
-        {
-            j["labelFlush"] = data.labelFlush().value();
-        }
-        if(data.labelFlushOffset().has_value())
-        {
-            j["labelFlushOffset"] = data.labelFlushOffset().value();
-        }
-        if(data.labelFont().has_value())
-        {
-            j["labelFont"] = data.labelFont().value();
-        }
-        if(data.labelFontSize().has_value())
-        {
-            j["labelFontSize"] = data.labelFontSize().value();
-        }
-        if(data.labelFontStyle().has_value())
-        {
-            j["labelFontStyle"] = data.labelFontStyle().value();
-        }
-        if(data.labelFontWeight().has_value())
-        {
-            j["labelFontWeight"] = data.labelFontWeight().value();
-        }
-        if(data.labelLimit().has_value())
-        {
-            j["labelLimit"] = data.labelLimit().value();
-        }
-        if(data.labelLineHeight().has_value())
-        {
-            j["labelLineHeight"] = data.labelLineHeight().value();
-        }
-        if(data.labelOffset().has_value())
-        {
-            j["labelOffset"] = data.labelOffset().value();
-        }
-        if(data.labelOpacity().has_value())
-        {
-            j["labelOpacity"] = data.labelOpacity().value();
-        }
-        if(data.labelOverlap().has_value())
-        {
-            j["labelOverlap"] = data.labelOverlap().value();
-        }
-        if(data.labelPadding().has_value())
-        {
-            j["labelPadding"] = data.labelPadding().value();
-        }
-        if(data.labelSeparation().has_value())
-        {
-            j["labelSeparation"] = data.labelSeparation().value();
-        }
-        if(data.ticks().has_value())
-        {
-            j["ticks"] = data.ticks().value();
-        }
-        if(data.tickBand().has_value())
-        {
-            j["tickBand"] = data.tickBand().value();
-        }
-        if(data.tickCap().has_value())
-        {
-            j["tickCap"] = data.tickCap().value();
-        }
-        if(data.tickColor().has_value())
-        {
-            j["tickColor"] = data.tickColor().value();
-        }
-        if(data.tickCount().has_value())
-        {
-            j["tickCount"] = data.tickCount().value();
-        }
-        if(data.tickDash().has_value())
-        {
-            j["tickDash"] = data.tickDash().value();
-        }
-        if(data.tickDashOffset().has_value())
-        {
-            j["tickDashOffset"] = data.tickDashOffset().value();
-        }
-        if(data.tickExtra().has_value())
-        {
-            j["tickExtra"] = data.tickExtra().value();
-        }
-        if(data.tickMinStep().has_value())
-        {
-            j["tickMinStep"] = data.tickMinStep().value();
-        }
-        if(data.tickOffset().has_value())
-        {
-            j["tickOffset"] = data.tickOffset().value();
-        }
-        if(data.tickOpacity().has_value())
-        {
-            j["tickOpacity"] = data.tickOpacity().value();
-        }
-        if(data.tickRound().has_value())
-        {
-            j["tickRound"] = data.tickRound().value();
-        }
-        if(data.tickSize().has_value())
-        {
-            j["tickSize"] = data.tickSize().value();
-        }
-        if(data.tickWidth().has_value())
-        {
-            j["tickWidth"] = data.tickWidth().value();
-        }
-        if(data.values().has_value())
-        {
-            j["values"] = data.values().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.titleAlign().has_value())
-        {
-            j["titleAlign"] = data.titleAlign().value();
-        }
-        if(data.titleAnchor().has_value())
-        {
-            j["titleAnchor"] = data.titleAnchor().value();
-        }
-        if(data.titleAngle().has_value())
-        {
-            j["titleAngle"] = data.titleAngle().value();
-        }
-        if(data.titleBaseline().has_value())
-        {
-            j["titleBaseline"] = data.titleBaseline().value();
-        }
-        if(data.titleColor().has_value())
-        {
-            j["titleColor"] = data.titleColor().value();
-        }
-        if(data.titleFont().has_value())
-        {
-            j["titleFont"] = data.titleFont().value();
-        }
-        if(data.titleFontSize().has_value())
-        {
-            j["titleFontSize"] = data.titleFontSize().value();
-        }
-        if(data.titleFontStyle().has_value())
-        {
-            j["titleFontStyle"] = data.titleFontStyle().value();
-        }
-        if(data.titleFontWeight().has_value())
-        {
-            j["titleFontWeight"] = data.titleFontWeight().value();
-        }
-        if(data.titleLimit().has_value())
-        {
-            j["titleLimit"] = data.titleLimit().value();
-        }
-        if(data.titleLineHeight().has_value())
-        {
-            j["titleLineHeight"] = data.titleLineHeight().value();
-        }
-        if(data.titleOpacity().has_value())
-        {
-            j["titleOpacity"] = data.titleOpacity().value();
-        }
-        if(data.titlePadding().has_value())
-        {
-            j["titlePadding"] = data.titlePadding().value();
-        }
-        if(data.titleX().has_value())
-        {
-            j["titleX"] = data.titleX().value();
-        }
-        if(data.titleY().has_value())
-        {
-            j["titleY"] = data.titleY().value();
-        }
-        if(data.grid().has_value())
-        {
-            j["grid"] = data.grid().value();
-        }
-        if(data.gridCap().has_value())
-        {
-            j["gridCap"] = data.gridCap().value();
-        }
-        if(data.gridColor().has_value())
-        {
-            j["gridColor"] = data.gridColor().value();
-        }
-        if(data.gridDash().has_value())
-        {
-            j["gridDash"] = data.gridDash().value();
-        }
-        if(data.gridDashOffset().has_value())
-        {
-            j["gridDashOffset"] = data.gridDashOffset().value();
-        }
-        if(data.gridOpacity().has_value())
-        {
-            j["gridOpacity"] = data.gridOpacity().value();
-        }
-        if(data.gridWidth().has_value())
-        {
-            j["gridWidth"] = data.gridWidth().value();
-        }
+        // Fill in General Axis Properties
+        serialize(j, data.aria(), "aria");
+        serialize(j, data.bandPosition(), "bandPosition");
+        serialize(j, data.description(), "description");
+        serialize(j, data.maxExtent(), "maxExtent");
+        serialize(j, data.minExtent(), "minExtent");
+        serialize(j, data.orient(), "orient");
+        serialize(j, data.offset(), "offset");
+        serialize(j, data.position(), "position");
+        serialize(j, data.style(), "style");
+        serialize(j, data.translate(), "translate");
+        serialize(j, data.zindex(), "zindex");
+
+        // Fill in Domain Axis Properties
+        serialize(j, data.domain(), "domain");
+        serialize(j, data.domainCap(), "domainCap");
+        serialize(j, data.domainColor(), "domainColor");
+        serialize(j, data.domainOpacity(), "domainOpacity");
+        serialize(j, data.domainWidth(), "domainWidth");
+        serialize(j, data.domainDash(), "domainDash");
+        serialize(j, data.domainDashOffset(), "domainDashOffset");
+
+        // Fill in Label Axis Properties
+        serialize(j, data.format(), "format");
+        serialize(j, data.formatType(), "formatType");
+        serialize(j, data.labels(), "labels");
+        serialize(j, data.labelAlign(), "labelAlign");
+        serialize(j, data.labelAngle(), "labelAngle");
+        serialize(j, data.labelBaseline(), "labelBaseline");
+        serialize(j, data.labelBound(), "labelBound");
+        serialize(j, data.labelColor(), "labelColor");
+        serialize(j, data.labelExpr(), "labelExpr");
+        serialize(j, data.labelFlush(), "labelFlush");
+        serialize(j, data.labelFlushOffset(), "labelFlushOffset");
+        serialize(j, data.labelFont(), "labelFont");
+        serialize(j, data.labelFontSize(), "labelFontSize");
+        serialize(j, data.labelFontStyle(), "labelFontStyle");
+        serialize(j, data.labelFontWeight(), "labelFontWeight");
+        serialize(j, data.labelLimit(), "labelLimit");
+        serialize(j, data.labelLineHeight(), "labelLineHeight");
+        serialize(j, data.labelOffset(), "labelOffset");
+        serialize(j, data.labelOpacity(), "labelOpacity");
+        serialize(j, data.labelOverlap(), "labelOverlap");
+        serialize(j, data.labelPadding(), "labelPadding");
+        serialize(j, data.labelSeparation(), "labelSeparation");
+
+        // Fill in Ticks Axis Properties
+        serialize(j, data.ticks(), "ticks");
+        serialize(j, data.tickBand(), "tickBand");
+        serialize(j, data.tickCap(), "tickCap");
+        serialize(j, data.tickColor(), "tickColor");
+        serialize(j, data.tickCount(), "tickCount");
+        serialize(j, data.tickDash(), "tickDash");
+        serialize(j, data.tickDashOffset(), "tickDashOffset");
+        serialize(j, data.tickExtra(), "tickExtra");
+        serialize(j, data.tickMinStep(), "tickMinStep");
+        serialize(j, data.tickOffset(), "tickOffset");
+        serialize(j, data.tickOpacity(), "tickOpacity");
+        serialize(j, data.tickRound(), "tickRound");
+        serialize(j, data.tickSize(), "tickSize");
+        serialize(j, data.tickWidth(), "tickWidth");
+        serialize(j, data.values(), "values");
+
+        // Fill in Title Axis Properties
+        serialize(j, data.title(), "title");
+        serialize(j, data.titleAlign(), "titleAlign");
+        serialize(j, data.titleAnchor(), "titleAnchor");
+        serialize(j, data.titleAngle(), "titleAngle");
+        serialize(j, data.titleBaseline(), "titleBaseline");
+        serialize(j, data.titleColor(), "titleColor");
+        serialize(j, data.titleFont(), "titleFont");
+        serialize(j, data.titleFontSize(), "titleFontSize");
+        serialize(j, data.titleFontStyle(), "titleFontStyle");
+        serialize(j, data.titleFontWeight(), "titleFontWeight");
+        serialize(j, data.titleLimit(), "titleLimit");
+        serialize(j, data.titleLineHeight(), "titleLineHeight");
+        serialize(j, data.titleOpacity(), "titleOpacity");
+        serialize(j, data.titlePadding(), "titlePadding");
+        serialize(j, data.titleX(), "titleX");
+        serialize(j, data.titleY(), "titleY");
+        
+        // Fill in Grid Axis Properties
+        serialize(j, data.grid(), "grid");
+        serialize(j, data.gridCap(), "gridCap");
+        serialize(j, data.gridColor(), "gridColor");
+        serialize(j, data.gridDash(), "gridDash");
+        serialize(j, data.gridDashOffset(), "gridDashOffset");
+        serialize(j, data.gridOpacity(), "gridOpacity");
+        serialize(j, data.gridWidth(), "gridWidth");
     }
 
-    using axisType = xtl::variant<Axis, std::nullptr_t>;
+    using axis_type = xtl::variant<Axis, std::nullptr_t>;
 }
 
 #endif

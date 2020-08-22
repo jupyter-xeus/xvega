@@ -15,54 +15,46 @@
 
 #include "./datetime.hpp"
 #include "./field.hpp"
+#include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringNoneType = xtl::variant<std::nullptr_t, std::string>;
-    using anyArrayType = xtl::variant<std::vector<std::string>, std::vector<double>, std::vector<int>, std::vector<bool>, std::vector<DateTime>>;
+    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
+    using any_array_type = xtl::variant<
+                                std::vector<std::string>, 
+                                std::vector<double>, 
+                                std::vector<int>, 
+                                std::vector<bool>, 
+                                std::vector<DateTime>
+                                >;
 
     struct FieldSort : public xp::xobserved<FieldSort>
     {
-        XPROPERTY(xtl::xoptional<fieldType>, FieldSort, field);
+        XPROPERTY(xtl::xoptional<field_type>, FieldSort, field);
         XPROPERTY(xtl::xoptional<std::string>, FieldSort, op);
-        XPROPERTY(xtl::xoptional<stringNoneType>, FieldSort, order);
+        XPROPERTY(xtl::xoptional<string_none_type>, FieldSort, order);
     };
 
     void to_json(nl::json& j, const FieldSort& data) {
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.op().has_value())
-        {
-            j["op"] = data.op().value();
-        }
-        if(data.order().has_value())
-        {
-            j["order"] = data.order().value();
-        }
+        serialize(j, data.field(), "field");
+        serialize(j, data.op(), "op");
+        serialize(j, data.order(), "order");
     }
 
     struct EncodingSort : public xp::xobserved<EncodingSort>
     {
         XPROPERTY(xtl::xoptional<std::string>, EncodingSort, encoding);
-        XPROPERTY(xtl::xoptional<stringNoneType>, EncodingSort, order);
+        XPROPERTY(xtl::xoptional<string_none_type>, EncodingSort, order);
     };
 
     void to_json(nl::json& j, const EncodingSort& data) {
-        if(data.encoding().has_value())
-        {
-            j["encoding"] = data.encoding().value();
-        }
-        if(data.order().has_value())
-        {
-            j["order"] = data.order().value();
-        }
+        serialize(j, data.encoding(), "encoding");
+        serialize(j, data.order(), "order");
     }
 
-    using sortType = xtl::variant<anyArrayType, std::string, std::nullptr_t, FieldSort, EncodingSort>;
+    using sort_type = xtl::variant<any_array_type, std::string, std::nullptr_t, FieldSort, EncodingSort>;
 }
 
 #endif

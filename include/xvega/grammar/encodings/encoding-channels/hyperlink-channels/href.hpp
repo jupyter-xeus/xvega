@@ -15,68 +15,40 @@
 #include "../../encoding-channel-options/field.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-    using stringObjectType = xtl::variant<nl::json, std::string>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_object_type = xtl::variant<nl::json, std::string>;
 
     struct Href : public xp::xobserved<Href>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Href, aggregate);
-        XPROPERTY(xtl::xoptional<binType>, Href, bin);
-        // XPROPERTY(xtl::xoptional<conditionType>, Href, condition);
-        XPROPERTY(xtl::xoptional<fieldType>, Href, field);
-        XPROPERTY(xtl::xoptional<stringObjectType>, Href, format);
+        XPROPERTY(xtl::xoptional<agg_type>, Href, aggregate);
+        XPROPERTY(xtl::xoptional<bin_type>, Href, bin);
+        // XPROPERTY(xtl::xoptional<condition_type>, Href, condition);
+        XPROPERTY(xtl::xoptional<field_type>, Href, field);
+        XPROPERTY(xtl::xoptional<string_object_type>, Href, format);
         XPROPERTY(xtl::xoptional<std::string>, Href, formatType);
         XPROPERTY(xtl::xoptional<std::string>, Href, labelExpr);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Href, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Href, title);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Href, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Href, title);
         XPROPERTY(xtl::xoptional<std::string>, Href, type);
     };
 
     void to_json(nl::json& j, const Href& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        // if(data.condition().has_value())
-        // {
-        //     j["condition"] = data.condition().value();
-        // }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.format().has_value())
-        {
-            j["format"] = data.format().value();
-        }
-        if(data.formatType().has_value())
-        {
-            j["formatType"] = data.formatType().value();
-        }
-        if(data.labelExpr().has_value())
-        {
-            j["labelExpr"] = data.labelExpr().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.bin(), "bin");
+        // serialize(j, data.condition(), "condition");
+        serialize(j, data.field(), "field");
+        serialize(j, data.format(), "format");
+        serialize(j, data.formatType(), "formatType");
+        serialize(j, data.labelExpr(), "labelExpr");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
+        serialize(j, data.type(), "type");
     }
 }

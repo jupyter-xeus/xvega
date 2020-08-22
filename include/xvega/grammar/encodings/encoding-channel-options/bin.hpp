@@ -13,6 +13,8 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
@@ -33,49 +35,19 @@ namespace xv
 
     void to_json(nl::json& j, const Bin& data)
     {
-        if(data.anchor().has_value())
-        {
-            j["anchor"] = data.anchor().value();
-        }
-        if(data.base().has_value())
-        {
-            j["base"] = data.base().value();
-        }
-        if(data.binned().has_value())
-        {
-            j["binned"] = data.binned().value();
-        }
-        if(data.divide().has_value())
-        {
-            j["divide"] = data.divide().value();
-        }
-        if(data.extent().has_value())
-        {
-            j["extent"] = data.extent().value();
-        }
-        if(data.maxbins().has_value())
-        {
-            j["maxbins"] = data.maxbins().value();
-        }
-        if(data.minstep().has_value())
-        {
-            j["minstep"] = data.minstep().value();
-        }
-        if(data.nice().has_value())
-        {
-            j["nice"] = data.nice().value();
-        }
-        if(data.step().has_value())
-        {
-            j["step"] = data.step().value();
-        }
-        if(data.steps().has_value())
-        {
-            j["steps"] = data.steps().value();
-        }
+        serialize(j, data.anchor(), "anchor");
+        serialize(j, data.base(), "base");
+        serialize(j, data.binned(), "binned");
+        serialize(j, data.divide(), "divide");
+        serialize(j, data.extent(), "extent");
+        serialize(j, data.maxbins(), "maxbins");
+        serialize(j, data.minstep(), "minstep");
+        serialize(j, data.nice(), "nice");
+        serialize(j, data.step(), "step");
+        serialize(j, data.steps(), "steps");
     }
 
-    using binType = xtl::variant<bool, Bin, std::string, std::nullptr_t>;
+    using bin_type = xtl::variant<bool, Bin, std::string, std::nullptr_t>;
 }
 
 #endif

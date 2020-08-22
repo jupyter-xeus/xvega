@@ -18,67 +18,39 @@
 #include "../../encoding-channel-options/sort.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
+#include "../../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stringVecNoneType = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
 
     struct Opacity : public xp::xobserved<Opacity>
     {
-        XPROPERTY(xtl::xoptional<aggType>, Opacity, aggregate);
-        XPROPERTY(xtl::xoptional<binType>, Opacity, bin);
-        // XPROPERTY(xtl::xoptional<conditionType>, Opacity, condition);
-        XPROPERTY(xtl::xoptional<fieldType>, Opacity, field);
-        XPROPERTY(xtl::xoptional<legendType>, Opacity, legend);
-        XPROPERTY(xtl::xoptional<scaleType>, Opacity, scale);
-        XPROPERTY(xtl::xoptional<sortType>, Opacity, sort);
-        XPROPERTY(xtl::xoptional<timeUnitType>, Opacity, timeUnit);
-        XPROPERTY(xtl::xoptional<stringVecNoneType>, Opacity, title);
+        XPROPERTY(xtl::xoptional<agg_type>, Opacity, aggregate);
+        XPROPERTY(xtl::xoptional<bin_type>, Opacity, bin);
+        // XPROPERTY(xtl::xoptional<condition_type>, Opacity, condition);
+        XPROPERTY(xtl::xoptional<field_type>, Opacity, field);
+        XPROPERTY(xtl::xoptional<legend_type>, Opacity, legend);
+        XPROPERTY(xtl::xoptional<scale_type>, Opacity, scale);
+        XPROPERTY(xtl::xoptional<sort_type>, Opacity, sort);
+        XPROPERTY(xtl::xoptional<time_unit_type>, Opacity, timeUnit);
+        XPROPERTY(xtl::xoptional<string_vec_none_type>, Opacity, title);
         XPROPERTY(xtl::xoptional<std::string>, Opacity, type);
     };
 
     void to_json(nl::json& j, const Opacity& data)
     {
-        if(data.aggregate().has_value())
-        {
-            j["aggregate"] = data.aggregate().value();
-        }
-        if(data.bin().has_value())
-        {
-            j["bin"] = data.bin().value();
-        }
-        // if(data.condition().has_value())
-        // {
-        //     j["condition"] = data.condition().value();
-        // }
-        if(data.field().has_value())
-        {
-            j["field"] = data.field().value();
-        }
-        if(data.legend().has_value())
-        {
-            j["legend"] = data.legend().value();
-        }
-        if(data.scale().has_value())
-        {
-            j["scale"] = data.scale().value();
-        }
-        if(data.sort().has_value())
-        {
-            j["sort"] = data.sort().value();
-        }
-        if(data.timeUnit().has_value())
-        {
-            j["timeUnit"] = data.timeUnit().value();
-        }
-        if(data.title().has_value())
-        {
-            j["title"] = data.title().value();
-        }
-        if(data.type().has_value())
-        {
-            j["type"] = data.type().value();
-        }
+        serialize(j, data.aggregate(), "aggregate");
+        serialize(j, data.bin(), "bin");
+        // serialize(j, data.condition(), "condition");
+        serialize(j, data.field(), "field");
+        serialize(j, data.legend(), "legend");
+        serialize(j, data.scale(), "scale");
+        serialize(j, data.sort(), "sort");
+        serialize(j, data.timeUnit(), "timeUnit");
+        serialize(j, data.title(), "title");
+        serialize(j, data.type(), "type");
     }
 }

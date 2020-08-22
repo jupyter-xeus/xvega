@@ -13,13 +13,15 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
 
-    using numNoneType = xtl::variant<std::nullptr_t, double, int>;
-    using anyType = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
+    using num_none_type = xtl::variant<std::nullptr_t, double, int>;
+    using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
 
     struct ImputeSequence : public xp::xobserved<ImputeSequence>
     {
@@ -30,51 +32,30 @@ namespace xv
 
     void to_json(nl::json& j, const ImputeSequence& data)
     {
-        if(data.start().has_value())
-        {
-            j["start"] = data.start().value();
-        }
-        if(data.stop().has_value())
-        {
-            j["stop"] = data.stop().value();
-        }
-        if(data.step().has_value())
-        {
-            j["step"] = data.step().value();
-        }
+        serialize(j, data.start(), "start");
+        serialize(j, data.stop(), "stop");
+        serialize(j, data.step(), "step");
     }
 
-    using  imputeKeyValsType = xtl::variant<std::vector<anyType>, ImputeSequence>;
+    using  impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
 
     struct Impute : public xp::xobserved<Impute>
     {
-        XPROPERTY(xtl::xoptional<std::vector<numNoneType>>, Impute, frame);
-        XPROPERTY(xtl::xoptional<imputeKeyValsType>, Impute, keyvals);
+        XPROPERTY(xtl::xoptional<std::vector<num_none_type>>, Impute, frame);
+        XPROPERTY(xtl::xoptional<impute_key_vals_type>, Impute, keyvals);
         XPROPERTY(xtl::xoptional<std::string>, Impute, method);
-        XPROPERTY(xtl::xoptional<anyType>, Impute, value);
+        XPROPERTY(xtl::xoptional<any_type>, Impute, value);
     };
 
     void to_json(nl::json& j, const Impute& data)
     {
-        if(data.frame().has_value())
-        {
-            j["frame"] = data.frame().value();
-        }
-        if(data.keyvals().has_value())
-        {
-            j["keyvals"] = data.keyvals().value();
-        }
-        if(data.method().has_value())
-        {
-            j["method"] = data.method().value();
-        }
-        if(data.value().has_value())
-        {
-            j["value"] = data.value().value();
-        }
+        serialize(j, data.frame(), "frame");
+        serialize(j, data.keyvals(), "keyvals");
+        serialize(j, data.method(), "method");
+        serialize(j, data.value(), "value");
     }
 
-    using imputeType = xtl::variant<Impute, std::nullptr_t>;
+    using impute_type = xtl::variant<Impute, std::nullptr_t>;
 }
 
 #endif

@@ -13,6 +13,8 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
@@ -27,25 +29,13 @@ namespace xv
 
     void to_json(nl::json& j, const TimeUnit& data)
     {
-        if(data.unit().has_value())
-        {
-            j["unit"] = data.unit().value();
-        }
-        if(data.maxbins().has_value())
-        {
-            j["maxbins"] = data.maxbins().value();
-        }
-        if(data.step().has_value())
-        {
-            j["step"] = data.step().value();
-        }
-        if(data.utc().has_value())
-        {
-            j["utc"] = data.utc().value();
-        }
+        serialize(j, data.unit(), "unit");
+        serialize(j, data.maxbins(), "maxbins");
+        serialize(j, data.step(), "step");
+        serialize(j, data.utc(), "utc");
     }
 
-    using timeUnitType = xtl::variant<std::string, TimeUnit>;
+    using time_unit_type = xtl::variant<std::string, TimeUnit>;
 }
 
 #endif

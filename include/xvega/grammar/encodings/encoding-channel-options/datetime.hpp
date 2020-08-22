@@ -13,20 +13,21 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../utils/serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-
-    using stringNumType = xtl::variant<double, int, std::string>;
+    using string_num_type = xtl::variant<double, int, std::string>;
 
     struct DateTime : public xp::xobserved<DateTime>
     {
         XPROPERTY(xtl::xoptional<double>, DateTime, year);
         XPROPERTY(xtl::xoptional<double>, DateTime, quarter);
-        XPROPERTY(xtl::xoptional<stringNumType>, DateTime, month);
+        XPROPERTY(xtl::xoptional<string_num_type>, DateTime, month);
         XPROPERTY(xtl::xoptional<double>, DateTime, date);
-        XPROPERTY(xtl::xoptional<stringNumType>, DateTime, day);
+        XPROPERTY(xtl::xoptional<string_num_type>, DateTime, day);
         XPROPERTY(xtl::xoptional<double>, DateTime, hours);
         XPROPERTY(xtl::xoptional<double>, DateTime, minutes);
         XPROPERTY(xtl::xoptional<double>, DateTime, seconds);
@@ -36,46 +37,16 @@ namespace xv
 
     void to_json(nl::json& j, const DateTime& data)
     {
-        if(data.year().has_value())
-        {
-            j["year"] = data.year().value();
-        }
-        if(data.quarter().has_value())
-        {
-            j["quarter"] = data.quarter().value();
-        }
-        if(data.month().has_value())
-        {
-            j["month"] = data.month().value();
-        }
-        if(data.date().has_value())
-        {
-            j["date"] = data.date().value();
-        }
-        if(data.day().has_value())
-        {
-            j["day"] = data.day().value();
-        }
-        if(data.hours().has_value())
-        {
-            j["hours"] = data.hours().value();
-        }
-        if(data.minutes().has_value())
-        {
-            j["minutes"] = data.minutes().value();
-        }
-        if(data.seconds().has_value())
-        {
-            j["seconds"] = data.seconds().value();
-        }
-        if(data.milliseconds().has_value())
-        {
-            j["milliseconds"] = data.milliseconds().value();
-        }
-        if(data.utc().has_value())
-        {
-            j["utc"] = data.utc().value();
-        }
+        serialize(j, data.year(), "year");
+        serialize(j, data.quarter(), "quarter");
+        serialize(j, data.month(), "month");
+        serialize(j, data.date(), "date");
+        serialize(j, data.day(), "day");
+        serialize(j, data.hours(), "hours");
+        serialize(j, data.minutes(), "minutes");
+        serialize(j, data.seconds(), "seconds");
+        serialize(j, data.milliseconds(), "milliseconds");
+        serialize(j, data.utc(), "utc");
     }
 }
 
