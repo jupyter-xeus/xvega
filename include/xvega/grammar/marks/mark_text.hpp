@@ -26,7 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_text, font);
         XPROPERTY(xtl::xoptional<double>, mark_text, fontSize);
         XPROPERTY(xtl::xoptional<std::string>, mark_text, fontStyle);
-        XPROPERTY(xtl::xoptional<stringNumType>, mark_text, fontWeight);
+        XPROPERTY(xtl::xoptional<string_num_type>, mark_text, fontWeight);
         XPROPERTY(xtl::xoptional<double>, mark_text, limit);
         XPROPERTY(xtl::xoptional<double>, mark_text, lineHeight);
         XPROPERTY(xtl::xoptional<double>, mark_text, radius);

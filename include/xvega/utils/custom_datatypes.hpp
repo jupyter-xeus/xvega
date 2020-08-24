@@ -4,8 +4,8 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_DATA_TYPES
-#define XVEGA_DATA_TYPES
+#ifndef XVEGA_DATA_TYPES_HPP
+#define XVEGA_DATA_TYPES_HPP
 
 #include "xproperty/xobserved.hpp"
 #include <xtl/xvariant.hpp>
@@ -14,18 +14,20 @@
 #include "xeither.hpp"
 #include <xtl/xjson.hpp>
 
+#include "./serialize.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using dataFrame = std::map<std::string, std::vector<xtl::variant<double, int, std::string>>>;
+    using data_frame = std::map<std::string, std::vector<xtl::variant<double, int, std::string>>>;
 
-    using stringNoneType = xtl::variant<std::nullptr_t, std::string>;
-    using boolNoneType = xtl::variant<std::nullptr_t, bool>;
-    using stringNumType = xtl::variant<double, int, std::string>;
-    using boolObjectType = xtl::variant<bool, nl::json>;
-    using boolStringObjectType = xtl::variant<bool, nl::json, std::string>;
-    using anyType = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
+    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
+    using bool_none_type = xtl::variant<std::nullptr_t, bool>;
+    using string_num_type = xtl::variant<double, int, std::string>;
+    using bool_object_type = xtl::variant<bool, nl::json>;
+    using bool_string_object_type = xtl::variant<bool, nl::json, std::string>;
+    using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
 
     struct GradientStop : public xp::xobserved<GradientStop>
     {
@@ -35,14 +37,8 @@ namespace xv
 
     void to_json(nl::json& j, const GradientStop& data)
     {
-        if(data.color().has_value())
-        {
-            j["color"] = data.color().value();
-        }
-        if(data.offset().has_value())
-        {
-            j["offset"] = data.offset().value();
-        }
+        serialize(j, data.color(), "color");
+        serialize(j, data.offset(), "offset");
     }
 
     struct LinearGradient : public xp::xobserved<LinearGradient>
@@ -57,22 +53,10 @@ namespace xv
 
     void to_json(nl::json& j, const LinearGradient& data) {
         j["gradient"] = data.gradient();
-        if(data.x1().has_value())
-        {
-            j["x1"] = data.x1().value();
-        }
-        if(data.x2().has_value())
-        {
-            j["x2"] = data.x2().value();
-        }
-        if(data.y1().has_value())
-        {
-            j["y1"] = data.y1().value();
-        }
-        if(data.y2().has_value())
-        {
-            j["y2"] = data.y2().value();
-        }
+        serialize(j, data.x1(), "x1");
+        serialize(j, data.x2(), "x2");
+        serialize(j, data.y1(), "y1");
+        serialize(j, data.y2(), "y2");
         j["stops"] = data.stops();
     }
 
@@ -91,30 +75,12 @@ namespace xv
     void to_json(nl::json& j, const RadialGradient& data)
     {
         j["gradient"] = data.gradient();
-        if(data.x1().has_value())
-        {
-            j["x1"] = data.x1().value();
-        }
-        if(data.x2().has_value())
-        {
-            j["x2"] = data.x2().value();
-        }
-        if(data.y1().has_value())
-        {
-            j["y1"] = data.y1().value();
-        }
-        if(data.y2().has_value())
-        {
-            j["y2"] = data.y2().value();
-        }
-        if(data.r1().has_value())
-        {
-            j["r1"] = data.r1().value();
-        }
-        if(data.r2().has_value())
-        {
-            j["r2"] = data.r2().value();
-        }
+        serialize(j, data.x1(), "x1");
+        serialize(j, data.x2(), "x2");
+        serialize(j, data.y1(), "y1");
+        serialize(j, data.y2(), "y2");
+        serialize(j, data.r1(), "r1");
+        serialize(j, data.r2(), "r2");
         j["stops"] = data.stops();
     }
 
@@ -124,15 +90,12 @@ namespace xv
     };
 
     void to_json(nl::json& j, const TooltipContent& data) {
-        if(data.content().has_value())
-        {
-            j["content"] = data.content().value();
-        }
+        serialize(j, data.content(), "content");
     }
 
-    using tooltipType = xtl::variant<std::string, bool, double, int, std::nullptr_t, TooltipContent>;
-    using colorType = xtl::variant<std::string, LinearGradient, RadialGradient>;
-    using colorNoneType = xtl::variant<std::string, LinearGradient, RadialGradient, std::nullptr_t>;
+    using tooltip_type = xtl::variant<std::string, bool, double, int, std::nullptr_t, TooltipContent>;
+    using color_type = xtl::variant<std::string, LinearGradient, RadialGradient>;
+    using color_none_type = xtl::variant<std::string, LinearGradient, RadialGradient, std::nullptr_t>;
 }
 
 #endif
