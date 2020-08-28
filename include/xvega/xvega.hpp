@@ -11,6 +11,8 @@
 #include "functions/populate_data.hpp"
 #include "functions/populate_marks.hpp"
 #include "functions/populate_encodings.hpp"
+#include "functions/populate_selections.hpp"
+#include "./utils/serialize.hpp"
 
 namespace nl = nlohmann;
 
@@ -20,23 +22,18 @@ namespace xv
     {
         populate_data(v);
 
-        if(xtl::has_value(v.width()))
-        {
-            json_template["width"] = xtl::value(v.width());
-        }
-
-        if(xtl::has_value(v.height()))
-        {
-            json_template["height"] = xtl::value(v.height());
-        }
+        serialize(json_template, v.width(), "width");
+        serialize(json_template, v.height(), "height");
 
         int len_marks = v.marks().size();
         if(len_marks > 1)
         {
             json_template["layer"] = {{}};
         }
+        
         populate_marks(v);
         populate_encodings(v);
+        populate_selections(v);
 
         auto bundle = nl::json::object();
         bundle["application/vnd.vegalite.v3+json"] = json_template;
