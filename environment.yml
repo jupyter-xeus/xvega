@@ -4,6 +4,4 @@ channels:
 dependencies:
 # host Dependencies
   - xeus-cling
-  - xproperty
-# build dependencies
-  - cmake
+  - xvega=0.0.1

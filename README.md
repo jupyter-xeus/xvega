@@ -26,6 +26,17 @@ Use the library by including the following header:
 #include "xvega/xvega.hpp"
 ```
 
+## Dependencies
+
+`xvega` depends on [xtl](https://github.com/xtensor-stack/xtl), 
+[nlohmann json](https://github.com/nlohmann/json) and the 
+[xproperty](https://github.com/jupyter-xeus/xproperty) libraries:
+
+|  `xvega`  |  `xtl`  |  `nlohmann json`  |  `xproperty`  |
+|-----------|---------|-------------------|---------------|
+|  master   | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
+|  0.0.1    | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
+
 ## License
 
 We use a shared copyright model that enables all contributors to maintain the copyright on their contributions.
