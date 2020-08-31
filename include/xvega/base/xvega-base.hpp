@@ -7,10 +7,12 @@
 #ifndef XVEGA_BASIC_HPP
 #define XVEGA_BASIC_HPP
 
+#include <iostream>
+
 #include "../utils/custom_datatypes.hpp"
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
-#include <iostream>
+#include "../grammar/selections.hpp"
 
 #include "../grammar/marks/mark_arc.hpp"
 #include "../grammar/marks/mark_area.hpp"
@@ -26,6 +28,10 @@
 #include "../grammar/marks/mark_text.hpp"
 #include "../grammar/marks/mark_tick.hpp"
 #include "../grammar/marks/mark_trail.hpp"
+
+#include "../grammar/selections/selection_single.hpp"
+#include "../grammar/selections/selection_multi.hpp"
+#include "../grammar/selections/selection_interval.hpp"
 
 namespace nl = nlohmann;
 
@@ -48,6 +54,12 @@ namespace xv
                             mark_trail
                             >;
 
+    using selection_type = xtl::variant<
+                                selection_single, 
+                                selection_multi, 
+                                selection_interval
+                                >;
+
     inline const nl::json& base_vegalite_json()
     {
         static const nl::json json_template = {
@@ -63,6 +75,7 @@ namespace xv
         XPROPERTY(data_frame, Chart, data);
         XPROPERTY(std::vector<marks_type>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
+        XPROPERTY(std::vector<selection_type>, Chart, selections); // matrix
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);
     };
