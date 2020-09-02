@@ -12,6 +12,7 @@
 #include "functions/populate_marks.hpp"
 #include "functions/populate_encodings.hpp"
 #include "functions/populate_selections.hpp"
+#include "functions/populate_transformations.hpp"
 #include "./utils/serialize.hpp"
 #include "./xvega_config.hpp"
 
@@ -36,6 +37,7 @@ namespace xv
         populate_marks(json_template, v);
         populate_encodings(json_template, v);
         populate_selections(json_template, v);
+        populate_transformations(json_template, v);
 
         auto bundle = nl::json::object();
         bundle["application/vnd.vegalite.v3+json"] = json_template;

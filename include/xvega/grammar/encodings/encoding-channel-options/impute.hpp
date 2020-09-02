@@ -33,7 +33,7 @@ namespace xv
 
     void to_json(nl::json& j, const ImputeSequence& data);
 
-    using  impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
+    using impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
 
     struct Impute : public xp::xobserved<Impute>
     {

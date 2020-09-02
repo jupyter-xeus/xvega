@@ -143,6 +143,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_selections.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_transformations.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/csv_data_format.hpp
@@ -155,6 +156,23 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sequence_generator.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sphere_generator.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/graticule_generator.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_aggregate.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_bin.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_calculate.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_density.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_flatten.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_fold.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_impute.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_join_aggregate.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_loess.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_lookup.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_pivot.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_quantile.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_regression.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_sample.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_stack.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_timeunit.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_window.hpp
 )
 
 set(XVEGA_SOURCES
@@ -163,6 +181,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/functions/populate_encodings.cpp
     ${XVEGA_SOURCE_DIR}/functions/populate_marks.cpp
     ${XVEGA_SOURCE_DIR}/functions/populate_selections.cpp
+    ${XVEGA_SOURCE_DIR}/functions/populate_transformations.cpp
     ${XVEGA_SOURCE_DIR}/utils/custom_datatypes.cpp
     ${XVEGA_SOURCE_DIR}/utils/random_string.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings.cpp
@@ -247,6 +266,23 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/data/generator/sequence_generator.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/generator/sphere_generator.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/generator/graticule_generator.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_aggregate.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_bin.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_calculate.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_density.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_flatten.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_fold.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_impute.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_join_aggregate.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_loess.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_lookup.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_pivot.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_quantile.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_regression.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_sample.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_stack.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_timeunit.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_window.cpp
 )
 
 add_library(xvega SHARED ${XVEGA_SOURCES} ${XVEGA_HEADERS})
