@@ -32,12 +32,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_vec_none_type>, Latitude2, title);
     };
 
-    void to_json(nl::json& j, const Latitude2& data)
-    {
-        serialize(j, data.aggregate(), "aggregate");
-        serialize(j, data.bin(), "bin");
-        serialize(j, data.field(), "field");
-        serialize(j, data.timeUnit(), "timeUnit");
-        serialize(j, data.title(), "title");
-    }
+    void to_json(nl::json& j, const Latitude2& data);
 }

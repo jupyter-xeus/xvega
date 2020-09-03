@@ -15,6 +15,7 @@
 
 #include "./datetime.hpp"
 #include "./repeatRef.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 

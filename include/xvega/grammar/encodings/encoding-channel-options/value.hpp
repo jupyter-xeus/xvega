@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -25,16 +26,10 @@ namespace xv
     {
         xtl::xoptional<any_type> value;
 
-        Value(any_type val)
-        {
-            value = val;
-        }
+        Value(any_type val);
     };
 
-    void to_json(nl::json& j, const Value& data)
-    {
-        serialize(j, data.value, "value");
-    }
+    void to_json(nl::json& j, const Value& data);
 }
 
 #endif

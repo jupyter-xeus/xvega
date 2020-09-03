@@ -12,6 +12,7 @@
 #include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 

@@ -20,19 +20,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
         XPROPERTY(xtl::xoptional<double>, mark_rect, cornerRadius);
 
-        mark_rect()
-        {
-            type = "rect";
-        }
+        mark_rect();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Rect Mark Properties
-            serialize(j, align(), "align");
-            serialize(j, baseline(), "baseline");
-            serialize(j, cornerRadius(), "cornerRadius");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

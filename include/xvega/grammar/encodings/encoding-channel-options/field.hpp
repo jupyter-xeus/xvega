@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "./repeatRef.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace xv
 {

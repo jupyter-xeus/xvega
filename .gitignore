@@ -42,3 +42,13 @@ __pycache__
 
 # Generated files
 *.pc
+
+# Generated Header Files
+include/xvega/xvega_config_cling.hpp
+
+# Workspace Settings
+.vscode
+include/xvega/.vscode
+
+# Datasets
+include/xvega/datasets/*

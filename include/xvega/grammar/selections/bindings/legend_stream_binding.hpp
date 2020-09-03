@@ -12,6 +12,7 @@
 #include <xtl/xvariant.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../xvega_config.hpp"
 #include "../../../utils/serialize.hpp"
 #include "../streams/event_stream.hpp"
 #include "../streams/derived_stream.hpp"
@@ -21,8 +22,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using stream_type = xtl::variant<event_stream, derived_stream, merged_stream>;
-    using stream_legend_type = xtl::variant<std::string, stream_type>;
+    using stream_legend_type = xtl::variant<std::string, event_stream, derived_stream, merged_stream>;
 
     struct legend_stream_binding : public xp::xobserved<legend_stream_binding>
     {
@@ -30,10 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<stream_legend_type>, legend_stream_binding, legend);
     };
 
-    void to_json(nl::json& j, const legend_stream_binding& data)
-    {
-        serialize(j, data.legend(), "legend");
-    }
+    void to_json(nl::json& j, const legend_stream_binding& data);
 }
 
 #endif

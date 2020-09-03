@@ -40,18 +40,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Row, type);
     };
 
-    void to_json(nl::json& j, const Row& data)
-    {
-        serialize(j, data.aggregate(), "aggregate");
-        serialize(j, data.align(), "align");
-        serialize(j, data.bin(), "bin");
-        serialize(j, data.center(), "center");
-        serialize(j, data.field(), "field");
-        serialize(j, data.header(), "header");
-        serialize(j, data.sort(), "sort");
-        serialize(j, data.spacing(), "spacing");
-        serialize(j, data.timeUnit(), "timeUnit");
-        serialize(j, data.title(), "title");
-        serialize(j, data.type(), "type");
-    }
+    void to_json(nl::json& j, const Row& data);
 }

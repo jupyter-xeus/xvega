@@ -7,6 +7,7 @@
 #ifndef XVEGA_MARKS_HPP
 #define XVEGA_MARKS_HPP
 
+#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
 #include "../utils/xeither.hpp"
 #include "../utils/custom_datatypes.hpp"

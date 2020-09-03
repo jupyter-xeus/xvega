@@ -40,17 +40,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Color, type);
     };
 
-    void to_json(nl::json& j, const Color& data)
-    {
-        serialize(j, data.aggregate(), "aggregate");
-        serialize(j, data.bin(), "bin");
-        // serialize(j, data.condition(), "condition");
-        serialize(j, data.field(), "field");
-        serialize(j, data.legend(), "legend");
-        serialize(j, data.scale(), "scale");
-        serialize(j, data.sort(), "sort");
-        serialize(j, data.timeUnit(), "timeUnit");
-        serialize(j, data.title(), "title");
-        serialize(j, data.type(), "type");
-    }
+    void to_json(nl::json& j, const Color& data);
 }

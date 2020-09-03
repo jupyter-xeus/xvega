@@ -21,20 +21,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_image, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
         XPROPERTY(xtl::xoptional<std::string>, mark_image, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
 
-        mark_image()
-        {
-            type = "image";
-        }
+        mark_image();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Image Mark Properties
-            serialize(j, url(), "url");
-            serialize(j, aspect(), "aspect");
-            serialize(j, align(), "align");
-            serialize(j, baseline(), "baseline");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

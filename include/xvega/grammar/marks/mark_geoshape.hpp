@@ -15,15 +15,9 @@ namespace xv
     {
         using base_type = mark<mark_geoshape>;
 
-        mark_geoshape()
-        {
-            type = "geoshape";
-        }
+        mark_geoshape();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

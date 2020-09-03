@@ -16,6 +16,7 @@
 #include "./timeunit.hpp"
 #include "./datetime.hpp"
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -52,29 +53,14 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, FieldPredicate, valid);
     };
 
-    void to_json(nl::json& j, const FieldPredicate& data)
-    {
-        serialize(j, data.field(), "field");
-        serialize(j, data.timeUnit(), "timeUnit");
-        serialize(j, data.equal(), "equal");
-        serialize(j, data.lt(), "lt");
-        serialize(j, data.lte(), "lte");
-        serialize(j, data.gt(), "gt");
-        serialize(j, data.gte(), "gte");
-        serialize(j, data.range(), "range");
-        serialize(j, data.oneOf(), "oneOf");
-        serialize(j, data.valid(), "valid");
-    }
+    void to_json(nl::json& j, const FieldPredicate& data);
 
     struct SelectionPredicate : public xp::xobserved<SelectionPredicate>
     {
         XPROPERTY(xtl::xoptional<string_object_type>, SelectionPredicate, selection);
     };
 
-    void to_json(nl::json& j, const SelectionPredicate& data)
-    {
-        serialize(j, data.selection(), "selection");
-    }
+    void to_json(nl::json& j, const SelectionPredicate& data);
 
     using predicate_type = xtl::variant<std::string, FieldPredicate, SelectionPredicate>;
 }

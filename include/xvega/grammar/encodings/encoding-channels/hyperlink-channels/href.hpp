@@ -38,17 +38,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Href, type);
     };
 
-    void to_json(nl::json& j, const Href& data)
-    {
-        serialize(j, data.aggregate(), "aggregate");
-        serialize(j, data.bin(), "bin");
-        // serialize(j, data.condition(), "condition");
-        serialize(j, data.field(), "field");
-        serialize(j, data.format(), "format");
-        serialize(j, data.formatType(), "formatType");
-        serialize(j, data.labelExpr(), "labelExpr");
-        serialize(j, data.timeUnit(), "timeUnit");
-        serialize(j, data.title(), "title");
-        serialize(j, data.type(), "type");
-    }
+    void to_json(nl::json& j, const Href& data);
 }

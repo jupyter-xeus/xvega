@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -35,19 +36,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, DateTime, utc); // Present in Altair Docs, but not in Vega-Lite Docs
     };
 
-    void to_json(nl::json& j, const DateTime& data)
-    {
-        serialize(j, data.year(), "year");
-        serialize(j, data.quarter(), "quarter");
-        serialize(j, data.month(), "month");
-        serialize(j, data.date(), "date");
-        serialize(j, data.day(), "day");
-        serialize(j, data.hours(), "hours");
-        serialize(j, data.minutes(), "minutes");
-        serialize(j, data.seconds(), "seconds");
-        serialize(j, data.milliseconds(), "milliseconds");
-        serialize(j, data.utc(), "utc");
-    }
+    void to_json(nl::json& j, const DateTime& data);
 }
 
 #endif

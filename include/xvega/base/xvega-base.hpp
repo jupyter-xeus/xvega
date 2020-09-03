@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#include "../xvega_config.hpp"
+
 #include "../utils/custom_datatypes.hpp"
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
@@ -60,15 +62,7 @@ namespace xv
                                 selection_interval
                                 >;
 
-    inline const nl::json& base_vegalite_json()
-    {
-        static const nl::json json_template = {
-            { "$schema", "https://vega.github.io/schema/vega-lite/v4.json" },
-        };
-        return json_template;
-    };
-
-    auto json_template = base_vegalite_json();
+    const nl::json& base_vegalite_json();
 
     struct Chart : public xp::xobserved<Chart>
     {

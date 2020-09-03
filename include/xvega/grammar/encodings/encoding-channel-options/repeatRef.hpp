@@ -13,6 +13,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -23,10 +24,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, RepeatRef, repeat);
     };
 
-    void to_json(nl::json& j, const RepeatRef& data)
-    {
-        serialize(j, data.repeat(), "repeat");
-    }
+    void to_json(nl::json& j, const RepeatRef& data);
 }
 
 #endif

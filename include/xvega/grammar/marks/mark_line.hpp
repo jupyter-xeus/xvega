@@ -21,20 +21,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_line, tension);
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_line, point);
 
-        mark_line()
-        {
-            type = "line";
-        }
+        mark_line();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Line Mark Properties
-            serialize(j, orient(), "orient");
-            serialize(j, interpolate(), "interpolate");
-            serialize(j, tension(), "tension");
-            serialize(j, point(), "point");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

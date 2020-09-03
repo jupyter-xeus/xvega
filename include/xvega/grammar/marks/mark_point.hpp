@@ -19,18 +19,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_point, shape);
         XPROPERTY(xtl::xoptional<double>, mark_point, size);
 
-        mark_point()
-        {
-            type = "point";
-        }
+        mark_point();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Point Mark Properties
-            serialize(j, shape(), "shape");
-            serialize(j, size(), "size");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -30,12 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ImputeSequence, step);
     };
 
-    void to_json(nl::json& j, const ImputeSequence& data)
-    {
-        serialize(j, data.start(), "start");
-        serialize(j, data.stop(), "stop");
-        serialize(j, data.step(), "step");
-    }
+    void to_json(nl::json& j, const ImputeSequence& data);
 
     using  impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
 
@@ -47,13 +43,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<any_type>, Impute, value);
     };
 
-    void to_json(nl::json& j, const Impute& data)
-    {
-        serialize(j, data.frame(), "frame");
-        serialize(j, data.keyvals(), "keyvals");
-        serialize(j, data.method(), "method");
-        serialize(j, data.value(), "value");
-    }
+    void to_json(nl::json& j, const Impute& data);
 
     using impute_type = xtl::variant<Impute, std::nullptr_t>;
 }

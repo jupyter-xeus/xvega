@@ -30,22 +30,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<selection_bind_type>, selection_single, bind);
         XPROPERTY(xtl::xoptional<bool>, selection_single, nearest);
 
-        selection_single()
-        {
-            if(!name().has_value())
-            {
-                name = "selector_single_" + random_string(5);
-            }
-            type = "single";
-        }
+        selection_single();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            serialize(j, init(), "init");
-            serialize(j, bind(), "bind");
-            serialize(j, nearest(), "nearest");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

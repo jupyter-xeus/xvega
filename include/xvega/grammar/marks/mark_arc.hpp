@@ -29,28 +29,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_arc, thetaOffset);
         XPROPERTY(xtl::xoptional<double>, mark_arc, theta2Offset);
 
-        mark_arc()
-        {
-            type = "arc";
-        }
+        mark_arc();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Arc Mark Properties
-            serialize(j, radius(), "radius");
-            serialize(j, radius2(), "radius2");
-            serialize(j, innerRadius(), "innerRadius");
-            serialize(j, outerRadius(), "outerRadius");
-            serialize(j, theta(), "theta");
-            serialize(j, theta2(), "theta2");
-            serialize(j, cornerRadius(), "cornerRadius");
-            serialize(j, padAngle(), "padAngle");
-            serialize(j, radiusOffset(), "radiusOffset");
-            serialize(j, radius2Offset(), "radius2Offset");
-            serialize(j, thetaOffset(), "thetaOffset");
-            serialize(j, theta2Offset(), "theta2Offset");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

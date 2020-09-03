@@ -26,24 +26,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, translate);
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, zoom);
 
-        selection_interval()
-        {
-            if(!name().has_value())
-            {
-                name = "selector_interval_" + random_string(5);
-            }
-            type = "interval";
-        }
+        selection_interval();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            serialize(j, bind(), "bind");
-            serialize(j, init(), "init");
-            serialize(j, mark(), "mark");
-            serialize(j, translate(), "translate");
-            serialize(j, zoom(), "zoom");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

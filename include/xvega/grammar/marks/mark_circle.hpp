@@ -18,17 +18,9 @@ namespace xv
         // Circle Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_circle, size);
 
-        mark_circle()
-        {
-            type = "circle";
-        }
+        mark_circle();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Circle Mark Properties
-            serialize(j, size(), "size");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 
