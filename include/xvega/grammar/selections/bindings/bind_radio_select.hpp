@@ -11,6 +11,7 @@
 #include "xtl/xoptional.hpp"
 #include "xtl/xvariant.hpp"
 #include "nlohmann/json.hpp"
+#include "../../../xvega_config.hpp"
 #include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
@@ -31,16 +32,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, type);
     };
 
-    void to_json(nl::json& j, const bind_radio_select& data)
-    {
-        serialize(j, data.input(), "input");
-        serialize(j, data.options(), "options");
-        serialize(j, data.debounce(), "debounce");
-        serialize(j, data.element(), "element");
-        serialize(j, data.labels(), "labels");
-        serialize(j, data.name(), "name");
-        serialize(j, data.type(), "type");
-    }
+    void to_json(nl::json& j, const bind_radio_select& data);
 }
 
 #endif

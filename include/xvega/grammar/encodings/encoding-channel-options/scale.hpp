@@ -15,6 +15,7 @@
 
 #include "./datetime.hpp"
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -43,10 +44,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<any_array_type>, DomainUnionWith, unionWith);
     };
 
-    void to_json(nl::json& j, const DomainUnionWith& data)
-    {
-        serialize(j, data.unionWith(), "unionWith");
-    };
+    void to_json(nl::json& j, const DomainUnionWith& data);
 
     using scale_domain_type = xtl::variant<any_array_type, std::string, nl::json, DomainUnionWith>;
 
@@ -57,12 +55,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ScaleBin, step);
     };
 
-    void to_json(nl::json& j, const ScaleBin& data)
-    {
-        serialize(j, data.start(), "start");
-        serialize(j, data.stop(), "stop");
-        serialize(j, data.step(), "step");
-    }
+    void to_json(nl::json& j, const ScaleBin& data);
 
     using scale_bin_type = xtl::variant<std::vector<double>, std::vector<int>, ScaleBin>;
 
@@ -73,12 +66,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Scheme, count);
     };
 
-    void to_json(nl::json& j, const Scheme& data)
-    {
-        serialize(j, data.name(), "name");
-        serialize(j, data.extent(), "extent");
-        serialize(j, data.count(), "count");
-    }
+    void to_json(nl::json& j, const Scheme& data);
 
     using scale_scheme_type = xtl::variant<std::string, Scheme>;
 
@@ -88,11 +76,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ScaleInterpolate, gamma);
     };
 
-    void to_json(nl::json& j, const ScaleInterpolate& data)
-    {
-        serialize(j, data.type(), "type");
-        serialize(j, data.gamma(), "gamma");
-    }
+    void to_json(nl::json& j, const ScaleInterpolate& data);
 
     using scale_interpolate_type = xtl::variant<std::string, ScaleInterpolate>;
 
@@ -102,11 +86,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, TimeIntervalStep, step);
     };
 
-    void to_json(nl::json& j, const TimeIntervalStep& data)
-    {
-        serialize(j, data.interval(), "interval");
-        serialize(j, data.step(), "step");
-    }
+    void to_json(nl::json& j, const TimeIntervalStep& data);
 
     using nice_type = xtl::variant<double, int, std::string, bool, TimeIntervalStep>;
 
@@ -137,32 +117,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<scale_bin_type>, Scale, bins);
     };
 
-    void to_json(nl::json& j, const Scale& data)
-    {
-        serialize(j, data.type(), "type");
-        serialize(j, data.domain(), "domain");
-        serialize(j, data.domainMax(), "domainMax");
-        serialize(j, data.domainMin(), "domainMin");
-        serialize(j, data.domainMid(), "domainMid");
-        serialize(j, data.range(), "range");
-        serialize(j, data.rangeMin(), "rangeMin");
-        serialize(j, data.rangeMax(), "rangeMax");
-        serialize(j, data.scheme(), "scheme");
-        serialize(j, data.reverse(), "reverse");
-        serialize(j, data.round(), "round");
-        serialize(j, data.clamp(), "clamp");
-        serialize(j, data.interpolate(), "interpolate");
-        serialize(j, data.nice(), "nice");
-        serialize(j, data.padding(), "padding");
-        serialize(j, data.zero(), "zero");
-        serialize(j, data.exponent(), "exponent");
-        serialize(j, data.base(), "base");
-        serialize(j, data.constant(), "constant");
-        serialize(j, data.align(), "align");
-        serialize(j, data.paddingInner(), "paddingInner");
-        serialize(j, data.paddingOuter(), "paddingOuter");
-        serialize(j, data.bins(), "bins");
-    }
+    void to_json(nl::json& j, const Scale& data);
 
     using scale_type = xtl::variant<Scale, std::nullptr_t>;
 }

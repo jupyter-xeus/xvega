@@ -33,32 +33,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, mark_text, text);
         XPROPERTY(xtl::xoptional<double>, mark_text, theta);
 
-        mark_text()
-        {
-            type = "text";
-        }
+        mark_text();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Text Mark Properties
-            serialize(j, angle(), "angle");
-            serialize(j, align(), "align");
-            serialize(j, baseline(), "baseline");
-            serialize(j, dir(), "dir");
-            serialize(j, dx(), "dx");
-            serialize(j, dy(), "dy");
-            serialize(j, ellipsis(), "ellipsis");
-            serialize(j, font(), "font");
-            serialize(j, fontSize(), "fontSize");
-            serialize(j, fontStyle(), "fontStyle");
-            serialize(j, fontWeight(), "fontWeight");
-            serialize(j, limit(), "limit");
-            serialize(j, lineHeight(), "lineHeight");
-            serialize(j, radius(), "radius");
-            serialize(j, text(), "text");
-            serialize(j, theta(), "theta");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

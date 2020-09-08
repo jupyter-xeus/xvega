@@ -7,6 +7,7 @@
 #ifndef XVEGA_SERIALIZE_HPP
 #define XVEGA_SERIALIZE_HPP
 
+#include "../xvega_config.hpp"
 #include "nlohmann/json.hpp"
 
 namespace nl = nlohmann;

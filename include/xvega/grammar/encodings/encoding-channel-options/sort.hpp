@@ -16,6 +16,7 @@
 #include "./datetime.hpp"
 #include "./field.hpp"
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -37,11 +38,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_none_type>, FieldSort, order);
     };
 
-    void to_json(nl::json& j, const FieldSort& data) {
-        serialize(j, data.field(), "field");
-        serialize(j, data.op(), "op");
-        serialize(j, data.order(), "order");
-    }
+    void to_json(nl::json& j, const FieldSort& data);
 
     struct EncodingSort : public xp::xobserved<EncodingSort>
     {
@@ -49,10 +46,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_none_type>, EncodingSort, order);
     };
 
-    void to_json(nl::json& j, const EncodingSort& data) {
-        serialize(j, data.encoding(), "encoding");
-        serialize(j, data.order(), "order");
-    }
+    void to_json(nl::json& j, const EncodingSort& data);
 
     using sort_type = xtl::variant<any_array_type, std::string, std::nullptr_t, FieldSort, EncodingSort>;
 }

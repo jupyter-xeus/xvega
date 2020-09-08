@@ -14,6 +14,7 @@
 #include "xeither.hpp"
 #include <xtl/xjson.hpp>
 
+#include "../xvega_config.hpp"
 #include "./serialize.hpp"
 
 namespace nl = nlohmann;
@@ -35,11 +36,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, GradientStop, offset);
     };
 
-    void to_json(nl::json& j, const GradientStop& data)
-    {
-        serialize(j, data.color(), "color");
-        serialize(j, data.offset(), "offset");
-    }
+    void to_json(nl::json& j, const GradientStop& data);
 
     struct LinearGradient : public xp::xobserved<LinearGradient>
     {
@@ -51,14 +48,7 @@ namespace xv
         XPROPERTY(std::vector<GradientStop>, LinearGradient, stops);
     };
 
-    void to_json(nl::json& j, const LinearGradient& data) {
-        j["gradient"] = data.gradient();
-        serialize(j, data.x1(), "x1");
-        serialize(j, data.x2(), "x2");
-        serialize(j, data.y1(), "y1");
-        serialize(j, data.y2(), "y2");
-        j["stops"] = data.stops();
-    }
+    void to_json(nl::json& j, const LinearGradient& data);
 
     struct RadialGradient : public xp::xobserved<RadialGradient>
     {
@@ -72,26 +62,14 @@ namespace xv
         XPROPERTY(std::vector<GradientStop>, RadialGradient, stops);
     };
 
-    void to_json(nl::json& j, const RadialGradient& data)
-    {
-        j["gradient"] = data.gradient();
-        serialize(j, data.x1(), "x1");
-        serialize(j, data.x2(), "x2");
-        serialize(j, data.y1(), "y1");
-        serialize(j, data.y2(), "y2");
-        serialize(j, data.r1(), "r1");
-        serialize(j, data.r2(), "r2");
-        j["stops"] = data.stops();
-    }
+    void to_json(nl::json& j, const RadialGradient& data);
 
     struct TooltipContent : public xp::xobserved<TooltipContent>
     {
         XPROPERTY(xtl::xoptional<std::string>, TooltipContent, content, xtl::missing<std::string>(), XEITHER_OPTIONAL("encoding", "data"));
     };
 
-    void to_json(nl::json& j, const TooltipContent& data) {
-        serialize(j, data.content(), "content");
-    }
+    void to_json(nl::json& j, const TooltipContent& data);
 
     using tooltip_type = xtl::variant<std::string, bool, double, int, std::nullptr_t, TooltipContent>;
     using color_type = xtl::variant<std::string, LinearGradient, RadialGradient>;

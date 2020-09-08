@@ -18,17 +18,9 @@ namespace xv
         // Square Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_square, size);
 
-        mark_square()
-        {
-            type = "square";
-        }
+        mark_square();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Square Mark Properties
-            serialize(j, size(), "size");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

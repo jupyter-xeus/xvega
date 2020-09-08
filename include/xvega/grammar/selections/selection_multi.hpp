@@ -26,23 +26,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, selection_multi, nearest);
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_multi, toggle);
 
-        selection_multi()
-        {
-            if(!name().has_value())
-            {
-                name = "selector_multi_" + random_string(5);
-            }
-            type = "multi";
-        }
+        selection_multi();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            serialize(j, init(), "init");
-            serialize(j, bind(), "bind");
-            serialize(j, nearest(), "nearest");
-            serialize(j, toggle(), "toggle");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

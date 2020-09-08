@@ -11,6 +11,7 @@
 #include <string>
 #include <unordered_set>
 
+#include "../xvega_config.hpp"
 #include "xtl/xoptional.hpp"
 
 namespace xv

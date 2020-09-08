@@ -15,15 +15,9 @@ namespace xv
     {
         using base_type = mark<mark_rule>;
 
-        mark_rule()
-        {
-            type = "rule";
-        }
+        mark_rule();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

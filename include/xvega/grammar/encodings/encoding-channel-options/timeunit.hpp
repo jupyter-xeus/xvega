@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -27,13 +28,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, TimeUnit, utc);
     };
 
-    void to_json(nl::json& j, const TimeUnit& data)
-    {
-        serialize(j, data.unit(), "unit");
-        serialize(j, data.maxbins(), "maxbins");
-        serialize(j, data.step(), "step");
-        serialize(j, data.utc(), "utc");
-    }
+    void to_json(nl::json& j, const TimeUnit& data);
 
     using time_unit_type = xtl::variant<std::string, TimeUnit>;
 }

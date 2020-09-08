@@ -19,18 +19,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_tick, cornerRadius);
         XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
 
-        mark_tick()
-        {
-            type = "tick";
-        }
+        mark_tick();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Tick Mark Properties
-            serialize(j, cornerRadius(), "cornerRadius");
-            serialize(j, orient(), "orient");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

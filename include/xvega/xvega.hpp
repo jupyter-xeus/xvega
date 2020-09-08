@@ -13,14 +13,16 @@
 #include "functions/populate_encodings.hpp"
 #include "functions/populate_selections.hpp"
 #include "./utils/serialize.hpp"
+#include "./xvega_config.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
-{
+{   
     nl::json mime_bundle_repr(const Chart& v)
     {
-        populate_data(v);
+        auto json_template = base_vegalite_json();
+        populate_data(json_template, v);
 
         serialize(json_template, v.width(), "width");
         serialize(json_template, v.height(), "height");
@@ -31,9 +33,9 @@ namespace xv
             json_template["layer"] = {{}};
         }
         
-        populate_marks(v);
-        populate_encodings(v);
-        populate_selections(v);
+        populate_marks(json_template, v);
+        populate_encodings(json_template, v);
+        populate_selections(json_template, v);
 
         auto bundle = nl::json::object();
         bundle["application/vnd.vegalite.v3+json"] = json_template;

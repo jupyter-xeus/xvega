@@ -7,6 +7,7 @@
 #ifndef XVEGA_SELECTION_MARK_HPP
 #define XVEGA_SELECTION_MARK_HPP
 
+#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
 #include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
@@ -29,17 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, selection_mark, strokeDashOffset);
     };
 
-    void to_json(nl::json& j, const selection_mark& data)
-    {
-        serialize(j, data.cursor(), "cursor");
-        serialize(j, data.fill(), "fill");
-        serialize(j, data.fillOpacity(), "fillOpacity");
-        serialize(j, data.stroke(), "stroke");
-        serialize(j, data.strokeOpacity(), "strokeOpacity");
-        serialize(j, data.strokeWidth(), "strokeWidth");
-        serialize(j, data.strokeDash(), "strokeDash");
-        serialize(j, data.strokeDashOffset(), "strokeDashOffset");
-    }
+    void to_json(nl::json& j, const selection_mark& data);
 }
 
 #endif

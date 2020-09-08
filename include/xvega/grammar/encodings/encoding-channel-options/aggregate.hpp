@@ -13,6 +13,7 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
+#include "../../../xvega_config.hpp"
 #include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
@@ -25,11 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Aggregate, argmin);
     };
 
-    void to_json(nl::json& j, const Aggregate& data)
-    {
-        serialize(j, data.argmax(), "argmax");
-        serialize(j, data.argmin(), "argmin");
-    }
+    void to_json(nl::json& j, const Aggregate& data);
 
     using agg_type = xtl::variant<Aggregate, std::string>;
 }

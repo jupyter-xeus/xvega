@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../utils/serialize.hpp"
+#include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
@@ -33,19 +34,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<double>>, Bin, steps);
     };
 
-    void to_json(nl::json& j, const Bin& data)
-    {
-        serialize(j, data.anchor(), "anchor");
-        serialize(j, data.base(), "base");
-        serialize(j, data.binned(), "binned");
-        serialize(j, data.divide(), "divide");
-        serialize(j, data.extent(), "extent");
-        serialize(j, data.maxbins(), "maxbins");
-        serialize(j, data.minstep(), "minstep");
-        serialize(j, data.nice(), "nice");
-        serialize(j, data.step(), "step");
-        serialize(j, data.steps(), "steps");
-    }
+    void to_json(nl::json& j, const Bin& data);
 
     using bin_type = xtl::variant<bool, Bin, std::string, std::nullptr_t>;
 }

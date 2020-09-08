@@ -24,23 +24,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_object_type>, mark_area, line);
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_area, point);
 
-        mark_area()
-        {
-            type = "area";
-        }
+        mark_area();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Area Mark Properties
-            serialize(j, align(), "align");
-            serialize(j, baseline(), "baseline");
-            serialize(j, orient(), "orient");
-            serialize(j, interpolate(), "interpolate");
-            serialize(j, tension(), "tension");
-            serialize(j, line(), "line");
-            serialize(j, point(), "point");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

@@ -18,17 +18,9 @@ namespace xv
         // Trail Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
 
-        mark_trail()
-        {
-            type = "trail";
-        }
+        mark_trail();
 
-        void to_json(nl::json& j) const
-        {
-            base_type::to_json(j);
-            // Fill in Trail Mark Properties
-            serialize(j, orient(), "orient");
-        }
+        void to_json(nl::json& j) const;
     };
 }
 

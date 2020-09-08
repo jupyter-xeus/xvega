@@ -11,6 +11,7 @@
 #include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
 #include "./event_stream.hpp"
+#include "../../../xvega_config.hpp"
 #include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
@@ -30,17 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, derived_stream, throttle);
     };
 
-    void to_json(nl::json& j, const derived_stream& data)
-    {
-        serialize(j, data.stream(), "stream");
-        serialize(j, data.between(), "between");
-        serialize(j, data.consume(), "consume");
-        serialize(j, data.filter(), "filter");
-        serialize(j, data.debounce(), "debounce");
-        serialize(j, data.markname(), "markname");
-        serialize(j, data.marktype(), "marktype");
-        serialize(j, data.throttle(), "throttle");
-    }
+    void to_json(nl::json& j, const derived_stream& data);
 }
 
 #endif

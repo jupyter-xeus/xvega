@@ -10,6 +10,7 @@
 #include "xproperty/xobserved.hpp"
 #include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
+#include "../../../xvega_config.hpp"
 #include "../../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
@@ -23,11 +24,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, event_stream, type);
     };
 
-    void to_json(nl::json& j, const event_stream& data)
-    {
-        serialize(j, data.source(), "source");
-        serialize(j, data.type(), "type");
-    }
+    void to_json(nl::json& j, const event_stream& data);
 }
 
 #endif
