@@ -16,8 +16,8 @@ namespace xv
         using base_type = mark<mark_rect>;
 
         // Rect Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_rect, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_rect, align);
+        XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline);
         XPROPERTY(xtl::xoptional<double>, mark_rect, cornerRadius);
 
         mark_rect();

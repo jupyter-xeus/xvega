@@ -17,9 +17,9 @@ namespace xv
 
         // Text Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_text, angle);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, dir, xtl::missing<std::string>(), XEITHER_OPTIONAL("ltr", "rtl"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_text, align);
+        XPROPERTY(xtl::xoptional<std::string>, mark_text, baseline);
+        XPROPERTY(xtl::xoptional<std::string>, mark_text, dir);
         XPROPERTY(xtl::xoptional<double>, mark_text, dx);
         XPROPERTY(xtl::xoptional<double>, mark_text, dy);
         XPROPERTY(xtl::xoptional<std::string>, mark_text, ellipsis);

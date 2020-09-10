@@ -17,7 +17,7 @@ namespace xv
 
         // Tick Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_tick, cornerRadius);
-        XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient);
 
         mark_tick();
 

@@ -4,12 +4,13 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#include "xvega/functions/populate_data.hpp"
+#include "xvega/grammar/data/data_source/named_data.hpp"
 
 namespace xv
 {
-    void populate_data(nl::json& json_template, const Chart& v)
+    void to_json(nl::json& j, const named_data& data)
     {
-        json_template["data"] = v.data();
-    }   
+        serialize(j, data.name(), "name");
+        serialize(j, data.format(), "format");
+    }
 }

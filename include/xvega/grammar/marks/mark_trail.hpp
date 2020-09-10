@@ -16,7 +16,7 @@ namespace xv
         using base_type = mark<mark_trail>;
 
         // Trail Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient);
 
         mark_trail();
 

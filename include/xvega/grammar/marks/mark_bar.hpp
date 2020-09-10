@@ -16,9 +16,9 @@ namespace xv
         using base_type = mark<mark_bar>;
 
         // Bar Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_bar, orient);
+        XPROPERTY(xtl::xoptional<std::string>, mark_bar, align);
+        XPROPERTY(xtl::xoptional<std::string>, mark_bar, baseline);
         XPROPERTY(xtl::xoptional<double>, mark_bar, binSpacing);
         XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadius);
         XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusEnd);

@@ -5,9 +5,27 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/utils/custom_datatypes.hpp"
+#include <iostream>
 
 namespace xv
 {
+    void to_json(nl::json& j, const data_frame& data)
+    {
+        j["values"] = {{}};
+        int i;
+        for(auto const& x : data)
+        {
+            std::string column_name = x.first;
+            std::vector<xtl::variant<double, int, std::string>> values = x.second;
+            i = 0;
+            for(auto& k: values)
+            {
+                xtl::visit([&](auto&& each_value){j["data"]["values"][i][x.first]=each_value;}, k);
+                i++;
+            }
+        }
+    }
+
     void to_json(nl::json& j, const GradientStop& data)
     {
         serialize(j, data.color(), "color");

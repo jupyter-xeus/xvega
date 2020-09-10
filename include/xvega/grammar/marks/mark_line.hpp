@@ -16,8 +16,8 @@ namespace xv
         using base_type = mark<mark_line>;
 
         // Line Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_line, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_line, interpolate, xtl::missing<std::string>(), XEITHER_OPTIONAL("basis", "basis-open", "basis-closed", "bundle", "cardinal", "cardinal-open", "cardinal-closed", "catmull-rom", "linear", "linear-closed", "monotone", "natural", "step", "step-before", "step-after"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_line, orient);
+        XPROPERTY(xtl::xoptional<std::string>, mark_line, interpolate);
         XPROPERTY(xtl::xoptional<double>, mark_line, tension);
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_line, point);
 

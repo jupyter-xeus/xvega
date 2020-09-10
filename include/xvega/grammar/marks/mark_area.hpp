@@ -16,10 +16,10 @@ namespace xv
         using base_type = mark<mark_area>;
 
         // Area Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, orient, xtl::missing<std::string>(), XEITHER_OPTIONAL("horizontal", "vertical"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, interpolate, xtl::missing<std::string>(), XEITHER_OPTIONAL("basis", "basis-open", "basis-closed", "bundle", "cardinal", "cardinal-open", "cardinal-closed", "catmull-rom", "linear", "linear-closed", "monotone", "natural", "step", "step-before", "step-after"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_area, align);
+        XPROPERTY(xtl::xoptional<std::string>, mark_area, baseline);
+        XPROPERTY(xtl::xoptional<std::string>, mark_area, orient);
+        XPROPERTY(xtl::xoptional<std::string>, mark_area, interpolate);
         XPROPERTY(xtl::xoptional<double>, mark_area, tension);
         XPROPERTY(xtl::xoptional<bool_object_type>, mark_area, line);
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_area, point);

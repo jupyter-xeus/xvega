@@ -19,7 +19,7 @@ namespace xv
     struct mark : public xp::xobserved<D>
     {
         // General Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, D, type, xtl::missing<std::string>(), XEITHER_OPTIONAL("arc", "bar", "circle", "square", "tick", "line", "area", "point", "geoshape", "rule", "text", "image"));
+        XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<bool>, D, aria);
         XPROPERTY(xtl::xoptional<std::string>, D, description);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, style);
@@ -45,20 +45,20 @@ namespace xv
         XPROPERTY(xtl::xoptional<color_type>, D, color);
         XPROPERTY(xtl::xoptional<color_none_type>, D, fill);
         XPROPERTY(xtl::xoptional<color_none_type>, D, stroke);
-        XPROPERTY(xtl::xoptional<std::string>, D, blend, xtl::missing<std::string>(), XEITHER_OPTIONAL("multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"));
+        XPROPERTY(xtl::xoptional<std::string>, D, blend);
         XPROPERTY(xtl::xoptional<double>, D, opacity);
         XPROPERTY(xtl::xoptional<double>, D, fillOpacity);
         XPROPERTY(xtl::xoptional<double>, D, strokeOpacity);
-        XPROPERTY(xtl::xoptional<std::string>, D, strokeCap, xtl::missing<std::string>(), XEITHER_OPTIONAL("butt", "round", "square"));
+        XPROPERTY(xtl::xoptional<std::string>, D, strokeCap);
         XPROPERTY(xtl::xoptional<std::vector<double>>, D, strokeDash);
         XPROPERTY(xtl::xoptional<double>, D, strokeDashOffset);
-        XPROPERTY(xtl::xoptional<std::string>, D, strokeJoin, xtl::missing<std::string>(), XEITHER_OPTIONAL("miter", "round", "bevel"));
+        XPROPERTY(xtl::xoptional<std::string>, D, strokeJoin);
         XPROPERTY(xtl::xoptional<double>, D, strokeMiterLimit);
         XPROPERTY(xtl::xoptional<double>, D, strokeWidth);
 
         // Hyperlink Properties
         XPROPERTY(xtl::xoptional<std::string>, D, href);
-        XPROPERTY(xtl::xoptional<std::string>, D, cursor, xtl::missing<std::string>(), XEITHER_OPTIONAL("auto", "default", "none", "context-menu", "help", "pointer", "progress", "wait", "cell", "crosshair", "text", "vertical-text", "alias", "copy", "move", "no-drop", "not-allowed", "e-resize", "n-resize", "ne-resize", "nw-resize", "s-resize", "se-resize", "sw-resize", "w-resize", "ew-resize", "ns-resize", "nesw-resize", "nwse-resize", "col-resize", "row-resize", "all-scroll", "zoom-in", "zoom-out", "grab", "grabbing"));
+        XPROPERTY(xtl::xoptional<std::string>, D, cursor);
     
         void to_json(nl::json& j) const
         {

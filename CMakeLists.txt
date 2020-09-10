@@ -143,6 +143,18 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_selections.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/csv_data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/tsv_data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/dsv_data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/topo_data_format.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_source/named_data.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_source/url_data.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_source/inline_data.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sequence_generator.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sphere_generator.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/graticule_generator.hpp
 )
 
 set(XVEGA_SOURCES
@@ -224,6 +236,17 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_single.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_multi.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_interval.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format/json_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format/csv_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format/tsv_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format/dsv_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format/topo_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_source/named_data.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_source/url_data.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_source/inline_data.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/generator/sequence_generator.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/generator/sphere_generator.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/generator/graticule_generator.cpp
 )
 
 add_library(xvega SHARED ${XVEGA_SOURCES} ${XVEGA_HEADERS})
