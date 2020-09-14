@@ -18,8 +18,8 @@ namespace xv
         // Image Mark Properties
         XPROPERTY(xtl::xoptional<any_type>, mark_image, url);
         XPROPERTY(xtl::xoptional<bool>, mark_image, aspect);
-        XPROPERTY(xtl::xoptional<std::string>, mark_image, align, xtl::missing<std::string>(), XEITHER_OPTIONAL("left", "right", "center"));
-        XPROPERTY(xtl::xoptional<std::string>, mark_image, baseline, xtl::missing<std::string>(), XEITHER_OPTIONAL("alphabetic", "top", "middle", "bottom", "line-top", "line-bottom"));
+        XPROPERTY(xtl::xoptional<std::string>, mark_image, align);
+        XPROPERTY(xtl::xoptional<std::string>, mark_image, baseline);
 
         mark_image();
 

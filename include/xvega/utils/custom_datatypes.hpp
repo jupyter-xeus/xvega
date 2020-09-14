@@ -21,7 +21,15 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using data_frame = std::map<std::string, std::vector<xtl::variant<double, int, std::string>>>;
+
+    using df_type = std::map<std::string, std::vector<xtl::variant<double, int, std::string>>>;
+
+    struct data_frame : public xp::xobserved<data_frame>
+    {
+        XPROPERTY(xtl::xoptional<df_type>, data_frame, values);
+    };
+
+    void to_json(nl::json& j, const data_frame& data);
 
     using string_none_type = xtl::variant<std::nullptr_t, std::string>;
     using bool_none_type = xtl::variant<std::nullptr_t, bool>;
@@ -66,7 +74,7 @@ namespace xv
 
     struct TooltipContent : public xp::xobserved<TooltipContent>
     {
-        XPROPERTY(xtl::xoptional<std::string>, TooltipContent, content, xtl::missing<std::string>(), XEITHER_OPTIONAL("encoding", "data"));
+        XPROPERTY(xtl::xoptional<std::string>, TooltipContent, content);
     };
 
     void to_json(nl::json& j, const TooltipContent& data);

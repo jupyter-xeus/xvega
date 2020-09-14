@@ -35,10 +35,31 @@
 #include "../grammar/selections/selection_multi.hpp"
 #include "../grammar/selections/selection_interval.hpp"
 
+#include "../grammar/data/data_source/named_data.hpp"
+#include "../grammar/data/data_source/inline_data.hpp"
+#include "../grammar/data/data_source/url_data.hpp"
+#include "../grammar/data/generator/sequence_generator.hpp"
+#include "../grammar/data/generator/sphere_generator.hpp"
+#include "../grammar/data/generator/graticule_generator.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
 {
+    using data_source = xtl::variant<
+                             named_data, 
+                             inline_data,
+                             url_data
+                             >;
+
+    using generator = xtl::variant<
+                           sequence_generator, 
+                           sphere_generator,
+                           graticule_generator
+                           >;
+
+    using data_type = xtl::variant<data_source, generator, data_frame>;
+
     using marks_type = xtl::variant<
                             mark_arc, 
                             mark_area, 
@@ -66,7 +87,7 @@ namespace xv
 
     struct Chart : public xp::xobserved<Chart>
     {
-        XPROPERTY(data_frame, Chart, data);
+        XPROPERTY(data_type, Chart, data);
         XPROPERTY(std::vector<marks_type>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
         XPROPERTY(std::vector<selection_type>, Chart, selections); // matrix

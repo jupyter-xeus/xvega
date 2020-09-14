@@ -27,7 +27,7 @@ namespace xv
     struct selection : public xp::xobserved<D>
     {
         XPROPERTY(xtl::xoptional<std::string>, D, name);
-        XPROPERTY(xtl::xoptional<std::string>, D, type, xtl::missing<std::string>(), XEITHER_OPTIONAL("single", "multi", "interval"));
+        XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<clear_type>, D, clear);
         XPROPERTY(xtl::xoptional<std::string>, D, empty);
         XPROPERTY(xtl::xoptional<on_type>, D, on);
