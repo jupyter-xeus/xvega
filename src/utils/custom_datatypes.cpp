@@ -13,14 +13,14 @@ namespace xv
     {
         j["values"] = {{}};
         int i;
-        for(auto const& x : data)
+        for(auto const& x : data.values().value())
         {
             std::string column_name = x.first;
             std::vector<xtl::variant<double, int, std::string>> values = x.second;
             i = 0;
             for(auto& k: values)
             {
-                xtl::visit([&](auto&& each_value){j["data"]["values"][i][x.first]=each_value;}, k);
+                xtl::visit([&](auto&& each_value){j["values"][i][x.first]=each_value;}, k);
                 i++;
             }
         }
