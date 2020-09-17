@@ -42,6 +42,24 @@
 #include "../grammar/data/generator/sphere_generator.hpp"
 #include "../grammar/data/generator/graticule_generator.hpp"
 
+#include "../grammar/transformations/transform_aggregate.hpp"
+#include "../grammar/transformations/transform_bin.hpp"
+#include "../grammar/transformations/transform_calculate.hpp"
+#include "../grammar/transformations/transform_density.hpp"
+#include "../grammar/transformations/transform_flatten.hpp"
+#include "../grammar/transformations/transform_fold.hpp"
+#include "../grammar/transformations/transform_impute.hpp"
+#include "../grammar/transformations/transform_join_aggregate.hpp"
+#include "../grammar/transformations/transform_loess.hpp"
+#include "../grammar/transformations/transform_lookup.hpp"
+#include "../grammar/transformations/transform_pivot.hpp"
+#include "../grammar/transformations/transform_quantile.hpp"
+#include "../grammar/transformations/transform_regression.hpp"
+#include "../grammar/transformations/transform_sample.hpp"
+#include "../grammar/transformations/transform_stack.hpp"
+#include "../grammar/transformations/transform_timeunit.hpp"
+#include "../grammar/transformations/transform_window.hpp"
+
 namespace nl = nlohmann;
 
 namespace xv
@@ -83,6 +101,26 @@ namespace xv
                                 selection_interval
                                 >;
 
+    using transform_type = xtl::variant<
+                                transform_aggregate,
+                                transform_bin,
+                                transform_calculate,
+                                transform_density,
+                                transform_flatten,
+                                transform_fold,
+                                transform_impute,
+                                transform_join_aggregate,
+                                transform_loess,
+                                transform_lookup,
+                                transform_pivot,
+                                transform_quantile,
+                                transform_regression,
+                                transform_sample,
+                                transform_stack,
+                                transform_timeunit,
+                                transform_window
+                                >;
+
     const nl::json& base_vegalite_json();
 
     struct Chart : public xp::xobserved<Chart>
@@ -91,6 +129,7 @@ namespace xv
         XPROPERTY(std::vector<marks_type>, Chart, marks);
         XPROPERTY(std::vector<Encodings>, Chart, encodings);
         XPROPERTY(std::vector<selection_type>, Chart, selections); // matrix
+        XPROPERTY(std::vector<transform_type>, Chart, transformations);
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);
     };
