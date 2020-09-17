@@ -46,7 +46,16 @@ namespace xv
 
     void to_json(nl::json& j, const DomainUnionWith& data);
 
-    using scale_domain_type = xtl::variant<any_array_type, std::string, nl::json, DomainUnionWith>;
+    using scale_domain_type = xtl::variant<
+                                   std::vector<std::string>, 
+                                   std::vector<double>, 
+                                   std::vector<int>, 
+                                   std::vector<bool>, 
+                                   std::vector<DateTime>,
+                                   std::string, 
+                                   nl::json, 
+                                   DomainUnionWith
+                                   >;
 
     struct ScaleBin : public xp::xobserved<ScaleBin>
     {
