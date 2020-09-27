@@ -13,6 +13,9 @@
 #include "functions/populate_encodings.hpp"
 #include "functions/populate_selections.hpp"
 #include "functions/populate_transformations.hpp"
+#include "grammar/view_compositions/layering.hpp"
+#include "grammar/view_compositions/hconcat.hpp"
+#include "grammar/view_compositions/vconcat.hpp"
 #include "./utils/serialize.hpp"
 #include "./xvega_config.hpp"
 
@@ -27,12 +30,6 @@ namespace xv
 
         serialize(json_template, v.width(), "width");
         serialize(json_template, v.height(), "height");
-
-        int len_marks = v.marks().size();
-        if(len_marks > 1)
-        {
-            json_template["layer"] = {{}};
-        }
         
         populate_marks(json_template, v);
         populate_encodings(json_template, v);

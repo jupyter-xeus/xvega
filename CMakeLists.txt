@@ -173,6 +173,9 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_stack.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_timeunit.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_window.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/layering.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/hconcat.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/vconcat.hpp
 )
 
 set(XVEGA_SOURCES
