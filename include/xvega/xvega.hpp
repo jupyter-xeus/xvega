@@ -19,7 +19,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {   
-    nl::json mime_bundle_repr(const Chart& v)
+    inline nl::json mime_bundle_repr(const Chart& v)
     {
         auto json_template = base_vegalite_json();
         populate_data(json_template, v);
