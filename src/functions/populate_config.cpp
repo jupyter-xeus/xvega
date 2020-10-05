@@ -4,12 +4,12 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#include "xvega/functions/populate_encodings.hpp"
+#include "xvega/functions/populate_config.hpp"
 
 namespace xv
 {
-    void populate_encodings(nl::json& json_template, const Chart& v)
+    void populate_config(nl::json& json_template, const Chart& v)
     {
-        serialize(json_template, v.encoding(), "encoding");
+        serialize(json_template, v.config(), "config");
     }
 }

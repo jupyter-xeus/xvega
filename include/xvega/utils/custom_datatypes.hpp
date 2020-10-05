@@ -22,7 +22,7 @@ namespace nl = nlohmann;
 namespace xv
 {
 
-    using df_type = std::map<std::string, std::vector<xtl::variant<double, int, std::string>>>;
+    using df_type = std::map<std::string, std::vector<xtl::variant<double, int, std::string, std::nullptr_t>>>;
 
     struct data_frame : public xp::xobserved<data_frame>
     {

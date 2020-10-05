@@ -12,9 +12,11 @@
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
+#include "../utils/serialize.hpp"
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
 #include "../grammar/selections.hpp"
+#include "../grammar/config.hpp"
 
 #include "../grammar/marks/mark_arc.hpp"
 #include "../grammar/marks/mark_area.hpp"
@@ -126,12 +128,13 @@ namespace xv
     struct Chart : public xp::xobserved<Chart>
     {
         XPROPERTY(data_type, Chart, data);
-        XPROPERTY(std::vector<marks_type>, Chart, marks);
-        XPROPERTY(std::vector<Encodings>, Chart, encodings);
-        XPROPERTY(std::vector<selection_type>, Chart, selections); // matrix
+        XPROPERTY(marks_type, Chart, mark);
+        XPROPERTY(xtl::xoptional<Encodings>, Chart, encoding);
+        XPROPERTY(std::vector<selection_type>, Chart, selections);
         XPROPERTY(std::vector<transform_type>, Chart, transformations);
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);
+        XPROPERTY(xtl::xoptional<Config>, Chart, config);
     };
 }
 

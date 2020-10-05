@@ -4,12 +4,15 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#include "xvega/functions/populate_encodings.hpp"
+#include "xvega/grammar/config/tick_config.hpp"
 
 namespace xv
 {
-    void populate_encodings(nl::json& json_template, const Chart& v)
+    void tick_config::to_json(nl::json& j) const
     {
-        serialize(json_template, v.encoding(), "encoding");
+        base_type::to_json(j);
+
+        serialize(j, bandSize(), "bandSize");
+        serialize(j, thickness(), "thickness");
     }
 }
