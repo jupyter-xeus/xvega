@@ -4,4 +4,4 @@ channels:
 dependencies:
 # host Dependencies
   - xeus-cling
-  - xvega=0.0.2
+  - xvega=0.0.3
