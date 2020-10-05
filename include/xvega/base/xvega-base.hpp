@@ -16,6 +16,7 @@
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
 #include "../grammar/selections.hpp"
+#include "../grammar/config.hpp"
 
 #include "../grammar/marks/mark_arc.hpp"
 #include "../grammar/marks/mark_area.hpp"
@@ -133,6 +134,7 @@ namespace xv
         XPROPERTY(std::vector<transform_type>, Chart, transformations);
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);
+        XPROPERTY(xtl::xoptional<Config>, Chart, config);
     };
 }
 

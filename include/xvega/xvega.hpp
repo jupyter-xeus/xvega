@@ -13,6 +13,7 @@
 #include "functions/populate_encodings.hpp"
 #include "functions/populate_selections.hpp"
 #include "functions/populate_transformations.hpp"
+#include "functions/populate_config.hpp"
 #include "grammar/view_compositions/layering.hpp"
 #include "grammar/view_compositions/hconcat.hpp"
 #include "grammar/view_compositions/vconcat.hpp"
@@ -35,6 +36,7 @@ namespace xv
         populate_encodings(json_template, v);
         populate_selections(json_template, v);
         populate_transformations(json_template, v);
+        populate_config(json_template, v);
 
         auto bundle = nl::json::object();
         bundle["application/vnd.vegalite.v3+json"] = json_template;

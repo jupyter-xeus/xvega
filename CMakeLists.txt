@@ -144,6 +144,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_encodings.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_selections.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_transformations.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/functions/populate_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/csv_data_format.hpp
@@ -176,6 +177,30 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/layering.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/hconcat.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/vconcat.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/area_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/auto_size_params.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/axis_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/bar_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/base_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/box_plot_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/composition_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/error_band_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/error_bar_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/header_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/legend_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/line_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/mark_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/overlay_mark_def.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/projection_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/range_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/rect_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/scale_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/selection_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/style_config_index.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/tick_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/title_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/view_config.hpp
 )
 
 set(XVEGA_SOURCES
@@ -185,6 +210,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/functions/populate_marks.cpp
     ${XVEGA_SOURCE_DIR}/functions/populate_selections.cpp
     ${XVEGA_SOURCE_DIR}/functions/populate_transformations.cpp
+    ${XVEGA_SOURCE_DIR}/functions/populate_config.cpp
     ${XVEGA_SOURCE_DIR}/utils/custom_datatypes.cpp
     ${XVEGA_SOURCE_DIR}/utils/random_string.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings.cpp
@@ -286,6 +312,29 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_stack.cpp
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_timeunit.cpp
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_window.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/area_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/auto_size_params.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/axis_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/bar_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/box_plot_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/composition_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/error_band_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/error_bar_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/header_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/legend_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/line_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/mark_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/overlay_mark_def.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/projection_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/range_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/rect_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/scale_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/selection_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/style_config_index.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/tick_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/title_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/view_config.cpp
 )
 
 add_library(xvega SHARED ${XVEGA_SOURCES} ${XVEGA_HEADERS})

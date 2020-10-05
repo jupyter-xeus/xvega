@@ -22,7 +22,7 @@ namespace xv
         XPROPERTY(std::vector<Chart>, hconcat, charts);
     };
 
-    nl::json mime_bundle_repr(const hconcat& v)
+    inline nl::json mime_bundle_repr(const hconcat& v)
     {
         auto j = base_vegalite_json();
         int len_charts = v.charts().size();
