@@ -372,11 +372,8 @@ configure_package_config_file(${PROJECT_NAME}Config.cmake.in
                               "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
                               INSTALL_DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 
-# xvega is header-only and does not depend on the architecture.
 # Remove CMAKE_SIZEOF_VOID_P from xvegaConfigVersion.cmake so that an xvegaConfig.cmake
 # generated for a 64 bit target can be used for 32 bit targets and vice versa.
-set(_XVEGA_CMAKE_SIZEOF_VOID_P ${CMAKE_SIZEOF_VOID_P})
-unset(CMAKE_SIZEOF_VOID_P)
 write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
                                  VERSION ${${PROJECT_NAME}_VERSION}
                                  COMPATIBILITY AnyNewerVersion)
