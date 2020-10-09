@@ -35,7 +35,7 @@ Use the library by including the following header:
 |  `xvega`  |  `xtl`  |  `nlohmann json`  |  `xproperty`  |
 |-----------|---------|-------------------|---------------|
 |  master   | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
-|  0.0.1    | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
+|  0.0.4    | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
 
 ## License
 
