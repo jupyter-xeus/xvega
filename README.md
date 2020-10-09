@@ -15,9 +15,9 @@ mkdir build
 
 cd build
 
-cmake -D CMAKE_INSTALL_PREFIX=$CONDA_PREFIX ..
+cmake -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX .. -DCMAKE_BUILD_TYPE=Release
 
-make install
+make -j ${CPU_COUNT} install
 ```
 
 Use the library by including the following header:
