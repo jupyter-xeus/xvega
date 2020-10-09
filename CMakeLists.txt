@@ -361,6 +361,7 @@ else()
     set_target_properties(xvega PROPERTIES
             BUILD_WITH_INSTALL_RPATH 1
             SKIP_BUILD_RPATH FALSE
+            INSTALL_RPATH_USE_LINK_PATH TRUE
         )
 endif()
 
