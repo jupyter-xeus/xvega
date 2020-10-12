@@ -19,18 +19,18 @@ jobs:
       uses: conda-incubator/setup-miniconda@v1.7.0
     
     - name: Install Dependencies
-      shell: bash
+      shell: bash -l {0}
       run: conda install cmake xtl xproperty nlohmann_json -c conda-forge
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
     
     - name: Check Environment
-      shell: bash
+      shell: bash -l {0}
       run: conda info
 
     - name: Configure CMake
-      shell: bash
+      shell: bash -l {0}
       working-directory: ${{runner.workspace}}/build
       # Note the current convention is to use the -S and -B options here to specify source 
       # and build directories, but this is only available with CMake 3.13 and higher.  
@@ -39,5 +39,5 @@ jobs:
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
-      shell: bash
+      shell: bash -l {0}
       run: cmake --build . --config $BUILD_TYPE -j ${CPU_COUNT}
