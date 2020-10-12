@@ -20,14 +20,17 @@ jobs:
     
     - name: Install Dependencies
       shell: bash
-      run: conda install xtl xproperty nlohmann_json -c conda-forge
+      run: conda install cmake xtl xproperty nlohmann_json -c conda-forge
     
-    - name: Check installed Dependencies
+    - name: Check CMake
       shell: bash
-      run: conda list
+      run: which cmake
 
     - name: Create Build Environment
       run: cmake -E make_directory ${{runner.workspace}}/build
+    
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
 
     - name: Configure CMake
       shell: bash
