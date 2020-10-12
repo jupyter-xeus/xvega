@@ -37,6 +37,10 @@ Use the library by including the following header:
 |  master   | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
 |  0.0.4    | ^0.6.11 |       ^3.7.3      |    ^0.10.1    |
 
+Note: Please make sure to have `jupyterlab` and `xeus-cling` installed in order to use `XVega` as a standalone library.
+
+Also, `XVega` only works with `jupyterlab` (and not `jupyter notebook`) as of now.
+
 ## License
 
 We use a shared copyright model that enables all contributors to maintain the copyright on their contributions.
