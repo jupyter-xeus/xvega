@@ -31,7 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, stepMinor);
     };
 
-    void to_json(nl::json& j, const graticule_params& data);
+    XVEGA_API void to_json(nl::json& j, const graticule_params& data);
 
     using graticule_type = xtl::variant<bool, graticule_params>;
 
@@ -41,7 +41,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, graticule_generator, name);
     };
 
-    void to_json(nl::json& j, const graticule_generator& data);
+    XVEGA_API void to_json(nl::json& j, const graticule_generator& data);
 }
 
 #endif

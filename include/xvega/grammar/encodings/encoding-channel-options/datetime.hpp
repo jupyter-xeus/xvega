@@ -36,7 +36,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, DateTime, utc); // Present in Altair Docs, but not in Vega-Lite Docs
     };
 
-    void to_json(nl::json& j, const DateTime& data);
+    XVEGA_API void to_json(nl::json& j, const DateTime& data);
 }
 
 #endif

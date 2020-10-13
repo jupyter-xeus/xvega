@@ -26,7 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Aggregate, argmin);
     };
 
-    void to_json(nl::json& j, const Aggregate& data);
+    XVEGA_API void to_json(nl::json& j, const Aggregate& data);
 
     using agg_type = xtl::variant<Aggregate, std::string>;
 }

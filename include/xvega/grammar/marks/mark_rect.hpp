@@ -20,9 +20,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline);
         XPROPERTY(xtl::xoptional<double>, mark_rect, cornerRadius);
 
-        mark_rect();
+        XVEGA_API mark_rect();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

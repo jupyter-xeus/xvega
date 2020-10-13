@@ -31,7 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, window_field_def, as);
     };
 
-    void to_json(nl::json& j, const window_field_def& data);
+    XVEGA_API void to_json(nl::json& j, const window_field_def& data);
 
     struct transform_window : public xp::xobserved<transform_window>
     {
@@ -42,7 +42,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<sort_field_def>>, transform_window, sort);
     };
 
-    void to_json(nl::json& j, const transform_window& data);
+    XVEGA_API void to_json(nl::json& j, const transform_window& data);
 }
 
 #endif

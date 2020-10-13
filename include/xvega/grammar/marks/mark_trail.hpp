@@ -18,9 +18,9 @@ namespace xv
         // Trail Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient);
 
-        mark_trail();
+        XVEGA_API mark_trail();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

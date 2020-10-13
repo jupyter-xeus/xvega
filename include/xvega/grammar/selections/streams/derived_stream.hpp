@@ -31,7 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, derived_stream, throttle);
     };
 
-    void to_json(nl::json& j, const derived_stream& data);
+    XVEGA_API void to_json(nl::json& j, const derived_stream& data);
 }
 
 #endif

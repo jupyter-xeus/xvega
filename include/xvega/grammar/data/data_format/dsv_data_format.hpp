@@ -19,7 +19,7 @@ namespace xv
 
         dsv_data_format();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

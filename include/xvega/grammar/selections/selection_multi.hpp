@@ -26,9 +26,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, selection_multi, nearest);
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_multi, toggle);
 
-        selection_multi();
+        XVEGA_API  selection_multi();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

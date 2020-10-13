@@ -44,7 +44,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<mark_config>, style_config_index, guide_title); // actual name is guide-title
     };
 
-    void to_json(nl::json& j, const style_config_index& data);
+    XVEGA_API void to_json(nl::json& j, const style_config_index& data);
 }
 
 #endif

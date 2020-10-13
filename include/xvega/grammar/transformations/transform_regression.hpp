@@ -32,7 +32,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_regression, as);
     };
 
-    void to_json(nl::json& j, const transform_regression& data);
+    XVEGA_API void to_json(nl::json& j, const transform_regression& data);
 }
 
 #endif

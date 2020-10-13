@@ -30,7 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, bind_range, type);
     };
 
-    void to_json(nl::json& j, const bind_range& data);
+    XVEGA_API void to_json(nl::json& j, const bind_range& data);
 }
 
 #endif

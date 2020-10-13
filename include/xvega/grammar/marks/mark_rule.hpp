@@ -15,9 +15,9 @@ namespace xv
     {
         using base_type = mark<mark_rule>;
 
-        mark_rule();
+        XVEGA_API mark_rule();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

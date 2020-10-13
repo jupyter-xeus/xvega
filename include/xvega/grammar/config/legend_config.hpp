@@ -93,7 +93,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, legend_config, unselectedOpacity);
     };
 
-    void to_json(nl::json& j, const legend_config& data);
+    XVEGA_API void to_json(nl::json& j, const legend_config& data);
 }
 
 #endif

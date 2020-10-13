@@ -123,7 +123,7 @@ namespace xv
                                 transform_window
                                 >;
 
-    const nl::json& base_vegalite_json();
+    XVEGA_API const nl::json& base_vegalite_json();
 
     struct Chart : public xp::xobserved<Chart>
     {

@@ -20,7 +20,7 @@ namespace xv
 
         XPROPERTY(xtl::xoptional<bool_overlay_string_type>, line_config, point);
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

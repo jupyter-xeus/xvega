@@ -31,7 +31,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ImputeSequence, step);
     };
 
-    void to_json(nl::json& j, const ImputeSequence& data);
+    XVEGA_API void to_json(nl::json& j, const ImputeSequence& data);
 
     using impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
 
@@ -43,7 +43,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<any_type>, Impute, value);
     };
 
-    void to_json(nl::json& j, const Impute& data);
+    XVEGA_API void to_json(nl::json& j, const Impute& data);
 
     using impute_type = xtl::variant<Impute, std::nullptr_t>;
 }

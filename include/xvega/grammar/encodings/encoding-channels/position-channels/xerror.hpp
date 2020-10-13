@@ -32,5 +32,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_vec_none_type>, XError, title);
     };
 
-    void to_json(nl::json& j, const XError& data);
+    XVEGA_API void to_json(nl::json& j, const XError& data);
 }

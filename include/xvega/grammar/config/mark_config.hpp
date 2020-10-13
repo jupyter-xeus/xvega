@@ -15,7 +15,7 @@ namespace xv
     {
         using base_type = base_config<mark_config>;
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

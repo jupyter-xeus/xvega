@@ -30,7 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_bin, as);
     };
 
-    void to_json(nl::json& j, const transform_bin& data);
+    XVEGA_API void to_json(nl::json& j, const transform_bin& data);
 }
 
 #endif

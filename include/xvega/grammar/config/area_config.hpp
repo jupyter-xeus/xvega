@@ -22,7 +22,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_overlay_mark_def_type>, area_config, line);
         XPROPERTY(xtl::xoptional<bool_overlay_mark_def_string_type>, area_config, point);
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

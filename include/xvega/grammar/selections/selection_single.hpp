@@ -30,9 +30,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<selection_bind_type>, selection_single, bind);
         XPROPERTY(xtl::xoptional<bool>, selection_single, nearest);
 
-        selection_single();
+        XVEGA_API selection_single();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

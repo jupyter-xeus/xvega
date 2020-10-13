@@ -26,7 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_fold, as);
     };
 
-    void to_json(nl::json& j, const transform_fold& data);
+    XVEGA_API void to_json(nl::json& j, const transform_fold& data);
 }
 
 #endif

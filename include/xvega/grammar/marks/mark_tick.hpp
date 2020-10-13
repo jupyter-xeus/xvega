@@ -19,9 +19,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_tick, cornerRadius);
         XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient);
 
-        mark_tick();
+        XVEGA_API mark_tick();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

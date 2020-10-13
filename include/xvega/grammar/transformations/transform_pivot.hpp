@@ -29,7 +29,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, transform_pivot, op);
     };
 
-    void to_json(nl::json& j, const transform_pivot& data);
+    XVEGA_API void to_json(nl::json& j, const transform_pivot& data);
 }
 
 #endif

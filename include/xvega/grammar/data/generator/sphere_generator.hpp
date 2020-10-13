@@ -26,7 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, sphere_generator, name);
     };
 
-    void to_json(nl::json& j, const sphere_generator& data);
+    XVEGA_API void to_json(nl::json& j, const sphere_generator& data);
 }
 
 #endif

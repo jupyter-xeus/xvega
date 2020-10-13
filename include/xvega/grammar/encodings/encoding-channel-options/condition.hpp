@@ -53,14 +53,14 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, FieldPredicate, valid);
     };
 
-    void to_json(nl::json& j, const FieldPredicate& data);
+    XVEGA_API void to_json(nl::json& j, const FieldPredicate& data);
 
     struct SelectionPredicate : public xp::xobserved<SelectionPredicate>
     {
         XPROPERTY(xtl::xoptional<string_object_type>, SelectionPredicate, selection);
     };
 
-    void to_json(nl::json& j, const SelectionPredicate& data);
+    XVEGA_API void to_json(nl::json& j, const SelectionPredicate& data);
 
     using predicate_type = xtl::variant<std::string, FieldPredicate, SelectionPredicate>;
 }

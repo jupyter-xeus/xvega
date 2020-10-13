@@ -18,9 +18,9 @@ namespace xv
         // Circle Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_circle, size);
 
-        mark_circle();
+        XVEGA_API mark_circle();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

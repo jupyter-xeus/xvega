@@ -47,7 +47,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_string_type>, interval_selection_config, zoom);
     };
 
-    void to_json(nl::json& j, const interval_selection_config& data);
+    XVEGA_API void to_json(nl::json& j, const interval_selection_config& data);
 
     using legend_binding_type = xtl::variant<std::string, legend_stream_binding>;
 
@@ -65,7 +65,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_string_type>, multi_selection_config, toggle);
     };
 
-    void to_json(nl::json& j, const multi_selection_config& data);
+    XVEGA_API void to_json(nl::json& j, const multi_selection_config& data);
 
     using binding_type = xtl::variant<bind_checkbox, bind_radio_select, bind_range, bind_input>;
     using selection_bind_type = xtl::variant<binding_type, nl::json, legend_binding_type>;
@@ -83,7 +83,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, single_selection_config, resolve);
     };
 
-    void to_json(nl::json& j, const single_selection_config& data);
+    XVEGA_API void to_json(nl::json& j, const single_selection_config& data);
 
     struct selection_config : public xp::xobserved<selection_config>
     {
@@ -92,7 +92,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<single_selection_config>, selection_config, single);
     };
 
-    void to_json(nl::json& j, const selection_config& data);
+    XVEGA_API void to_json(nl::json& j, const selection_config& data);
 }
 
 #endif

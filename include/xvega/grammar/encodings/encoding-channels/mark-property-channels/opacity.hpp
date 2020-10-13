@@ -40,5 +40,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Opacity, type);
     };
 
-    void to_json(nl::json& j, const Opacity& data);
+    XVEGA_API void to_json(nl::json& j, const Opacity& data);
 }

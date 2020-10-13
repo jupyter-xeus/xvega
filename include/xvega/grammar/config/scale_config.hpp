@@ -41,7 +41,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, scale_config, xReverse);
     };
 
-    void to_json(nl::json& j, const scale_config& data);
+    XVEGA_API void to_json(nl::json& j, const scale_config& data);
 }
 
 #endif

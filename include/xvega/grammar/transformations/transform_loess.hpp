@@ -29,7 +29,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_loess, as);
     };
 
-    void to_json(nl::json& j, const transform_loess& data);
+    XVEGA_API void to_json(nl::json& j, const transform_loess& data);
 }
 
 #endif

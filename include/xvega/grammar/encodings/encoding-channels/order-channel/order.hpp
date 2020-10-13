@@ -35,5 +35,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Order, type);
     };
 
-    void to_json(nl::json& j, const Order& data);
+    XVEGA_API void to_json(nl::json& j, const Order& data);
 }

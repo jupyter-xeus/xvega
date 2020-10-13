@@ -29,7 +29,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, bind_input, type);
     };
 
-    void to_json(nl::json& j, const bind_input& data);
+    XVEGA_API void to_json(nl::json& j, const bind_input& data);
 }
 
 #endif

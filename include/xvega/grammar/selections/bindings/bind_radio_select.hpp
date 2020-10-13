@@ -32,7 +32,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, type);
     };
 
-    void to_json(nl::json& j, const bind_radio_select& data);
+    XVEGA_API void to_json(nl::json& j, const bind_radio_select& data);
 }
 
 #endif

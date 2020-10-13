@@ -65,7 +65,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Header, titlePadding);
     };
 
-    void to_json(nl::json& j, const Header& data);
+    XVEGA_API void to_json(nl::json& j, const Header& data);
 }
 
 #endif

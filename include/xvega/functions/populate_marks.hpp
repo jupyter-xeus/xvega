@@ -8,5 +8,5 @@
 
 namespace xv
 {
-    void populate_marks(nl::json& json_template, const Chart& v);
+    XVEGA_API void populate_marks(nl::json& json_template, const Chart& v);
 }

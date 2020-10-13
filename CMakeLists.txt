@@ -344,14 +344,15 @@ target_link_libraries(xvega PUBLIC xtl)
 target_link_libraries(xvega PUBLIC xproperty)
 # target_link_libraries(xvega PUBLIC nlohmann_json)
 
-# set_target_properties(xvega PROPERTIES
+set_target_properties(xvega PROPERTIES
 #                       LINKER_LANGUAGE CXX
 #                       PUBLIC_HEADER DESTINATION "${XVEGA_HEADERS}"
-#                       COMPILE_DEFINITIONS "XVEGA_EXPORTS"
+                       COMPILE_DEFINITIONS "XVEGA_EXPORTS"
 #                       PREFIX ""
 #                       VERSION ${${PROJECT_NAME}_VERSION}
 #                       SOVERSION ${${PROJECT_NAME}_VERSION}
 #                       OUTPUT_NAME "libxvega")
+                     )
 
 # Installation
 # ============

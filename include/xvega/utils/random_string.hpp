@@ -12,7 +12,7 @@
 
 namespace xv
 {
-    std::string random_string(int len);
+    XVEGA_API std::string random_string(int len);
 }
 
 #endif

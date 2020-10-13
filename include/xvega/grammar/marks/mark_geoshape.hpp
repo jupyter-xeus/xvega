@@ -15,9 +15,9 @@ namespace xv
     {
         using base_type = mark<mark_geoshape>;
 
-        mark_geoshape();
+        XVEGA_API mark_geoshape();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 
