@@ -24,9 +24,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_object_type>, mark_area, line);
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_area, point);
 
-        mark_area();
+        XVEGA_API mark_area();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

@@ -30,7 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, selection_mark, strokeDashOffset);
     };
 
-    void to_json(nl::json& j, const selection_mark& data);
+    XVEGA_API void to_json(nl::json& j, const selection_mark& data);
 }
 
 #endif

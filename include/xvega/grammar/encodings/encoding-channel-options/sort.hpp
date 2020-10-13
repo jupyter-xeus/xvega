@@ -38,7 +38,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_none_type>, FieldSort, order);
     };
 
-    void to_json(nl::json& j, const FieldSort& data);
+    XVEGA_API void to_json(nl::json& j, const FieldSort& data);
 
     struct EncodingSort : public xp::xobserved<EncodingSort>
     {
@@ -46,7 +46,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_none_type>, EncodingSort, order);
     };
 
-    void to_json(nl::json& j, const EncodingSort& data);
+    XVEGA_API void to_json(nl::json& j, const EncodingSort& data);
 
     using sort_type = xtl::variant<any_array_type, std::string, std::nullptr_t, FieldSort, EncodingSort>;
 }

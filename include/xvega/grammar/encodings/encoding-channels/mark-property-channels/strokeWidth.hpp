@@ -40,5 +40,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, StrokeWidth, type);
     };
 
-    void to_json(nl::json& j, const StrokeWidth& data);
+    XVEGA_API void to_json(nl::json& j, const StrokeWidth& data);
 }

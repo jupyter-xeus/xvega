@@ -26,7 +26,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, transform_calculate, as);
     };
 
-    void to_json(nl::json& j, const transform_calculate& data);
+    XVEGA_API void to_json(nl::json& j, const transform_calculate& data);
 }
 
 #endif

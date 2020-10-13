@@ -21,7 +21,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, composition_config, spacing);
     };
 
-    void to_json(nl::json& j, const composition_config& data);
+    XVEGA_API void to_json(nl::json& j, const composition_config& data);
 }
 
 #endif

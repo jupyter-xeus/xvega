@@ -42,7 +42,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, title_config, subtitlePadding);
     };
 
-    void to_json(nl::json& j, const title_config& data);
+    XVEGA_API void to_json(nl::json& j, const title_config& data);
 }
 
 #endif

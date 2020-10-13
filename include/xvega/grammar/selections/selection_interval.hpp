@@ -26,9 +26,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, translate);
         XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, zoom);
 
-        selection_interval();
+        XVEGA_API selection_interval();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

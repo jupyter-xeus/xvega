@@ -44,7 +44,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<any_array_type>, DomainUnionWith, unionWith);
     };
 
-    void to_json(nl::json& j, const DomainUnionWith& data);
+    XVEGA_API void to_json(nl::json& j, const DomainUnionWith& data);
 
     using scale_domain_type = xtl::variant<
                                    std::vector<std::string>, 
@@ -64,7 +64,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ScaleBin, step);
     };
 
-    void to_json(nl::json& j, const ScaleBin& data);
+    XVEGA_API void to_json(nl::json& j, const ScaleBin& data);
 
     using scale_bin_type = xtl::variant<std::vector<double>, std::vector<int>, ScaleBin>;
 
@@ -75,7 +75,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Scheme, count);
     };
 
-    void to_json(nl::json& j, const Scheme& data);
+    XVEGA_API void to_json(nl::json& j, const Scheme& data);
 
     using scale_scheme_type = xtl::variant<std::string, Scheme>;
 
@@ -85,7 +85,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, ScaleInterpolate, gamma);
     };
 
-    void to_json(nl::json& j, const ScaleInterpolate& data);
+    XVEGA_API void to_json(nl::json& j, const ScaleInterpolate& data);
 
     using scale_interpolate_type = xtl::variant<std::string, ScaleInterpolate>;
 
@@ -95,7 +95,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, TimeIntervalStep, step);
     };
 
-    void to_json(nl::json& j, const TimeIntervalStep& data);
+    XVEGA_API void to_json(nl::json& j, const TimeIntervalStep& data);
 
     using nice_type = xtl::variant<double, int, std::string, bool, TimeIntervalStep>;
 
@@ -126,7 +126,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<scale_bin_type>, Scale, bins);
     };
 
-    void to_json(nl::json& j, const Scale& data);
+    XVEGA_API void to_json(nl::json& j, const Scale& data);
 
     using scale_type = xtl::variant<Scale, std::nullptr_t>;
 }

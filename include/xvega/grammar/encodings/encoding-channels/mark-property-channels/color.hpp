@@ -40,5 +40,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Color, type);
     };
 
-    void to_json(nl::json& j, const Color& data);
+    XVEGA_API void to_json(nl::json& j, const Color& data);
 }

@@ -29,7 +29,7 @@ namespace xv
         Value(any_type val);
     };
 
-    void to_json(nl::json& j, const Value& data);
+    XVEGA_API void to_json(nl::json& j, const Value& data);
 }
 
 #endif

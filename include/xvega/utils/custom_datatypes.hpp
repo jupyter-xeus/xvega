@@ -29,7 +29,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<df_type>, data_frame, values);
     };
 
-    void to_json(nl::json& j, const data_frame& data);
+    XVEGA_API void to_json(nl::json& j, const data_frame& data);
 
     using string_none_type = xtl::variant<std::nullptr_t, std::string>;
     using bool_none_type = xtl::variant<std::nullptr_t, bool>;
@@ -44,7 +44,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, GradientStop, offset);
     };
 
-    void to_json(nl::json& j, const GradientStop& data);
+    XVEGA_API void to_json(nl::json& j, const GradientStop& data);
 
     struct LinearGradient : public xp::xobserved<LinearGradient>
     {
@@ -56,7 +56,7 @@ namespace xv
         XPROPERTY(std::vector<GradientStop>, LinearGradient, stops);
     };
 
-    void to_json(nl::json& j, const LinearGradient& data);
+    XVEGA_API void to_json(nl::json& j, const LinearGradient& data);
 
     struct RadialGradient : public xp::xobserved<RadialGradient>
     {
@@ -70,14 +70,14 @@ namespace xv
         XPROPERTY(std::vector<GradientStop>, RadialGradient, stops);
     };
 
-    void to_json(nl::json& j, const RadialGradient& data);
+    XVEGA_API void to_json(nl::json& j, const RadialGradient& data);
 
     struct TooltipContent : public xp::xobserved<TooltipContent>
     {
         XPROPERTY(xtl::xoptional<std::string>, TooltipContent, content);
     };
 
-    void to_json(nl::json& j, const TooltipContent& data);
+    XVEGA_API void to_json(nl::json& j, const TooltipContent& data);
 
     using tooltip_type = xtl::variant<std::string, bool, double, int, std::nullptr_t, TooltipContent>;
     using color_type = xtl::variant<std::string, LinearGradient, RadialGradient>;

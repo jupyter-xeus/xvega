@@ -27,7 +27,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, range_config, symbol);
     };
 
-    void to_json(nl::json& j, const range_config& data);
+    XVEGA_API void to_json(nl::json& j, const range_config& data);
 }
 
 #endif

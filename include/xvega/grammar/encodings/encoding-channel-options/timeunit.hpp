@@ -28,7 +28,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool>, TimeUnit, utc);
     };
 
-    void to_json(nl::json& j, const TimeUnit& data);
+    XVEGA_API void to_json(nl::json& j, const TimeUnit& data);
 
     using time_unit_type = xtl::variant<std::string, TimeUnit>;
 }

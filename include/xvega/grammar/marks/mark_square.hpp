@@ -18,9 +18,9 @@ namespace xv
         // Square Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_square, size);
 
-        mark_square();
+        XVEGA_API mark_square();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

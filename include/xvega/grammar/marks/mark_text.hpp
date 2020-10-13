@@ -33,9 +33,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, mark_text, text);
         XPROPERTY(xtl::xoptional<double>, mark_text, theta);
 
-        mark_text();
+        XVEGA_API mark_text();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

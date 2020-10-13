@@ -34,7 +34,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<double>>, Bin, steps);
     };
 
-    void to_json(nl::json& j, const Bin& data);
+    XVEGA_API void to_json(nl::json& j, const Bin& data);
 
     using bin_type = xtl::variant<bool, Bin, std::string, std::nullptr_t>;
 }

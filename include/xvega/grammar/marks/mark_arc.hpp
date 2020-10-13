@@ -29,9 +29,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_arc, thetaOffset);
         XPROPERTY(xtl::xoptional<double>, mark_arc, theta2Offset);
 
-        mark_arc();
+        XVEGA_API mark_arc();
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

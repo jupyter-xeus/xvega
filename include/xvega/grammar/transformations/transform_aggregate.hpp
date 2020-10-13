@@ -27,7 +27,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, aggregate_field_def, op);
     };
 
-    void to_json(nl::json& j, const aggregate_field_def& data);
+    XVEGA_API void to_json(nl::json& j, const aggregate_field_def& data);
 
     struct transform_aggregate : public xp::xobserved<transform_aggregate>
     {
@@ -35,7 +35,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_aggregate, groupby);
     };
 
-    void to_json(nl::json& j, const transform_aggregate& data);
+    XVEGA_API void to_json(nl::json& j, const transform_aggregate& data);
 }
 
 #endif

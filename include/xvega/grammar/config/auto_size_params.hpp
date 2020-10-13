@@ -22,7 +22,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, auto_size_params, type);
     };
 
-    void to_json(nl::json& j, const auto_size_params& data);
+    XVEGA_API void to_json(nl::json& j, const auto_size_params& data);
 }
 
 #endif

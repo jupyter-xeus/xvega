@@ -27,7 +27,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, timeUnit);
     };
 
-    void to_json(nl::json& j, const transform_timeunit& data);
+    XVEGA_API void to_json(nl::json& j, const transform_timeunit& data);
 }
 
 #endif

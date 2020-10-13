@@ -106,7 +106,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<view_config>, Config, view);
     };
 
-    void to_json(nl::json& j, const Config& data);
+    XVEGA_API void to_json(nl::json& j, const Config& data);
 }
 
 #endif

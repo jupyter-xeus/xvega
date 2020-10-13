@@ -40,7 +40,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<data_format_type>, inline_data, format);
     };
 
-    void to_json(nl::json& j, const inline_data& data);
+    XVEGA_API void to_json(nl::json& j, const inline_data& data);
 }
 
 #endif

@@ -32,7 +32,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<any_type>, transform_impute, value);
     };
 
-    void to_json(nl::json& j, const transform_impute& data);
+    XVEGA_API void to_json(nl::json& j, const transform_impute& data);
 }
 
 #endif

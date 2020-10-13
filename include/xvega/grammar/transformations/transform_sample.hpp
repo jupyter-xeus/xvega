@@ -25,7 +25,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, transform_sample, sample);
     };
 
-    void to_json(nl::json& j, const transform_sample& data);
+    XVEGA_API void to_json(nl::json& j, const transform_sample& data);
 }
 
 #endif

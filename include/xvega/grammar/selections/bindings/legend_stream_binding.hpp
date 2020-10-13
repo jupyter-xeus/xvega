@@ -30,7 +30,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<stream_legend_type>, legend_stream_binding, legend);
     };
 
-    void to_json(nl::json& j, const legend_stream_binding& data);
+    XVEGA_API void to_json(nl::json& j, const legend_stream_binding& data);
 }
 
 #endif

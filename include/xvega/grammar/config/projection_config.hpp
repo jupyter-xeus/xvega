@@ -43,7 +43,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, projection_config, type);
     };
 
-    void to_json(nl::json& j, const projection_config& data);
+    XVEGA_API void to_json(nl::json& j, const projection_config& data);
 }
 
 #endif

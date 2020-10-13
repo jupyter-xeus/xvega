@@ -34,7 +34,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_density, as);
     };
 
-    void to_json(nl::json& j, const transform_density& data);
+    XVEGA_API void to_json(nl::json& j, const transform_density& data);
 }
 
 #endif

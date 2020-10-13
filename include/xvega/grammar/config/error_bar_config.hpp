@@ -20,7 +20,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_mark_config_type>, error_bar_config, ticks);
     };
 
-    void to_json(nl::json& j, const error_bar_config& data);
+    XVEGA_API void to_json(nl::json& j, const error_bar_config& data);
 }
 
 #endif

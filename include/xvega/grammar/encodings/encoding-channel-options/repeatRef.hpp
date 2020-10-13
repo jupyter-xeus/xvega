@@ -24,7 +24,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, RepeatRef, repeat);
     };
 
-    void to_json(nl::json& j, const RepeatRef& data);
+    XVEGA_API void to_json(nl::json& j, const RepeatRef& data);
 }
 
 #endif

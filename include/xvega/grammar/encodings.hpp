@@ -91,5 +91,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<Column>, Encodings, column);
     };
 
-    void to_json(nl::json& j, const Encodings& data);
+    XVEGA_API void to_json(nl::json& j, const Encodings& data);
 }

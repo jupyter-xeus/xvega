@@ -27,7 +27,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, bind_checkbox, type);
     };
 
-    void to_json(nl::json& j, const bind_checkbox& data);
+    XVEGA_API void to_json(nl::json& j, const bind_checkbox& data);
 }
 
 #endif

@@ -33,5 +33,5 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, Longitude, type);
     };
 
-    void to_json(nl::json& j, const Longitude& data);
+    XVEGA_API void to_json(nl::json& j, const Longitude& data);
 }

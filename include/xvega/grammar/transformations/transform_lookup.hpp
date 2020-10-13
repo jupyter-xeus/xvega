@@ -52,7 +52,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, lookup_data, fields);
     };
 
-    void to_json(nl::json& j, const lookup_data& data);
+    XVEGA_API void to_json(nl::json& j, const lookup_data& data);
 
     using selection_type = xtl::variant<
                                 selection_single, 
@@ -67,7 +67,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, lookup_selection, fields);
     };
 
-    void to_json(nl::json& j, const lookup_selection& data);
+    XVEGA_API void to_json(nl::json& j, const lookup_selection& data);
 
     using from_type = xtl::variant<lookup_data, lookup_selection>;
 
@@ -79,7 +79,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, transform_lookup, default_val); // Cannot use "default" as it's reserved
     };
 
-    void to_json(nl::json& j, const transform_lookup& data);
+    XVEGA_API void to_json(nl::json& j, const transform_lookup& data);
 }
 
 #endif

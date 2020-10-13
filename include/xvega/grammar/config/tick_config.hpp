@@ -18,7 +18,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, tick_config, bandSize);
         XPROPERTY(xtl::xoptional<double>, tick_config, thickness);
 
-        void to_json(nl::json& j) const;
+        XVEGA_API void to_json(nl::json& j) const;
     };
 }
 

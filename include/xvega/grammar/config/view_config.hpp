@@ -42,7 +42,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, view_config, width);
     };
 
-    void to_json(nl::json& j, const view_config& data);
+    XVEGA_API void to_json(nl::json& j, const view_config& data);
 }
 
 #endif

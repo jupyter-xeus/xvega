@@ -91,7 +91,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, axis_config, translate);
     };
 
-    void to_json(nl::json& j, const axis_config& data);
+    XVEGA_API void to_json(nl::json& j, const axis_config& data);
 }
 
 #endif

@@ -113,7 +113,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Legend, titlePadding);
     };
 
-    void to_json(nl::json& j, const Legend& data);
+    XVEGA_API void to_json(nl::json& j, const Legend& data);
 
     using legend_type = xtl::variant<Legend, std::nullptr_t>;
 }

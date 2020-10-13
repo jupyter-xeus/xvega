@@ -128,7 +128,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Axis, gridWidth); // Implement ConditionalAxisNumber
     };
 
-    void to_json(nl::json& j, const Axis& data);
+    XVEGA_API void to_json(nl::json& j, const Axis& data);
 
     using axis_type = xtl::variant<Axis, std::nullptr_t>;
 }

@@ -24,7 +24,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, event_stream, type);
     };
 
-    void to_json(nl::json& j, const event_stream& data);
+    XVEGA_API void to_json(nl::json& j, const event_stream& data);
 }
 
 #endif

@@ -28,7 +28,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, sequence_params, as);
     };
 
-    void to_json(nl::json& j, const sequence_params& data);
+    XVEGA_API void to_json(nl::json& j, const sequence_params& data);
 
     struct sequence_generator : public xp::xobserved<sequence_generator>
     {
@@ -36,7 +36,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, sequence_generator, name);
     };
 
-    void to_json(nl::json& j, const sequence_generator& data);
+    XVEGA_API void to_json(nl::json& j, const sequence_generator& data);
 }
 
 #endif

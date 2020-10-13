@@ -28,7 +28,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_none_type>, sort_field_def, order);
     };
 
-    void to_json(nl::json& j, const sort_field_def& data);
+    XVEGA_API void to_json(nl::json& j, const sort_field_def& data);
 
     struct transform_stack : public xp::xobserved<transform_stack>
     {
@@ -39,7 +39,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_stack, as);
     };
 
-    void to_json(nl::json& j, const transform_stack& data);
+    XVEGA_API void to_json(nl::json& j, const transform_stack& data);
 }
 
 #endif

@@ -22,7 +22,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, error_band_config, tension);
     };
 
-    void to_json(nl::json& j, const error_band_config& data);
+    XVEGA_API void to_json(nl::json& j, const error_band_config& data);
 }
 
 #endif

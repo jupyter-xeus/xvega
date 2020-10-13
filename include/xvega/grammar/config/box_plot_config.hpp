@@ -24,7 +24,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_mark_config_type>, box_plot_config, ticks);
     };
 
-    void to_json(nl::json& j, const box_plot_config& data);
+    XVEGA_API void to_json(nl::json& j, const box_plot_config& data);
 }
 
 #endif
