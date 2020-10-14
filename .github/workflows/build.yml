@@ -15,6 +15,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
@@ -36,14 +37,19 @@ jobs:
       run: conda info
 
     - name: Configure CMake
-      shell: bash -l {0}
       working-directory: ${{runner.workspace}}/build
+      shell: bash -l {0}
       # Note the current convention is to use the -S and -B options here to specify source 
       # and build directories, but this is only available with CMake 3.13 and higher.  
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
-      run: cmake $GITHUB_WORKSPACE -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+      run: cmake $GITHUB_WORKSPACE -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DDOWNLOAD_GTEST=ON
 
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash -l {0}
       run: cmake --build . --config $BUILD_TYPE
+
+    - name: Run Tests
+      working-directory: ${{runner.workspace}}/build/test
+      shell: bash -l {0}
+      run: ./test_xvega_lib
