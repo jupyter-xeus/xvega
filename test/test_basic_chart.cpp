@@ -5,7 +5,7 @@ using namespace xv;
 
 TEST(JsonSpecOutput, BasicChart)
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
+    auto df = url_data().url(std::string("https://vega.github.io/vega-datasets/data/cars.json"));
     auto mp = mark_point();
     auto fig = Chart().data(df).mark(mp);
     nl::json result = mime_bundle_repr(fig);
