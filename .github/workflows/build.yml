@@ -49,29 +49,11 @@ jobs:
       shell: bash -l {0}
       run: cmake --build . --config $BUILD_TYPE --target install
 
-    - name: Check Release
+    - name: Run Tests Windows
       if: matrix.os == 'windows-latest'
       working-directory: ${{runner.workspace}}/build/test/Release
       shell: bash -l {0}
-      run: ls
-
-    - name: Check test
-      if: matrix.os == 'windows-latest'
-      working-directory: ${{runner.workspace}}/build/test
-      shell: bash -l {0}
-      run: ls
-
-    - name: Check build
-      if: matrix.os == 'windows-latest'
-      working-directory: ${{runner.workspace}}/build
-      shell: bash -l {0}
-      run: ls
-
-    - name: Run Tests Windows
-      if: matrix.os == 'windows-latest'
-      working-directory: ${{runner.workspace}}/build
-      shell: bash -l {0}
-      run: ./test/Release/test_xvega_lib.exe
+      run: ./test_xvega_lib.exe
 
     - name: Run Tests Unix
       if: matrix.os != 'window-latest'
