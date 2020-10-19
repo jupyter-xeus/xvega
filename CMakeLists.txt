@@ -43,7 +43,7 @@ set(xtl_REQUIRED_VERSION 0.6.11)
 find_package(xtl ${xtl_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xtl: ${xtl_INCLUDE_DIRS}/xtl")
 
-set(xproperty_REQUIRED_VERSION 0.10.1)
+set(xproperty_REQUIRED_VERSION 0.10.4)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
 

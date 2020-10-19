@@ -5,5 +5,5 @@ dependencies:
 # host Dependencies
   - xeus-cling
   - xtl
-  - xproperty=0.10.3
+  - xproperty=0.10.4
   - xvega=0.0.4

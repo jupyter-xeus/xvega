@@ -15,7 +15,7 @@ namespace xv
     {
         using base_type = data_format<csv_data_format>;
 
-        csv_data_format();
+        XVEGA_API csv_data_format();
 
         XVEGA_API void to_json(nl::json& j) const;
     };

@@ -47,9 +47,16 @@ jobs:
     - name: Build
       working-directory: ${{runner.workspace}}/build
       shell: bash -l {0}
-      run: cmake --build . --config $BUILD_TYPE
+      run: cmake --build . --config $BUILD_TYPE --target install
 
-    - name: Run Tests
+    - name: Run Tests Windows
+      if: matrix.os == 'windows-latest'
+      working-directory: ${{runner.workspace}}/build/test/Release
+      shell: bash -l {0}
+      run: ./test_xvega_lib.exe
+
+    - name: Run Tests Unix
+      if: matrix.os != 'window-latest'
       working-directory: ${{runner.workspace}}/build/test
       shell: bash -l {0}
       run: ./test_xvega_lib
