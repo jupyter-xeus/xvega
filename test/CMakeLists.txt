@@ -106,7 +106,14 @@ find_package(Threads)
 include_directories(${GTEST_INCLUDE_DIRS} SYSTEM)
 
 set(XVEGA_TESTS
-    test_basic_chart.cpp
+    main.cpp
+    test_marks.cpp
+    test_encodings.cpp
+    test_view_compositions.cpp
+    test_transformations.cpp
+    test_configurations.cpp
+    test_selections.cpp
+    test_data.cpp
 )
 
 foreach(filename IN LISTS XVEGA_TESTS)
