@@ -332,6 +332,10 @@ target_link_libraries(xvega PUBLIC xtl)
 target_link_libraries(xvega PUBLIC xproperty)
 # target_link_libraries(xvega PUBLIC nlohmann_json)
 
+if (MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+endif (MSVC)
+
 set_target_properties(xvega PROPERTIES
 #                       LINKER_LANGUAGE CXX
 #                       PUBLIC_HEADER DESTINATION "${XVEGA_HEADERS}"
