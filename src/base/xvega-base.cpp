@@ -8,11 +8,31 @@
 
 namespace xv
 {
-    const nl::json& base_vegalite_json()
+    void to_json(nl::json& j, const Chart& data)
     {
-        static const nl::json json_template = {
-            { "$schema", "https://vega.github.io/schema/vega-lite/v4.json" },
-        };
-        return json_template;
-    };
+        j["$schema"] = "https://vega.github.io/schema/vega-lite/v4.json";
+        j["data"] = data.data();
+        j["mark"] = data.mark();
+        serialize(j, data.encoding(), "encoding");
+
+        int len_selections = data.selections().size();
+        for(int i=0; i<len_selections; i++)
+        {
+            xtl::visit([&](auto&& arg){
+                    j["selection"][arg.name().value()]=arg;
+                }, data.selections()[i]);
+        }
+
+        int len_transformations = data.transformations().size();
+        for(int i=0; i<len_transformations; i++)
+        {
+            xtl::visit([&](auto&& arg){
+                    j["transform"][i]=arg;
+                }, data.transformations()[i]);
+        }
+
+        serialize(j, data.width(), "width");
+        serialize(j, data.height(), "height");
+        serialize(j, data.config(), "config");
+    }
 }

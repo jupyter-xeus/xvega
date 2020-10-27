@@ -123,8 +123,6 @@ namespace xv
                                 transform_window
                                 >;
 
-    XVEGA_API const nl::json& base_vegalite_json();
-
     struct Chart : public xp::xobserved<Chart>
     {
         XPROPERTY(data_type, Chart, data);
@@ -136,6 +134,8 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Chart, height);
         XPROPERTY(xtl::xoptional<Config>, Chart, config);
     };
+
+    XVEGA_API void to_json(nl::json& j, const Chart& data);
 }
 
 #endif
