@@ -6,10 +6,12 @@
 
 #include "xvega/grammar/config/mark_config.hpp"
 
+#include "base_config_private.hpp"
+
 namespace xv
 {
     void mark_config::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
     }
 }
