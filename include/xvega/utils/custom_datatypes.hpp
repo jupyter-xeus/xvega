@@ -7,12 +7,13 @@
 #ifndef XVEGA_DATA_TYPES_HPP
 #define XVEGA_DATA_TYPES_HPP
 
-#include "xproperty/xobserved.hpp"
 #include <xtl/xvariant.hpp>
-#include "nlohmann/json.hpp"
-#include "xtl/xoptional.hpp"
-#include "xeither.hpp"
 #include <xtl/xjson.hpp>
+#include <xtl/xoptional.hpp>
+
+#include "xproperty/xobserved.hpp"
+
+#include "nlohmann/json.hpp"
 
 #include "../xvega_config.hpp"
 #include "./serialize.hpp"

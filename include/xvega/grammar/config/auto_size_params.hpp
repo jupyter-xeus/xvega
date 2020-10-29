@@ -7,9 +7,9 @@
 #ifndef XVEGA_AUTO_SIZE_PARAMS_HPP
 #define XVEGA_AUTO_SIZE_PARAMS_HPP
 
-#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../../utils/xeither.hpp"
+
+#include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
 #include "../../utils/serialize.hpp"
 

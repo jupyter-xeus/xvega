@@ -7,11 +7,10 @@
 #ifndef XVEGA_BASE_CONFIG_HPP
 #define XVEGA_BASE_CONFIG_HPP
 
-#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../../utils/xeither.hpp"
+
+#include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
-#include "../../utils/serialize.hpp"
 
 namespace xv
 {
@@ -75,16 +74,16 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_num_type>, D, y);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
 
-        protected:
+    protected:
     
-            base_config() = default;
-            ~base_config() = default;
+        base_config() = default;
+        ~base_config() = default;
 
-            base_config(const base_config&) = default;
-            base_config& operator=(const base_config&) = default;
+        base_config(const base_config&) = default;
+        base_config& operator=(const base_config&) = default;
 
-            base_config(base_config&&) = default;
-            base_config& operator=(base_config&&) = default;
+        base_config(base_config&&) = default;
+        base_config& operator=(base_config&&) = default;
     };
 
     template<class D>

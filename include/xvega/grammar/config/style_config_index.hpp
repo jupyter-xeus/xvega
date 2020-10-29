@@ -7,9 +7,9 @@
 #ifndef XVEGA_STYLE_CONFIG_INDEX_HPP
 #define XVEGA_STYLE_CONFIG_INDEX_HPP
 
-#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../../utils/xeither.hpp"
+
+#include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
 #include "../../utils/serialize.hpp"
 

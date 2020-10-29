@@ -136,7 +136,6 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/text.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/serialize.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/random_string.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp

@@ -7,11 +7,10 @@
 #ifndef XVEGA_MARKS_HPP
 #define XVEGA_MARKS_HPP
 
-#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../utils/xeither.hpp"
+
+#include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
 
 namespace xv
 {
@@ -105,15 +104,16 @@ namespace xv
             serialize(j, cursor(), "cursor");
         }
 
-        protected:
-            mark() = default;
-            ~mark() = default;
+    protected:
 
-            mark(const mark&) = default;
-            mark& operator=(const mark&) = default;
+        mark() = default;
+        ~mark() = default;
 
-            mark(mark&&) = default;
-            mark& operator=(mark&&) = default;
+        mark(const mark&) = default;
+        mark& operator=(const mark&) = default;
+
+        mark(mark&&) = default;
+        mark& operator=(mark&&) = default;
         
     };
 

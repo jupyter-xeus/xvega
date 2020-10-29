@@ -7,9 +7,9 @@
 #ifndef XVEGA_SELECTIONS_HPP
 #define XVEGA_SELECTIONS_HPP
 
-#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../utils/xeither.hpp"
+
+#include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
 #include "../utils/serialize.hpp"
 
@@ -47,15 +47,16 @@ namespace xv
             serialize(j, fields(), "fields");
         }
 
-        protected:
-            selection() = default;
-            ~selection() = default;
+    protected:
 
-            selection(const selection&) = default;
-            selection& operator=(const selection&) = default;
+        selection() = default;
+        ~selection() = default;
 
-            selection(selection&&) = default;
-            selection& operator=(selection&&) = default;
+        selection(const selection&) = default;
+        selection& operator=(const selection&) = default;
+
+        selection(selection&&) = default;
+        selection& operator=(selection&&) = default;
     };
 
     template<class D>

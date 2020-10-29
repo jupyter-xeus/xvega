@@ -7,9 +7,9 @@
 #ifndef XVEGA_DATA_FORMAT_HPP
 #define XVEGA_DATA_FORMAT_HPP
 
-#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../../utils/xeither.hpp"
+
+#include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
 #include "../../utils/serialize.hpp"
 
@@ -29,15 +29,16 @@ namespace xv
             serialize(j, parse(), "parse");
         }
 
-        protected:
-            data_format() = default;
-            ~data_format() = default;
+    protected:
 
-            data_format(const data_format&) = default;
-            data_format& operator=(const data_format&) = default;
+        data_format() = default;
+        ~data_format() = default;
 
-            data_format(data_format&&) = default;
-            data_format& operator=(data_format&&) = default;
+        data_format(const data_format&) = default;
+        data_format& operator=(const data_format&) = default;
+
+        data_format(data_format&&) = default;
+        data_format& operator=(data_format&&) = default;
     };
 
     template<class D>
