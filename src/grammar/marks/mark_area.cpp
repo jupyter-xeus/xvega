@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/marks/mark_area.hpp"
+#include "../marks_private.hpp"
 
 namespace xv
 {
@@ -15,7 +16,7 @@ namespace xv
 
     void mark_area::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
         // Fill in Area Mark Properties
         serialize(j, align(), "align");
         serialize(j, baseline(), "baseline");

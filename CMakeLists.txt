@@ -259,6 +259,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_text.cpp
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_tick.cpp
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_trail.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/marks_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_checkbox.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_input.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_radio_select.cpp
@@ -271,11 +272,13 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_single.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_multi.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_interval.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/selections_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/json_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/csv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/tsv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/dsv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/topo_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/named_data.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/url_data.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/inline_data.cpp

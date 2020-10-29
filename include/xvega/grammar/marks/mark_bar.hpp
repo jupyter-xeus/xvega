@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_bar : public mark<mark_bar>
     {
-        using base_type = mark<mark_bar>;
-
         // Bar Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_bar, orient);
         XPROPERTY(xtl::xoptional<std::string>, mark_bar, align);

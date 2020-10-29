@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/marks/mark_image.hpp"
+#include "../marks_private.hpp"
 
 namespace xv
 {
@@ -15,7 +16,7 @@ namespace xv
 
     void mark_image::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
         // Fill in Image Mark Properties
         serialize(j, url(), "url");
         serialize(j, aspect(), "aspect");

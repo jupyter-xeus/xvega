@@ -34,29 +34,17 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, D, resolve);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, encodings);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, fields);
-    
-        void to_json(nl::json& j) const
-        {
-            // Fill in General Selection Properties
-            serialize(j, type(), "type");
-            serialize(j, clear(), "clear");
-            serialize(j, empty(), "empty");
-            serialize(j, on(), "on");
-            serialize(j, resolve(), "resolve");
-            serialize(j, encodings(), "encodings");
-            serialize(j, fields(), "fields");
-        }
 
-    protected:
+        protected:
 
-        selection() = default;
-        ~selection() = default;
+            selection() = default;
+            ~selection() = default;
 
-        selection(const selection&) = default;
-        selection& operator=(const selection&) = default;
+            selection(const selection&) = default;
+            selection& operator=(const selection&) = default;
 
-        selection(selection&&) = default;
-        selection& operator=(selection&&) = default;
+            selection(selection&&) = default;
+            selection& operator=(selection&&) = default;
     };
 
     template<class D>

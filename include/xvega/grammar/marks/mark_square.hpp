@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_square : public mark<mark_square>
     {
-        using base_type = mark<mark_square>;
-
         // Square Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_square, size);
 

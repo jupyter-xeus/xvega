@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_tick : public mark<mark_tick>
     {
-        using base_type = mark<mark_tick>;
-
         // Tick Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_tick, cornerRadius);
         XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient);

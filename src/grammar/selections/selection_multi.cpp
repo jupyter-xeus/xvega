@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/selections/selection_multi.hpp"
+#include "../selections_private.hpp"
 
 namespace xv
 {
@@ -19,7 +20,7 @@ namespace xv
 
     void selection_multi::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
         serialize(j, init(), "init");
         serialize(j, bind(), "bind");
         serialize(j, nearest(), "nearest");

@@ -23,8 +23,6 @@ namespace xv
 
     struct selection_single : public selection<selection_single>
     {
-        using base_type = selection<selection_single>;
-
         // Single Selection Properties
         XPROPERTY(xtl::xoptional<nl::json>, selection_single, init);
         XPROPERTY(xtl::xoptional<selection_bind_type>, selection_single, bind);

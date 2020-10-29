@@ -13,8 +13,6 @@ namespace xv
 {
     struct overlay_mark_def : public base_config<overlay_mark_def>
     {
-        using base_type = base_config<overlay_mark_def>;
-
         XPROPERTY(xtl::xoptional<bool>, overlay_mark_def, clip);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, overlay_mark_def, style);
         XPROPERTY(xtl::xoptional<double>, overlay_mark_def, xOffset);
