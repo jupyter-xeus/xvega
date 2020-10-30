@@ -2,6 +2,7 @@
 #define MARKS_PRIVATE_HPP
 
 #include "xvega/grammar/marks.hpp"
+#include "../utils/serialize.hpp"
 
 namespace xv
 {

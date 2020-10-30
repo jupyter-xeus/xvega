@@ -15,8 +15,6 @@
 #include "../../encoding-channel-options/field.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
-#include "../../../../utils/serialize.hpp"
-
 namespace nl = nlohmann;
 
 namespace xv

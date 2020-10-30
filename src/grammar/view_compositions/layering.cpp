@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/view_compositions/layering.hpp"
+#include "../../utils/serialize.hpp"
 
 namespace xv
 {

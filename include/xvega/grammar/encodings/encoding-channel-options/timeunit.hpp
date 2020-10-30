@@ -13,7 +13,6 @@
 #include <xtl/xjson.hpp>
 #include <nlohmann/json.hpp>
 
-#include "../../../utils/serialize.hpp"
 #include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;

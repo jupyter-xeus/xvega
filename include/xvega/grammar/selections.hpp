@@ -11,7 +11,6 @@
 
 #include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
 
 #include "./selections/streams/event_stream.hpp"
 #include "./selections/streams/derived_stream.hpp"

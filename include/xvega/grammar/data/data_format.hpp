@@ -11,7 +11,6 @@
 
 #include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
-#include "../../utils/serialize.hpp"
 
 namespace xv
 {

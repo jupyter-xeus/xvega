@@ -2,6 +2,7 @@
 #define SELECTIONS_PRIVATE_HPP
 
 #include "xvega/grammar/selections.hpp"
+#include "../utils/serialize.hpp"
 
 namespace xv
 {

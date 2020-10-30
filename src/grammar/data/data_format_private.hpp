@@ -2,6 +2,7 @@
 #define DATA_FORMAT_PRIVATE_HPP
 
 #include "xvega/grammar/data/data_format.hpp"
+#include "../../utils/serialize.hpp"
 
 namespace xv
 {

@@ -12,7 +12,6 @@
 #include "grammar/view_compositions/layering.hpp"
 #include "grammar/view_compositions/hconcat.hpp"
 #include "grammar/view_compositions/vconcat.hpp"
-#include "./utils/serialize.hpp"
 #include "./xvega_config.hpp"
 
 namespace nl = nlohmann;

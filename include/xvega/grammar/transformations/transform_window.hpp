@@ -14,7 +14,6 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
-#include "../../utils/serialize.hpp"
 #include "./transform_stack.hpp"
 
 namespace nl = nlohmann;

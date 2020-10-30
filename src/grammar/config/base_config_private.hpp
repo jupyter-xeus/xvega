@@ -2,6 +2,7 @@
 #define BASECONFIG_PRIVATE_HPP
 
 #include "xvega/grammar/config/base_config.hpp"
+#include "../../utils/serialize.hpp"
 
 namespace xv
 {

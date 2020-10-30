@@ -11,7 +11,6 @@
 #include "xproperty/xobserved.hpp"
 #include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
-#include "../../utils/serialize.hpp"
 
 namespace nl = nlohmann;
 

@@ -14,7 +14,6 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
-#include "../../utils/serialize.hpp"
 
 #include "../data/data_source/named_data.hpp"
 #include "../data/data_source/inline_data.hpp"

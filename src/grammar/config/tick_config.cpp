@@ -5,7 +5,6 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/config/tick_config.hpp"
-
 #include "base_config_private.hpp"
 
 namespace xv

@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/data/data_source/named_data.hpp"
+#include "../../../utils/serialize.hpp"
 
 namespace xv
 {
