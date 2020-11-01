@@ -18,8 +18,6 @@
 #include "../../encoding-channel-options/sort.hpp"
 #include "../../encoding-channel-options/timeunit.hpp"
 
-#include "../../../../utils/serialize.hpp"
-
 namespace nl = nlohmann;
 
 namespace xv

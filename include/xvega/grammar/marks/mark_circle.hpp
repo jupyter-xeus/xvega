@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_circle : public mark<mark_circle>
     {
-        using base_type = mark<mark_circle>;
-
         // Circle Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_circle, size);
 

@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_trail : public mark<mark_trail>
     {
-        using base_type = mark<mark_trail>;
-
         // Trail Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient);
 

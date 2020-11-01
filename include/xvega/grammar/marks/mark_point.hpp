@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_point : public mark<mark_point>
     {
-        using base_type = mark<mark_point>;
-
         // Point Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_point, shape);
         XPROPERTY(xtl::xoptional<double>, mark_point, size);

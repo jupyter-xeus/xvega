@@ -13,8 +13,6 @@ namespace xv
 {
     struct bar_config : public base_config<bar_config>
     {
-        using base_type = base_config<bar_config>;
-
         XPROPERTY(xtl::xoptional<double>, bar_config, binSpacing);
         XPROPERTY(xtl::xoptional<double>, bar_config, continuousBandSize);
         XPROPERTY(xtl::xoptional<double>, bar_config, cornerRadiusEnd);

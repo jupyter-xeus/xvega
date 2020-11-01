@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/selections/bindings/legend_stream_binding.hpp"
+#include "../../../utils/serialize.hpp"
 
 namespace xv
 {

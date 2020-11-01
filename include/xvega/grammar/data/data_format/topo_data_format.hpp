@@ -13,8 +13,6 @@ namespace xv
 {
     struct topo_data_format : public data_format<topo_data_format>
     {
-        using base_type = data_format<topo_data_format>;
-
         XPROPERTY(xtl::xoptional<std::string>, topo_data_format, feature);
         XPROPERTY(xtl::xoptional<std::string>, topo_data_format, mesh);
 

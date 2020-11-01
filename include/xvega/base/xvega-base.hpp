@@ -12,7 +12,7 @@
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
+
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
 #include "../grammar/selections.hpp"

@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_rule : public mark<mark_rule>
     {
-        using base_type = mark<mark_rule>;
-
         XVEGA_API mark_rule();
 
         XVEGA_API void to_json(nl::json& j) const;

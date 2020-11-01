@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_line : public mark<mark_line>
     {
-        using base_type = mark<mark_line>;
-
         // Line Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_line, orient);
         XPROPERTY(xtl::xoptional<std::string>, mark_line, interpolate);

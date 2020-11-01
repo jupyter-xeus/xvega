@@ -17,8 +17,6 @@ namespace xv
 
     struct selection_interval : public selection<selection_interval>
     {
-        using base_type = selection<selection_interval>;
-
         // Interval Selection Properties
         XPROPERTY(xtl::xoptional<std::string>, selection_interval, bind);
         XPROPERTY(xtl::xoptional<nl::json>, selection_interval, init);

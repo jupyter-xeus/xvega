@@ -13,8 +13,6 @@ namespace xv
 {
     struct dsv_data_format : public data_format<dsv_data_format>
     {
-        using base_type = data_format<dsv_data_format>;
-
         XPROPERTY(xtl::xoptional<std::string>, dsv_data_format, delimiter);
 
         dsv_data_format();

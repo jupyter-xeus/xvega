@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_area : public mark<mark_area>
     {
-        using base_type = mark<mark_area>;
-
         // Area Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_area, align);
         XPROPERTY(xtl::xoptional<std::string>, mark_area, baseline);

@@ -13,7 +13,6 @@
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"
-#include "../../../utils/serialize.hpp"
 #include "../streams/event_stream.hpp"
 #include "../streams/derived_stream.hpp"
 #include "../streams/merged_stream.hpp"

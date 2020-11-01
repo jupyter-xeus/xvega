@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/data/data_format/json_data_format.hpp"
+#include "../data_format_private.hpp"
 
 namespace xv
 {
@@ -15,7 +16,7 @@ namespace xv
 
     void json_data_format::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
         serialize(j, property(), "property");
     }
 }

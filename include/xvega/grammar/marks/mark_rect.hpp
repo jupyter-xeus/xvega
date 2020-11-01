@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_rect : public mark<mark_rect>
     {
-        using base_type = mark<mark_rect>;
-
         // Rect Mark Properties
         XPROPERTY(xtl::xoptional<std::string>, mark_rect, align);
         XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline);

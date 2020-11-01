@@ -7,11 +7,10 @@
 #ifndef XVEGA_DATA_FORMAT_HPP
 #define XVEGA_DATA_FORMAT_HPP
 
-#include "../../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../../utils/xeither.hpp"
+
+#include "../../xvega_config.hpp"
 #include "../../utils/custom_datatypes.hpp"
-#include "../../utils/serialize.hpp"
 
 namespace xv
 {
@@ -23,13 +22,8 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<object_none_type>, D, parse);
 
-        void to_json(nl::json& j) const
-        {
-            serialize(j, type(), "type");
-            serialize(j, parse(), "parse");
-        }
-
         protected:
+
             data_format() = default;
             ~data_format() = default;
 

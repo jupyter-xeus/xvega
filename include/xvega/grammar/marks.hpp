@@ -7,11 +7,10 @@
 #ifndef XVEGA_MARKS_HPP
 #define XVEGA_MARKS_HPP
 
-#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../utils/xeither.hpp"
+
+#include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
 
 namespace xv
 {
@@ -59,53 +58,9 @@ namespace xv
         // Hyperlink Properties
         XPROPERTY(xtl::xoptional<std::string>, D, href);
         XPROPERTY(xtl::xoptional<std::string>, D, cursor);
-    
-        void to_json(nl::json& j) const
-        {
-            // Fill in General Mark Properties
-            serialize(j, type(), "type");
-            serialize(j, aria(), "aria");
-            serialize(j, description(), "description");
-            serialize(j, style(), "style");
-            serialize(j, tooltip(), "tooltip");
-            serialize(j, clip(), "clip");
-            serialize(j, invalid(), "invalid");
-            serialize(j, order(), "order");
-
-            // Fill in Position and Offset Properties
-            serialize(j, x(), "x");
-            serialize(j, x2(), "x2");
-            serialize(j, width(), "width");
-            serialize(j, height(), "height");
-            serialize(j, y(), "y");
-            serialize(j, y2(), "y2");
-            serialize(j, xOffset(), "xOffset");
-            serialize(j, x2Offset(), "x2Offset");
-            serialize(j, yOffset(), "yOffset");
-            serialize(j, y2Offset(), "y2Offset");
-
-            // Fill in Color Properties
-            serialize(j, filled(), "filled");
-            serialize(j, color(), "color");
-            serialize(j, fill(), "fill");
-            serialize(j, stroke(), "stroke");
-            serialize(j, blend(), "blend");
-            serialize(j, opacity(), "opacity");
-            serialize(j, fillOpacity(), "fillOpacity");
-            serialize(j, strokeOpacity(), "strokeOpacity");
-            serialize(j, strokeCap(), "strokeCap");
-            serialize(j, strokeDash(), "strokeDash");
-            serialize(j, strokeDashOffset(), "strokeDashOffset");
-            serialize(j, strokeJoin(), "strokeJoin");
-            serialize(j, strokeMiterLimit(), "strokeMiterLimit");
-            serialize(j, strokeWidth(), "strokeWidth");
-
-            // Fill in Hyperlink Properties
-            serialize(j, href(), "href");
-            serialize(j, cursor(), "cursor");
-        }
 
         protected:
+
             mark() = default;
             ~mark() = default;
 

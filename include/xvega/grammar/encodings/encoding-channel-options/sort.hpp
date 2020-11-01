@@ -15,7 +15,6 @@
 
 #include "./datetime.hpp"
 #include "./field.hpp"
-#include "../../../utils/serialize.hpp"
 #include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;

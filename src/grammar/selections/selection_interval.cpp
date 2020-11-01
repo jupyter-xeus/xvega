@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/selections/selection_interval.hpp"
+#include "../selections_private.hpp"
 
 namespace xv
 {
@@ -19,7 +20,7 @@ namespace xv
 
     void selection_interval::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
         serialize(j, bind(), "bind");
         serialize(j, init(), "init");
         serialize(j, mark(), "mark");

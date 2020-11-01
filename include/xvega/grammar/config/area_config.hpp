@@ -17,8 +17,6 @@ namespace xv
 
     struct area_config : public base_config<area_config>
     {
-        using base_type = base_config<area_config>;
-
         XPROPERTY(xtl::xoptional<bool_overlay_mark_def_type>, area_config, line);
         XPROPERTY(xtl::xoptional<bool_overlay_mark_def_string_type>, area_config, point);
 

@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/grammar/config/auto_size_params.hpp"
+#include "../../utils/serialize.hpp"
 
 namespace xv
 {

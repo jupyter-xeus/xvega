@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_image : public mark<mark_image>
     {
-        using base_type = mark<mark_image>;
-
         // Image Mark Properties
         XPROPERTY(xtl::xoptional<any_type>, mark_image, url);
         XPROPERTY(xtl::xoptional<bool>, mark_image, aspect);

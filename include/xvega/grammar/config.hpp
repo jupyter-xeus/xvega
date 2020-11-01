@@ -7,11 +7,10 @@
 #ifndef XVEGA_CONFIGURATIONS_HPP
 #define XVEGA_CONFIGURATIONS_HPP
 
-#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../utils/xeither.hpp"
+
+#include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
 
 #include "./config/area_config.hpp"
 #include "./config/auto_size_params.hpp"

@@ -14,7 +14,6 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
-#include "../../utils/serialize.hpp"
 #include "../encodings/encoding-channel-options/bin.hpp"
 
 namespace nl = nlohmann;

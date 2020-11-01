@@ -46,8 +46,6 @@
 #include "./encodings/encoding-channels/facet-channels/facet.hpp"
 #include "./encodings/encoding-channels/facet-channels/column.hpp"
 
-#include "../utils/serialize.hpp"
-
 namespace xv
 {
     struct Encodings : public xp::xobserved<Encodings>

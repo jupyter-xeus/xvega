@@ -5,6 +5,7 @@
 // The full license is in the file LICENSE, distributed with this software.
 
 #include "xvega/utils/custom_datatypes.hpp"
+#include "./serialize.hpp"
 #include <iostream>
 
 namespace xv

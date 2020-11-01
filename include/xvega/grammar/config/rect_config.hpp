@@ -13,8 +13,6 @@ namespace xv
 {
     struct rect_config : public base_config<rect_config>
     {
-        using base_type = base_config<rect_config>;
-
         XPROPERTY(xtl::xoptional<double>, rect_config, binSpacing);
         XPROPERTY(xtl::xoptional<double>, rect_config, continuousBandSize);
         XPROPERTY(xtl::xoptional<double>, rect_config, discreteBandSize);

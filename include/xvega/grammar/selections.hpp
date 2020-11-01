@@ -7,11 +7,10 @@
 #ifndef XVEGA_SELECTIONS_HPP
 #define XVEGA_SELECTIONS_HPP
 
-#include "../xvega_config.hpp"
 #include "xproperty/xobserved.hpp"
-#include "../utils/xeither.hpp"
+
+#include "../xvega_config.hpp"
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/serialize.hpp"
 
 #include "./selections/streams/event_stream.hpp"
 #include "./selections/streams/derived_stream.hpp"
@@ -34,20 +33,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, D, resolve);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, encodings);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, fields);
-    
-        void to_json(nl::json& j) const
-        {
-            // Fill in General Selection Properties
-            serialize(j, type(), "type");
-            serialize(j, clear(), "clear");
-            serialize(j, empty(), "empty");
-            serialize(j, on(), "on");
-            serialize(j, resolve(), "resolve");
-            serialize(j, encodings(), "encodings");
-            serialize(j, fields(), "fields");
-        }
 
         protected:
+
             selection() = default;
             ~selection() = default;
 

@@ -14,7 +14,6 @@
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"
-#include "../../../utils/serialize.hpp"
 #include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;

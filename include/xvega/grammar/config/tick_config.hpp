@@ -13,8 +13,6 @@ namespace xv
 {
     struct tick_config : public base_config<tick_config>
     {
-        using base_type = base_config<tick_config>;
-
         XPROPERTY(xtl::xoptional<double>, tick_config, bandSize);
         XPROPERTY(xtl::xoptional<double>, tick_config, thickness);
 

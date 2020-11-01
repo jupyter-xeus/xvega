@@ -18,8 +18,6 @@ namespace xv
 
     struct selection_multi : public selection<selection_multi>
     {
-        using base_type = selection<selection_multi>;
-
         // Multi Selection Properties
         XPROPERTY(xtl::xoptional<std::vector<nl::json>>, selection_multi, init);
         XPROPERTY(xtl::xoptional<legend_binding_type>, selection_multi, bind);

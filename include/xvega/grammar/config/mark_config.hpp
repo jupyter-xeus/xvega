@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_config : public base_config<mark_config>
     {
-        using base_type = base_config<mark_config>;
-
         XVEGA_API void to_json(nl::json& j) const;
     };
 }

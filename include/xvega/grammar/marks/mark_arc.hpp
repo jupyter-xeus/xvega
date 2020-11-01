@@ -13,8 +13,6 @@ namespace xv
 {
     struct mark_arc : public mark<mark_arc>
     {
-        using base_type = mark<mark_arc>;
-
         // Arc Mark Properties
         XPROPERTY(xtl::xoptional<double>, mark_arc, radius);
         XPROPERTY(xtl::xoptional<double>, mark_arc, radius2);

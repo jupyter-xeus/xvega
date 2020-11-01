@@ -136,8 +136,6 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/text.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/xeither.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/serialize.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/random_string.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
@@ -201,6 +199,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/base/xvega-base.cpp
     ${XVEGA_SOURCE_DIR}/utils/custom_datatypes.cpp
     ${XVEGA_SOURCE_DIR}/utils/random_string.cpp
+    ${XVEGA_SOURCE_DIR}/utils/serialize.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/encodings.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/aggregate.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/axis.cpp
@@ -260,6 +259,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_text.cpp
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_tick.cpp
     ${XVEGA_SOURCE_DIR}/grammar/marks/mark_trail.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/marks_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_checkbox.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_input.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/bindings/bind_radio_select.cpp
@@ -272,11 +272,13 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_single.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_multi.cpp
     ${XVEGA_SOURCE_DIR}/grammar/selections/selection_interval.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/selections_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/json_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/csv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/tsv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/dsv_data_format.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_format/topo_data_format.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/data/data_format_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/named_data.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/url_data.cpp
     ${XVEGA_SOURCE_DIR}/grammar/data/data_source/inline_data.cpp
