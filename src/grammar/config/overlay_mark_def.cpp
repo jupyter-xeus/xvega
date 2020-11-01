@@ -6,11 +6,13 @@
 
 #include "xvega/grammar/config/overlay_mark_def.hpp"
 
+#include "base_config_private.hpp"
+
 namespace xv
 {
     void overlay_mark_def::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
 
         serialize(j, clip(), "clip");
         serialize(j, style(), "style");

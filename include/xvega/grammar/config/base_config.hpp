@@ -74,69 +74,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_num_type>, D, x2);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
-    
-        void to_json(nl::json& j) const
-        {
-            // Fill in General base_config Properties
-            serialize(j, align(), "align");
-            serialize(j, angle(), "angle");
-            serialize(j, aspect(), "aspect");
-            serialize(j, baseline(), "baseline");
-            serialize(j, blend(), "blend");
-            serialize(j, color(), "color");
-            serialize(j, cornerRadius(), "cornerRadius");
-            serialize(j, cornerRadiusBottomLeft(), "cornerRadiusBottomLeft");
-            serialize(j, cornerRadiusBottomRight(), "cornerRadiusBottomRight");
-            serialize(j, cornerRadiusTopLeft(), "cornerRadiusTopLeft");
-            serialize(j, cornerRadiusTopRight(), "cornerRadiusTopRight");
-            serialize(j, cursor(), "cursor");
-            serialize(j, dir(), "dir");
-            serialize(j, dx(), "dx");
-            serialize(j, dy(), "dy");
-            serialize(j, ellipsis(), "ellipsis");
-            serialize(j, fill(), "fill");
-            serialize(j, fillOpacity(), "fillOpacity");
-            serialize(j, filled(), "filled");
-            serialize(j, font(), "font");
-            serialize(j, fontSize(), "fontSize");
-            serialize(j, fontStyle(), "fontStyle");
-            serialize(j, fontWeight(), "fontWeight");
-            serialize(j, height(), "height");
-            serialize(j, href(), "href");
-            serialize(j, interpolate(), "interpolate");
-            serialize(j, invalid(), "invalid");
-            serialize(j, limit(), "limit");
-            serialize(j, lineBreak(), "lineBreak");
-            serialize(j, lineHeight(), "lineHeight");
-            serialize(j, opacity(), "opacity");
-            serialize(j, order(), "order");
-            serialize(j, orient(), "orient");
-            serialize(j, radius(), "radius");
-            serialize(j, shape(), "shape");
-            serialize(j, size(), "size");
-            serialize(j, stroke(), "stroke");
-            serialize(j, strokeCap(), "strokeCap");
-            serialize(j, strokeDash(), "strokeDash");
-            serialize(j, strokeDashOffset(), "strokeDashOffset");
-            serialize(j, strokeJoin(), "strokeJoin");
-            serialize(j, strokeMiterLimit(), "strokeMiterLimit");
-            serialize(j, strokeOffset(), "strokeOffset");
-            serialize(j, strokeOpacity(), "strokeOpacity");
-            serialize(j, strokeWidth(), "strokeWidth");
-            serialize(j, tension(), "tension");
-            serialize(j, text(), "text");
-            serialize(j, theta(), "theta");
-            serialize(j, timeUnitBand(), "timeUnitBand");
-            serialize(j, timeUnitBandPosition(), "timeUnitBandPosition");
-            serialize(j, tooltip(), "tooltip");
-            serialize(j, width(), "width");
-            serialize(j, x(), "x");
-            serialize(j, x2(), "x2");
-            serialize(j, y(), "y");
-            serialize(j, y2(), "y2");
-        }
 
         protected:
+    
             base_config() = default;
             ~base_config() = default;
 

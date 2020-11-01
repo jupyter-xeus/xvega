@@ -6,11 +6,13 @@
 
 #include "xvega/grammar/config/area_config.hpp"
 
+#include "base_config_private.hpp"
+
 namespace xv
 {
     void area_config::to_json(nl::json& j) const
     {
-        base_type::to_json(j);
+        private_to_json(*this, j);
 
         serialize(j, line(), "line");
         serialize(j, point(), "point");

@@ -308,6 +308,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/config/auto_size_params.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/axis_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/bar_config.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/config/base_config_private.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/config/box_plot_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/composition_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/error_band_config.cpp
