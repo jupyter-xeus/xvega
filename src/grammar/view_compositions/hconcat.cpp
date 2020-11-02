@@ -24,14 +24,14 @@ namespace xv
             int len_transformations = data.charts()[i].transformations().size();
             for(int k=0; k<len_selections; k++)
             {
-                xtl::visit([&](auto&& arg){
-                        j["hconcat"][i]["selection"][arg.name().value()]=arg;
-                    }, data.charts()[i].selections()[k]);
+                /*xtl::visit([&](auto&& arg){
+                        j["hconcat"][i]["selection"][arg.name().value()] = arg;
+                    }, data.charts()[i].selections()[k]);*/
             }
             for(int k=0; k<len_transformations; k++)
             {
                 xtl::visit([&](auto&& arg){
-                        j["hconcat"][i]["transform"][k]=arg;
+                        j["hconcat"][i]["transform"][k] = arg;
                     }, data.charts()[i].transformations()[k]);
             }
         }

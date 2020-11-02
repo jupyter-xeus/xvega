@@ -137,6 +137,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/tooltip.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/utils/random_string.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/any_serializable.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/csv_data_format.hpp

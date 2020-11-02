@@ -8,11 +8,14 @@
 #define XVEGA_TRANSFORM_LOOKUP_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
 #include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
+#include "../../utils/any_serializable.hpp"
 #include "../../xvega_config.hpp"
 
 #include "../data/data_source/named_data.hpp"
@@ -53,11 +56,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const lookup_data& data);
 
-    using selection_type = xtl::variant<
-                                selection_single, 
-                                selection_multi, 
-                                selection_interval
-                                >;
+    using selection_type = xany_vega<selection>;
 
     struct lookup_selection : public xp::xobserved<lookup_selection>
     {

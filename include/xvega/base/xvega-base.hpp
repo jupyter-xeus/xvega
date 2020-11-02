@@ -12,34 +12,17 @@
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
+#include "../utils/any_serializable.hpp"
 
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
 #include "../grammar/selections.hpp"
 #include "../grammar/config.hpp"
 
-#include "../grammar/marks/mark_arc.hpp"
-#include "../grammar/marks/mark_area.hpp"
-#include "../grammar/marks/mark_bar.hpp"
-#include "../grammar/marks/mark_circle.hpp"
-#include "../grammar/marks/mark_geoshape.hpp"
-#include "../grammar/marks/mark_image.hpp"
-#include "../grammar/marks/mark_line.hpp"
-#include "../grammar/marks/mark_point.hpp"
-#include "../grammar/marks/mark_rect.hpp"
-#include "../grammar/marks/mark_rule.hpp"
-#include "../grammar/marks/mark_square.hpp"
-#include "../grammar/marks/mark_text.hpp"
-#include "../grammar/marks/mark_tick.hpp"
-#include "../grammar/marks/mark_trail.hpp"
-
-#include "../grammar/selections/selection_single.hpp"
-#include "../grammar/selections/selection_multi.hpp"
-#include "../grammar/selections/selection_interval.hpp"
-
 #include "../grammar/data/data_source/named_data.hpp"
 #include "../grammar/data/data_source/inline_data.hpp"
 #include "../grammar/data/data_source/url_data.hpp"
+
 #include "../grammar/data/generator/sequence_generator.hpp"
 #include "../grammar/data/generator/sphere_generator.hpp"
 #include "../grammar/data/generator/graticule_generator.hpp"
@@ -66,11 +49,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using data_source = xtl::variant<
-                             named_data, 
-                             inline_data,
-                             url_data
-                             >;
+    using data_source = xtl::variant<named_data, inline_data, url_data>;
 
     using generator = xtl::variant<
                            sequence_generator, 
@@ -79,29 +58,8 @@ namespace xv
                            >;
 
     using data_type = xtl::variant<data_source, generator, data_frame>;
-
-    using marks_type = xtl::variant<
-                            mark_arc, 
-                            mark_area, 
-                            mark_bar, 
-                            mark_circle, 
-                            mark_geoshape, 
-                            mark_image, 
-                            mark_line, 
-                            mark_point, 
-                            mark_rect, 
-                            mark_rule, 
-                            mark_square, 
-                            mark_text, 
-                            mark_tick, 
-                            mark_trail
-                            >;
-
-    using selection_type = xtl::variant<
-                                selection_single, 
-                                selection_multi, 
-                                selection_interval
-                                >;
+    using marks_type = xany_vega<mark>;
+    using selection_type = xany_vega<selection>;
 
     using transform_type = xtl::variant<
                                 transform_aggregate,

@@ -24,9 +24,9 @@ namespace xv
             int len_transformations = data.charts()[i].transformations().size();
             for(int k=0; k<len_selections; k++)
             {
-                xtl::visit([&](auto&& arg){
+                /*xtl::visit([&](auto&& arg){
                         j["layer"][i]["selection"][arg.name().value()]=arg;
-                    }, data.charts()[i].selections()[k]);
+                    }, data.charts()[i].selections()[k]);*/
             }
             for(int k=0; k<len_transformations; k++)
             {

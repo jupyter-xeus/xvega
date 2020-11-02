@@ -18,12 +18,12 @@ namespace xv
 
     void to_json(nl::json& j, const lookup_selection& data)
     {
-        if(data.selection().has_value())
+        /*if(data.selection().has_value())
         {
             xtl::visit([&](auto&& arg){
                     j["selection"]=arg.name().value();
                 }, data.selection().value());
-        }
+        }*/
         serialize(j, data.key(), "key");
         serialize(j, data.fields(), "fields");
     }
