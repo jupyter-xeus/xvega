@@ -150,6 +150,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sequence_generator.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/sphere_generator.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/generator/graticule_generator.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_aggregate.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_bin.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_calculate.hpp

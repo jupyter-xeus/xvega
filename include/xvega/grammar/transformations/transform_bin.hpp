@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 #include "../encodings/encoding-channel-options/bin.hpp"
 
 namespace nl = nlohmann;
@@ -22,7 +23,7 @@ namespace xv
 {
     using bin_transform_type = xtl::variant<bool, Bin>;
 
-    struct transform_bin : public xp::xobserved<transform_bin>
+    struct transform_bin : public transformation<transform_bin>
     {
         XPROPERTY(xtl::xoptional<bin_transform_type>, transform_bin, bin);
         XPROPERTY(xtl::xoptional<std::string>, transform_bin, field);

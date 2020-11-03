@@ -14,12 +14,13 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_flatten : public xp::xobserved<transform_flatten>
+    struct transform_flatten : public transformation<transform_flatten>
     {
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_flatten, flatten);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_flatten, as);

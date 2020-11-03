@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
@@ -28,7 +29,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const aggregate_field_def& data);
 
-    struct transform_aggregate : public xp::xobserved<transform_aggregate>
+    struct transform_aggregate : public transformation<transform_aggregate>
     {
         XPROPERTY(xtl::xoptional<std::vector<aggregate_field_def>>, transform_aggregate, aggregate);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_aggregate, groupby);

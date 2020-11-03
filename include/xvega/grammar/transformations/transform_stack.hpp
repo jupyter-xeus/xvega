@@ -14,6 +14,7 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
@@ -29,7 +30,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const sort_field_def& data);
 
-    struct transform_stack : public xp::xobserved<transform_stack>
+    struct transform_stack : public transformation<transform_stack>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_stack, stack);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_stack, groupby);

@@ -14,12 +14,13 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_pivot : public xp::xobserved<transform_pivot>
+    struct transform_pivot : public transformation<transform_pivot>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_pivot, pivot);
         XPROPERTY(xtl::xoptional<std::string>, transform_pivot, value);

@@ -30,9 +30,7 @@ namespace xv
             }
             for(int k=0; k<len_transformations; k++)
             {
-                xtl::visit([&](auto&& arg){
-                        j["vconcat"][i]["transform"][k]=arg;
-                    }, data.charts()[i].transformations()[k]);
+                j["vconcat"][i]["transform"][k] = data.charts()[i].transformations()[k];
             }
         }
         j["data"] = data.charts()[0].data();

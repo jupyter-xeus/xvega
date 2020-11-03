@@ -14,12 +14,13 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_quantile : public xp::xobserved<transform_quantile>
+    struct transform_quantile : public transformation<transform_quantile>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_quantile, quantile);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_quantile, groupby);

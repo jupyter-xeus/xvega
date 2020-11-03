@@ -14,12 +14,13 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_density : public xp::xobserved<transform_density>
+    struct transform_density : public transformation<transform_density>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_density, density);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_density, groupby);

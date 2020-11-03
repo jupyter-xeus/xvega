@@ -14,12 +14,13 @@
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_timeunit : public xp::xobserved<transform_timeunit>
+    struct transform_timeunit : public transformation<transform_timeunit>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, field);
         XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, as);

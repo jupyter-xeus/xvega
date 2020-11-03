@@ -17,19 +17,15 @@ namespace xv
         serialize(j, data.encoding(), "encoding");
 
         int len_selections = data.selections().size();
-        /*for(int i=0; i<len_selections; i++)
-        {
-            xtl::visit([&](auto&& arg){
-                    j["selection"][arg.name().value()] = arg;
-                }, data.selections()[i]);
-        }*/
+        // for(int i=0; i<len_selections; i++)
+        // {
+        //     j["selection"][data.selections()[i].name().value()] = data.selections()[i];
+        // }
 
         int len_transformations = data.transformations().size();
         for(int i=0; i<len_transformations; i++)
         {
-            xtl::visit([&](auto&& arg){
-                    j["transform"][i] = arg;
-                }, data.transformations()[i]);
+            j["transform"][i] = data.transformations()[i];
         }
 
         serialize(j, data.width(), "width");

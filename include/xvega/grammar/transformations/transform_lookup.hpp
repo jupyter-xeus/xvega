@@ -17,6 +17,8 @@
 
 #include "../../utils/any_serializable.hpp"
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
+#include "../selections.hpp"
 
 #include "../data/data_source/named_data.hpp"
 #include "../data/data_source/inline_data.hpp"
@@ -24,10 +26,6 @@
 #include "../data/generator/sequence_generator.hpp"
 #include "../data/generator/sphere_generator.hpp"
 #include "../data/generator/graticule_generator.hpp"
-
-#include "../selections/selection_single.hpp"
-#include "../selections/selection_multi.hpp"
-#include "../selections/selection_interval.hpp"
 
 namespace nl = nlohmann;
 
@@ -69,7 +67,7 @@ namespace xv
 
     using from_type = xtl::variant<lookup_data, lookup_selection>;
 
-    struct transform_lookup : public xp::xobserved<transform_lookup>
+    struct transform_lookup : public transformation<transform_lookup>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_lookup, lookup);
         XPROPERTY(xtl::xoptional<from_type>, transform_lookup, from);
