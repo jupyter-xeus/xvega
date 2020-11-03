@@ -21,17 +21,6 @@ namespace xv
     {
         XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<object_none_type>, D, parse);
-
-        protected:
-
-            data_format() = default;
-            ~data_format() = default;
-
-            data_format(const data_format&) = default;
-            data_format& operator=(const data_format&) = default;
-
-            data_format(data_format&&) = default;
-            data_format& operator=(data_format&&) = default;
     };
 
     template<class D>

@@ -73,17 +73,6 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_num_type>, D, x2);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
-
-    protected:
-    
-        base_config() = default;
-        ~base_config() = default;
-
-        base_config(const base_config&) = default;
-        base_config& operator=(const base_config&) = default;
-
-        base_config(base_config&&) = default;
-        base_config& operator=(base_config&&) = default;
     };
 
     template<class D>

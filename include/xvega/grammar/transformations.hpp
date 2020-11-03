@@ -17,16 +17,6 @@ namespace xv
     template<class D>
     struct transformation : public xp::xobserved<D>
     {
-        protected:
-
-            transformation() = default;
-            ~transformation() = default;
-
-            transformation(const transformation&) = default;
-            transformation& operator=(const transformation&) = default;
-
-            transformation(transformation&&) = default;
-            transformation& operator=(transformation&&) = default;
     };
 
     template<class D>

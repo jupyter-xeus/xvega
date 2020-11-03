@@ -58,18 +58,6 @@ namespace xv
         // Hyperlink Properties
         XPROPERTY(xtl::xoptional<std::string>, D, href);
         XPROPERTY(xtl::xoptional<std::string>, D, cursor);
-
-        protected:
-
-            mark() = default;
-            ~mark() = default;
-
-            mark(const mark&) = default;
-            mark& operator=(const mark&) = default;
-
-            mark(mark&&) = default;
-            mark& operator=(mark&&) = default;
-        
     };
 
     template<class D>
