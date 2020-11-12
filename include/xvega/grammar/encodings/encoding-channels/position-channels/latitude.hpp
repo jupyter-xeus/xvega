@@ -4,6 +4,9 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
+#ifndef XVEGA_ENCODING_LATITUDE_HPP
+#define XVEGA_ENCODING_LATITUDE_HPP
+
 #include <xproperty/xobserved.hpp>
 #include <xtl/xoptional.hpp>
 #include <xtl/xvariant.hpp>
@@ -33,3 +36,5 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const Latitude& data);
 }
+
+#endif

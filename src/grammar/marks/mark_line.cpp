@@ -14,13 +14,13 @@ namespace xv
         type = "line";
     }
 
-    void mark_line::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_line& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Line Mark Properties
-        serialize(j, orient(), "orient");
-        serialize(j, interpolate(), "interpolate");
-        serialize(j, tension(), "tension");
-        serialize(j, point(), "point");
+        serialize(j, m.orient(), "orient");
+        serialize(j, m.interpolate(), "interpolate");
+        serialize(j, m.tension(), "tension");
+        serialize(j, m.point(), "point");
     }
 }

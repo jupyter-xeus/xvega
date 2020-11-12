@@ -9,12 +9,12 @@
 
 namespace xv
 {
-    void rect_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const rect_config& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
 
-        serialize(j, binSpacing(), "binSpacing");
-        serialize(j, continuousBandSize(), "continuousBandSize");
-        serialize(j, discreteBandSize(), "discreteBandSize");
+        serialize(j, c.binSpacing(), "binSpacing");
+        serialize(j, c.continuousBandSize(), "continuousBandSize");
+        serialize(j, c.discreteBandSize(), "discreteBandSize");
     }
 }

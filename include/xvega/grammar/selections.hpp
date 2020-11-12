@@ -25,7 +25,7 @@ namespace xv
     template<class D>
     struct selection : public xp::xobserved<D>
     {
-        XPROPERTY(xtl::xoptional<std::string>, D, name);
+        XPROPERTY(std::string, D, name);
         XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<clear_type>, D, clear);
         XPROPERTY(xtl::xoptional<std::string>, D, empty);
@@ -34,12 +34,6 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, encodings);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, fields);
     };
-
-    template<class D>
-    void to_json(nl::json& j, const selection<D>& data)
-    {
-        data.derived_cast().to_json(j);
-    }
 }
 
 #endif

@@ -20,9 +20,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, mark_image, baseline);
 
         XVEGA_API mark_image();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_image&);
 }
 
 #endif

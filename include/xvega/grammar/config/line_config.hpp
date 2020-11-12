@@ -17,9 +17,9 @@ namespace xv
     struct line_config : public base_config<line_config>
     {
         XPROPERTY(xtl::xoptional<bool_overlay_string_type>, line_config, point);
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const line_config&);
 }
 
 #endif

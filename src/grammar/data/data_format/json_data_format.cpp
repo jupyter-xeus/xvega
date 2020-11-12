@@ -14,9 +14,9 @@ namespace xv
         type = "json";
     }
 
-    void json_data_format::to_json(nl::json& j) const
+    void to_json(nl::json& j, const json_data_format& c)
     {
-        private_to_json(*this, j);
-        serialize(j, property(), "property");
+        private_to_json(c, j);
+        serialize(j, c.property(), "property");
     }
 }

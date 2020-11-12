@@ -9,11 +9,11 @@
 
 namespace xv
 {
-    void tick_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const tick_config& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
 
-        serialize(j, bandSize(), "bandSize");
-        serialize(j, thickness(), "thickness");
+        serialize(j, c.bandSize(), "bandSize");
+        serialize(j, c.thickness(), "thickness");
     }
 }

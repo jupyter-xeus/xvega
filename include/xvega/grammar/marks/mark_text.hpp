@@ -32,9 +32,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_text, theta);
 
         XVEGA_API mark_text();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_text&);
 }
 
 #endif

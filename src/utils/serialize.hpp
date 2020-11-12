@@ -8,19 +8,28 @@
 #define XVEGA_SERIALIZE_HPP
 
 #include "xvega/xvega_config.hpp"
+
 #include "nlohmann/json.hpp"
+
+#include "xtl/xoptional.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    template <class P>
-    void serialize(nl::json& j, const P& p, const std::string& name)
+    template <class CT, class CB>
+    void serialize(nl::json& j, const xtl::xoptional<CT, CB>& p, const std::string& name)
     {
         if(p.has_value())
         {
             j[name] = p.value();
         }
+    }
+    
+    template <class P>
+    void serialize(nl::json& j, const P& p, const std::string& name)
+    {
+        j[name] = p.value();
     }
 }
 

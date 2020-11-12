@@ -4,15 +4,15 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_BASIC_HPP
-#define XVEGA_BASIC_HPP
+#ifndef XVEGA_CHART_HPP
+#define XVEGA_CHART_HPP
 
-#include <iostream>
+#include <vector>
 
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
-#include "../utils/any_serializable.hpp"
+#include "../utils/xany.hpp"
 
 #include "../grammar/marks.hpp"
 #include "../grammar/encodings.hpp"
@@ -20,10 +20,12 @@
 #include "../grammar/transformations.hpp"
 #include "../grammar/config.hpp"
 
+// data
 #include "../grammar/data/data_source/named_data.hpp"
 #include "../grammar/data/data_source/inline_data.hpp"
 #include "../grammar/data/data_source/url_data.hpp"
 
+// generators
 #include "../grammar/data/generator/sequence_generator.hpp"
 #include "../grammar/data/generator/sphere_generator.hpp"
 #include "../grammar/data/generator/graticule_generator.hpp"
@@ -41,9 +43,9 @@ namespace xv
                            >;
 
     using data_type = xtl::variant<data_source, generator, data_frame>;
-    using marks_type = xany_vega<mark>;
-    using selection_type = xany_vega<selection>;
-    using transform_type = xany_vega<transformation>;
+    using marks_type = xany<mark>;
+    using selection_type = xany<selection>;
+    using transform_type = xany<transformation>;
 
     struct Chart : public xp::xobserved<Chart>
     {
@@ -56,8 +58,8 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Chart, height);
         XPROPERTY(xtl::xoptional<Config>, Chart, config);
     };
-
-    XVEGA_API void to_json(nl::json& j, const Chart& data);
+    
+    nl::json XVEGA_API mime_bundle_repr(const Chart& v);
 }
 
 #endif

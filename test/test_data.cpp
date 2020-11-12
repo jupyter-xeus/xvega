@@ -11,7 +11,7 @@ TEST(JsonSpecOutput, UrlData)
     nl::json expected = R"({
                     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
                     "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"},
-                    "mark": {"type": "arc"}
+                    "mark": null
                 })"_json;
     ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
@@ -38,7 +38,7 @@ TEST(JsonSpecOutput, Dataframe)
                         {"country": "France", "score": 8}
                         ]
                     },
-                    "mark": {"type": "arc"}
+                    "mark": null
                 })"_json;
     ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
@@ -53,7 +53,7 @@ TEST(JsonSpecOutput, SequenceGenerator)
     nl::json expected = R"({
                     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
                     "data": {"sequence": {"as": "x", "start": 0, "step": 0.1, "stop": 12.7}},
-                    "mark": {"type": "arc"}
+                    "mark": null
                 })"_json;
     ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }

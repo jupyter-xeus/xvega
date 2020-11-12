@@ -17,9 +17,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, topo_data_format, mesh);
 
         topo_data_format();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const topo_data_format&);
 }
 
 #endif

@@ -58,13 +58,9 @@ namespace xv
         // Hyperlink Properties
         XPROPERTY(xtl::xoptional<std::string>, D, href);
         XPROPERTY(xtl::xoptional<std::string>, D, cursor);
-    };
 
-    template<class D>
-    void to_json(nl::json& j, const mark<D>& data)
-    {
-        data.derived_cast().to_json(j);
-    }
+        inline std::string name() const { return ""; }
+    };
 }
 
 #endif

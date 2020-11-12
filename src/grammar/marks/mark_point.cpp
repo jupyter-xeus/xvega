@@ -14,11 +14,11 @@ namespace xv
         type = "point";
     }
 
-    void mark_point::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_point& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Point Mark Properties
-        serialize(j, shape(), "shape");
-        serialize(j, size(), "size");
+        serialize(j, m.shape(), "shape");
+        serialize(j, m.size(), "size");
     }
 }

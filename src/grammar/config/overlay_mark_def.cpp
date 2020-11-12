@@ -9,15 +9,15 @@
 
 namespace xv
 {
-    void overlay_mark_def::to_json(nl::json& j) const
+    void to_json(nl::json& j, const overlay_mark_def& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
 
-        serialize(j, clip(), "clip");
-        serialize(j, style(), "style");
-        serialize(j, xOffset(), "xOffset");
-        serialize(j, x2Offset(), "x2Offset");
-        serialize(j, yOffset(), "yOffset");
-        serialize(j, y2Offset(), "y2Offset");
+        serialize(j, c.clip(), "clip");
+        serialize(j, c.style(), "style");
+        serialize(j, c.xOffset(), "xOffset");
+        serialize(j, c.x2Offset(), "x2Offset");
+        serialize(j, c.yOffset(), "yOffset");
+        serialize(j, c.y2Offset(), "y2Offset");
     }
 }

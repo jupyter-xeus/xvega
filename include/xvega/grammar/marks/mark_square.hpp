@@ -17,9 +17,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_square, size);
 
         XVEGA_API mark_square();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_square&);
 }
 
 #endif

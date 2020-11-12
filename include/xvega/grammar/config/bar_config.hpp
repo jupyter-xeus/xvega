@@ -17,9 +17,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, bar_config, continuousBandSize);
         XPROPERTY(xtl::xoptional<double>, bar_config, cornerRadiusEnd);
         XPROPERTY(xtl::xoptional<double>, bar_config, discreteBandSize);
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const bar_config&);
 }
 
 #endif

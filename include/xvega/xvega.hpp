@@ -4,47 +4,56 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
-#ifndef XVEGA_HPP
-#define XVEGA_HPP
+#ifndef XVEGA_ALL_HPP
+#define XVEGA_ALL_HPP
 
-#include "nlohmann/json.hpp"
-#include "base/xvega-base.hpp"
-#include "grammar/view_compositions/layering.hpp"
-#include "grammar/view_compositions/hconcat.hpp"
-#include "grammar/view_compositions/vconcat.hpp"
-#include "./xvega_config.hpp"
+// Config
+#include "xvega_config.hpp"
 
-namespace nl = nlohmann;
+// All marks
+#include "grammar/marks/mark_arc.hpp"	
+#include "grammar/marks/mark_area.hpp"	
+#include "grammar/marks/mark_bar.hpp"	
+#include "grammar/marks/mark_circle.hpp"	
+#include "grammar/marks/mark_geoshape.hpp"	
+#include "grammar/marks/mark_image.hpp"	
+#include "grammar/marks/mark_line.hpp"	
+#include "grammar/marks/mark_point.hpp"	
+#include "grammar/marks/mark_rect.hpp"	
+#include "grammar/marks/mark_rule.hpp"	
+#include "grammar/marks/mark_square.hpp"	
+#include "grammar/marks/mark_text.hpp"	
+#include "grammar/marks/mark_tick.hpp"	
+#include "grammar/marks/mark_trail.hpp"	
 
-namespace xv
-{   
-    inline nl::json mime_bundle_repr(const Chart& v)
-    {
-        auto bundle = nl::json::object();
-        bundle["application/vnd.vegalite.v3+json"] = v;
-        return bundle;
-    }
+// All selections
+#include "grammar/selections/selection_single.hpp"	
+#include "grammar/selections/selection_multi.hpp"	
+#include "grammar/selections/selection_interval.hpp"
 
-    inline nl::json mime_bundle_repr(const hconcat& v)
-    {
-        auto bundle = nl::json::object();
-        bundle["application/vnd.vegalite.v3+json"] = v;
-        return bundle;
-    }
+// Transformations
+#include "grammar/transformations/transform_aggregate.hpp"	
+#include "grammar/transformations/transform_bin.hpp"	
+#include "grammar/transformations/transform_calculate.hpp"	
+#include "grammar/transformations/transform_density.hpp"	
+#include "grammar/transformations/transform_flatten.hpp"	
+#include "grammar/transformations/transform_fold.hpp"	
+#include "grammar/transformations/transform_impute.hpp"	
+#include "grammar/transformations/transform_join_aggregate.hpp"	
+#include "grammar/transformations/transform_loess.hpp"	
+#include "grammar/transformations/transform_pivot.hpp"	
+#include "grammar/transformations/transform_quantile.hpp"	
+#include "grammar/transformations/transform_regression.hpp"	
+#include "grammar/transformations/transform_sample.hpp"	
+#include "grammar/transformations/transform_stack.hpp"	
+#include "grammar/transformations/transform_timeunit.hpp"	
+#include "grammar/transformations/transform_window.hpp"
+#include "grammar/transformations/transform_lookup.hpp"	
 
-    inline nl::json mime_bundle_repr(const layer& v)
-    {
-        auto bundle = nl::json::object();
-        bundle["application/vnd.vegalite.v3+json"] = v;
-        return bundle;
-    }
+// Chart
+#include "grammar/chart.hpp"
 
-    inline nl::json mime_bundle_repr(const vconcat& v)
-    {
-        auto bundle = nl::json::object();
-        bundle["application/vnd.vegalite.v3+json"] = v;
-        return bundle;
-    }
-}
+// View compositions
+#include "grammar/view_compositions.hpp"
 
 #endif

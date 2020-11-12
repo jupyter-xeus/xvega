@@ -14,9 +14,9 @@ namespace xv
     struct tsv_data_format : public data_format<tsv_data_format>
     {
         tsv_data_format();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const tsv_data_format&);
 }
 
 #endif

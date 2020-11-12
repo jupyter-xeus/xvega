@@ -58,7 +58,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/xvega.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config_cling.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/base/xvega-base.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/chart.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_arc.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_area.hpp
@@ -135,9 +135,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/key.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/text.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/encodings/encoding-channels/text-tooltip-channels/tooltip.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/random_string.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/utils/any_serializable.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/json_data_format.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/data/data_format/csv_data_format.hpp
@@ -168,9 +166,6 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_stack.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_timeunit.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/transformations/transform_window.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/layering.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/hconcat.hpp
-    ${XVEGA_INCLUDE_DIR}/xvega/grammar/view_compositions/vconcat.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/area_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/auto_size_params.hpp
@@ -195,13 +190,14 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/tick_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/title_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/config/view_config.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/custom_datatypes.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/random_string.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/utils/xany.hpp
 )
 
 set(XVEGA_SOURCES
-    ${XVEGA_SOURCE_DIR}/base/xvega-base.cpp
-    ${XVEGA_SOURCE_DIR}/utils/custom_datatypes.cpp
-    ${XVEGA_SOURCE_DIR}/utils/random_string.cpp
     ${XVEGA_SOURCE_DIR}/utils/serialize.hpp  # private header
+    ${XVEGA_SOURCE_DIR}/grammar/chart.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/aggregate.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/axis.cpp
@@ -304,9 +300,7 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_stack.cpp
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_timeunit.cpp
     ${XVEGA_SOURCE_DIR}/grammar/transformations/transform_window.cpp
-    ${XVEGA_SOURCE_DIR}/grammar/view_compositions/layering.cpp
-    ${XVEGA_SOURCE_DIR}/grammar/view_compositions/hconcat.cpp
-    ${XVEGA_SOURCE_DIR}/grammar/view_compositions/vconcat.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/view_compositions.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/area_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/auto_size_params.cpp
@@ -331,6 +325,8 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/config/tick_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/title_config.cpp
     ${XVEGA_SOURCE_DIR}/grammar/config/view_config.cpp
+    ${XVEGA_SOURCE_DIR}/utils/custom_datatypes.cpp
+    ${XVEGA_SOURCE_DIR}/utils/random_string.cpp
 )
 
 add_library(xvega SHARED ${XVEGA_SOURCES} ${XVEGA_HEADERS})

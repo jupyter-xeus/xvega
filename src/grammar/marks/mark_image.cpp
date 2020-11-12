@@ -14,13 +14,13 @@ namespace xv
         type = "image";
     }
 
-    void mark_image::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_image& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Image Mark Properties
-        serialize(j, url(), "url");
-        serialize(j, aspect(), "aspect");
-        serialize(j, align(), "align");
-        serialize(j, baseline(), "baseline");
+        serialize(j, m.url(), "url");
+        serialize(j, m.aspect(), "aspect");
+        serialize(j, m.align(), "align");
+        serialize(j, m.baseline(), "baseline");
     }
 }

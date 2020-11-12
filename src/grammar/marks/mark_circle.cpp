@@ -14,10 +14,10 @@ namespace xv
         type = "circle";
     }
 
-    void mark_circle::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_circle& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Circle Mark Properties
-        serialize(j, size(), "size");
+        serialize(j, m.size(), "size");
     }
 }

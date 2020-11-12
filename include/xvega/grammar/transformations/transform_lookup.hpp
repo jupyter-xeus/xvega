@@ -15,7 +15,7 @@
 
 #include <nlohmann/json.hpp>
 
-#include "../../utils/any_serializable.hpp"
+#include "../../utils/xany.hpp"
 #include "../../xvega_config.hpp"
 #include "../transformations.hpp"
 #include "../selections.hpp"
@@ -54,7 +54,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const lookup_data& data);
 
-    using selection_type = xany_vega<selection>;
+    using selection_type = xany<selection>;
 
     struct lookup_selection : public xp::xobserved<lookup_selection>
     {

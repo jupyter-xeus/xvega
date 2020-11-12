@@ -14,10 +14,10 @@ namespace xv
         type = "topojson";
     }
 
-    void topo_data_format::to_json(nl::json& j) const
+    void to_json(nl::json& j, const topo_data_format& c)
     {
-        private_to_json(*this, j);
-        serialize(j, feature(), "feature");
-        serialize(j, mesh(), "mesh");
+        private_to_json(c, j);
+        serialize(j, c.feature(), "feature");
+        serialize(j, c.mesh(), "mesh");
     }
 }

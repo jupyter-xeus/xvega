@@ -18,9 +18,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_point, size);
 
         XVEGA_API mark_point();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_point&);
 }
 
 #endif

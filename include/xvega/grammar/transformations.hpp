@@ -17,13 +17,8 @@ namespace xv
     template<class D>
     struct transformation : public xp::xobserved<D>
     {
+        inline std::string name() const { return ""; }
     };
-
-    template<class D>
-    void to_json(nl::json& j, const transformation<D>& data)
-    {
-        data.derived_cast().to_json(j);
-    }
 }
 
 #endif

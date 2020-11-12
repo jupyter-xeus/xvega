@@ -14,10 +14,10 @@ namespace xv
         type = "square";
     }
 
-    void mark_square::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_square& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Square Mark Properties
-        serialize(j, size(), "size");
+        serialize(j, m.size(), "size");
     }
 }

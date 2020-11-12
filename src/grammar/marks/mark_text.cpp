@@ -14,25 +14,25 @@ namespace xv
         type = "text";
     }
 
-    void mark_text::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_text& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Text Mark Properties
-        serialize(j, angle(), "angle");
-        serialize(j, align(), "align");
-        serialize(j, baseline(), "baseline");
-        serialize(j, dir(), "dir");
-        serialize(j, dx(), "dx");
-        serialize(j, dy(), "dy");
-        serialize(j, ellipsis(), "ellipsis");
-        serialize(j, font(), "font");
-        serialize(j, fontSize(), "fontSize");
-        serialize(j, fontStyle(), "fontStyle");
-        serialize(j, fontWeight(), "fontWeight");
-        serialize(j, limit(), "limit");
-        serialize(j, lineHeight(), "lineHeight");
-        serialize(j, radius(), "radius");
-        serialize(j, text(), "text");
-        serialize(j, theta(), "theta");
+        serialize(j, m.angle(), "angle");
+        serialize(j, m.align(), "align");
+        serialize(j, m.baseline(), "baseline");
+        serialize(j, m.dir(), "dir");
+        serialize(j, m.dx(), "dx");
+        serialize(j, m.dy(), "dy");
+        serialize(j, m.ellipsis(), "ellipsis");
+        serialize(j, m.font(), "font");
+        serialize(j, m.fontSize(), "fontSize");
+        serialize(j, m.fontStyle(), "fontStyle");
+        serialize(j, m.fontWeight(), "fontWeight");
+        serialize(j, m.limit(), "limit");
+        serialize(j, m.lineHeight(), "lineHeight");
+        serialize(j, m.radius(), "radius");
+        serialize(j, m.text(), "text");
+        serialize(j, m.theta(), "theta");
     }
 }

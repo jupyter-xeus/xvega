@@ -74,12 +74,6 @@ namespace xv
         XPROPERTY(xtl::xoptional<string_num_type>, D, y);
         XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
     };
-
-    template<class D>
-    void to_json(nl::json& j, const base_config<D>& data)
-    {
-        data.derived_cast().to_json(j);
-    }
 }
 
 #endif

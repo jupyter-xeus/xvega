@@ -9,8 +9,8 @@
 
 namespace xv
 {
-    void mark_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_config& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
     }
 }

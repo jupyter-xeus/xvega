@@ -9,11 +9,11 @@
 
 namespace xv
 {
-    void area_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const area_config& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
 
-        serialize(j, line(), "line");
-        serialize(j, point(), "point");
+        serialize(j, c.line(), "line");
+        serialize(j, c.point(), "point");
     }
 }

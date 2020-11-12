@@ -9,10 +9,9 @@
 
 namespace xv
 {
-    void line_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const line_config& c)
     {
-        private_to_json(*this, j);
-
-        serialize(j, point(), "point");
+        private_to_json(c, j);
+        serialize(j, c.point(), "point");
     }
 }

@@ -22,12 +22,6 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, D, type);
         XPROPERTY(xtl::xoptional<object_none_type>, D, parse);
     };
-
-    template<class D>
-    void to_json(nl::json& j, const data_format<D>& data)
-    {
-        data.derived_cast().to_json(j);
-    }
 }
 
 #endif

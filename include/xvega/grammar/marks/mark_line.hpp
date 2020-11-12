@@ -20,9 +20,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_line, point);
 
         XVEGA_API mark_line();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_line&);
 }
 
 #endif

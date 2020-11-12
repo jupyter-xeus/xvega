@@ -11,20 +11,17 @@ namespace xv
 {
     selection_interval::selection_interval()
     {
-        if(!name().has_value())
-        {
-            name = "selector_interval_" + random_string(5);
-        }
+        name = "selector_interval_" + random_string(5);
         type = "interval";
     }
 
-    void selection_interval::to_json(nl::json& j) const
+    void to_json(nl::json& j, const selection_interval& m)
     {
-        private_to_json(*this, j);
-        serialize(j, bind(), "bind");
-        serialize(j, init(), "init");
-        serialize(j, mark(), "mark");
-        serialize(j, translate(), "translate");
-        serialize(j, zoom(), "zoom");
+        private_to_json(m, j);
+        serialize(j, m.bind(), "bind");
+        serialize(j, m.init(), "init");
+        serialize(j, m.mark(), "mark");
+        serialize(j, m.translate(), "translate");
+        serialize(j, m.zoom(), "zoom");
     }
 }

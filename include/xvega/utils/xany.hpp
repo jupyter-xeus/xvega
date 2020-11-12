@@ -24,41 +24,42 @@ namespace xv
     namespace detail
     {
         template <template <class> class CRTP>
-        class xany_vega_impl;
+        class xany_impl;
     }
 
     /***********************
-     * xany_vega declaration *
+     * xany declaration *
      ***********************/
 
     template <template <class> class CRTP>
-    class xany_vega
+    class xany
     {
     public:
 
-        using implementation_type = detail::xany_vega_impl<CRTP>;
+        using implementation_type = detail::xany_impl<CRTP>;
 
-        xany_vega();
-        ~xany_vega();
-        xany_vega(const xany_vega& rhs);
-        xany_vega(xany_vega&& rhs);
+        xany();
+        ~xany();
+        xany(const xany& rhs);
+        xany(xany&& rhs);
         template <class D>
-        xany_vega(const CRTP<D>& rhs);
+        xany(const CRTP<D>& rhs);
         template <class D>
-        xany_vega(CRTP<D>&& rhs);
-        xany_vega(implementation_type* any);
+        xany(CRTP<D>&& rhs);
+        xany(implementation_type* any);
 
-        xany_vega& operator=(const xany_vega& rhs);
-        xany_vega& operator=(xany_vega&& rhs);
+        xany& operator=(const xany& rhs);
+        xany& operator=(xany&& rhs);
 
         template <class D>
-        xany_vega& operator=(const CRTP<D>& rhs);
+        xany& operator=(const CRTP<D>& rhs);
         template <class D>
-        xany_vega& operator=(CRTP<D>&& rhs);
+        xany& operator=(CRTP<D>&& rhs);
 
-        void swap(xany_vega& rhs);
+        void swap(xany& rhs);
 
         void to_json(nl::json& j) const;
+        std::string name() const;
 
         xtl::any value() &;
         const xtl::any value() const &;
@@ -76,17 +77,17 @@ namespace xv
     };
 
     template <template <class> class CRTP>
-    inline void swap(xany_vega<CRTP>& lhs, xany_vega<CRTP>& rhs);
+    inline void swap(xany<CRTP>& lhs, xany<CRTP>& rhs);
 
     template <template <class> class CRTP, class D>
-    xany_vega<CRTP> make_any(CRTP<D>&& value);
+    xany<CRTP> make_any(CRTP<D>&& value);
 
     /***********************
      * to_json declaration *
      ***********************/
 
     template <template <class> class CRTP>
-    void to_json(nl::json& j, const xany_vega<CRTP>& o);
+    void to_json(nl::json& j, const xany<CRTP>& o);
 
     /**************************
      * any implementations *
@@ -95,58 +96,64 @@ namespace xv
     namespace detail
     {
         template <template <class> class CRTP>
-        class xany_vega_impl
+        class xany_impl
         {
         public:
 
-            xany_vega_impl() = default;
-            xany_vega_impl(xany_vega_impl&&) = delete;
-            xany_vega_impl& operator=(const xany_vega_impl&) = delete;
-            xany_vega_impl& operator=(xany_vega_impl&&) = delete;
-            virtual xany_vega_impl* clone() const = 0;
-            virtual ~xany_vega_impl() = default;
+            xany_impl() = default;
+            xany_impl(xany_impl&&) = delete;
+            xany_impl& operator=(const xany_impl&) = delete;
+            xany_impl& operator=(xany_impl&&) = delete;
+            virtual xany_impl* clone() const = 0;
+            virtual ~xany_impl() = default;
 
             virtual void to_json(nl::json& j) const = 0;
+            virtual std::string name() const = 0;
 
             virtual xtl::any value() & = 0;
             virtual const xtl::any value() const & = 0;
 
         protected:
 
-            xany_vega_impl(const xany_vega_impl&) = default;
+            xany_impl(const xany_impl&) = default;
         };
 
         template <template <class> class CRTP, class D>
-        class xany_vega_owning : public xany_vega_impl<CRTP>
+        class xany_owning : public xany_impl<CRTP>
         {
         public:
 
-            using base_type = xany_vega_impl<CRTP>;
+            using base_type = xany_impl<CRTP>;
 
-            xany_vega_owning(const CRTP<D>& value)
+            xany_owning(const CRTP<D>& value)
                 : base_type(),
                   m_value(value.derived_cast())
             {
             }
 
-            xany_vega_owning(CRTP<D>&& value)
+            xany_owning(CRTP<D>&& value)
                 : base_type(),
                   m_value(std::move(value.derived_cast()))
             {
             }
 
-            virtual ~xany_vega_owning()
+            virtual ~xany_owning()
             {
             }
 
             virtual base_type* clone() const override
             {
-                return new xany_vega_owning(*this);
+                return new xany_owning(*this);
             }
 
             virtual void to_json(nl::json& j) const override
             {
-                m_value.to_json(j);
+                xv::to_json(j, m_value);
+            }
+
+            virtual std::string name() const override
+            {
+                return m_value.name();
             }
 
             virtual xtl::any value() & override
@@ -161,136 +168,145 @@ namespace xv
 
         private:
 
-            xany_vega_owning(const xany_vega_owning&) = default;
-            xany_vega_owning(xany_vega_owning&&) = default;
-            xany_vega_owning& operator=(const xany_vega_owning&) = default;
-            xany_vega_owning& operator=(xany_vega_owning&&) = default;
+            xany_owning(const xany_owning&) = default;
+            xany_owning(xany_owning&&) = default;
+            xany_owning& operator=(const xany_owning&) = default;
+            xany_owning& operator=(xany_owning&&) = default;
 
             D m_value;
         };
     }
 
     template <template <class> class CRTP, class D>
-    xany_vega<CRTP> make_any(CRTP<D>&& value)
+    xany<CRTP> make_any(CRTP<D>&& value)
     {
-        return xany_vega<CRTP>(new detail::xany_vega_owning<CRTP, D>(std::move(value)));
+        return xany<CRTP>(new detail::xany_owning<CRTP, D>(std::move(value)));
     }
 
     template <template <class> class CRTP, class D>
-    xany_vega<CRTP> make_any(const CRTP<D>& value)
+    xany<CRTP> make_any(const CRTP<D>& value)
     {
-        return xany_vega<CRTP>(new detail::xany_vega_owning<CRTP, D>(value));
+        return xany<CRTP>(new detail::xany_owning<CRTP, D>(value));
     }
 
     /**************************
-     * xany_vega implementation *
+     * xany implementation *
      **************************/
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>::xany_vega()
+    xany<CRTP>::xany()
         : p_any(nullptr)
     {
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>::xany_vega(detail::xany_vega_impl<CRTP>* any)
+    xany<CRTP>::xany(detail::xany_impl<CRTP>* any)
         : p_any(any)
     {
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>::~xany_vega()
+    xany<CRTP>::~xany()
     {
         delete p_any;
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>::xany_vega(const xany_vega& rhs)
+    xany<CRTP>::xany(const xany& rhs)
         : p_any(rhs.p_any ? rhs.p_any->clone() : nullptr)
     {
     }
 
     template <template <class> class CRTP>
     template <class D>
-    xany_vega<CRTP>::xany_vega(const CRTP<D>& rhs)
-        : xany_vega(make_any<CRTP>(rhs))
+    xany<CRTP>::xany(const CRTP<D>& rhs)
+        : xany(make_any<CRTP>(rhs))
     {
     }
 
     template <template <class> class CRTP>
     template <class D>
-    xany_vega<CRTP>::xany_vega(CRTP<D>&& rhs)
-        : xany_vega(make_any(std::move(rhs)))
+    xany<CRTP>::xany(CRTP<D>&& rhs)
+        : xany(make_any(std::move(rhs)))
     {
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>::xany_vega(xany_vega&& rhs)
+    xany<CRTP>::xany(xany&& rhs)
         : p_any(rhs.p_any)
     {
         rhs.p_any = nullptr;
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>& xany_vega<CRTP>::operator=(const xany_vega& rhs)
+    xany<CRTP>& xany<CRTP>::operator=(const xany& rhs)
     {
         using std::swap;
-        xany_vega tmp(rhs);
+        xany tmp(rhs);
         swap(*this, tmp);
         return *this;
     }
 
     template <template <class> class CRTP>
-    xany_vega<CRTP>& xany_vega<CRTP>::operator=(xany_vega&& rhs)
+    xany<CRTP>& xany<CRTP>::operator=(xany&& rhs)
     {
         using std::swap;
-        xany_vega tmp(std::move(rhs));
+        xany tmp(std::move(rhs));
         swap(*this, tmp);
         return *this;
     }
 
     template <template <class> class CRTP>
     template <class D>
-    xany_vega<CRTP>& xany_vega<CRTP>::operator=(const CRTP<D>& rhs)
+    xany<CRTP>& xany<CRTP>::operator=(const CRTP<D>& rhs)
     {
         using std::swap;
-        xany_vega<CRTP> tmp(make_any<CRTP>(rhs));
+        xany<CRTP> tmp(make_any<CRTP>(rhs));
         swap(tmp, *this);
         return *this;
     }
 
     template <template <class> class CRTP>
     template <class D>
-    xany_vega<CRTP>& xany_vega<CRTP>::operator=(CRTP<D>&& rhs)
+    xany<CRTP>& xany<CRTP>::operator=(CRTP<D>&& rhs)
     {
         using std::swap;
-        xany_vega<CRTP> tmp(make_any(std::move(rhs)));
+        xany<CRTP> tmp(make_any(std::move(rhs)));
         swap(tmp, *this);
         return *this;
     }
 
     template <template <class> class CRTP>
-    void xany_vega<CRTP>::swap(xany_vega& rhs)
+    void xany<CRTP>::swap(xany& rhs)
     {
         std::swap(p_any, rhs.p_any);
     }
 
     template <template <class> class CRTP>
-    void xany_vega<CRTP>::to_json(nl::json& j) const
+    void xany<CRTP>::to_json(nl::json& j) const
     {
-        check_any();
-        p_any->to_json(j);
+        if (p_any)
+        {
+            p_any->to_json(j);
+        }
     }
 
     template <template <class> class CRTP>
-    xtl::any xany_vega<CRTP>::value() &
+    std::string xany<CRTP>::name() const
+    {
+        check_any();
+        p_any->name();
+    }
+
+    template <template <class> class CRTP>
+    xtl::any xany<CRTP>::value() &
     {
         check_any();
         return p_any->value();
     }
 
     template <template <class> class CRTP>
-    const xtl::any xany_vega<CRTP>::value() const &
+    const xtl::any xany<CRTP>::value() const &
     {
         check_any();
         return p_any->value();
@@ -298,29 +314,29 @@ namespace xv
 
     template <template <class> class CRTP>
     template <class D>
-    D& xany_vega<CRTP>::get() &
+    D& xany<CRTP>::get() &
     {
         return xtl::any_cast<xtl::closure_wrapper<D&>>(this->value()).get();
     }
 
     template <template <class> class CRTP>
     template <class D>
-    const D& xany_vega<CRTP>::get() const &
+    const D& xany<CRTP>::get() const &
     {
         return xtl::any_cast<xtl::closure_wrapper<const D&>>(this->value()).get();
     }
 
     template <template <class> class CRTP>
-    void xany_vega<CRTP>::check_any() const
+    void xany<CRTP>::check_any() const
     {
         if (p_any == nullptr)
         {
-            throw std::runtime_error("Empty");
+            throw std::runtime_error("Empty xany");
         }
     }
 
     template <template <class> class CRTP>
-    inline void swap(xany_vega<CRTP>& lhs, xany_vega<CRTP>& rhs)
+    inline void swap(xany<CRTP>& lhs, xany<CRTP>& rhs)
     {
         lhs.swap(rhs);
     }
@@ -330,7 +346,7 @@ namespace xv
      ****************************************/
 
     template <template <class> class CRTP>
-    inline void to_json(nl::json& j, const xany_vega<CRTP>& o)
+    inline void to_json(nl::json& j, const xany<CRTP>& o)
     {
          o.to_json(j);
     }

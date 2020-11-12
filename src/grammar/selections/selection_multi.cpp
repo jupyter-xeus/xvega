@@ -11,19 +11,16 @@ namespace xv
 {
     selection_multi::selection_multi()
     {
-        if(!name().has_value())
-        {
-            name = "selector_multi_" + random_string(5);
-        }
+        name = "selector_multi_" + random_string(5);
         type = "multi";
     }
 
-    void selection_multi::to_json(nl::json& j) const
+    void to_json(nl::json& j, const selection_multi& m)
     {
-        private_to_json(*this, j);
-        serialize(j, init(), "init");
-        serialize(j, bind(), "bind");
-        serialize(j, nearest(), "nearest");
-        serialize(j, toggle(), "toggle");
+        private_to_json(m, j);
+        serialize(j, m.init(), "init");
+        serialize(j, m.bind(), "bind");
+        serialize(j, m.nearest(), "nearest");
+        serialize(j, m.toggle(), "toggle");
     }
 }
