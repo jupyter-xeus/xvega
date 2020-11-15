@@ -14,8 +14,6 @@
 
 namespace xv
 {
-    using num_object_type = xtl::variant<double, int, nl::json>;
-
     struct view_config : public xp::xobserved<view_config>
     {
         XPROPERTY(xtl::xoptional<bool>, view_config, clip);

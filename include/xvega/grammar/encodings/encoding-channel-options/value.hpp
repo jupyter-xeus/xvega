@@ -8,19 +8,19 @@
 #define XVEGA_ENCODING_OPTIONS_VALUE_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
-
     struct Value
     {
         xtl::xoptional<any_type> value;

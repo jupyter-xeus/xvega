@@ -8,19 +8,19 @@
 #define XVEGA_ENCODING_OPTIONS_DATETIME_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_num_type = xtl::variant<double, int, std::string>;
-
     struct DateTime : public xp::xobserved<DateTime>
     {
         XPROPERTY(xtl::xoptional<double>, DateTime, year);

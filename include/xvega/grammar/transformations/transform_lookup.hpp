@@ -10,8 +10,8 @@
 #include <xproperty/xobserved.hpp>
 
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+#include <xtl/xvariant.hpp>
 
 #include <nlohmann/json.hpp>
 

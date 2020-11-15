@@ -18,7 +18,7 @@ namespace xv
             int i = 0;
             for(auto& k: data.options().value())
             {
-                xtl::visit([&](auto&& arg){j["options"][i]=arg;}, k);
+                j["options"][i] = k;
                 i++;
             }
         }

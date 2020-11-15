@@ -8,9 +8,10 @@
 #define XVEGA_GRATICULE_GENERATOR_HPP
 
 #include "xproperty/xobserved.hpp"
-#include "xtl/xvariant.hpp"
-#include "xtl/xoptional.hpp"
+
 #include "nlohmann/json.hpp"
+
+#include "xtl/xoptional.hpp"
 #include "xtl/xjson.hpp"
 
 #include "../../../xvega_config.hpp"

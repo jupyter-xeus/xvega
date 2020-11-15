@@ -8,11 +8,13 @@
 #define XVEGA_ENCODING_HREF_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
+#include "../../../../utils/custom_datatypes.hpp"
 #include "../../encoding-channel-options/aggregate.hpp"
 #include "../../encoding-channel-options/bin.hpp"
 #include "../../encoding-channel-options/field.hpp"
@@ -22,9 +24,6 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-    using string_object_type = xtl::variant<nl::json, std::string>;
-
     struct Href : public xp::xobserved<Href>
     {
         XPROPERTY(xtl::xoptional<agg_type>, Href, aggregate);

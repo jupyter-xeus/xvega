@@ -8,28 +8,22 @@
 #define XVEGA_ENCODING_OPTIONS_SORT_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"
 #include "./field.hpp"
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
+
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
-    using any_array_type = xtl::variant<
-                                std::vector<std::string>, 
-                                std::vector<double>, 
-                                std::vector<int>, 
-                                std::vector<bool>, 
-                                std::vector<DateTime>
-                                >;
-
     struct FieldSort : public xp::xobserved<FieldSort>
     {
         XPROPERTY(xtl::xoptional<field_type>, FieldSort, field);

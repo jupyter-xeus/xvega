@@ -8,9 +8,10 @@
 #define XVEGA_TRANSFORM_BIN_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
@@ -21,7 +22,8 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using bin_transform_type = xtl::variant<bool, Bin>;
+    // using bin_transform_type = xtl::variant<bool, Bin>;
+    using bin_transform_type = nl::json;
 
     struct transform_bin : public transformation<transform_bin>
     {

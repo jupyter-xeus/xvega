@@ -7,7 +7,6 @@
 #ifndef XVEGA_DATA_TYPES_HPP
 #define XVEGA_DATA_TYPES_HPP
 
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
 #include <xtl/xoptional.hpp>
 
@@ -21,7 +20,6 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-
     using df_type = std::map<std::string, std::vector<xtl::variant<double, int, std::string, std::nullptr_t>>>;
 
     struct data_frame : public xp::xobserved<data_frame>
@@ -31,12 +29,41 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const data_frame& data);
 
-    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
-    using bool_none_type = xtl::variant<std::nullptr_t, bool>;
-    using string_num_type = xtl::variant<double, int, std::string>;
-    using bool_object_type = xtl::variant<bool, nl::json>;
-    using bool_string_object_type = xtl::variant<bool, nl::json, std::string>;
-    using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
+    // using string_none_type = xtl::variant<std::nullptr_t, std::string>;
+    using string_none_type = nl::json;
+    // using bool_none_type = xtl::variant<std::nullptr_t, bool>;
+    using bool_none_type = nl::json;
+    // using string_num_type = xtl::variant<double, int, std::string>;
+    using string_num_type = nl::json;
+    // using bool_object_type = xtl::variant<bool, nl::json>;
+    using bool_object_type = nl::json;
+    // using bool_string_object_type = xtl::variant<bool, nl::json, std::string>;
+    using bool_string_object_type = nl::json;
+    // using any_type = xtl::variant<std::string, bool, double, int, std::nullptr_t>;
+    using any_type = nl::json;
+    // using bool_num_type = xtl::variant<double, int, bool>;
+    using bool_num_type = nl::json;
+    // using bool_string_type = xtl::variant<std::string, bool>;
+    using bool_string_type = nl::json;
+    // using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
+    using string_vec_none_type = nl::json;
+    // using num_object_type = xtl::variant<double, int, nl::json>;
+    using num_object_type = nl::json;
+    // using any_vector_type = std::vector<xtl::variant<std::string, double, int, bool, std::nullptr_t>>;
+    using any_vector_type = nl::json;
+    // using string_object_type = xtl::variant<nl::json, std::string>;
+    using string_object_type = nl::json;
+    // using any_array_type = xtl::variant<
+    //                             std::vector<std::string>, 
+    //                             std::vector<double>, 
+    //                             std::vector<int>, 
+    //                             std::vector<bool>, 
+    //                             std::vector<DateTime>
+    //                             >;
+    using any_array_type = nl::json;
+    // using num_none_type = xtl::variant<std::nullptr_t, double, int>;
+    using num_none_type = nl::json;
+
 
     struct GradientStop : public xp::xobserved<GradientStop>
     {

@@ -10,11 +10,10 @@
 #include "../selections.hpp"
 #include "./selection_mark.hpp"
 #include "../../utils/random_string.hpp"
+#include "../../utils/custom_datatypes.hpp"
 
 namespace xv
 {
-    using bool_string_type = xtl::variant<std::string, bool>;
-
     struct selection_interval : public selection<selection_interval>
     {
         // Interval Selection Properties

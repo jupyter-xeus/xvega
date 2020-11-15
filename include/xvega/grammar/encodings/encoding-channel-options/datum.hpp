@@ -8,9 +8,11 @@
 #define XVEGA_ENCODING_OPTIONS_DATUM_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
 #include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"

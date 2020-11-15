@@ -8,17 +8,20 @@
 #define XVEGA_ENCODING_OPTIONS_STACK_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
+
 #include "../../../xvega_config.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using stack_type = xtl::variant<std::string, std::nullptr_t, bool>;
+    // using stack_type = xtl::variant<std::string, std::nullptr_t, bool>;
+    using stack_type = nl::json;
 }
 
 #endif

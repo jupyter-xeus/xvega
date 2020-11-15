@@ -8,19 +8,19 @@
 #define XVEGA_SPHERE_GENERATOR_HPP
 
 #include "xproperty/xobserved.hpp"
-#include "xtl/xvariant.hpp"
+
 #include "xtl/xoptional.hpp"
-#include "nlohmann/json.hpp"
 #include "xtl/xjson.hpp"
 
+#include "nlohmann/json.hpp"
+
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using bool_object_type = xtl::variant<bool, nl::json>;
-
     struct sphere_generator : public xp::xobserved<sphere_generator>
     {
         XPROPERTY(xtl::xoptional<bool_object_type>, sphere_generator, sphere);
