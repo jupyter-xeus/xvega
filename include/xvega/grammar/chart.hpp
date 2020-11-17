@@ -34,15 +34,11 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using data_source = xtl::variant<named_data, inline_data, url_data>;
+    using data_type = xtl::variant<
+        named_data, inline_data, url_data,
+        sequence_generator, sphere_generator, graticule_generator,
+        data_frame>;
 
-    using generator = xtl::variant<
-                           sequence_generator, 
-                           sphere_generator,
-                           graticule_generator
-                           >;
-
-    using data_type = xtl::variant<data_source, generator, data_frame>;
     using marks_type = xany<mark>;
     using selection_type = xany<selection>;
     using transform_type = xany<transformation>;
