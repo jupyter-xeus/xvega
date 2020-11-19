@@ -518,9 +518,3 @@ if (XVEGA_BUILD_SHARED)
             FILE ${PROJECT_NAME}Targets.cmake
             DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 endif ()
-
-# Installation
-# ============
-
-# install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
-#         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
