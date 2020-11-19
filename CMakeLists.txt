@@ -36,6 +36,15 @@ set(${PROJECT_NAME}_VERSION
     ${XVEGA_VERSION_MAJOR}.${XVEGA_VERSION_MINOR}.${XVEGA_VERSION_PATCH})
 message(STATUS "xvega v${${PROJECT_NAME}_VERSION}")
 
+# Build options
+# =============
+
+OPTION(XVG_DISABLE_ARCH_NATIVE "disable -march=native flag" OFF)
+OPTION(XVG_DISABLE_TUNE_GENERIC "disable -mtune=generic flag" OFF)
+
+OPTION(XVEGA_BUILD_STATIC "Build xvega static library" ON)
+OPTION(XVEGA_BUILD_SHARED "Split xvega build into executable and library" ON)
+
 # Dependencies
 # ============
 
@@ -51,8 +60,11 @@ set(nlohmann_json_REQUIRED_VERSION 3.7.3)
 find_package(nlohmann_json ${nlohmann_json_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found nlohmann_json: ${nlohmann_json_INCLUDE_DIRS}/nlohmann_json")
 
-# Build
-# =====
+# Target and link
+# ===============
+
+# xvega source directory
+set(XVEGA_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/xvega.hpp
@@ -331,29 +343,122 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/config/view_config.cpp
 )
 
-add_library(xvega SHARED ${XVEGA_SOURCES} ${XVEGA_HEADERS})
-target_include_directories(xvega PUBLIC $<BUILD_INTERFACE:${XVEGA_INCLUDE_DIR}>
-                                               $<INSTALL_INTERFACE:include>)
-target_link_libraries(xvega PUBLIC xtl)
-target_link_libraries(xvega PUBLIC xproperty)
-# target_link_libraries(xvega PUBLIC nlohmann_json)
+set(CMAKE_AR "gcc-ar")
+set(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> qcs <TARGET> <LINK_FLAGS> <OBJECTS>")
+set(CMAKE_CXX_ARCHIVE_FINISH true)
 
-if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
-endif (MSVC)
+# Targets and link - Macros
+# =========================
 
-set_target_properties(xvega PROPERTIES
-#                       LINKER_LANGUAGE CXX
-#                       PUBLIC_HEADER DESTINATION "${XVEGA_HEADERS}"
-                       COMPILE_DEFINITIONS "XVEGA_EXPORTS"
-#                       PREFIX ""
-#                       VERSION ${${PROJECT_NAME}_VERSION}
-#                       SOVERSION ${${PROJECT_NAME}_VERSION}
-#                       OUTPUT_NAME "libxvega")
-                     )
+include(CheckCXXCompilerFlag)
 
-# Installation
-# ============
+set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
+string(TOUPPER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE)
+
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib; ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
+
+macro(xvega_set_common_options target_name)
+    if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
+        CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR
+        CMAKE_CXX_COMPILER_ID MATCHES "Intel")
+
+        target_compile_options(${target_name} PUBLIC -Wunused-parameter -Wextra -Wreorder)
+    
+        # Mtune generic/native
+        if (XVEGA_DISABLE_ARCH_NATIVE AND NOT XVEGA_DISABLE_TUNE_GENERIC)
+            target_compile_options(${target_name} PUBLIC -mtune=generic)
+        elseif (XVEGA_DISABLE_TUNE_GENERIC)
+        else ()
+            target_compile_options(${target_name} PUBLIC -march=native)
+        endif ()
+
+        # C++14 flag
+        CHECK_CXX_COMPILER_FLAG("-std=c++14" HAS_CPP14_FLAG)
+        if (HAS_CPP14_FLAG)
+            target_compile_features(${target_name} PRIVATE cxx_std_17)
+        else ()
+            message(FATAL_ERROR "Unsupported compiler -- xvega requires C++14 support!")
+        endif ()
+
+    endif ()
+
+    if (APPLE)
+        set_target_properties(${target_name} PROPERTIES
+            MACOSX_RPATH ON
+        )
+    else ()
+        set_target_properties(${target_name} PROPERTIES
+            BUILD_WITH_INSTALL_RPATH 1
+            SKIP_BUILD_RPATH FALSE
+        )
+    endif ()
+
+    set_target_properties(${target_name} PROPERTIES
+        INSTALL_RPATH_USE_LINK_PATH TRUE
+    )
+endmacro()
+
+# Common macro for shared and static library xvega
+macro(xvega_create_target target_name linkage output_name)
+    string(TOUPPER "${linkage}" linkage_upper)
+
+    if (NOT ${linkage_upper} MATCHES "^(SHARED|STATIC)$")
+        message(FATAL_ERROR "Invalid library linkage: ${linkage}")
+    endif ()
+
+    add_library(${target_name} ${linkage_upper} ${XVEGA_SOURCES} ${XVEGA_HEADERS})
+    xvega_set_common_options(${target_name})
+
+    if (MSVC)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+    endif (MSVC)
+
+    set_target_properties(${target_name} PROPERTIES
+                          PUBLIC_HEADER "${XVEGA_HEADERS}"
+                          # COMPILE_DEFINITIONS "XEUS_SQLITE_EXPORTS"
+                          PREFIX ""
+                          VERSION ${${PROJECT_NAME}_VERSION}
+                          SOVERSION ${XVEGA_VERSION_MAJOR}
+                          OUTPUT_NAME "lib${output_name}")
+
+    target_compile_definitions(${target_name} PUBLIC "XVEGA_EXPORTS")
+
+    target_include_directories(${target_name}
+                               PUBLIC
+                               ${XVEGA_INCLUDE_DIRS}
+                               $<BUILD_INTERFACE:${XVEGA_INCLUDE_DIR}>
+                               $<INSTALL_INTERFACE:include>)
+
+    target_link_libraries(${target_name} PUBLIC 
+      xtl
+      xproperty
+    )
+endmacro()
+
+# xvega
+# =====
+
+set(XVEGA_TARGETS "")
+
+if (XVEGA_BUILD_SHARED)
+    # Build libraries
+    xvega_create_target(xvega SHARED xvega)
+    list(APPEND XVEGA_TARGETS xvega)
+endif ()
+
+if (XVEGA_BUILD_STATIC)
+    # On Windows, a static library should use a different output name
+    # to avoid the conflict with the import library of a shared one.
+    if (CMAKE_HOST_WIN32)
+        xvega_create_target(xvega-static STATIC xvega-static)
+    else ()
+        xvega_create_target(xvega-static STATIC xvega)
+    endif ()
+    list(APPEND XVEGA_TARGETS xvega-static)
+endif ()
+
+# Tests
+# =====
 
 OPTION(BUILD_TESTS "xvega test suite" OFF)
 OPTION(DOWNLOAD_GTEST "build gtest from downloaded sources" OFF)
@@ -366,32 +471,56 @@ if(BUILD_TESTS)
     add_subdirectory(test)
 endif()
 
-install(TARGETS xvega
-        EXPORT ${PROJECT_NAME}-targets)
+# Installation
+# ============
 
-# Makes the project importable from the build directory
-export(EXPORT ${PROJECT_NAME}-targets
-       FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
-
-install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+include(CMakePackageConfigHelpers)
 
 set(XVEGA_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}" CACHE STRING "install path for xvegaConfig.cmake")
 
+# Install xvega
+if (XVEGA_BUILD_SHARED OR XVEGA_BUILD_STATIC)
+    install(TARGETS ${XVEGA_TARGETS}
+            EXPORT ${PROJECT_NAME}-targets
+            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+            PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xvega)
+
+    # Makes the project importable from the build directory
+    export(EXPORT ${PROJECT_NAME}-targets
+           FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
+endif ()
+
+# Configure 'xvegaConfig.cmake' for a build tree
+set(XVEGA_CONFIG_CODE "####### Expanded from \@XVEGA_CONFIG_CODE\@ #######\n")
+set(XVEGA_CONFIG_CODE "${XVEGA_CONFIG_CODE}set(CMAKE_MODULE_PATH \"${CMAKE_CURRENT_SOURCE_DIR}/cmake;\${CMAKE_MODULE_PATH}\")\n")
+set(XVEGA_CONFIG_CODE "${XVEGA_CONFIG_CODE}##################################################")
 configure_package_config_file(${PROJECT_NAME}Config.cmake.in
                               "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
-                              INSTALL_DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
+                              INSTALL_DESTINATION ${PROJECT_BINARY_DIR})
+                              # INSTALL_DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 
-# Remove CMAKE_SIZEOF_VOID_P from xvegaConfigVersion.cmake so that an xvegaConfig.cmake
-# generated for a 64 bit target can be used for 32 bit targets and vice versa.
 write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
                                  VERSION ${${PROJECT_NAME}_VERSION}
                                  COMPATIBILITY AnyNewerVersion)
-set(CMAKE_SIZEOF_VOID_P ${_XVEGA_CMAKE_SIZEOF_VOID_P})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-        DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
-install(EXPORT ${PROJECT_NAME}-targets
-        FILE ${PROJECT_NAME}Targets.cmake
-        DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 
+# Remove CMAKE_SIZEOF_VOID_P from xvegaConfigVersion.cmake so that an xvegaConfig.cmake
+# generated for a 64 bit target can be used for 32 bit targets and vice versa.
+set(CMAKE_SIZEOF_VOID_P ${_XVEGA_CMAKE_SIZEOF_VOID_P})
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}Config.cmake
+              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+              DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
+
+if (XVEGA_BUILD_SHARED)
+    install(EXPORT ${PROJECT_NAME}-targets
+            FILE ${PROJECT_NAME}Targets.cmake
+            DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
+endif ()
+
+# Installation
+# ============
+
+# install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
+#         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
