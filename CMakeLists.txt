@@ -501,6 +501,12 @@ configure_package_config_file(${PROJECT_NAME}Config.cmake.in
                               INSTALL_DESTINATION ${PROJECT_BINARY_DIR})
                               # INSTALL_DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 
+# Configure 'xvegaConfig.cmake' for an install tree
+set(XVEGA_CONFIG_CODE "")
+configure_package_config_file(${PROJECT_NAME}Config.cmake.in
+                              "${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}Config.cmake"
+                              INSTALL_DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
+
 write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
                                  VERSION ${${PROJECT_NAME}_VERSION}
                                  COMPATIBILITY AnyNewerVersion)
