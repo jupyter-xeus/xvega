@@ -343,10 +343,6 @@ set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/grammar/config/view_config.cpp
 )
 
-set(CMAKE_AR "gcc-ar")
-set(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> qcs <TARGET> <LINK_FLAGS> <OBJECTS>")
-set(CMAKE_CXX_ARCHIVE_FINISH true)
-
 # Targets and link - Macros
 # =========================
 
