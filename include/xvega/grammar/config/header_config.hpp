@@ -14,9 +14,6 @@
 
 namespace xv
 {
-    using string_object_type = xtl::variant<nl::json, std::string>;
-    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-
     struct header_config : public xp::xobserved<header_config>
     {
         XPROPERTY(xtl::xoptional<string_vec_none_type>, header_config, title);

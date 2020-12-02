@@ -8,12 +8,14 @@
 #define XVEGA_TRANSFORM_JOIN_AGGREGATE_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
@@ -28,7 +30,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const join_aggregate_field_def& data);
 
-    struct transform_join_aggregate : public xp::xobserved<transform_join_aggregate>
+    struct transform_join_aggregate : public transformation<transform_join_aggregate>
     {
         XPROPERTY(xtl::xoptional<std::vector<join_aggregate_field_def>>, transform_join_aggregate, joinaggregate);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_join_aggregate, groupby);

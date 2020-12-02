@@ -14,10 +14,10 @@ namespace xv
         type = "trail";
     }
 
-    void mark_trail::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_trail& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Trail Mark Properties
-        serialize(j, orient(), "orient");
+        serialize(j, m.orient(), "orient");
     }
 }

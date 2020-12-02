@@ -14,11 +14,11 @@ namespace xv
         type = "tick";
     }
 
-    void mark_tick::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_tick& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Tick Mark Properties
-        serialize(j, cornerRadius(), "cornerRadius");
-        serialize(j, orient(), "orient");
+        serialize(j, m.cornerRadius(), "cornerRadius");
+        serialize(j, m.orient(), "orient");
     }
 }

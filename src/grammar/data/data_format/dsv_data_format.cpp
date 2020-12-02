@@ -14,9 +14,9 @@ namespace xv
         type = "dsv";
     }
 
-    void dsv_data_format::to_json(nl::json& j) const
+    void to_json(nl::json& j, const dsv_data_format& c)
     {
-        private_to_json(*this, j);
-        serialize(j, delimiter(), "delimiter");
+        private_to_json(c, j);
+        serialize(j, c.delimiter(), "delimiter");
     }
 }

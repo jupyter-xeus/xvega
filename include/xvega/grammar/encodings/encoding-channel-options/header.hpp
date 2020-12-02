@@ -8,22 +8,19 @@
 #define XVEGA_ENCODING_OPTIONS_HEADER_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-    using string_object_type = xtl::variant<nl::json, std::string>;
-    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
-    using string_num_type = xtl::variant<double, int, std::string>;
-
     struct Header : public xp::xobserved<Header>
     {
         XPROPERTY(xtl::xoptional<string_vec_none_type>, Header, title);

@@ -8,20 +8,21 @@
 #define XVEGA_TRANSFORM_WINDOW_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
 #include "./transform_stack.hpp"
+#include "../transformations.hpp"
+#include "../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using num_none_type = xtl::variant<std::nullptr_t, double, int>;
-
     struct window_field_def : public xp::xobserved<window_field_def>
     {
         XPROPERTY(xtl::xoptional<std::string>, window_field_def, op);
@@ -32,7 +33,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const window_field_def& data);
 
-    struct transform_window : public xp::xobserved<transform_window>
+    struct transform_window : public transformation<transform_window>
     {
         XPROPERTY(xtl::xoptional<std::vector<window_field_def>>, transform_window, window);
         XPROPERTY(xtl::xoptional<std::vector<num_none_type>>, transform_window, frame);

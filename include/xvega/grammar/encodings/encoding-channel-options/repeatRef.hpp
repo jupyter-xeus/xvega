@@ -8,8 +8,10 @@
 #define XVEGA_ENCODING_OPTIONS_REPEATREF_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"

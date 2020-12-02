@@ -20,9 +20,7 @@ namespace xv
     {
         if(data.selection().has_value())
         {
-            xtl::visit([&](auto&& arg){
-                    j["selection"]=arg.name().value();
-                }, data.selection().value());
+            j["selection"] = data.selection().value().name();
         }
         serialize(j, data.key(), "key");
         serialize(j, data.fields(), "fields");

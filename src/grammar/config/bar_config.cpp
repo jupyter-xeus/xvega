@@ -9,13 +9,13 @@
 
 namespace xv
 {
-    void bar_config::to_json(nl::json& j) const
+    void to_json(nl::json& j, const bar_config& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
 
-        serialize(j, binSpacing(), "binSpacing");
-        serialize(j, continuousBandSize(), "continuousBandSize");
-        serialize(j, cornerRadiusEnd(), "cornerRadiusEnd");
-        serialize(j, discreteBandSize(), "discreteBandSize");
+        serialize(j, c.binSpacing(), "binSpacing");
+        serialize(j, c.continuousBandSize(), "continuousBandSize");
+        serialize(j, c.cornerRadiusEnd(), "cornerRadiusEnd");
+        serialize(j, c.discreteBandSize(), "discreteBandSize");
     }
 }

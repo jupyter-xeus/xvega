@@ -8,19 +8,21 @@
 #define XVEGA_TRANSFORM_IMPUTE_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 #include "../encodings/encoding-channel-options/impute.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_impute : public xp::xobserved<transform_impute>
+    struct transform_impute : public transformation<transform_impute>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_impute, impute);
         XPROPERTY(xtl::xoptional<std::string>, transform_impute, key);

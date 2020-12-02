@@ -29,7 +29,6 @@ namespace xv
     using stream_type = xtl::variant<event_stream, derived_stream, merged_stream>;
     using clear_type = xtl::variant<stream_type, std::string, bool>;
     using on_type = xtl::variant<stream_type, std::string>;
-    using bool_string_type = xtl::variant<std::string, bool>;
 
     struct interval_selection_config : public xp::xobserved<interval_selection_config>
     {

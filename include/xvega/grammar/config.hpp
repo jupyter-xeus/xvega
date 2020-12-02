@@ -33,11 +33,11 @@
 #include "./config/tick_config.hpp"
 #include "./config/title_config.hpp"
 #include "./config/view_config.hpp"
+#include "../utils/custom_datatypes.hpp"
 
 namespace xv
 {
     using autosize_type = xtl::variant<std::string, auto_size_params>;
-    using num_object_type = xtl::variant<double, int, nl::json>;
 
     struct Config : public xp::xobserved<Config>
     {

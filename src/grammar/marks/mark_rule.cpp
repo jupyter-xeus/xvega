@@ -14,8 +14,8 @@ namespace xv
         type = "rule";
     }
 
-    void mark_rule::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_rule& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
     }
 }

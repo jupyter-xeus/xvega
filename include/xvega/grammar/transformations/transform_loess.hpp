@@ -8,18 +8,20 @@
 #define XVEGA_TRANSFORM_LOESS_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_loess : public xp::xobserved<transform_loess>
+    struct transform_loess : public transformation<transform_loess>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_loess, loess);
         XPROPERTY(xtl::xoptional<std::string>, transform_loess, on);

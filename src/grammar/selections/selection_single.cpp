@@ -11,18 +11,15 @@ namespace xv
 {
     selection_single::selection_single()
     {
-        if(!name().has_value())
-        {
-            name = "selector_single_" + random_string(5);
-        }
+        name = "selector_single_" + random_string(5);
         type = "single";
     }
 
-    void selection_single::to_json(nl::json& j) const
+    void to_json(nl::json& j, const selection_single& m)
     {
-        private_to_json(*this, j);
-        serialize(j, init(), "init");
-        serialize(j, bind(), "bind");
-        serialize(j, nearest(), "nearest");
+        private_to_json(m, j);
+        serialize(j, m.init(), "init");
+        serialize(j, m.bind(), "bind");
+        serialize(j, m.nearest(), "nearest");
     }
 }

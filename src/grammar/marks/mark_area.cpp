@@ -14,16 +14,16 @@ namespace xv
         type = "area";
     }
 
-    void mark_area::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_area& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Area Mark Properties
-        serialize(j, align(), "align");
-        serialize(j, baseline(), "baseline");
-        serialize(j, orient(), "orient");
-        serialize(j, interpolate(), "interpolate");
-        serialize(j, tension(), "tension");
-        serialize(j, line(), "line");
-        serialize(j, point(), "point");
+        serialize(j, m.align(), "align");
+        serialize(j, m.baseline(), "baseline");
+        serialize(j, m.orient(), "orient");
+        serialize(j, m.interpolate(), "interpolate");
+        serialize(j, m.tension(), "tension");
+        serialize(j, m.line(), "line");
+        serialize(j, m.point(), "point");
     }
 }

@@ -14,8 +14,8 @@ namespace xv
         type = "tsv";
     }
 
-    void tsv_data_format::to_json(nl::json& j) const
+    void to_json(nl::json& j, const tsv_data_format& c)
     {
-        private_to_json(*this, j);
+        private_to_json(c, j);
     }
 }

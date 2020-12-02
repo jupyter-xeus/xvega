@@ -4,6 +4,9 @@
 //
 // The full license is in the file LICENSE, distributed with this software.
 
+#ifndef XVEGA_ENCODINGS_HPP
+#define XVEGA_ENCODINGS_HPP
+
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
@@ -91,3 +94,5 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const Encodings& data);
 }
+
+#endif

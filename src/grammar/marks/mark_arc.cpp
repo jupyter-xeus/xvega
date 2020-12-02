@@ -14,21 +14,21 @@ namespace xv
         type = "arc";
     }
 
-    void mark_arc::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_arc& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Arc Mark Properties
-        serialize(j, radius(), "radius");
-        serialize(j, radius2(), "radius2");
-        serialize(j, innerRadius(), "innerRadius");
-        serialize(j, outerRadius(), "outerRadius");
-        serialize(j, theta(), "theta");
-        serialize(j, theta2(), "theta2");
-        serialize(j, cornerRadius(), "cornerRadius");
-        serialize(j, padAngle(), "padAngle");
-        serialize(j, radiusOffset(), "radiusOffset");
-        serialize(j, radius2Offset(), "radius2Offset");
-        serialize(j, thetaOffset(), "thetaOffset");
-        serialize(j, theta2Offset(), "theta2Offset");
+        serialize(j, m.radius(), "radius");
+        serialize(j, m.radius2(), "radius2");
+        serialize(j, m.innerRadius(), "innerRadius");
+        serialize(j, m.outerRadius(), "outerRadius");
+        serialize(j, m.theta(), "theta");
+        serialize(j, m.theta2(), "theta2");
+        serialize(j, m.cornerRadius(), "cornerRadius");
+        serialize(j, m.padAngle(), "padAngle");
+        serialize(j, m.radiusOffset(), "radiusOffset");
+        serialize(j, m.radius2Offset(), "radius2Offset");
+        serialize(j, m.thetaOffset(), "thetaOffset");
+        serialize(j, m.theta2Offset(), "theta2Offset");
     }
 }

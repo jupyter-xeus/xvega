@@ -16,9 +16,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, rect_config, binSpacing);
         XPROPERTY(xtl::xoptional<double>, rect_config, continuousBandSize);
         XPROPERTY(xtl::xoptional<double>, rect_config, discreteBandSize);
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const rect_config&);
 }
 
 #endif

@@ -8,20 +8,23 @@
 #define XVEGA_ENCODING_OPTIONS_CONDITION_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
 #include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "./timeunit.hpp"
 #include "./datetime.hpp"
+
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_object_type = xtl::variant<nl::json, std::string>;
     using field_predicate_equal_type = xtl::variant<std::string, double, int, bool, DateTime>;
     using field_predicate_type = xtl::variant<std::string, double, int, DateTime>;
     using field_predicate_range_type = xtl::variant<
@@ -30,13 +33,6 @@ namespace xv
                                             std::vector<DateTime>, 
                                             std::vector<std::nullptr_t>
                                             >;
-    using any_array_type = xtl::variant<
-                                std::vector<std::string>, 
-                                std::vector<double>, 
-                                std::vector<int>, 
-                                std::vector<bool>, 
-                                std::vector<DateTime>
-                                >;
 
     struct FieldPredicate : public xp::xobserved<FieldPredicate>
     {

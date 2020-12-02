@@ -8,17 +8,18 @@
 #define XVEGA_BIND_RADIO_SELECT_HPP
 
 #include "xproperty/xobserved.hpp"
+
 #include "xtl/xoptional.hpp"
-#include "xtl/xvariant.hpp"
+
 #include "nlohmann/json.hpp"
+
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using any_vector_type = std::vector<xtl::variant<std::string, double, int, bool, std::nullptr_t>>;
-
     struct bind_radio_select : public xp::xobserved<bind_radio_select>
     {
         // Bind Radio Select Properties

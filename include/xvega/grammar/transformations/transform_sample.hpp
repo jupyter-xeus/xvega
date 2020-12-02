@@ -8,18 +8,20 @@
 #define XVEGA_TRANSFORM_SAMPLE_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_sample : public xp::xobserved<transform_sample>
+    struct transform_sample : public transformation<transform_sample>
     {
         XPROPERTY(xtl::xoptional<double>, transform_sample, sample);
     };

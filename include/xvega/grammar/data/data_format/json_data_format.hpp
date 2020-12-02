@@ -16,9 +16,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, json_data_format, property);
 
         json_data_format();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const json_data_format&);
 }
 
 #endif

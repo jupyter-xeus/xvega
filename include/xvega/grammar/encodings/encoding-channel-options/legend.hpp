@@ -8,31 +8,20 @@
 #define XVEGA_ENCODING_OPTIONS_LEGEND_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "./datetime.hpp"
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
-    using any_array_type = xtl::variant<
-                                std::vector<std::string>, 
-                                std::vector<double>, 
-                                std::vector<int>, 
-                                std::vector<bool>, 
-                                std::vector<DateTime>
-                                >;
-    using string_num_type = xtl::variant<double, int, std::string>;
-    using string_object_type = xtl::variant<nl::json, std::string>;
-    using bool_string_type = xtl::variant<std::string, bool>;
-    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-
     struct Legend : public xp::xobserved<Legend>
     {
         // General Legend Properties

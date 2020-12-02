@@ -26,9 +26,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusBottomRight);
 
         XVEGA_API mark_bar();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_bar&);
 }
 
 #endif

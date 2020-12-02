@@ -14,9 +14,9 @@ namespace xv
     struct mark_geoshape : public mark<mark_geoshape>
     {
         XVEGA_API mark_geoshape();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const mark_geoshape&);
 }
 
 #endif

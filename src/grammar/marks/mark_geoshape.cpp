@@ -14,8 +14,8 @@ namespace xv
         type = "geoshape";
     }
 
-    void mark_geoshape::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_geoshape& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
     }
 }

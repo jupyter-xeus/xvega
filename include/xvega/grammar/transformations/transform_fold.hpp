@@ -8,18 +8,20 @@
 #define XVEGA_TRANSFORM_FOLD_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_fold : public xp::xobserved<transform_fold>
+    struct transform_fold : public transformation<transform_fold>
     {
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_fold, fold);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_fold, as);

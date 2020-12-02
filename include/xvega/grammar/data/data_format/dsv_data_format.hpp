@@ -16,9 +16,9 @@ namespace xv
         XPROPERTY(xtl::xoptional<std::string>, dsv_data_format, delimiter);
 
         dsv_data_format();
-
-        XVEGA_API void to_json(nl::json& j) const;
     };
+
+    XVEGA_API void to_json(nl::json&, const dsv_data_format&);
 }
 
 #endif

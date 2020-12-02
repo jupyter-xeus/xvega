@@ -10,11 +10,11 @@
 #include "../selections.hpp"
 #include "./bindings/legend_stream_binding.hpp"
 #include "../../utils/random_string.hpp"
+#include "../../utils/custom_datatypes.hpp"
 
 namespace xv
 {
     using legend_binding_type = xtl::variant<std::string, legend_stream_binding>;
-    using bool_string_type = xtl::variant<std::string, bool>;
 
     struct selection_multi : public selection<selection_multi>
     {

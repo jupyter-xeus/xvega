@@ -14,12 +14,12 @@ namespace xv
         type = "rect";
     }
 
-    void mark_rect::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_rect& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Rect Mark Properties
-        serialize(j, align(), "align");
-        serialize(j, baseline(), "baseline");
-        serialize(j, cornerRadius(), "cornerRadius");
+        serialize(j, m.align(), "align");
+        serialize(j, m.baseline(), "baseline");
+        serialize(j, m.cornerRadius(), "cornerRadius");
     }
 }

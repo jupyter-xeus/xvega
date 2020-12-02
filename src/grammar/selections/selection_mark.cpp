@@ -9,15 +9,15 @@
 
 namespace xv
 {
-    void to_json(nl::json& j, const selection_mark& data)
+    void to_json(nl::json& j, const selection_mark& m)
     {
-        serialize(j, data.cursor(), "cursor");
-        serialize(j, data.fill(), "fill");
-        serialize(j, data.fillOpacity(), "fillOpacity");
-        serialize(j, data.stroke(), "stroke");
-        serialize(j, data.strokeOpacity(), "strokeOpacity");
-        serialize(j, data.strokeWidth(), "strokeWidth");
-        serialize(j, data.strokeDash(), "strokeDash");
-        serialize(j, data.strokeDashOffset(), "strokeDashOffset");
+        serialize(j, m.cursor(), "cursor");
+        serialize(j, m.fill(), "fill");
+        serialize(j, m.fillOpacity(), "fillOpacity");
+        serialize(j, m.stroke(), "stroke");
+        serialize(j, m.strokeOpacity(), "strokeOpacity");
+        serialize(j, m.strokeWidth(), "strokeWidth");
+        serialize(j, m.strokeDash(), "strokeDash");
+        serialize(j, m.strokeDashOffset(), "strokeDashOffset");
     }
 }

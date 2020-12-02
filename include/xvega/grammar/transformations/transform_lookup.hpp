@@ -8,12 +8,17 @@
 #define XVEGA_TRANSFORM_LOOKUP_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+#include <xtl/xvariant.hpp>
+
 #include <nlohmann/json.hpp>
 
+#include "../../utils/xany.hpp"
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
+#include "../selections.hpp"
 
 #include "../data/data_source/named_data.hpp"
 #include "../data/data_source/inline_data.hpp"
@@ -21,10 +26,6 @@
 #include "../data/generator/sequence_generator.hpp"
 #include "../data/generator/sphere_generator.hpp"
 #include "../data/generator/graticule_generator.hpp"
-
-#include "../selections/selection_single.hpp"
-#include "../selections/selection_multi.hpp"
-#include "../selections/selection_interval.hpp"
 
 namespace nl = nlohmann;
 
@@ -53,11 +54,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const lookup_data& data);
 
-    using selection_type = xtl::variant<
-                                selection_single, 
-                                selection_multi, 
-                                selection_interval
-                                >;
+    using selection_type = xany<selection>;
 
     struct lookup_selection : public xp::xobserved<lookup_selection>
     {
@@ -70,7 +67,7 @@ namespace xv
 
     using from_type = xtl::variant<lookup_data, lookup_selection>;
 
-    struct transform_lookup : public xp::xobserved<transform_lookup>
+    struct transform_lookup : public transformation<transform_lookup>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_lookup, lookup);
         XPROPERTY(xtl::xoptional<from_type>, transform_lookup, from);

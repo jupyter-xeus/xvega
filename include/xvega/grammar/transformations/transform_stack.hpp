@@ -8,19 +8,20 @@
 #define XVEGA_TRANSFORM_STACK_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
+#include "../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    using string_none_type = xtl::variant<std::nullptr_t, std::string>;
-
     struct sort_field_def : public xp::xobserved<sort_field_def>
     {
         XPROPERTY(xtl::xoptional<std::string>, sort_field_def, field);
@@ -29,7 +30,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const sort_field_def& data);
 
-    struct transform_stack : public xp::xobserved<transform_stack>
+    struct transform_stack : public transformation<transform_stack>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_stack, stack);
         XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_stack, groupby);

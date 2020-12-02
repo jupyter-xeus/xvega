@@ -8,18 +8,20 @@
 #define XVEGA_TRANSFORM_REGRESSION_HPP
 
 #include <xproperty/xobserved.hpp>
+
 #include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <xtl/xjson.hpp>
+
 #include <nlohmann/json.hpp>
 
 #include "../../xvega_config.hpp"
+#include "../transformations.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-    struct transform_regression : public xp::xobserved<transform_regression>
+    struct transform_regression : public transformation<transform_regression>
     {
         XPROPERTY(xtl::xoptional<std::string>, transform_regression, regression);
         XPROPERTY(xtl::xoptional<std::string>, transform_regression, on);

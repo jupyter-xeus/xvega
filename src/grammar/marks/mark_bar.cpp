@@ -14,19 +14,19 @@ namespace xv
         type = "bar";
     }
 
-    void mark_bar::to_json(nl::json& j) const
+    void to_json(nl::json& j, const mark_bar& m)
     {
-        private_to_json(*this, j);
+        private_to_json(m, j);
         // Fill in Bar Mark Properties
-        serialize(j, orient(), "orient");
-        serialize(j, align(), "align");
-        serialize(j, baseline(), "baseline");
-        serialize(j, binSpacing(), "binSpacing");
-        serialize(j, cornerRadius(), "cornerRadius");
-        serialize(j, cornerRadiusEnd(), "cornerRadiusEnd");
-        serialize(j, cornerRadiusTopLeft(), "cornerRadiusTopLeft");
-        serialize(j, cornerRadiusTopRight(), "cornerRadiusTopRight");
-        serialize(j, cornerRadiusBottomLeft(), "cornerRadiusBottomLeft");
-        serialize(j, cornerRadiusBottomRight(), "cornerRadiusBottomRight");
+        serialize(j, m.orient(), "orient");
+        serialize(j, m.align(), "align");
+        serialize(j, m.baseline(), "baseline");
+        serialize(j, m.binSpacing(), "binSpacing");
+        serialize(j, m.cornerRadius(), "cornerRadius");
+        serialize(j, m.cornerRadiusEnd(), "cornerRadiusEnd");
+        serialize(j, m.cornerRadiusTopLeft(), "cornerRadiusTopLeft");
+        serialize(j, m.cornerRadiusTopRight(), "cornerRadiusTopRight");
+        serialize(j, m.cornerRadiusBottomLeft(), "cornerRadiusBottomLeft");
+        serialize(j, m.cornerRadiusBottomRight(), "cornerRadiusBottomRight");
     }
 }

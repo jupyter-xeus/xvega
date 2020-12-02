@@ -14,9 +14,6 @@
 
 namespace xv
 {
-    using bool_string_type = xtl::variant<std::string, bool>;
-    using string_vec_none_type = xtl::variant<std::vector<std::string>, std::nullptr_t>;
-
     struct legend_config : public xp::xobserved<legend_config>
     {
         XPROPERTY(xtl::xoptional<double>, legend_config, clipHeight);

@@ -25,7 +25,7 @@ namespace xv
     {
         // Single Selection Properties
         XPROPERTY(xtl::xoptional<nl::json>, selection_single, init);
-        XPROPERTY(xtl::xoptional<selection_bind_type>, selection_single, bind);
+        XPROPERTY(xtl::xoptional<nl::json>, selection_single, bind);
         XPROPERTY(xtl::xoptional<bool>, selection_single, nearest);
 
         XVEGA_API selection_single();

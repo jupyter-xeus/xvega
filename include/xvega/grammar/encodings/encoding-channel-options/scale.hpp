@@ -15,21 +15,13 @@
 
 #include "./datetime.hpp"
 #include "../../../xvega_config.hpp"
+#include "../../../utils/custom_datatypes.hpp"
 
 namespace nl = nlohmann;
 
 namespace xv
 {
-
-    using any_array_type = xtl::variant<
-                                std::vector<std::string>, 
-                                std::vector<double>, 
-                                std::vector<int>, 
-                                std::vector<bool>, 
-                                std::vector<DateTime>
-                                >;
     using num_datetime_type = xtl::variant<double, int, DateTime>;
-    using string_num_type = xtl::variant<double, int, std::string>;
     using scale_range_type = xtl::variant<
                                   std::string, 
                                   std::vector<double>, 
