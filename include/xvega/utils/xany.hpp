@@ -295,7 +295,7 @@ namespace xv
     std::string xany<CRTP>::name() const
     {
         check_any();
-        p_any->name();
+        return p_any->name();
     }
 
     template <template <class> class CRTP>
