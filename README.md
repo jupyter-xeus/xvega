@@ -3,7 +3,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/QuantStack/xvega/stable?urlpath=lab%2Ftree%2Fnotebooks%2Fdemo.ipynb)
 [![Build Status](https://github.com/QuantStack/xvega/workflows/CMake%20Build/badge.svg)](https://github.com/QuantStack/xvega/actions)
 
-A C++ backend for vega-lite (https://vega.github.io/vega-lite/).
+A C++ API for Vega-Lite (https://vega.github.io/vega-lite/).
 
 **This is an early developer preview under active development.**
 
