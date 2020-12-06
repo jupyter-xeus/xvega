@@ -21,6 +21,7 @@ namespace xv
             serialize(j["hconcat"][i], data.charts()[i].encoding(), "encoding");
             serialize(j["hconcat"][i], data.charts()[i].width(), "width");
             serialize(j["hconcat"][i], data.charts()[i].height(), "height");
+            serialize(j["hconcat"][i], data.charts()[i].title(), "title");
             int len_selections = data.charts()[i].selections().size();
             int len_transformations = data.charts()[i].transformations().size();
             for(int k=0; k<len_selections; k++)
@@ -48,6 +49,7 @@ namespace xv
             serialize(j["vconcat"][i], data.charts()[i].encoding(), "encoding");
             serialize(j["vconcat"][i], data.charts()[i].width(), "width");
             serialize(j["vconcat"][i], data.charts()[i].height(), "height");
+            serialize(j["vconcat"][i], data.charts()[i].title(), "title");
             int len_selections = data.charts()[i].selections().size();
             int len_transformations = data.charts()[i].transformations().size();
             for(int k=0; k<len_selections; k++)
@@ -75,6 +77,7 @@ namespace xv
             serialize(j["layer"][i], data.charts()[i].encoding(), "encoding");
             serialize(j["layer"][i], data.charts()[i].width(), "width");
             serialize(j["layer"][i], data.charts()[i].height(), "height");
+            serialize(j["layer"][i], data.charts()[i].title(), "title");
             int len_selections = data.charts()[i].selections().size();
             int len_transformations = data.charts()[i].transformations().size();
             for(int k=0; k<len_selections; k++)

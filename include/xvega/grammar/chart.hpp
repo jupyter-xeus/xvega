@@ -19,6 +19,7 @@
 #include "../grammar/selections.hpp"
 #include "../grammar/transformations.hpp"
 #include "../grammar/config.hpp"
+#include "../grammar/title.hpp"
 
 // data
 #include "../grammar/data/data_source/named_data.hpp"
@@ -42,6 +43,7 @@ namespace xv
     using marks_type = xany<mark>;
     using selection_type = xany<selection>;
     using transform_type = xany<transformation>;
+    using title_type = xtl::variant<std::string, Title>;
 
     struct Chart : public xp::xobserved<Chart>
     {
@@ -53,6 +55,7 @@ namespace xv
         XPROPERTY(xtl::xoptional<double>, Chart, width);
         XPROPERTY(xtl::xoptional<double>, Chart, height);
         XPROPERTY(xtl::xoptional<Config>, Chart, config);
+        XPROPERTY(xtl::xoptional<title_type>, Chart, title);
     };
     
     nl::json XVEGA_API mime_bundle_repr(const Chart& v);
