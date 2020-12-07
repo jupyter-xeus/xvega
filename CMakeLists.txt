@@ -59,6 +59,7 @@ set(XVEGA_HEADERS
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/xvega_config_cling.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/chart.hpp
+    ${XVEGA_INCLUDE_DIR}/xvega/grammar/title.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_arc.hpp
     ${XVEGA_INCLUDE_DIR}/xvega/grammar/marks/mark_area.hpp
@@ -198,6 +199,7 @@ set(XVEGA_HEADERS
 set(XVEGA_SOURCES
     ${XVEGA_SOURCE_DIR}/utils/serialize.hpp  # private header
     ${XVEGA_SOURCE_DIR}/grammar/chart.cpp
+    ${XVEGA_SOURCE_DIR}/grammar/title.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/aggregate.cpp
     ${XVEGA_SOURCE_DIR}/grammar/encodings/encoding-channel-options/axis.cpp

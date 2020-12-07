@@ -29,7 +29,7 @@ TEST(JsonSpecOutput, DoubleEncodingChannel)
     auto x_enc = X().field("Miles_per_Gallon").type("quantitative");
     auto y_enc = Y().field("Horsepower").type("quantitative");
     auto enc = Encodings().x(x_enc).y(y_enc);
-    auto fig = Chart().data(df).mark(mp).encoding(enc).width(400).height(300);
+    auto fig = Chart().data(df).mark(mp).encoding(enc).title("Simple 2D Chart").width(400).height(300);
 
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
@@ -41,6 +41,7 @@ TEST(JsonSpecOutput, DoubleEncodingChannel)
                     },
                     "height": 300,
                     "mark": {"type": "point"},
+                    "title": "Simple 2D Chart",
                     "width": 400
                 })"_json;
     ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);

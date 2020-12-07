@@ -32,6 +32,7 @@ namespace xv
         serialize(j, data.width(), "width");
         serialize(j, data.height(), "height");
         serialize(j, data.config(), "config");
+        serialize(j, data.title(), "title");
     }
 
     nl::json mime_bundle_repr(const Chart& v)
