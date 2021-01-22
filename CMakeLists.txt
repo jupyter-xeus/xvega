@@ -480,9 +480,11 @@ if (XVEGA_BUILD_SHARED OR XVEGA_BUILD_STATIC)
             EXPORT ${PROJECT_NAME}-targets
             ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
             LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-            PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/xvega)
-
+            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+    # This guarantees the headers' folders won't be flatten when
+    # installed
+    install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
+            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
     # Makes the project importable from the build directory
     export(EXPORT ${PROJECT_NAME}-targets
            FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
