@@ -39,8 +39,8 @@ message(STATUS "xvega v${${PROJECT_NAME}_VERSION}")
 # Build options
 # =============
 
-OPTION(XVG_DISABLE_ARCH_NATIVE "disable -march=native flag" OFF)
-OPTION(XVG_DISABLE_TUNE_GENERIC "disable -mtune=generic flag" OFF)
+OPTION(XVEGA_DISABLE_ARCH_NATIVE "disable -march=native flag" OFF)
+OPTION(XVEGA_DISABLE_TUNE_GENERIC "disable -mtune=generic flag" OFF)
 
 OPTION(XVEGA_BUILD_STATIC "Build xvega static library" ON)
 OPTION(XVEGA_BUILD_SHARED "Split xvega build into executable and library" ON)
