@@ -48,11 +48,11 @@ OPTION(XVEGA_BUILD_SHARED "Split xvega build into executable and library" ON)
 # Dependencies
 # ============
 
-set(xtl_REQUIRED_VERSION 0.6.11)
+set(xtl_REQUIRED_VERSION 0.7.0)
 find_package(xtl ${xtl_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xtl: ${xtl_INCLUDE_DIRS}/xtl")
 
-set(xproperty_REQUIRED_VERSION 0.10.4)
+set(xproperty_REQUIRED_VERSION 0.11.0)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
 
