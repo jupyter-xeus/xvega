@@ -36,6 +36,7 @@ Use the library by including the following header:
 |  `xvega`  |  `xtl`  |  `nlohmann json`  |  `xproperty`  |
 |-----------|---------|-------------------|---------------|
 |  master   | ^0.7.0  |       ^3.7.3      |    ^0.11.0    |
+|  0.0.10   | ^0.7.0  |       ^3.7.3      |    ^0.11.0    |
 |  0.0.9    | ^0.7.0  |       ^3.7.3      |    ^0.11.0    |
 
 Note: Please make sure to have `jupyterlab` and `xeus-cling` installed in order to use `XVega` as a standalone library.
