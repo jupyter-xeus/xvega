@@ -348,14 +348,15 @@ set(XVEGA_SOURCES
 # Targets and link - Macros
 # =========================
 
-include(CheckCXXCompilerFlag)
-
 set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
 string(TOUPPER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib; ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}")
 
 macro(xvega_set_common_options target_name)
+    set_target_properties(${target_name} PROPERTIES CXX_EXTENSIONS OFF CXX_STANDARD_REQUIRED 17)
+
+    target_compile_features(${target_name} PRIVATE cxx_std_17)
     if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR
         CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -375,15 +376,6 @@ macro(xvega_set_common_options target_name)
                 target_compile_options(${target_name} PUBLIC -march=native)
             endif ()
         endif ()
-
-        # C++14 flag
-        CHECK_CXX_COMPILER_FLAG("-std=c++14" HAS_CPP14_FLAG)
-        if (HAS_CPP14_FLAG)
-            target_compile_features(${target_name} PRIVATE cxx_std_17)
-        else ()
-            message(FATAL_ERROR "Unsupported compiler -- xvega requires C++14 support!")
-        endif ()
-
     endif ()
 
     if (APPLE)
