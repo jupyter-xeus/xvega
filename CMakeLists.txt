@@ -4,7 +4,7 @@
 #
 # The full license is in the file LICENSE, distributed with this software.
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.8)
 project(xvega)
 
 set(XVEGA_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -54,11 +54,11 @@ set(xtl_REQUIRED_VERSION 0.7.0)
 find_package(xtl ${xtl_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xtl: ${xtl_INCLUDE_DIRS}/xtl")
 
-set(xproperty_REQUIRED_VERSION 0.11.0)
+set(xproperty_REQUIRED_VERSION 0.12.0)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
 
-set(nlohmann_json_REQUIRED_VERSION 3.7.3)
+set(nlohmann_json_REQUIRED_VERSION 3.11.3)
 find_package(nlohmann_json ${nlohmann_json_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found nlohmann_json: ${nlohmann_json_INCLUDE_DIRS}/nlohmann_json")
 
