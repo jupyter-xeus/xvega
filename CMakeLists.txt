@@ -39,7 +39,7 @@ message(STATUS "xvega v${${PROJECT_NAME}_VERSION}")
 # Build options
 # =============
 
-OPTION(XVEGA_DISABLE_ARCH_NATIVE "disable -march=native flag" OFF)
+OPTION(XVEGA_DISABLE_OPT_NATIVE "disable -march=native / -mtune=native flag" OFF)
 OPTION(XVEGA_DISABLE_TUNE_GENERIC "disable -mtune=generic flag" OFF)
 
 OPTION(XVEGA_BUILD_STATIC "Build xvega static library" ON)
@@ -363,11 +363,17 @@ macro(xvega_set_common_options target_name)
         target_compile_options(${target_name} PUBLIC -Wunused-parameter -Wextra -Wreorder)
     
         # Mtune generic/native
-        if (XVEGA_DISABLE_ARCH_NATIVE AND NOT XVEGA_DISABLE_TUNE_GENERIC)
+        if (XVEGA_DISABLE_OPT_NATIVE AND NOT XVEGA_DISABLE_TUNE_GENERIC)
             target_compile_options(${target_name} PUBLIC -mtune=generic)
         elseif (XVEGA_DISABLE_TUNE_GENERIC)
+            # Do not pass optflags.
         else ()
-            target_compile_options(${target_name} PUBLIC -march=native)
+            # PowerPC does not support -march
+            if (CMAKE_SYSTEM_PROCESSOR MATCHES "ppc|powerpc")
+                target_compile_options(${target_name} PUBLIC -mtune=native)
+            else ()
+                target_compile_options(${target_name} PUBLIC -march=native)
+            endif ()
         endif ()
 
         # C++14 flag
