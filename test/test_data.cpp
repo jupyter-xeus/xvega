@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
 
-TEST(JsonSpecOutput, UrlData)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("UrlData")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto fig = Chart().data(df);
@@ -13,10 +15,10 @@ TEST(JsonSpecOutput, UrlData)
                     "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"},
                     "mark": null
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, Dataframe)
+TEST_CASE("Dataframe")
 {
     df_type val;
     val["country"] = {"India", "France", "France", "Germany", "India", "Germany", "France"};
@@ -40,10 +42,10 @@ TEST(JsonSpecOutput, Dataframe)
                     },
                     "mark": null
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, SequenceGenerator)
+TEST_CASE("SequenceGenerator")
 {
     auto seq = sequence_params().start(0).stop(12.7).step(0.1).as("x");
     auto df = sequence_generator().sequence(seq);
@@ -55,6 +57,7 @@ TEST(JsonSpecOutput, SequenceGenerator)
                     "data": {"sequence": {"as": "x", "start": 0, "step": 0.1, "stop": 12.7}},
                     "mark": null
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+}
 }
 

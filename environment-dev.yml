@@ -10,4 +10,5 @@ dependencies:
   - xtl=0.7.0
   - xproperty=0.11.0
   - nlohmann_json=3.11.2
-
+# Test dependencies
+  - doctest

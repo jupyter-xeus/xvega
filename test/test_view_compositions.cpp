@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
 
-TEST(JsonSpecOutput, HorizontalConcatenation)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("HorizontalConcatenation")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -48,10 +50,10 @@ TEST(JsonSpecOutput, HorizontalConcatenation)
                         }
                     ]
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, VerticalConcatenation)
+TEST_CASE("VerticalConcatenation")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -96,10 +98,10 @@ TEST(JsonSpecOutput, VerticalConcatenation)
                         }
                     ]
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, Layering)
+TEST_CASE("Layering")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -138,5 +140,6 @@ TEST(JsonSpecOutput, Layering)
                         }
                     ]
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+}
 }

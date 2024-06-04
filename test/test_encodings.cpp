@@ -1,9 +1,10 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
-
-TEST(JsonSpecOutput, SingleEncodingChannel)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("SingleEncodingChannel")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -19,10 +20,10 @@ TEST(JsonSpecOutput, SingleEncodingChannel)
                     "mark": {"type": "point"},
                     "width": 400
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, DoubleEncodingChannel)
+TEST_CASE("DoubleEncodingChannel")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -44,10 +45,10 @@ TEST(JsonSpecOutput, DoubleEncodingChannel)
                     "title": "Simple 2D Chart",
                     "width": 400
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, TripleEncodingChannel)
+TEST_CASE("TripleEncodingChannel")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -70,10 +71,10 @@ TEST(JsonSpecOutput, TripleEncodingChannel)
                     "mark": {"type": "point"},
                     "width": 400
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, DoubleEncodingWithChannelOptions)
+TEST_CASE("DoubleEncodingWithChannelOptions")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mb = mark_bar();
@@ -99,5 +100,6 @@ TEST(JsonSpecOutput, DoubleEncodingWithChannelOptions)
                     "mark": {"type": "bar"},
                     "width": 400
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+}
 }

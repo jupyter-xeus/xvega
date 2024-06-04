@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
 
-TEST(JsonSpecOutput, IntervalSelection)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("IntervalSelection")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -32,5 +34,6 @@ TEST(JsonSpecOutput, IntervalSelection)
                     "selection": {"selector_interval_nws23": {"type": "interval"}},
                     "width": 400
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+}
 }
