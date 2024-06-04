@@ -1,0 +1,13 @@
+name: xvega
+channels:
+  - conda-forge
+dependencies:
+# build dependencies
+  - cmake
+  - cxx-compiler
+  - ninja
+# host Dependencies
+  - xtl=0.7.0
+  - xproperty=0.11.0
+  - nlohmann_json=3.11.2
+
