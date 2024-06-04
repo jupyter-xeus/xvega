@@ -45,6 +45,8 @@ OPTION(XVEGA_DISABLE_TUNE_GENERIC "disable -mtune=generic flag" OFF)
 OPTION(XVEGA_BUILD_STATIC "Build xvega static library" ON)
 OPTION(XVEGA_BUILD_SHARED "Split xvega build into executable and library" ON)
 
+OPTION(XVEGA_BUILD_TESTS "xvega test suite" OFF)
+
 # Dependencies
 # ============
 
@@ -456,14 +458,7 @@ endif ()
 # Tests
 # =====
 
-OPTION(BUILD_TESTS "xvega test suite" OFF)
-OPTION(DOWNLOAD_GTEST "build gtest from downloaded sources" OFF)
-
-if(DOWNLOAD_GTEST OR GTEST_SRC_DIR)
-    set(BUILD_TESTS ON)
-endif()
-
-if(BUILD_TESTS)
+if(XVEGA_BUILD_TESTS)
     add_subdirectory(test)
 endif()
 

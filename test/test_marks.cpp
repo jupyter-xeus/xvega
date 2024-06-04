@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
 
-TEST(JsonSpecOutput, MarkPoint)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("MarkPoint")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -14,10 +16,10 @@ TEST(JsonSpecOutput, MarkPoint)
                     "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"},
                     "mark": {"type": "point"}
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, MarkPointWithCommonProperty)
+TEST_CASE("MarkPointWithCommonProperty")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point().color("red");
@@ -28,10 +30,10 @@ TEST(JsonSpecOutput, MarkPointWithCommonProperty)
                     "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"},
                     "mark": {"color": "red", "type": "point"}
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, MarkPointWithSpecificProperty)
+TEST_CASE("MarkPointWithSpecificProperty")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point().color("red").size(100);
@@ -42,5 +44,6 @@ TEST(JsonSpecOutput, MarkPointWithSpecificProperty)
                     "data": {"url": "https://vega.github.io/vega-datasets/data/cars.json"},
                     "mark": {"color": "red", "size": 100, "type": "point"}
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+}
 }

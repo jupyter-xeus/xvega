@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include "doctest/doctest.h"
 #include <xvega/xvega.hpp>
 
 using namespace xv;
 
-TEST(JsonSpecOutput, SingleTransformationWithLayering)
+TEST_SUITE("JsonSpecOutput")
+{
+TEST_CASE("SingleTransformationWithLayering")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
     auto mp = mark_point();
@@ -43,10 +45,10 @@ TEST(JsonSpecOutput, SingleTransformationWithLayering)
                         }
                     ]
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
 
-TEST(JsonSpecOutput, MultipleTransformations)
+TEST_CASE("MultipleTransformations")
 {
     auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
 
@@ -136,7 +138,6 @@ TEST(JsonSpecOutput, MultipleTransformations)
                         }
                     ]
                 })"_json;
-    ASSERT_EQ(expected, result["application/vnd.vegalite.v3+json"]);
+    REQUIRE_EQ(expected, result["application/vnd.vegalite.v3+json"]);
 }
-
-
+}
