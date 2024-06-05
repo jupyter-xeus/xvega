@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_FILL_HPP
 #define XVEGA_ENCODING_FILL_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct Fill : public xp::xobserved<Fill>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Fill, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Fill, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Fill, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Fill, field);
-        XPROPERTY(xtl::xoptional<legend_type>, Fill, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, Fill, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Fill, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Fill, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Fill, title);
-        XPROPERTY(xtl::xoptional<std::string>, Fill, type);
+        XPROPERTY(std::optional<agg_type>, Fill, aggregate);
+        XPROPERTY(std::optional<bin_type>, Fill, bin);
+        // XPROPERTY(std::optional<condition_type>, Fill, condition);
+        XPROPERTY(std::optional<field_type>, Fill, field);
+        XPROPERTY(std::optional<legend_type>, Fill, legend);
+        XPROPERTY(std::optional<scale_type>, Fill, scale);
+        XPROPERTY(std::optional<sort_type>, Fill, sort);
+        XPROPERTY(std::optional<time_unit_type>, Fill, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Fill, title);
+        XPROPERTY(std::optional<std::string>, Fill, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Fill& data);

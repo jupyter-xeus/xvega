@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_TOOLTIP_HPP
 #define XVEGA_ENCODING_TOOLTIP_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,16 +25,16 @@ namespace xv
 {
     struct Tooltip : public xp::xobserved<Tooltip>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Tooltip, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Tooltip, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Tooltip, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Tooltip, field);
-        XPROPERTY(xtl::xoptional<string_object_type>, Tooltip, format);
-        XPROPERTY(xtl::xoptional<std::string>, Tooltip, formatType);
-        XPROPERTY(xtl::xoptional<std::string>, Tooltip, labelExpr);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Tooltip, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Tooltip, title);
-        XPROPERTY(xtl::xoptional<std::string>, Tooltip, type);
+        XPROPERTY(std::optional<agg_type>, Tooltip, aggregate);
+        XPROPERTY(std::optional<bin_type>, Tooltip, bin);
+        // XPROPERTY(std::optional<condition_type>, Tooltip, condition);
+        XPROPERTY(std::optional<field_type>, Tooltip, field);
+        XPROPERTY(std::optional<string_object_type>, Tooltip, format);
+        XPROPERTY(std::optional<std::string>, Tooltip, formatType);
+        XPROPERTY(std::optional<std::string>, Tooltip, labelExpr);
+        XPROPERTY(std::optional<time_unit_type>, Tooltip, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Tooltip, title);
+        XPROPERTY(std::optional<std::string>, Tooltip, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Tooltip& data);

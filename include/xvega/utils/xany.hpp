@@ -7,15 +7,14 @@
 #ifndef XVEGA_ANY_HPP
 #define XVEGA_ANY_HPP
 
+#include <any>
+#include <functional>
 #include <memory>
 #include <stdexcept>
 #include <string>
 #include <utility>
 
 #include "nlohmann/json.hpp"
-
-#include "xtl/xany.hpp"
-#include "xtl/xclosure.hpp"
 
 namespace nl = nlohmann;
 
@@ -61,8 +60,8 @@ namespace xv
         void to_json(nl::json& j) const;
         std::string name() const;
 
-        xtl::any value() &;
-        const xtl::any value() const &;
+        std::any value() &;
+        const std::any value() const &;
 
         template <class D>
         D& get() &;
@@ -110,8 +109,8 @@ namespace xv
             virtual void to_json(nl::json& j) const = 0;
             virtual std::string name() const = 0;
 
-            virtual xtl::any value() & = 0;
-            virtual const xtl::any value() const & = 0;
+            virtual std::any value() & = 0;
+            virtual const std::any value() const & = 0;
 
         protected:
 
@@ -156,14 +155,14 @@ namespace xv
                 return m_value.name();
             }
 
-            virtual xtl::any value() & override
+            virtual std::any value() & override
             {
-                return xtl::closure(m_value);
+                return std::ref(m_value);
             }
 
-            virtual const xtl::any value() const & override
+            virtual const std::any value() const & override
             {
-                return xtl::closure(m_value);
+                return std::cref(m_value);
             }
 
         private:
@@ -299,14 +298,14 @@ namespace xv
     }
 
     template <template <class> class CRTP>
-    xtl::any xany<CRTP>::value() &
+    std::any xany<CRTP>::value() &
     {
         check_any();
         return p_any->value();
     }
 
     template <template <class> class CRTP>
-    const xtl::any xany<CRTP>::value() const &
+    const std::any xany<CRTP>::value() const &
     {
         check_any();
         return p_any->value();
@@ -316,14 +315,14 @@ namespace xv
     template <class D>
     D& xany<CRTP>::get() &
     {
-        return xtl::any_cast<xtl::closure_wrapper<D&>>(this->value()).get();
+        return std::any_cast<std::reference_wrapper<D>>(this->value()).get();
     }
 
     template <template <class> class CRTP>
     template <class D>
     const D& xany<CRTP>::get() const &
     {
-        return xtl::any_cast<xtl::closure_wrapper<const D&>>(this->value()).get();
+        return std::any_cast<std::reference_wrapper<const D>>(this->value()).get();
     }
 
     template <template <class> class CRTP>

@@ -7,10 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_IMPUTE_HPP
 #define XVEGA_ENCODING_OPTIONS_IMPUTE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,26 +23,26 @@ namespace xv
 {
     struct ImputeSequence : public xp::xobserved<ImputeSequence>
     {
-        XPROPERTY(xtl::xoptional<double>, ImputeSequence, start);
-        XPROPERTY(xtl::xoptional<double>, ImputeSequence, stop);
-        XPROPERTY(xtl::xoptional<double>, ImputeSequence, step);
+        XPROPERTY(std::optional<double>, ImputeSequence, start);
+        XPROPERTY(std::optional<double>, ImputeSequence, stop);
+        XPROPERTY(std::optional<double>, ImputeSequence, step);
     };
 
     XVEGA_API void to_json(nl::json& j, const ImputeSequence& data);
 
-    using impute_key_vals_type = xtl::variant<std::vector<any_type>, ImputeSequence>;
+    using impute_key_vals_type = std::variant<std::vector<any_type>, ImputeSequence>;
 
     struct Impute : public xp::xobserved<Impute>
     {
-        XPROPERTY(xtl::xoptional<std::vector<num_none_type>>, Impute, frame);
-        XPROPERTY(xtl::xoptional<impute_key_vals_type>, Impute, keyvals);
-        XPROPERTY(xtl::xoptional<std::string>, Impute, method);
-        XPROPERTY(xtl::xoptional<any_type>, Impute, value);
+        XPROPERTY(std::optional<std::vector<num_none_type>>, Impute, frame);
+        XPROPERTY(std::optional<impute_key_vals_type>, Impute, keyvals);
+        XPROPERTY(std::optional<std::string>, Impute, method);
+        XPROPERTY(std::optional<any_type>, Impute, value);
     };
 
     XVEGA_API void to_json(nl::json& j, const Impute& data);
 
-    using impute_type = xtl::variant<Impute, std::nullptr_t>;
+    using impute_type = std::variant<Impute, std::nullptr_t>;
 }
 
 #endif

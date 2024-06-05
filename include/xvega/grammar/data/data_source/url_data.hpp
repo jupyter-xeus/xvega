@@ -7,6 +7,9 @@
 #ifndef XVEGA_URL_DATA_HPP
 #define XVEGA_URL_DATA_HPP
 
+#include <optional>
+#include <variant>
+
 #include "../data_format/csv_data_format.hpp"
 #include "../data_format/tsv_data_format.hpp"
 #include "../data_format/dsv_data_format.hpp"
@@ -15,7 +18,7 @@
 
 namespace xv
 {
-    using data_format_type = xtl::variant<
+    using data_format_type = std::variant<
                                   csv_data_format, 
                                   tsv_data_format, 
                                   dsv_data_format, 
@@ -25,9 +28,9 @@ namespace xv
 
     struct url_data : public xp::xobserved<url_data>
     {
-        XPROPERTY(xtl::xoptional<std::string>, url_data, url);
-        XPROPERTY(xtl::xoptional<std::string>, url_data, name);
-        XPROPERTY(xtl::xoptional<data_format_type>, url_data, format);
+        XPROPERTY(std::optional<std::string>, url_data, url);
+        XPROPERTY(std::optional<std::string>, url_data, name);
+        XPROPERTY(std::optional<data_format_type>, url_data, format);
     };
 
     XVEGA_API void to_json(nl::json&, const url_data&);

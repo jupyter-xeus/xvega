@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_TRAIL_HPP
 #define XVEGA_MARK_TRAIL_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,7 +16,7 @@ namespace xv
     struct mark_trail : public mark<mark_trail>
     {
         // Trail Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_trail, orient);
+        XPROPERTY(std::optional<std::string>, mark_trail, orient);
 
         XVEGA_API mark_trail();
     };

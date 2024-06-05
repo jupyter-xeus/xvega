@@ -7,6 +7,9 @@
 #ifndef XVEGA_CONFIGURATIONS_HPP
 #define XVEGA_CONFIGURATIONS_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../xvega_config.hpp"
@@ -37,72 +40,72 @@
 
 namespace xv
 {
-    using autosize_type = xtl::variant<std::string, auto_size_params>;
+    using autosize_type = std::variant<std::string, auto_size_params>;
 
     struct Config : public xp::xobserved<Config>
     {
-        XPROPERTY(xtl::xoptional<area_config>, Config, area);
-        XPROPERTY(xtl::xoptional<autosize_type>, Config, autosize);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axis);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisBand);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisBottom);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisDiscrete);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisLeft);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisPoint);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisQuantitative);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisRight);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisTemporal);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisTop);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisX);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisXBand);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisXDiscrete);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisXPoint);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisXQuantitative);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisXTemporal);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisY);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisYBand);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisYDiscrete);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisYPoint);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisYQuantitative);
-        XPROPERTY(xtl::xoptional<axis_config>, Config, axisYTemporal);
-        XPROPERTY(xtl::xoptional<std::string>, Config, background);
-        XPROPERTY(xtl::xoptional<bar_config>, Config, bar);
-        XPROPERTY(xtl::xoptional<box_plot_config>, Config, boxplot);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, circle);
-        XPROPERTY(xtl::xoptional<composition_config>, Config, concat);
-        XPROPERTY(xtl::xoptional<std::string>, Config, countTitle);
-        XPROPERTY(xtl::xoptional<error_band_config>, Config, errorband);
-        XPROPERTY(xtl::xoptional<error_bar_config>, Config, errorbar);
-        XPROPERTY(xtl::xoptional<composition_config>, Config, facet);
-        XPROPERTY(xtl::xoptional<std::string>, Config, fieldTitle);
-        XPROPERTY(xtl::xoptional<std::string>, Config, font);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, geoshape);
-        XPROPERTY(xtl::xoptional<header_config>, Config, header);
-        XPROPERTY(xtl::xoptional<header_config>, Config, headerColumn);
-        XPROPERTY(xtl::xoptional<header_config>, Config, headerFacet);
-        XPROPERTY(xtl::xoptional<header_config>, Config, headerRow);
-        XPROPERTY(xtl::xoptional<rect_config>, Config, image);
-        XPROPERTY(xtl::xoptional<legend_config>, Config, legend);
-        XPROPERTY(xtl::xoptional<line_config>, Config, line);
-        XPROPERTY(xtl::xoptional<std::string>, Config, lineBreak);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, mark);
-        XPROPERTY(xtl::xoptional<std::string>, Config, numberFormat);
-        XPROPERTY(xtl::xoptional<num_object_type>, Config, padding);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, point);
-        XPROPERTY(xtl::xoptional<projection_config>, Config, projection);
-        XPROPERTY(xtl::xoptional<range_config>, Config, range);
-        XPROPERTY(xtl::xoptional<rect_config>, Config, rect);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, rule);
-        XPROPERTY(xtl::xoptional<scale_config>, Config, scale);
-        XPROPERTY(xtl::xoptional<selection_config>, Config, selection);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, square);
-        XPROPERTY(xtl::xoptional<style_config_index>, Config, style);
-        XPROPERTY(xtl::xoptional<mark_config>, Config, text);
-        XPROPERTY(xtl::xoptional<tick_config>, Config, tick);
-        XPROPERTY(xtl::xoptional<std::string>, Config, timeFormat);
-        XPROPERTY(xtl::xoptional<title_config>, Config, title);
-        XPROPERTY(xtl::xoptional<line_config>, Config, trail);
-        XPROPERTY(xtl::xoptional<view_config>, Config, view);
+        XPROPERTY(std::optional<area_config>, Config, area);
+        XPROPERTY(std::optional<autosize_type>, Config, autosize);
+        XPROPERTY(std::optional<axis_config>, Config, axis);
+        XPROPERTY(std::optional<axis_config>, Config, axisBand);
+        XPROPERTY(std::optional<axis_config>, Config, axisBottom);
+        XPROPERTY(std::optional<axis_config>, Config, axisDiscrete);
+        XPROPERTY(std::optional<axis_config>, Config, axisLeft);
+        XPROPERTY(std::optional<axis_config>, Config, axisPoint);
+        XPROPERTY(std::optional<axis_config>, Config, axisQuantitative);
+        XPROPERTY(std::optional<axis_config>, Config, axisRight);
+        XPROPERTY(std::optional<axis_config>, Config, axisTemporal);
+        XPROPERTY(std::optional<axis_config>, Config, axisTop);
+        XPROPERTY(std::optional<axis_config>, Config, axisX);
+        XPROPERTY(std::optional<axis_config>, Config, axisXBand);
+        XPROPERTY(std::optional<axis_config>, Config, axisXDiscrete);
+        XPROPERTY(std::optional<axis_config>, Config, axisXPoint);
+        XPROPERTY(std::optional<axis_config>, Config, axisXQuantitative);
+        XPROPERTY(std::optional<axis_config>, Config, axisXTemporal);
+        XPROPERTY(std::optional<axis_config>, Config, axisY);
+        XPROPERTY(std::optional<axis_config>, Config, axisYBand);
+        XPROPERTY(std::optional<axis_config>, Config, axisYDiscrete);
+        XPROPERTY(std::optional<axis_config>, Config, axisYPoint);
+        XPROPERTY(std::optional<axis_config>, Config, axisYQuantitative);
+        XPROPERTY(std::optional<axis_config>, Config, axisYTemporal);
+        XPROPERTY(std::optional<std::string>, Config, background);
+        XPROPERTY(std::optional<bar_config>, Config, bar);
+        XPROPERTY(std::optional<box_plot_config>, Config, boxplot);
+        XPROPERTY(std::optional<mark_config>, Config, circle);
+        XPROPERTY(std::optional<composition_config>, Config, concat);
+        XPROPERTY(std::optional<std::string>, Config, countTitle);
+        XPROPERTY(std::optional<error_band_config>, Config, errorband);
+        XPROPERTY(std::optional<error_bar_config>, Config, errorbar);
+        XPROPERTY(std::optional<composition_config>, Config, facet);
+        XPROPERTY(std::optional<std::string>, Config, fieldTitle);
+        XPROPERTY(std::optional<std::string>, Config, font);
+        XPROPERTY(std::optional<mark_config>, Config, geoshape);
+        XPROPERTY(std::optional<header_config>, Config, header);
+        XPROPERTY(std::optional<header_config>, Config, headerColumn);
+        XPROPERTY(std::optional<header_config>, Config, headerFacet);
+        XPROPERTY(std::optional<header_config>, Config, headerRow);
+        XPROPERTY(std::optional<rect_config>, Config, image);
+        XPROPERTY(std::optional<legend_config>, Config, legend);
+        XPROPERTY(std::optional<line_config>, Config, line);
+        XPROPERTY(std::optional<std::string>, Config, lineBreak);
+        XPROPERTY(std::optional<mark_config>, Config, mark);
+        XPROPERTY(std::optional<std::string>, Config, numberFormat);
+        XPROPERTY(std::optional<num_object_type>, Config, padding);
+        XPROPERTY(std::optional<mark_config>, Config, point);
+        XPROPERTY(std::optional<projection_config>, Config, projection);
+        XPROPERTY(std::optional<range_config>, Config, range);
+        XPROPERTY(std::optional<rect_config>, Config, rect);
+        XPROPERTY(std::optional<mark_config>, Config, rule);
+        XPROPERTY(std::optional<scale_config>, Config, scale);
+        XPROPERTY(std::optional<selection_config>, Config, selection);
+        XPROPERTY(std::optional<mark_config>, Config, square);
+        XPROPERTY(std::optional<style_config_index>, Config, style);
+        XPROPERTY(std::optional<mark_config>, Config, text);
+        XPROPERTY(std::optional<tick_config>, Config, tick);
+        XPROPERTY(std::optional<std::string>, Config, timeFormat);
+        XPROPERTY(std::optional<title_config>, Config, title);
+        XPROPERTY(std::optional<line_config>, Config, trail);
+        XPROPERTY(std::optional<view_config>, Config, view);
     };
 
     XVEGA_API void to_json(nl::json& j, const Config& data);

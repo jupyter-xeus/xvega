@@ -7,10 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_TIMEUNIT_HPP
 #define XVEGA_ENCODING_OPTIONS_TIMEUNIT_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -22,15 +22,15 @@ namespace xv
 {
     struct TimeUnit : public xp::xobserved<TimeUnit>
     {
-        XPROPERTY(xtl::xoptional<std::string>, TimeUnit, unit);
-        XPROPERTY(xtl::xoptional<double>, TimeUnit, maxbins);
-        XPROPERTY(xtl::xoptional<double>, TimeUnit, step);
-        XPROPERTY(xtl::xoptional<bool>, TimeUnit, utc);
+        XPROPERTY(std::optional<std::string>, TimeUnit, unit);
+        XPROPERTY(std::optional<double>, TimeUnit, maxbins);
+        XPROPERTY(std::optional<double>, TimeUnit, step);
+        XPROPERTY(std::optional<bool>, TimeUnit, utc);
     };
 
     XVEGA_API void to_json(nl::json& j, const TimeUnit& data);
 
-    using time_unit_type = xtl::variant<std::string, TimeUnit>;
+    using time_unit_type = std::variant<std::string, TimeUnit>;
 }
 
 #endif

@@ -13,10 +13,10 @@ namespace xv
 {
     struct bar_config : public base_config<bar_config>
     {
-        XPROPERTY(xtl::xoptional<double>, bar_config, binSpacing);
-        XPROPERTY(xtl::xoptional<double>, bar_config, continuousBandSize);
-        XPROPERTY(xtl::xoptional<double>, bar_config, cornerRadiusEnd);
-        XPROPERTY(xtl::xoptional<double>, bar_config, discreteBandSize);
+        XPROPERTY(std::optional<double>, bar_config, binSpacing);
+        XPROPERTY(std::optional<double>, bar_config, continuousBandSize);
+        XPROPERTY(std::optional<double>, bar_config, cornerRadiusEnd);
+        XPROPERTY(std::optional<double>, bar_config, discreteBandSize);
     };
 
     XVEGA_API void to_json(nl::json&, const bar_config&);

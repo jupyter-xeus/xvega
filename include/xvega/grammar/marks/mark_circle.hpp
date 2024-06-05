@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_CIRCLE_HPP
 #define XVEGA_MARK_CIRCLE_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,7 +16,7 @@ namespace xv
     struct mark_circle : public mark<mark_circle>
     {
         // Circle Mark Properties
-        XPROPERTY(xtl::xoptional<double>, mark_circle, size);
+        XPROPERTY(std::optional<double>, mark_circle, size);
 
         XVEGA_API mark_circle();
     };

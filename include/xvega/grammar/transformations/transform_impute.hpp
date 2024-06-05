@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_IMPUTE_HPP
 #define XVEGA_TRANSFORM_IMPUTE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -24,13 +23,13 @@ namespace xv
 {
     struct transform_impute : public transformation<transform_impute>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_impute, impute);
-        XPROPERTY(xtl::xoptional<std::string>, transform_impute, key);
-        XPROPERTY(xtl::xoptional<impute_key_vals_type>, transform_impute, keyvals);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_impute, groupby);
-        XPROPERTY(xtl::xoptional<std::vector<num_none_type>>, transform_impute, frame);
-        XPROPERTY(xtl::xoptional<std::string>, transform_impute, method);
-        XPROPERTY(xtl::xoptional<any_type>, transform_impute, value);
+        XPROPERTY(std::optional<std::string>, transform_impute, impute);
+        XPROPERTY(std::optional<std::string>, transform_impute, key);
+        XPROPERTY(std::optional<impute_key_vals_type>, transform_impute, keyvals);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_impute, groupby);
+        XPROPERTY(std::optional<std::vector<num_none_type>>, transform_impute, frame);
+        XPROPERTY(std::optional<std::string>, transform_impute, method);
+        XPROPERTY(std::optional<any_type>, transform_impute, value);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_impute& data);

@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_REGRESSION_HPP
 #define XVEGA_TRANSFORM_REGRESSION_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,14 +22,14 @@ namespace xv
 {
     struct transform_regression : public transformation<transform_regression>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_regression, regression);
-        XPROPERTY(xtl::xoptional<std::string>, transform_regression, on);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_regression, groupby);
-        XPROPERTY(xtl::xoptional<std::string>, transform_regression, method);
-        XPROPERTY(xtl::xoptional<double>, transform_regression, order);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, transform_regression, extent);
-        XPROPERTY(xtl::xoptional<bool>, transform_regression, params);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_regression, as);
+        XPROPERTY(std::optional<std::string>, transform_regression, regression);
+        XPROPERTY(std::optional<std::string>, transform_regression, on);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_regression, groupby);
+        XPROPERTY(std::optional<std::string>, transform_regression, method);
+        XPROPERTY(std::optional<double>, transform_regression, order);
+        XPROPERTY(std::optional<std::vector<double>>, transform_regression, extent);
+        XPROPERTY(std::optional<bool>, transform_regression, params);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_regression, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_regression& data);

@@ -7,6 +7,9 @@
 #ifndef XVEGA_ENCODINGS_HPP
 #define XVEGA_ENCODINGS_HPP
 
+#include <optional>
+#include <variant>
+
 #include "../xvega_config.hpp"
 
 #include "../utils/custom_datatypes.hpp"
@@ -53,43 +56,43 @@ namespace xv
 {
     struct Encodings : public xp::xobserved<Encodings>
     {
-        XPROPERTY(xtl::xoptional<X>, Encodings, x);
-        XPROPERTY(xtl::xoptional<Y>, Encodings, y);
-        XPROPERTY(xtl::xoptional<X2>, Encodings, x2);
-        XPROPERTY(xtl::xoptional<Y2>, Encodings, y2);
-        XPROPERTY(xtl::xoptional<XError>, Encodings, xError);
-        XPROPERTY(xtl::xoptional<YError>, Encodings, yError);
-        XPROPERTY(xtl::xoptional<XError2>, Encodings, xError2);
-        XPROPERTY(xtl::xoptional<YError2>, Encodings, yError2);
-        XPROPERTY(xtl::xoptional<Longitude>, Encodings, longitude);
-        XPROPERTY(xtl::xoptional<Latitude>, Encodings, latitude);
-        XPROPERTY(xtl::xoptional<Longitude2>, Encodings, longitude2);
-        XPROPERTY(xtl::xoptional<Latitude2>, Encodings, latitude2);
+        XPROPERTY(std::optional<X>, Encodings, x);
+        XPROPERTY(std::optional<Y>, Encodings, y);
+        XPROPERTY(std::optional<X2>, Encodings, x2);
+        XPROPERTY(std::optional<Y2>, Encodings, y2);
+        XPROPERTY(std::optional<XError>, Encodings, xError);
+        XPROPERTY(std::optional<YError>, Encodings, yError);
+        XPROPERTY(std::optional<XError2>, Encodings, xError2);
+        XPROPERTY(std::optional<YError2>, Encodings, yError2);
+        XPROPERTY(std::optional<Longitude>, Encodings, longitude);
+        XPROPERTY(std::optional<Latitude>, Encodings, latitude);
+        XPROPERTY(std::optional<Longitude2>, Encodings, longitude2);
+        XPROPERTY(std::optional<Latitude2>, Encodings, latitude2);
 
-        XPROPERTY(xtl::xoptional<Color>, Encodings, color);
-        XPROPERTY(xtl::xoptional<Fill>, Encodings, fill);
-        XPROPERTY(xtl::xoptional<FillOpacity>, Encodings, fillOpacity);
-        XPROPERTY(xtl::xoptional<Opacity>, Encodings, opacity);
-        XPROPERTY(xtl::xoptional<Shape>, Encodings, shape);
-        XPROPERTY(xtl::xoptional<Size>, Encodings, size);
-        XPROPERTY(xtl::xoptional<Stroke>, Encodings, stroke);
-        XPROPERTY(xtl::xoptional<StrokeDash>, Encodings, strokeDash);
-        XPROPERTY(xtl::xoptional<StrokeOpacity>, Encodings, strokeOpacity);
-        XPROPERTY(xtl::xoptional<StrokeWidth>, Encodings, strokeWidth);
+        XPROPERTY(std::optional<Color>, Encodings, color);
+        XPROPERTY(std::optional<Fill>, Encodings, fill);
+        XPROPERTY(std::optional<FillOpacity>, Encodings, fillOpacity);
+        XPROPERTY(std::optional<Opacity>, Encodings, opacity);
+        XPROPERTY(std::optional<Shape>, Encodings, shape);
+        XPROPERTY(std::optional<Size>, Encodings, size);
+        XPROPERTY(std::optional<Stroke>, Encodings, stroke);
+        XPROPERTY(std::optional<StrokeDash>, Encodings, strokeDash);
+        XPROPERTY(std::optional<StrokeOpacity>, Encodings, strokeOpacity);
+        XPROPERTY(std::optional<StrokeWidth>, Encodings, strokeWidth);
 
-        XPROPERTY(xtl::xoptional<Text>, Encodings, text);
-        XPROPERTY(xtl::xoptional<Key>, Encodings, key);
-        XPROPERTY(xtl::xoptional<std::vector<Tooltip>>, Encodings, tooltip);
+        XPROPERTY(std::optional<Text>, Encodings, text);
+        XPROPERTY(std::optional<Key>, Encodings, key);
+        XPROPERTY(std::optional<std::vector<Tooltip>>, Encodings, tooltip);
 
-        XPROPERTY(xtl::xoptional<Href>, Encodings, href);
+        XPROPERTY(std::optional<Href>, Encodings, href);
 
-        XPROPERTY(xtl::xoptional<Detail>, Encodings, detail);
+        XPROPERTY(std::optional<Detail>, Encodings, detail);
 
-        XPROPERTY(xtl::xoptional<Order>, Encodings, order);
+        XPROPERTY(std::optional<Order>, Encodings, order);
 
-        XPROPERTY(xtl::xoptional<Row>, Encodings, row);
-        XPROPERTY(xtl::xoptional<Facet>, Encodings, facet);
-        XPROPERTY(xtl::xoptional<Column>, Encodings, column);
+        XPROPERTY(std::optional<Row>, Encodings, row);
+        XPROPERTY(std::optional<Facet>, Encodings, facet);
+        XPROPERTY(std::optional<Column>, Encodings, column);
     };
 
     XVEGA_API void to_json(nl::json& j, const Encodings& data);

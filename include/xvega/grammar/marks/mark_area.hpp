@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_AREA_HPP
 #define XVEGA_MARK_AREA_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,13 +16,13 @@ namespace xv
     struct mark_area : public mark<mark_area>
     {
         // Area Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, align);
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, baseline);
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, orient);
-        XPROPERTY(xtl::xoptional<std::string>, mark_area, interpolate);
-        XPROPERTY(xtl::xoptional<double>, mark_area, tension);
-        XPROPERTY(xtl::xoptional<bool_object_type>, mark_area, line);
-        XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_area, point);
+        XPROPERTY(std::optional<std::string>, mark_area, align);
+        XPROPERTY(std::optional<std::string>, mark_area, baseline);
+        XPROPERTY(std::optional<std::string>, mark_area, orient);
+        XPROPERTY(std::optional<std::string>, mark_area, interpolate);
+        XPROPERTY(std::optional<double>, mark_area, tension);
+        XPROPERTY(std::optional<bool_object_type>, mark_area, line);
+        XPROPERTY(std::optional<bool_string_object_type>, mark_area, point);
 
         XVEGA_API mark_area();
     };

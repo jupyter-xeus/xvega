@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_OPACITY_HPP
 #define XVEGA_ENCODING_OPACITY_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct Opacity : public xp::xobserved<Opacity>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Opacity, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Opacity, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Opacity, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Opacity, field);
-        XPROPERTY(xtl::xoptional<legend_type>, Opacity, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, Opacity, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Opacity, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Opacity, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Opacity, title);
-        XPROPERTY(xtl::xoptional<std::string>, Opacity, type);
+        XPROPERTY(std::optional<agg_type>, Opacity, aggregate);
+        XPROPERTY(std::optional<bin_type>, Opacity, bin);
+        // XPROPERTY(std::optional<condition_type>, Opacity, condition);
+        XPROPERTY(std::optional<field_type>, Opacity, field);
+        XPROPERTY(std::optional<legend_type>, Opacity, legend);
+        XPROPERTY(std::optional<scale_type>, Opacity, scale);
+        XPROPERTY(std::optional<sort_type>, Opacity, sort);
+        XPROPERTY(std::optional<time_unit_type>, Opacity, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Opacity, title);
+        XPROPERTY(std::optional<std::string>, Opacity, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Opacity& data);

@@ -7,6 +7,9 @@
 #ifndef XVEGA_RANGE_CONFIG_HPP
 #define XVEGA_RANGE_CONFIG_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -14,16 +17,16 @@
 
 namespace xv
 {
-    using range_scheme_string_type = xtl::variant<std::string, std::vector<std::string>, nl::json, std::vector<any_type>>;
+    using range_scheme_string_type = std::variant<std::string, std::vector<std::string>, nl::json, std::vector<any_type>>;
 
     struct range_config : public xp::xobserved<range_config>
     {
-        XPROPERTY(xtl::xoptional<range_scheme_string_type>, range_config, category);
-        XPROPERTY(xtl::xoptional<range_scheme_string_type>, range_config, diverging);
-        XPROPERTY(xtl::xoptional<range_scheme_string_type>, range_config, heatmap);
-        XPROPERTY(xtl::xoptional<range_scheme_string_type>, range_config, ordinal);
-        XPROPERTY(xtl::xoptional<range_scheme_string_type>, range_config, ramp);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, range_config, symbol);
+        XPROPERTY(std::optional<range_scheme_string_type>, range_config, category);
+        XPROPERTY(std::optional<range_scheme_string_type>, range_config, diverging);
+        XPROPERTY(std::optional<range_scheme_string_type>, range_config, heatmap);
+        XPROPERTY(std::optional<range_scheme_string_type>, range_config, ordinal);
+        XPROPERTY(std::optional<range_scheme_string_type>, range_config, ramp);
+        XPROPERTY(std::optional<std::vector<std::string>>, range_config, symbol);
     };
 
     XVEGA_API void to_json(nl::json& j, const range_config& data);

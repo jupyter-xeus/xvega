@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_FOLD_HPP
 #define XVEGA_TRANSFORM_FOLD_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,8 +22,8 @@ namespace xv
 {
     struct transform_fold : public transformation<transform_fold>
     {
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_fold, fold);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_fold, as);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_fold, fold);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_fold, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_fold& data);

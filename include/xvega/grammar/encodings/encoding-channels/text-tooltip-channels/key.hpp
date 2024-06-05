@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_KEY_HPP
 #define XVEGA_ENCODING_KEY_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,12 +25,12 @@ namespace xv
 {
     struct Key : public xp::xobserved<Key>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Key, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Key, bin);
-        XPROPERTY(xtl::xoptional<field_type>, Key, field);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Key, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Key, title);
-        XPROPERTY(xtl::xoptional<std::string>, Key, type);
+        XPROPERTY(std::optional<agg_type>, Key, aggregate);
+        XPROPERTY(std::optional<bin_type>, Key, bin);
+        XPROPERTY(std::optional<field_type>, Key, field);
+        XPROPERTY(std::optional<time_unit_type>, Key, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Key, title);
+        XPROPERTY(std::optional<std::string>, Key, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Key& data);

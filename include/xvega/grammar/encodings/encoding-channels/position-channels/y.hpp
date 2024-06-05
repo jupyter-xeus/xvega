@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_Y_HPP
 #define XVEGA_ENCODING_Y_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -31,18 +30,18 @@ namespace xv
 {
     struct Y : public xp::xobserved<Y>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Y, aggregate);
-        XPROPERTY(xtl::xoptional<axis_type>, Y, axis);
-        XPROPERTY(xtl::xoptional<double>, Y, band);
-        XPROPERTY(xtl::xoptional<bin_type>, Y, bin);
-        XPROPERTY(xtl::xoptional<field_type>, Y, field);
-        XPROPERTY(xtl::xoptional<impute_type>, Y, impute);
-        XPROPERTY(xtl::xoptional<scale_type>, Y, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Y, sort);
-        XPROPERTY(xtl::xoptional<stack_type>, Y, stack);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Y, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Y, title);
-        XPROPERTY(xtl::xoptional<std::string>, Y, type);
+        XPROPERTY(std::optional<agg_type>, Y, aggregate);
+        XPROPERTY(std::optional<axis_type>, Y, axis);
+        XPROPERTY(std::optional<double>, Y, band);
+        XPROPERTY(std::optional<bin_type>, Y, bin);
+        XPROPERTY(std::optional<field_type>, Y, field);
+        XPROPERTY(std::optional<impute_type>, Y, impute);
+        XPROPERTY(std::optional<scale_type>, Y, scale);
+        XPROPERTY(std::optional<sort_type>, Y, sort);
+        XPROPERTY(std::optional<stack_type>, Y, stack);
+        XPROPERTY(std::optional<time_unit_type>, Y, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Y, title);
+        XPROPERTY(std::optional<std::string>, Y, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Y& data);

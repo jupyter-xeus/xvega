@@ -14,7 +14,6 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(xtl @xtl_REQUIRED_VERSION@)
 find_dependency(nlohmann_json @nlohmann_json_VERSION@ EXACT)
 find_dependency(xproperty @xproperty_REQUIRED_VERSION@)
 

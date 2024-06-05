@@ -7,10 +7,9 @@
 #ifndef XVEGA_SPHERE_GENERATOR_HPP
 #define XVEGA_SPHERE_GENERATOR_HPP
 
-#include "xproperty/xobserved.hpp"
+#include <optional>
 
-#include "xtl/xoptional.hpp"
-#include "xtl/xjson.hpp"
+#include "xproperty/xobserved.hpp"
 
 #include "nlohmann/json.hpp"
 
@@ -23,8 +22,8 @@ namespace xv
 {
     struct sphere_generator : public xp::xobserved<sphere_generator>
     {
-        XPROPERTY(xtl::xoptional<bool_object_type>, sphere_generator, sphere);
-        XPROPERTY(xtl::xoptional<std::string>, sphere_generator, name);
+        XPROPERTY(std::optional<bool_object_type>, sphere_generator, sphere);
+        XPROPERTY(std::optional<std::string>, sphere_generator, name);
     };
 
     XVEGA_API void to_json(nl::json& j, const sphere_generator& data);

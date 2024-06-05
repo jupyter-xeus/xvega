@@ -7,10 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_LEGEND_HPP
 #define XVEGA_ENCODING_OPTIONS_LEGEND_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -25,85 +25,85 @@ namespace xv
     struct Legend : public xp::xobserved<Legend>
     {
         // General Legend Properties
-        XPROPERTY(xtl::xoptional<bool>, Legend, aria);
-        XPROPERTY(xtl::xoptional<double>, Legend, cornerRadius);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, description);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, direction);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, fillColor);
-        XPROPERTY(xtl::xoptional<double>, Legend, legendX);
-        XPROPERTY(xtl::xoptional<double>, Legend, legendY);
-        XPROPERTY(xtl::xoptional<double>, Legend, offset);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, orient);
-        XPROPERTY(xtl::xoptional<double>, Legend, padding);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, strokeColor);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, type);
-        XPROPERTY(xtl::xoptional<string_num_type>, Legend, tickCount);
-        XPROPERTY(xtl::xoptional<double>, Legend, tickMinStep);
-        XPROPERTY(xtl::xoptional<any_array_type>, Legend, values);
-        XPROPERTY(xtl::xoptional<double>, Legend, zindex);
+        XPROPERTY(std::optional<bool>, Legend, aria);
+        XPROPERTY(std::optional<double>, Legend, cornerRadius);
+        XPROPERTY(std::optional<std::string>, Legend, description);
+        XPROPERTY(std::optional<std::string>, Legend, direction);
+        XPROPERTY(std::optional<string_none_type>, Legend, fillColor);
+        XPROPERTY(std::optional<double>, Legend, legendX);
+        XPROPERTY(std::optional<double>, Legend, legendY);
+        XPROPERTY(std::optional<double>, Legend, offset);
+        XPROPERTY(std::optional<std::string>, Legend, orient);
+        XPROPERTY(std::optional<double>, Legend, padding);
+        XPROPERTY(std::optional<string_none_type>, Legend, strokeColor);
+        XPROPERTY(std::optional<std::string>, Legend, type);
+        XPROPERTY(std::optional<string_num_type>, Legend, tickCount);
+        XPROPERTY(std::optional<double>, Legend, tickMinStep);
+        XPROPERTY(std::optional<any_array_type>, Legend, values);
+        XPROPERTY(std::optional<double>, Legend, zindex);
 
         // Gradient Legend Properties
-        XPROPERTY(xtl::xoptional<double>, Legend, gradientLength);
-        XPROPERTY(xtl::xoptional<double>, Legend, gradientOpacity);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, gradientStrokeColor);
-        XPROPERTY(xtl::xoptional<double>, Legend, gradientStrokeWidth);
-        XPROPERTY(xtl::xoptional<double>, Legend, gradientThickness);
+        XPROPERTY(std::optional<double>, Legend, gradientLength);
+        XPROPERTY(std::optional<double>, Legend, gradientOpacity);
+        XPROPERTY(std::optional<string_none_type>, Legend, gradientStrokeColor);
+        XPROPERTY(std::optional<double>, Legend, gradientStrokeWidth);
+        XPROPERTY(std::optional<double>, Legend, gradientThickness);
 
         // Labels Legend Properties
-        XPROPERTY(xtl::xoptional<string_object_type>, Legend, format);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, formatType);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, labelAlign);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, labelBaseline);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, labelColor);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, labelFont);
-        XPROPERTY(xtl::xoptional<double>, Legend, labelFontSize);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, labelFontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, Legend, labelFontWeight);
-        XPROPERTY(xtl::xoptional<double>, Legend, labelLimit);
-        XPROPERTY(xtl::xoptional<double>, Legend, labelOffset);
-        XPROPERTY(xtl::xoptional<bool_string_type>, Legend, labelOverlap);
-        XPROPERTY(xtl::xoptional<double>, Legend, labelPadding);
-        XPROPERTY(xtl::xoptional<double>, Legend, labelSeparation);
+        XPROPERTY(std::optional<string_object_type>, Legend, format);
+        XPROPERTY(std::optional<std::string>, Legend, formatType);
+        XPROPERTY(std::optional<std::string>, Legend, labelAlign);
+        XPROPERTY(std::optional<std::string>, Legend, labelBaseline);
+        XPROPERTY(std::optional<string_none_type>, Legend, labelColor);
+        XPROPERTY(std::optional<std::string>, Legend, labelFont);
+        XPROPERTY(std::optional<double>, Legend, labelFontSize);
+        XPROPERTY(std::optional<std::string>, Legend, labelFontStyle);
+        XPROPERTY(std::optional<string_num_type>, Legend, labelFontWeight);
+        XPROPERTY(std::optional<double>, Legend, labelLimit);
+        XPROPERTY(std::optional<double>, Legend, labelOffset);
+        XPROPERTY(std::optional<bool_string_type>, Legend, labelOverlap);
+        XPROPERTY(std::optional<double>, Legend, labelPadding);
+        XPROPERTY(std::optional<double>, Legend, labelSeparation);
 
         // Symbols Legend Properties
-        XPROPERTY(xtl::xoptional<std::vector<double>>, Legend, symbolDash);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolDashOffset);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, symbolFillColor);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolOffset);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolOpacity);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolSize);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, symbolStrokeColor);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolStrokeWidth);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, symbolType);
+        XPROPERTY(std::optional<std::vector<double>>, Legend, symbolDash);
+        XPROPERTY(std::optional<double>, Legend, symbolDashOffset);
+        XPROPERTY(std::optional<string_none_type>, Legend, symbolFillColor);
+        XPROPERTY(std::optional<double>, Legend, symbolOffset);
+        XPROPERTY(std::optional<double>, Legend, symbolOpacity);
+        XPROPERTY(std::optional<double>, Legend, symbolSize);
+        XPROPERTY(std::optional<string_none_type>, Legend, symbolStrokeColor);
+        XPROPERTY(std::optional<double>, Legend, symbolStrokeWidth);
+        XPROPERTY(std::optional<std::string>, Legend, symbolType);
 
         // Symbol Layout Legend Properties
-        XPROPERTY(xtl::xoptional<double>, Legend, clipHeight);
-        XPROPERTY(xtl::xoptional<double>, Legend, columnPadding);
-        XPROPERTY(xtl::xoptional<double>, Legend, columns);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, gridAlign);
-        XPROPERTY(xtl::xoptional<double>, Legend, rowPadding);
-        XPROPERTY(xtl::xoptional<double>, Legend, symbolLimit);
+        XPROPERTY(std::optional<double>, Legend, clipHeight);
+        XPROPERTY(std::optional<double>, Legend, columnPadding);
+        XPROPERTY(std::optional<double>, Legend, columns);
+        XPROPERTY(std::optional<std::string>, Legend, gridAlign);
+        XPROPERTY(std::optional<double>, Legend, rowPadding);
+        XPROPERTY(std::optional<double>, Legend, symbolLimit);
 
         // Title Legend Properties
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Legend, title);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, titleAlign);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, titleAnchor);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, titleBaseline);
-        XPROPERTY(xtl::xoptional<string_none_type>, Legend, titleColor);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, titleFont);
-        XPROPERTY(xtl::xoptional<double>, Legend, titleFontSize);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, titleFontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, Legend, titleFontWeight);
-        XPROPERTY(xtl::xoptional<double>, Legend, titleLimit);
-        XPROPERTY(xtl::xoptional<double>, Legend, titleLineHeight);
-        XPROPERTY(xtl::xoptional<double>, Legend, titleOpacity);
-        XPROPERTY(xtl::xoptional<std::string>, Legend, titleOrient);
-        XPROPERTY(xtl::xoptional<double>, Legend, titlePadding);
+        XPROPERTY(std::optional<string_vec_none_type>, Legend, title);
+        XPROPERTY(std::optional<std::string>, Legend, titleAlign);
+        XPROPERTY(std::optional<string_none_type>, Legend, titleAnchor);
+        XPROPERTY(std::optional<std::string>, Legend, titleBaseline);
+        XPROPERTY(std::optional<string_none_type>, Legend, titleColor);
+        XPROPERTY(std::optional<std::string>, Legend, titleFont);
+        XPROPERTY(std::optional<double>, Legend, titleFontSize);
+        XPROPERTY(std::optional<std::string>, Legend, titleFontStyle);
+        XPROPERTY(std::optional<string_num_type>, Legend, titleFontWeight);
+        XPROPERTY(std::optional<double>, Legend, titleLimit);
+        XPROPERTY(std::optional<double>, Legend, titleLineHeight);
+        XPROPERTY(std::optional<double>, Legend, titleOpacity);
+        XPROPERTY(std::optional<std::string>, Legend, titleOrient);
+        XPROPERTY(std::optional<double>, Legend, titlePadding);
     };
 
     XVEGA_API void to_json(nl::json& j, const Legend& data);
 
-    using legend_type = xtl::variant<Legend, std::nullptr_t>;
+    using legend_type = std::variant<Legend, std::nullptr_t>;
 }
 
 #endif

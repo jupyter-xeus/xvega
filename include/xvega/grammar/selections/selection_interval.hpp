@@ -7,6 +7,8 @@
 #ifndef XVEGA_SELECTION_INTERVAL_HPP
 #define XVEGA_SELECTION_INTERVAL_HPP
 
+#include <optional>
+
 #include "../selections.hpp"
 #include "./selection_mark.hpp"
 #include "../../utils/random_string.hpp"
@@ -17,11 +19,11 @@ namespace xv
     struct selection_interval : public selection<selection_interval>
     {
         // Interval Selection Properties
-        XPROPERTY(xtl::xoptional<std::string>, selection_interval, bind);
-        XPROPERTY(xtl::xoptional<nl::json>, selection_interval, init);
-        XPROPERTY(xtl::xoptional<selection_mark>, selection_interval, mark);
-        XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, translate);
-        XPROPERTY(xtl::xoptional<bool_string_type>, selection_interval, zoom);
+        XPROPERTY(std::optional<std::string>, selection_interval, bind);
+        XPROPERTY(std::optional<nl::json>, selection_interval, init);
+        XPROPERTY(std::optional<selection_mark>, selection_interval, mark);
+        XPROPERTY(std::optional<bool_string_type>, selection_interval, translate);
+        XPROPERTY(std::optional<bool_string_type>, selection_interval, zoom);
 
         XVEGA_API selection_interval();
     };

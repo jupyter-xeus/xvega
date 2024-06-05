@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_TIMEUNIT_HPP
 #define XVEGA_TRANSFORM_TIMEUNIT_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,9 +22,9 @@ namespace xv
 {
     struct transform_timeunit : public transformation<transform_timeunit>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, field);
-        XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, as);
-        XPROPERTY(xtl::xoptional<std::string>, transform_timeunit, timeUnit);
+        XPROPERTY(std::optional<std::string>, transform_timeunit, field);
+        XPROPERTY(std::optional<std::string>, transform_timeunit, as);
+        XPROPERTY(std::optional<std::string>, transform_timeunit, timeUnit);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_timeunit& data);

@@ -7,6 +7,9 @@
 #ifndef XVEGA_DATA_FORMAT_HPP
 #define XVEGA_DATA_FORMAT_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -14,13 +17,13 @@
 
 namespace xv
 {
-    using object_none_type = xtl::variant<std::nullptr_t, nl::json>;
+    using object_none_type = std::variant<std::nullptr_t, nl::json>;
 
     template<class D>
     struct data_format : public xp::xobserved<D>
     {
-        XPROPERTY(xtl::xoptional<std::string>, D, type);
-        XPROPERTY(xtl::xoptional<object_none_type>, D, parse);
+        XPROPERTY(std::optional<std::string>, D, type);
+        XPROPERTY(std::optional<object_none_type>, D, parse);
     };
 }
 

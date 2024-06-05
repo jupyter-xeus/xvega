@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_QUANTILE_HPP
 #define XVEGA_TRANSFORM_QUANTILE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,11 +22,11 @@ namespace xv
 {
     struct transform_quantile : public transformation<transform_quantile>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_quantile, quantile);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_quantile, groupby);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, transform_quantile, probs);
-        XPROPERTY(xtl::xoptional<double>, transform_quantile, step);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_quantile, as);
+        XPROPERTY(std::optional<std::string>, transform_quantile, quantile);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_quantile, groupby);
+        XPROPERTY(std::optional<std::vector<double>>, transform_quantile, probs);
+        XPROPERTY(std::optional<double>, transform_quantile, step);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_quantile, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_quantile& data);

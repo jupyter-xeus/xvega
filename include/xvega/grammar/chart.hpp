@@ -7,6 +7,8 @@
 #ifndef XVEGA_CHART_HPP
 #define XVEGA_CHART_HPP
 
+#include <optional>
+#include <variant>
 #include <vector>
 
 #include "../xvega_config.hpp"
@@ -35,7 +37,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using data_type = xtl::variant<
+    using data_type = std::variant<
         named_data, inline_data, url_data,
         sequence_generator, sphere_generator, graticule_generator,
         data_frame>;
@@ -43,19 +45,19 @@ namespace xv
     using marks_type = xany<mark>;
     using selection_type = xany<selection>;
     using transform_type = xany<transformation>;
-    using title_type = xtl::variant<std::string, Title>;
+    using title_type = std::variant<std::string, Title>;
 
     struct Chart : public xp::xobserved<Chart>
     {
         XPROPERTY(data_type, Chart, data);
         XPROPERTY(marks_type, Chart, mark);
-        XPROPERTY(xtl::xoptional<Encodings>, Chart, encoding);
+        XPROPERTY(std::optional<Encodings>, Chart, encoding);
         XPROPERTY(std::vector<selection_type>, Chart, selections);
         XPROPERTY(std::vector<transform_type>, Chart, transformations);
-        XPROPERTY(xtl::xoptional<double>, Chart, width);
-        XPROPERTY(xtl::xoptional<double>, Chart, height);
-        XPROPERTY(xtl::xoptional<Config>, Chart, config);
-        XPROPERTY(xtl::xoptional<title_type>, Chart, title);
+        XPROPERTY(std::optional<double>, Chart, width);
+        XPROPERTY(std::optional<double>, Chart, height);
+        XPROPERTY(std::optional<Config>, Chart, config);
+        XPROPERTY(std::optional<title_type>, Chart, title);
     };
     
     nl::json XVEGA_API mime_bundle_repr(const Chart& v);

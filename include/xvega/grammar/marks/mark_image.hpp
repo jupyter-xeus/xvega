@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_IMAGE_HPP
 #define XVEGA_MARK_IMAGE_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,10 +16,10 @@ namespace xv
     struct mark_image : public mark<mark_image>
     {
         // Image Mark Properties
-        XPROPERTY(xtl::xoptional<any_type>, mark_image, url);
-        XPROPERTY(xtl::xoptional<bool>, mark_image, aspect);
-        XPROPERTY(xtl::xoptional<std::string>, mark_image, align);
-        XPROPERTY(xtl::xoptional<std::string>, mark_image, baseline);
+        XPROPERTY(std::optional<any_type>, mark_image, url);
+        XPROPERTY(std::optional<bool>, mark_image, aspect);
+        XPROPERTY(std::optional<std::string>, mark_image, align);
+        XPROPERTY(std::optional<std::string>, mark_image, baseline);
 
         XVEGA_API mark_image();
     };

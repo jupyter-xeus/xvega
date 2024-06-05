@@ -7,11 +7,9 @@
 #ifndef XVEGA_ENCODING_OPTIONS_FIELD_HPP
 #define XVEGA_ENCODING_OPTIONS_FIELD_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -20,7 +18,7 @@
 
 namespace xv
 {
-    using field_type = xtl::variant<std::string, RepeatRef>;
+    using field_type = std::variant<std::string, RepeatRef>;
 }
 
 #endif

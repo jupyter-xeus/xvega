@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_LONGITUDE_HPP
 #define XVEGA_ENCODING_LONGITUDE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,12 +25,12 @@ namespace xv
 {
     struct Longitude : public xp::xobserved<Longitude>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Longitude, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Longitude, bin);
-        XPROPERTY(xtl::xoptional<field_type>, Longitude, field);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Longitude, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Longitude, title);
-        XPROPERTY(xtl::xoptional<std::string>, Longitude, type);
+        XPROPERTY(std::optional<agg_type>, Longitude, aggregate);
+        XPROPERTY(std::optional<bin_type>, Longitude, bin);
+        XPROPERTY(std::optional<field_type>, Longitude, field);
+        XPROPERTY(std::optional<time_unit_type>, Longitude, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Longitude, title);
+        XPROPERTY(std::optional<std::string>, Longitude, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Longitude& data);

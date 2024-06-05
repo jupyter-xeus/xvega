@@ -7,9 +7,10 @@
 #ifndef XVEGA_LEGEND_STREAM_BINDING_HPP
 #define XVEGA_LEGEND_STREAM_BINDING_HPP
 
+#include <optional>
+#include <variant>
+
 #include <xproperty/xobserved.hpp>
-#include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
 #include <nlohmann/json.hpp>
 
 #include "../../../xvega_config.hpp"
@@ -21,12 +22,12 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using stream_legend_type = xtl::variant<std::string, event_stream, derived_stream, merged_stream>;
+    using stream_legend_type = std::variant<std::string, event_stream, derived_stream, merged_stream>;
 
     struct legend_stream_binding : public xp::xobserved<legend_stream_binding>
     {
         // Legend Stream Binding Properties
-        XPROPERTY(xtl::xoptional<stream_legend_type>, legend_stream_binding, legend);
+        XPROPERTY(std::optional<stream_legend_type>, legend_stream_binding, legend);
     };
 
     XVEGA_API void to_json(nl::json& j, const legend_stream_binding& data);

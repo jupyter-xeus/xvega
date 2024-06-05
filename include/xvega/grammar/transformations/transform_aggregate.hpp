@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_AGGREGATE_HPP
 #define XVEGA_TRANSFORM_AGGREGATE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,17 +22,17 @@ namespace xv
 {
     struct aggregate_field_def : public xp::xobserved<aggregate_field_def>
     {
-        XPROPERTY(xtl::xoptional<std::string>, aggregate_field_def, as);
-        XPROPERTY(xtl::xoptional<std::string>, aggregate_field_def, field);
-        XPROPERTY(xtl::xoptional<std::string>, aggregate_field_def, op);
+        XPROPERTY(std::optional<std::string>, aggregate_field_def, as);
+        XPROPERTY(std::optional<std::string>, aggregate_field_def, field);
+        XPROPERTY(std::optional<std::string>, aggregate_field_def, op);
     };
 
     XVEGA_API void to_json(nl::json& j, const aggregate_field_def& data);
 
     struct transform_aggregate : public transformation<transform_aggregate>
     {
-        XPROPERTY(xtl::xoptional<std::vector<aggregate_field_def>>, transform_aggregate, aggregate);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_aggregate, groupby);
+        XPROPERTY(std::optional<std::vector<aggregate_field_def>>, transform_aggregate, aggregate);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_aggregate, groupby);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_aggregate& data);

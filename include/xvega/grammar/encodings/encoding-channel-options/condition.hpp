@@ -7,11 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_CONDITION_HPP
 #define XVEGA_ENCODING_OPTIONS_CONDITION_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -25,9 +24,9 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using field_predicate_equal_type = xtl::variant<std::string, double, int, bool, DateTime>;
-    using field_predicate_type = xtl::variant<std::string, double, int, DateTime>;
-    using field_predicate_range_type = xtl::variant<
+    using field_predicate_equal_type = std::variant<std::string, double, int, bool, DateTime>;
+    using field_predicate_type = std::variant<std::string, double, int, DateTime>;
+    using field_predicate_range_type = std::variant<
                                             std::vector<double>, 
                                             std::vector<int>, 
                                             std::vector<DateTime>, 
@@ -36,28 +35,28 @@ namespace xv
 
     struct FieldPredicate : public xp::xobserved<FieldPredicate>
     {
-        XPROPERTY(xtl::xoptional<std::string>, FieldPredicate, field);
-        XPROPERTY(xtl::xoptional<TimeUnit>, FieldPredicate, timeUnit);
-        XPROPERTY(xtl::xoptional<field_predicate_equal_type>, FieldPredicate, equal);
-        XPROPERTY(xtl::xoptional<field_predicate_type>, FieldPredicate, lt);
-        XPROPERTY(xtl::xoptional<field_predicate_type>, FieldPredicate, lte);
-        XPROPERTY(xtl::xoptional<field_predicate_type>, FieldPredicate, gt);
-        XPROPERTY(xtl::xoptional<field_predicate_type>, FieldPredicate, gte);
-        XPROPERTY(xtl::xoptional<field_predicate_range_type>, FieldPredicate, range);
-        XPROPERTY(xtl::xoptional<any_array_type>, FieldPredicate, oneOf);
-        XPROPERTY(xtl::xoptional<bool>, FieldPredicate, valid);
+        XPROPERTY(std::optional<std::string>, FieldPredicate, field);
+        XPROPERTY(std::optional<TimeUnit>, FieldPredicate, timeUnit);
+        XPROPERTY(std::optional<field_predicate_equal_type>, FieldPredicate, equal);
+        XPROPERTY(std::optional<field_predicate_type>, FieldPredicate, lt);
+        XPROPERTY(std::optional<field_predicate_type>, FieldPredicate, lte);
+        XPROPERTY(std::optional<field_predicate_type>, FieldPredicate, gt);
+        XPROPERTY(std::optional<field_predicate_type>, FieldPredicate, gte);
+        XPROPERTY(std::optional<field_predicate_range_type>, FieldPredicate, range);
+        XPROPERTY(std::optional<any_array_type>, FieldPredicate, oneOf);
+        XPROPERTY(std::optional<bool>, FieldPredicate, valid);
     };
 
     XVEGA_API void to_json(nl::json& j, const FieldPredicate& data);
 
     struct SelectionPredicate : public xp::xobserved<SelectionPredicate>
     {
-        XPROPERTY(xtl::xoptional<string_object_type>, SelectionPredicate, selection);
+        XPROPERTY(std::optional<string_object_type>, SelectionPredicate, selection);
     };
 
     XVEGA_API void to_json(nl::json& j, const SelectionPredicate& data);
 
-    using predicate_type = xtl::variant<std::string, FieldPredicate, SelectionPredicate>;
+    using predicate_type = std::variant<std::string, FieldPredicate, SelectionPredicate>;
 }
 
 #endif

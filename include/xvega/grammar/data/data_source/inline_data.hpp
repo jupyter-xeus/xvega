@@ -7,6 +7,9 @@
 #ifndef XVEGA_INLINE_DATA_HPP
 #define XVEGA_INLINE_DATA_HPP
 
+#include <optional>
+#include <variant>
+
 #include "../data_format/csv_data_format.hpp"
 #include "../data_format/tsv_data_format.hpp"
 #include "../data_format/dsv_data_format.hpp"
@@ -15,7 +18,7 @@
 
 namespace xv
 {
-    using data_format_type = xtl::variant<
+    using data_format_type = std::variant<
                                   csv_data_format, 
                                   tsv_data_format, 
                                   dsv_data_format, 
@@ -23,7 +26,7 @@ namespace xv
                                   topo_data_format
                                   >;
 
-    using inline_data_type = xtl::variant<
+    using inline_data_type = std::variant<
                                   std::vector<std::string>,
                                   std::vector<int>, 
                                   std::vector<double>,
@@ -36,8 +39,8 @@ namespace xv
     struct inline_data : public xp::xobserved<inline_data>
     {
         XPROPERTY(inline_data_type, inline_data, values);
-        XPROPERTY(xtl::xoptional<std::string>, inline_data, name);
-        XPROPERTY(xtl::xoptional<data_format_type>, inline_data, format);
+        XPROPERTY(std::optional<std::string>, inline_data, name);
+        XPROPERTY(std::optional<data_format_type>, inline_data, format);
     };
 
     XVEGA_API void to_json(nl::json&, const inline_data&);

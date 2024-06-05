@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_ERROR_HPP
 #define XVEGA_ENCODING_ERROR_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,11 +25,11 @@ namespace xv
 {
     struct XError : public xp::xobserved<XError>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, XError, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, XError, bin);
-        XPROPERTY(xtl::xoptional<field_type>, XError, field);
-        XPROPERTY(xtl::xoptional<time_unit_type>, XError, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, XError, title);
+        XPROPERTY(std::optional<agg_type>, XError, aggregate);
+        XPROPERTY(std::optional<bin_type>, XError, bin);
+        XPROPERTY(std::optional<field_type>, XError, field);
+        XPROPERTY(std::optional<time_unit_type>, XError, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, XError, title);
     };
 
     XVEGA_API void to_json(nl::json& j, const XError& data);

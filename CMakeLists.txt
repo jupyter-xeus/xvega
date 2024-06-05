@@ -50,10 +50,6 @@ OPTION(XVEGA_BUILD_TESTS "xvega test suite" OFF)
 # Dependencies
 # ============
 
-set(xtl_REQUIRED_VERSION 0.7.0)
-find_package(xtl ${xtl_REQUIRED_VERSION} REQUIRED)
-message(STATUS "Found xtl: ${xtl_INCLUDE_DIRS}/xtl")
-
 set(xproperty_REQUIRED_VERSION 0.12.0)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
@@ -425,10 +421,7 @@ macro(xvega_create_target target_name linkage output_name)
                                $<BUILD_INTERFACE:${XVEGA_INCLUDE_DIR}>
                                $<INSTALL_INTERFACE:include>)
 
-    target_link_libraries(${target_name} PUBLIC 
-      xtl
-      xproperty
-    )
+    target_link_libraries(${target_name} PUBLIC xproperty)
 endmacro()
 
 # xvega

@@ -13,7 +13,7 @@ namespace xv
     {
         if(data.legend().has_value())
         {
-            xtl::visit([&](auto&& arg){j["legend"]=arg;}, data.legend().value());
+            std::visit([&](auto&& arg){j["legend"]=arg;}, data.legend().value());
         }
     }
 }

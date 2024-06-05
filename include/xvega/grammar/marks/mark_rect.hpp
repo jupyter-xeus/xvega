@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_RECT_HPP
 #define XVEGA_MARK_RECT_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,9 +16,9 @@ namespace xv
     struct mark_rect : public mark<mark_rect>
     {
         // Rect Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_rect, align);
-        XPROPERTY(xtl::xoptional<std::string>, mark_rect, baseline);
-        XPROPERTY(xtl::xoptional<double>, mark_rect, cornerRadius);
+        XPROPERTY(std::optional<std::string>, mark_rect, align);
+        XPROPERTY(std::optional<std::string>, mark_rect, baseline);
+        XPROPERTY(std::optional<double>, mark_rect, cornerRadius);
 
         XVEGA_API mark_rect();
     };

@@ -7,6 +7,9 @@
 #ifndef XVEGA_MARKS_HPP
 #define XVEGA_MARKS_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../xvega_config.hpp"
@@ -18,46 +21,46 @@ namespace xv
     struct mark : public xp::xobserved<D>
     {
         // General Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, D, type);
-        XPROPERTY(xtl::xoptional<bool>, D, aria);
-        XPROPERTY(xtl::xoptional<std::string>, D, description);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, style);
-        XPROPERTY(xtl::xoptional<tooltip_type>, D, tooltip);
-        XPROPERTY(xtl::xoptional<bool>, D, clip);
-        XPROPERTY(xtl::xoptional<string_none_type>, D, invalid);
-        XPROPERTY(xtl::xoptional<bool_none_type>, D, order);
+        XPROPERTY(std::optional<std::string>, D, type);
+        XPROPERTY(std::optional<bool>, D, aria);
+        XPROPERTY(std::optional<std::string>, D, description);
+        XPROPERTY(std::optional<std::vector<std::string>>, D, style);
+        XPROPERTY(std::optional<tooltip_type>, D, tooltip);
+        XPROPERTY(std::optional<bool>, D, clip);
+        XPROPERTY(std::optional<string_none_type>, D, invalid);
+        XPROPERTY(std::optional<bool_none_type>, D, order);
 
         // Position and Offset Properties
-        XPROPERTY(xtl::xoptional<string_num_type>, D, x);
-        XPROPERTY(xtl::xoptional<string_num_type>, D, x2);
-        XPROPERTY(xtl::xoptional<double>, D, width);
-        XPROPERTY(xtl::xoptional<double>, D, height);
-        XPROPERTY(xtl::xoptional<string_num_type>, D, y);
-        XPROPERTY(xtl::xoptional<string_num_type>, D, y2);
-        XPROPERTY(xtl::xoptional<double>, D, xOffset);
-        XPROPERTY(xtl::xoptional<double>, D, x2Offset);
-        XPROPERTY(xtl::xoptional<double>, D, yOffset);
-        XPROPERTY(xtl::xoptional<double>, D, y2Offset);
+        XPROPERTY(std::optional<string_num_type>, D, x);
+        XPROPERTY(std::optional<string_num_type>, D, x2);
+        XPROPERTY(std::optional<double>, D, width);
+        XPROPERTY(std::optional<double>, D, height);
+        XPROPERTY(std::optional<string_num_type>, D, y);
+        XPROPERTY(std::optional<string_num_type>, D, y2);
+        XPROPERTY(std::optional<double>, D, xOffset);
+        XPROPERTY(std::optional<double>, D, x2Offset);
+        XPROPERTY(std::optional<double>, D, yOffset);
+        XPROPERTY(std::optional<double>, D, y2Offset);
 
         // Color Properties
-        XPROPERTY(xtl::xoptional<bool>, D, filled);
-        XPROPERTY(xtl::xoptional<color_type>, D, color);
-        XPROPERTY(xtl::xoptional<color_none_type>, D, fill);
-        XPROPERTY(xtl::xoptional<color_none_type>, D, stroke);
-        XPROPERTY(xtl::xoptional<std::string>, D, blend);
-        XPROPERTY(xtl::xoptional<double>, D, opacity);
-        XPROPERTY(xtl::xoptional<double>, D, fillOpacity);
-        XPROPERTY(xtl::xoptional<double>, D, strokeOpacity);
-        XPROPERTY(xtl::xoptional<std::string>, D, strokeCap);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, D, strokeDash);
-        XPROPERTY(xtl::xoptional<double>, D, strokeDashOffset);
-        XPROPERTY(xtl::xoptional<std::string>, D, strokeJoin);
-        XPROPERTY(xtl::xoptional<double>, D, strokeMiterLimit);
-        XPROPERTY(xtl::xoptional<double>, D, strokeWidth);
+        XPROPERTY(std::optional<bool>, D, filled);
+        XPROPERTY(std::optional<color_type>, D, color);
+        XPROPERTY(std::optional<color_none_type>, D, fill);
+        XPROPERTY(std::optional<color_none_type>, D, stroke);
+        XPROPERTY(std::optional<std::string>, D, blend);
+        XPROPERTY(std::optional<double>, D, opacity);
+        XPROPERTY(std::optional<double>, D, fillOpacity);
+        XPROPERTY(std::optional<double>, D, strokeOpacity);
+        XPROPERTY(std::optional<std::string>, D, strokeCap);
+        XPROPERTY(std::optional<std::vector<double>>, D, strokeDash);
+        XPROPERTY(std::optional<double>, D, strokeDashOffset);
+        XPROPERTY(std::optional<std::string>, D, strokeJoin);
+        XPROPERTY(std::optional<double>, D, strokeMiterLimit);
+        XPROPERTY(std::optional<double>, D, strokeWidth);
 
         // Hyperlink Properties
-        XPROPERTY(xtl::xoptional<std::string>, D, href);
-        XPROPERTY(xtl::xoptional<std::string>, D, cursor);
+        XPROPERTY(std::optional<std::string>, D, href);
+        XPROPERTY(std::optional<std::string>, D, cursor);
 
         inline std::string name() const { return ""; }
     };

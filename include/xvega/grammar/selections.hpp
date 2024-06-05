@@ -7,6 +7,9 @@
 #ifndef XVEGA_SELECTIONS_HPP
 #define XVEGA_SELECTIONS_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../xvega_config.hpp"
@@ -18,21 +21,21 @@
 
 namespace xv
 {
-    using stream_type = xtl::variant<event_stream, derived_stream, merged_stream>;
-    using clear_type = xtl::variant<stream_type, std::string, bool>;
-    using on_type = xtl::variant<stream_type, std::string>;
+    using stream_type = std::variant<event_stream, derived_stream, merged_stream>;
+    using clear_type = std::variant<stream_type, std::string, bool>;
+    using on_type = std::variant<stream_type, std::string>;
 
     template<class D>
     struct selection : public xp::xobserved<D>
     {
         XPROPERTY(std::string, D, name);
-        XPROPERTY(xtl::xoptional<std::string>, D, type);
-        XPROPERTY(xtl::xoptional<clear_type>, D, clear);
-        XPROPERTY(xtl::xoptional<std::string>, D, empty);
-        XPROPERTY(xtl::xoptional<on_type>, D, on);
-        XPROPERTY(xtl::xoptional<std::string>, D, resolve);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, encodings);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, D, fields);
+        XPROPERTY(std::optional<std::string>, D, type);
+        XPROPERTY(std::optional<clear_type>, D, clear);
+        XPROPERTY(std::optional<std::string>, D, empty);
+        XPROPERTY(std::optional<on_type>, D, on);
+        XPROPERTY(std::optional<std::string>, D, resolve);
+        XPROPERTY(std::optional<std::vector<std::string>>, D, encodings);
+        XPROPERTY(std::optional<std::vector<std::string>>, D, fields);
     };
 }
 

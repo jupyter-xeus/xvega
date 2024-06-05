@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_DENSITY_HPP
 #define XVEGA_TRANSFORM_DENSITY_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,16 +22,16 @@ namespace xv
 {
     struct transform_density : public transformation<transform_density>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_density, density);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_density, groupby);
-        XPROPERTY(xtl::xoptional<bool>, transform_density, cumulative);
-        XPROPERTY(xtl::xoptional<bool>, transform_density, counts);
-        XPROPERTY(xtl::xoptional<double>, transform_density, bandwidth);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, transform_density, extent);
-        XPROPERTY(xtl::xoptional<double>, transform_density, minsteps);
-        XPROPERTY(xtl::xoptional<double>, transform_density, maxsteps);
-        XPROPERTY(xtl::xoptional<double>, transform_density, steps);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_density, as);
+        XPROPERTY(std::optional<std::string>, transform_density, density);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_density, groupby);
+        XPROPERTY(std::optional<bool>, transform_density, cumulative);
+        XPROPERTY(std::optional<bool>, transform_density, counts);
+        XPROPERTY(std::optional<double>, transform_density, bandwidth);
+        XPROPERTY(std::optional<std::vector<double>>, transform_density, extent);
+        XPROPERTY(std::optional<double>, transform_density, minsteps);
+        XPROPERTY(std::optional<double>, transform_density, maxsteps);
+        XPROPERTY(std::optional<double>, transform_density, steps);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_density, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_density& data);

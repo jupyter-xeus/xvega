@@ -7,14 +7,16 @@
 #ifndef XVEGA_TOPO_DATA_FORMAT_HPP
 #define XVEGA_TOPO_DATA_FORMAT_HPP
 
+#include <optional>
+
 #include "../data_format.hpp"
 
 namespace xv
 {
     struct topo_data_format : public data_format<topo_data_format>
     {
-        XPROPERTY(xtl::xoptional<std::string>, topo_data_format, feature);
-        XPROPERTY(xtl::xoptional<std::string>, topo_data_format, mesh);
+        XPROPERTY(std::optional<std::string>, topo_data_format, feature);
+        XPROPERTY(std::optional<std::string>, topo_data_format, mesh);
 
         topo_data_format();
     };

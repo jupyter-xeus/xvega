@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_STROKE_HPP
 #define XVEGA_ENCODING_STROKE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct Stroke : public xp::xobserved<Stroke>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Stroke, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Stroke, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Stroke, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Stroke, field);
-        XPROPERTY(xtl::xoptional<legend_type>, Stroke, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, Stroke, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Stroke, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Stroke, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Stroke, title);
-        XPROPERTY(xtl::xoptional<std::string>, Stroke, type);
+        XPROPERTY(std::optional<agg_type>, Stroke, aggregate);
+        XPROPERTY(std::optional<bin_type>, Stroke, bin);
+        // XPROPERTY(std::optional<condition_type>, Stroke, condition);
+        XPROPERTY(std::optional<field_type>, Stroke, field);
+        XPROPERTY(std::optional<legend_type>, Stroke, legend);
+        XPROPERTY(std::optional<scale_type>, Stroke, scale);
+        XPROPERTY(std::optional<sort_type>, Stroke, sort);
+        XPROPERTY(std::optional<time_unit_type>, Stroke, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Stroke, title);
+        XPROPERTY(std::optional<std::string>, Stroke, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Stroke& data);
