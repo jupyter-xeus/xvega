@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_OPTIONS_REPEATREF_HPP
 #define XVEGA_ENCODING_OPTIONS_REPEATREF_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -22,7 +21,7 @@ namespace xv
 {
     struct RepeatRef : public xp::xobserved<RepeatRef>
     {
-        XPROPERTY(xtl::xoptional<std::string>, RepeatRef, repeat);
+        XPROPERTY(std::optional<std::string>, RepeatRef, repeat);
     };
 
     XVEGA_API void to_json(nl::json& j, const RepeatRef& data);

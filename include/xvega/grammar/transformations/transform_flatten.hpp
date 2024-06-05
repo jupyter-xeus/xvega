@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_FLATTEN_HPP
 #define XVEGA_TRANSFORM_FLATTEN_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,8 +22,8 @@ namespace xv
 {
     struct transform_flatten : public transformation<transform_flatten>
     {
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_flatten, flatten);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_flatten, as);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_flatten, flatten);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_flatten, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_flatten& data);

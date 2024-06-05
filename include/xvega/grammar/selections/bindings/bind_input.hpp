@@ -7,8 +7,9 @@
 #ifndef XVEGA_BIND_INPUT_HPP
 #define XVEGA_BIND_INPUT_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
-#include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
 #include "../../../xvega_config.hpp"
 
@@ -19,13 +20,13 @@ namespace xv
     struct bind_input : public xp::xobserved<bind_input>
     {
         // Bind Input Properties
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, autocomplete);
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, input);
-        XPROPERTY(xtl::xoptional<double>, bind_input, debounce);
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, element);
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, name);
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, placeholder);
-        XPROPERTY(xtl::xoptional<std::string>, bind_input, type);
+        XPROPERTY(std::optional<std::string>, bind_input, autocomplete);
+        XPROPERTY(std::optional<std::string>, bind_input, input);
+        XPROPERTY(std::optional<double>, bind_input, debounce);
+        XPROPERTY(std::optional<std::string>, bind_input, element);
+        XPROPERTY(std::optional<std::string>, bind_input, name);
+        XPROPERTY(std::optional<std::string>, bind_input, placeholder);
+        XPROPERTY(std::optional<std::string>, bind_input, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const bind_input& data);

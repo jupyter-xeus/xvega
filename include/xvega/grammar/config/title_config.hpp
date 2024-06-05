@@ -7,6 +7,8 @@
 #ifndef XVEGA_TITLE_CONFIG_HPP
 #define XVEGA_TITLE_CONFIG_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -16,29 +18,29 @@ namespace xv
 {
     struct title_config : public xp::xobserved<title_config>
     {
-        XPROPERTY(xtl::xoptional<std::string>, title_config, align);
-        XPROPERTY(xtl::xoptional<string_none_type>, title_config, anchor);
-        XPROPERTY(xtl::xoptional<double>, title_config, angle);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, baseline);
-        XPROPERTY(xtl::xoptional<string_none_type>, title_config, color);
-        XPROPERTY(xtl::xoptional<double>, title_config, dx);
-        XPROPERTY(xtl::xoptional<double>, title_config, dy);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, font);
-        XPROPERTY(xtl::xoptional<double>, title_config, fontSize);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, fontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, title_config, fontWeight);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, frame);
-        XPROPERTY(xtl::xoptional<double>, title_config, limit);
-        XPROPERTY(xtl::xoptional<double>, title_config, lineHeight);
-        XPROPERTY(xtl::xoptional<double>, title_config, offset);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, orient);
-        XPROPERTY(xtl::xoptional<string_none_type>, title_config, subtitleColor);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, subtitleFont);
-        XPROPERTY(xtl::xoptional<double>, title_config, subtitleFontSize);
-        XPROPERTY(xtl::xoptional<std::string>, title_config, subtitleFontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, title_config, subtitleFontWeight);
-        XPROPERTY(xtl::xoptional<double>, title_config, subtitleLineHeight);
-        XPROPERTY(xtl::xoptional<double>, title_config, subtitlePadding);
+        XPROPERTY(std::optional<std::string>, title_config, align);
+        XPROPERTY(std::optional<string_none_type>, title_config, anchor);
+        XPROPERTY(std::optional<double>, title_config, angle);
+        XPROPERTY(std::optional<std::string>, title_config, baseline);
+        XPROPERTY(std::optional<string_none_type>, title_config, color);
+        XPROPERTY(std::optional<double>, title_config, dx);
+        XPROPERTY(std::optional<double>, title_config, dy);
+        XPROPERTY(std::optional<std::string>, title_config, font);
+        XPROPERTY(std::optional<double>, title_config, fontSize);
+        XPROPERTY(std::optional<std::string>, title_config, fontStyle);
+        XPROPERTY(std::optional<string_num_type>, title_config, fontWeight);
+        XPROPERTY(std::optional<std::string>, title_config, frame);
+        XPROPERTY(std::optional<double>, title_config, limit);
+        XPROPERTY(std::optional<double>, title_config, lineHeight);
+        XPROPERTY(std::optional<double>, title_config, offset);
+        XPROPERTY(std::optional<std::string>, title_config, orient);
+        XPROPERTY(std::optional<string_none_type>, title_config, subtitleColor);
+        XPROPERTY(std::optional<std::string>, title_config, subtitleFont);
+        XPROPERTY(std::optional<double>, title_config, subtitleFontSize);
+        XPROPERTY(std::optional<std::string>, title_config, subtitleFontStyle);
+        XPROPERTY(std::optional<string_num_type>, title_config, subtitleFontWeight);
+        XPROPERTY(std::optional<double>, title_config, subtitleLineHeight);
+        XPROPERTY(std::optional<double>, title_config, subtitlePadding);
     };
 
     XVEGA_API void to_json(nl::json& j, const title_config& data);

@@ -7,16 +7,19 @@
 #ifndef XVEGA_LINE_CONFIG_HPP
 #define XVEGA_LINE_CONFIG_HPP
 
+#include <optional>
+#include <variant>
+
 #include "./base_config.hpp"
 #include "./overlay_mark_def.hpp"
 
 namespace xv
 {
-    using bool_overlay_string_type = xtl::variant<bool, overlay_mark_def, std::string>;
+    using bool_overlay_string_type = std::variant<bool, overlay_mark_def, std::string>;
 
     struct line_config : public base_config<line_config>
     {
-        XPROPERTY(xtl::xoptional<bool_overlay_string_type>, line_config, point);
+        XPROPERTY(std::optional<bool_overlay_string_type>, line_config, point);
     };
 
     XVEGA_API void to_json(nl::json&, const line_config&);

@@ -7,6 +7,8 @@
 #ifndef XVEGA_COMPOSITION_CONFIG_HPP
 #define XVEGA_COMPOSITION_CONFIG_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -16,8 +18,8 @@ namespace xv
 {
     struct composition_config : public xp::xobserved<composition_config>
     {
-        XPROPERTY(xtl::xoptional<double>, composition_config, columns);
-        XPROPERTY(xtl::xoptional<double>, composition_config, spacing);
+        XPROPERTY(std::optional<double>, composition_config, columns);
+        XPROPERTY(std::optional<double>, composition_config, spacing);
     };
 
     XVEGA_API void to_json(nl::json& j, const composition_config& data);

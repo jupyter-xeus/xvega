@@ -7,6 +7,9 @@
 #ifndef XVEGA_SELECTION_SINGLE_HPP
 #define XVEGA_SELECTION_SINGLE_HPP
 
+#include <optional>
+#include <variant>
+
 #include "../selections.hpp"
 #include "./bindings/legend_stream_binding.hpp"
 #include "./bindings/bind_checkbox.hpp"
@@ -17,16 +20,16 @@
 
 namespace xv
 {
-    using legend_binding_type = xtl::variant<std::string, legend_stream_binding>;
-    using binding_type = xtl::variant<bind_checkbox, bind_radio_select, bind_range, bind_input>;
-    using selection_bind_type = xtl::variant<binding_type, nl::json, legend_binding_type>;
+    using legend_binding_type = std::variant<std::string, legend_stream_binding>;
+    using binding_type = std::variant<bind_checkbox, bind_radio_select, bind_range, bind_input>;
+    using selection_bind_type = std::variant<binding_type, nl::json, legend_binding_type>;
 
     struct selection_single : public selection<selection_single>
     {
         // Single Selection Properties
-        XPROPERTY(xtl::xoptional<nl::json>, selection_single, init);
-        XPROPERTY(xtl::xoptional<nl::json>, selection_single, bind);
-        XPROPERTY(xtl::xoptional<bool>, selection_single, nearest);
+        XPROPERTY(std::optional<nl::json>, selection_single, init);
+        XPROPERTY(std::optional<nl::json>, selection_single, bind);
+        XPROPERTY(std::optional<bool>, selection_single, nearest);
 
         XVEGA_API selection_single();
 

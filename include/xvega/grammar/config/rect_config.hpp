@@ -7,15 +7,17 @@
 #ifndef XVEGA_RECT_CONFIG_HPP
 #define XVEGA_RECT_CONFIG_HPP
 
+#include <optional>
+
 #include "./base_config.hpp"
 
 namespace xv
 {
     struct rect_config : public base_config<rect_config>
     {
-        XPROPERTY(xtl::xoptional<double>, rect_config, binSpacing);
-        XPROPERTY(xtl::xoptional<double>, rect_config, continuousBandSize);
-        XPROPERTY(xtl::xoptional<double>, rect_config, discreteBandSize);
+        XPROPERTY(std::optional<double>, rect_config, binSpacing);
+        XPROPERTY(std::optional<double>, rect_config, continuousBandSize);
+        XPROPERTY(std::optional<double>, rect_config, discreteBandSize);
     };
 
     XVEGA_API void to_json(nl::json&, const rect_config&);

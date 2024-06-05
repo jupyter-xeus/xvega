@@ -7,8 +7,9 @@
 #ifndef XVEGA_EVENT_STREAM_HPP
 #define XVEGA_EVENT_STREAM_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
-#include "xtl/xoptional.hpp"
 #include "nlohmann/json.hpp"
 #include "../../../xvega_config.hpp"
 
@@ -19,8 +20,8 @@ namespace xv
     struct event_stream : public xp::xobserved<event_stream>
     {
         // Event Stream Properties
-        XPROPERTY(xtl::xoptional<std::string>, event_stream, source);
-        XPROPERTY(xtl::xoptional<std::string>, event_stream, type);
+        XPROPERTY(std::optional<std::string>, event_stream, source);
+        XPROPERTY(std::optional<std::string>, event_stream, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const event_stream& data);

@@ -7,6 +7,9 @@
 #ifndef XVEGA_SELECTION_MULTI_HPP
 #define XVEGA_SELECTION_MULTI_HPP
 
+#include <optional>
+#include <variant>
+
 #include "../selections.hpp"
 #include "./bindings/legend_stream_binding.hpp"
 #include "../../utils/random_string.hpp"
@@ -14,15 +17,15 @@
 
 namespace xv
 {
-    using legend_binding_type = xtl::variant<std::string, legend_stream_binding>;
+    using legend_binding_type = std::variant<std::string, legend_stream_binding>;
 
     struct selection_multi : public selection<selection_multi>
     {
         // Multi Selection Properties
-        XPROPERTY(xtl::xoptional<std::vector<nl::json>>, selection_multi, init);
-        XPROPERTY(xtl::xoptional<legend_binding_type>, selection_multi, bind);
-        XPROPERTY(xtl::xoptional<bool>, selection_multi, nearest);
-        XPROPERTY(xtl::xoptional<bool_string_type>, selection_multi, toggle);
+        XPROPERTY(std::optional<std::vector<nl::json>>, selection_multi, init);
+        XPROPERTY(std::optional<legend_binding_type>, selection_multi, bind);
+        XPROPERTY(std::optional<bool>, selection_multi, nearest);
+        XPROPERTY(std::optional<bool_string_type>, selection_multi, toggle);
 
         XVEGA_API  selection_multi();
 

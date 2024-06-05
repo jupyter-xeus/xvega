@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_OPTIONS_DATETIME_HPP
 #define XVEGA_ENCODING_OPTIONS_DATETIME_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,16 +22,16 @@ namespace xv
 {
     struct DateTime : public xp::xobserved<DateTime>
     {
-        XPROPERTY(xtl::xoptional<double>, DateTime, year);
-        XPROPERTY(xtl::xoptional<double>, DateTime, quarter);
-        XPROPERTY(xtl::xoptional<string_num_type>, DateTime, month);
-        XPROPERTY(xtl::xoptional<double>, DateTime, date);
-        XPROPERTY(xtl::xoptional<string_num_type>, DateTime, day);
-        XPROPERTY(xtl::xoptional<double>, DateTime, hours);
-        XPROPERTY(xtl::xoptional<double>, DateTime, minutes);
-        XPROPERTY(xtl::xoptional<double>, DateTime, seconds);
-        XPROPERTY(xtl::xoptional<double>, DateTime, milliseconds);
-        XPROPERTY(xtl::xoptional<bool>, DateTime, utc); // Present in Altair Docs, but not in Vega-Lite Docs
+        XPROPERTY(std::optional<double>, DateTime, year);
+        XPROPERTY(std::optional<double>, DateTime, quarter);
+        XPROPERTY(std::optional<string_num_type>, DateTime, month);
+        XPROPERTY(std::optional<double>, DateTime, date);
+        XPROPERTY(std::optional<string_num_type>, DateTime, day);
+        XPROPERTY(std::optional<double>, DateTime, hours);
+        XPROPERTY(std::optional<double>, DateTime, minutes);
+        XPROPERTY(std::optional<double>, DateTime, seconds);
+        XPROPERTY(std::optional<double>, DateTime, milliseconds);
+        XPROPERTY(std::optional<bool>, DateTime, utc); // Present in Altair Docs, but not in Vega-Lite Docs
     };
 
     XVEGA_API void to_json(nl::json& j, const DateTime& data);

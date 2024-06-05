@@ -7,12 +7,12 @@
 #ifndef XVEGA_GRATICULE_GENERATOR_HPP
 #define XVEGA_GRATICULE_GENERATOR_HPP
 
+#include <optional>
+#include <variant>
+
 #include "xproperty/xobserved.hpp"
 
 #include "nlohmann/json.hpp"
-
-#include "xtl/xoptional.hpp"
-#include "xtl/xjson.hpp"
 
 #include "../../../xvega_config.hpp"
 
@@ -22,23 +22,23 @@ namespace xv
 {
     struct graticule_params : public xp::xobserved<graticule_params>
     {
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, extent);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, extentMajor);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, extentMinor);
-        XPROPERTY(xtl::xoptional<double>, graticule_params, precision);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, step);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, stepMajor);
-        XPROPERTY(xtl::xoptional<std::vector<double>>, graticule_params, stepMinor);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, extent);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, extentMajor);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, extentMinor);
+        XPROPERTY(std::optional<double>, graticule_params, precision);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, step);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, stepMajor);
+        XPROPERTY(std::optional<std::vector<double>>, graticule_params, stepMinor);
     };
 
     XVEGA_API void to_json(nl::json& j, const graticule_params& data);
 
-    using graticule_type = xtl::variant<bool, graticule_params>;
+    using graticule_type = std::variant<bool, graticule_params>;
 
     struct graticule_generator : public xp::xobserved<graticule_generator>
     {
-        XPROPERTY(xtl::xoptional<graticule_type>, graticule_generator, graticule);
-        XPROPERTY(xtl::xoptional<std::string>, graticule_generator, name);
+        XPROPERTY(std::optional<graticule_type>, graticule_generator, graticule);
+        XPROPERTY(std::optional<std::string>, graticule_generator, name);
     };
 
     XVEGA_API void to_json(nl::json& j, const graticule_generator& data);

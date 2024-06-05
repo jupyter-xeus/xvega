@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_DASH_HPP
 #define XVEGA_ENCODING_DASH_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct StrokeDash : public xp::xobserved<StrokeDash>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, StrokeDash, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, StrokeDash, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, StrokeDash, condition);
-        XPROPERTY(xtl::xoptional<field_type>, StrokeDash, field);
-        XPROPERTY(xtl::xoptional<legend_type>, StrokeDash, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, StrokeDash, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, StrokeDash, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, StrokeDash, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, StrokeDash, title);
-        XPROPERTY(xtl::xoptional<std::string>, StrokeDash, type);
+        XPROPERTY(std::optional<agg_type>, StrokeDash, aggregate);
+        XPROPERTY(std::optional<bin_type>, StrokeDash, bin);
+        // XPROPERTY(std::optional<condition_type>, StrokeDash, condition);
+        XPROPERTY(std::optional<field_type>, StrokeDash, field);
+        XPROPERTY(std::optional<legend_type>, StrokeDash, legend);
+        XPROPERTY(std::optional<scale_type>, StrokeDash, scale);
+        XPROPERTY(std::optional<sort_type>, StrokeDash, sort);
+        XPROPERTY(std::optional<time_unit_type>, StrokeDash, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, StrokeDash, title);
+        XPROPERTY(std::optional<std::string>, StrokeDash, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const StrokeDash& data);

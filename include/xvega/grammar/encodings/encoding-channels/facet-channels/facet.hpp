@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_FACET_HPP
 #define XVEGA_ENCODING_FACET_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -28,19 +27,19 @@ namespace xv
 {
     struct Facet : public xp::xobserved<Facet>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Facet, aggregate);
-        XPROPERTY(xtl::xoptional<std::string>, Facet, align);
-        XPROPERTY(xtl::xoptional<bin_type>, Facet, bin);
-        XPROPERTY(xtl::xoptional<std::string>, Facet, bounds);
-        XPROPERTY(xtl::xoptional<bool>, Facet, center);
-        XPROPERTY(xtl::xoptional<double>, Facet, columns);
-        XPROPERTY(xtl::xoptional<field_type>, Facet, field);
-        XPROPERTY(xtl::xoptional<Header>, Facet, header);
-        XPROPERTY(xtl::xoptional<sort_type>, Facet, sort);
-        XPROPERTY(xtl::xoptional<double>, Facet, spacing);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Facet, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Facet, title);
-        XPROPERTY(xtl::xoptional<std::string>, Facet, type);
+        XPROPERTY(std::optional<agg_type>, Facet, aggregate);
+        XPROPERTY(std::optional<std::string>, Facet, align);
+        XPROPERTY(std::optional<bin_type>, Facet, bin);
+        XPROPERTY(std::optional<std::string>, Facet, bounds);
+        XPROPERTY(std::optional<bool>, Facet, center);
+        XPROPERTY(std::optional<double>, Facet, columns);
+        XPROPERTY(std::optional<field_type>, Facet, field);
+        XPROPERTY(std::optional<Header>, Facet, header);
+        XPROPERTY(std::optional<sort_type>, Facet, sort);
+        XPROPERTY(std::optional<double>, Facet, spacing);
+        XPROPERTY(std::optional<time_unit_type>, Facet, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Facet, title);
+        XPROPERTY(std::optional<std::string>, Facet, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Facet& data);

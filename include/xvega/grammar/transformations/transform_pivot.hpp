@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_PIVOT_HPP
 #define XVEGA_TRANSFORM_PIVOT_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,11 +22,11 @@ namespace xv
 {
     struct transform_pivot : public transformation<transform_pivot>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_pivot, pivot);
-        XPROPERTY(xtl::xoptional<std::string>, transform_pivot, value);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_pivot, groupby);
-        XPROPERTY(xtl::xoptional<double>, transform_pivot, limit);
-        XPROPERTY(xtl::xoptional<std::string>, transform_pivot, op);
+        XPROPERTY(std::optional<std::string>, transform_pivot, pivot);
+        XPROPERTY(std::optional<std::string>, transform_pivot, value);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_pivot, groupby);
+        XPROPERTY(std::optional<double>, transform_pivot, limit);
+        XPROPERTY(std::optional<std::string>, transform_pivot, op);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_pivot& data);

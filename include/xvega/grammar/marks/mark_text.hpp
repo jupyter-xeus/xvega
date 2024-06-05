@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_TEXT_HPP
 #define XVEGA_MARK_TEXT_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,22 +16,22 @@ namespace xv
     struct mark_text : public mark<mark_text>
     {
         // Text Mark Properties
-        XPROPERTY(xtl::xoptional<double>, mark_text, angle);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, align);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, baseline);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, dir);
-        XPROPERTY(xtl::xoptional<double>, mark_text, dx);
-        XPROPERTY(xtl::xoptional<double>, mark_text, dy);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, ellipsis);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, font);
-        XPROPERTY(xtl::xoptional<double>, mark_text, fontSize);
-        XPROPERTY(xtl::xoptional<std::string>, mark_text, fontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, mark_text, fontWeight);
-        XPROPERTY(xtl::xoptional<double>, mark_text, limit);
-        XPROPERTY(xtl::xoptional<double>, mark_text, lineHeight);
-        XPROPERTY(xtl::xoptional<double>, mark_text, radius);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, mark_text, text);
-        XPROPERTY(xtl::xoptional<double>, mark_text, theta);
+        XPROPERTY(std::optional<double>, mark_text, angle);
+        XPROPERTY(std::optional<std::string>, mark_text, align);
+        XPROPERTY(std::optional<std::string>, mark_text, baseline);
+        XPROPERTY(std::optional<std::string>, mark_text, dir);
+        XPROPERTY(std::optional<double>, mark_text, dx);
+        XPROPERTY(std::optional<double>, mark_text, dy);
+        XPROPERTY(std::optional<std::string>, mark_text, ellipsis);
+        XPROPERTY(std::optional<std::string>, mark_text, font);
+        XPROPERTY(std::optional<double>, mark_text, fontSize);
+        XPROPERTY(std::optional<std::string>, mark_text, fontStyle);
+        XPROPERTY(std::optional<string_num_type>, mark_text, fontWeight);
+        XPROPERTY(std::optional<double>, mark_text, limit);
+        XPROPERTY(std::optional<double>, mark_text, lineHeight);
+        XPROPERTY(std::optional<double>, mark_text, radius);
+        XPROPERTY(std::optional<std::vector<std::string>>, mark_text, text);
+        XPROPERTY(std::optional<double>, mark_text, theta);
 
         XVEGA_API mark_text();
     };

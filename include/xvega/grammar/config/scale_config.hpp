@@ -7,6 +7,8 @@
 #ifndef XVEGA_SCALE_CONFIG_HPP
 #define XVEGA_SCALE_CONFIG_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -16,28 +18,28 @@ namespace xv
 {
     struct scale_config : public xp::xobserved<scale_config>
     {
-        XPROPERTY(xtl::xoptional<double>, scale_config, bandPaddingInner);
-        XPROPERTY(xtl::xoptional<double>, scale_config, bandPaddingOuter);
-        XPROPERTY(xtl::xoptional<double>, scale_config, barBandPaddingInner);
-        XPROPERTY(xtl::xoptional<bool>, scale_config, clamp);
-        XPROPERTY(xtl::xoptional<double>, scale_config, continuousPadding);
-        XPROPERTY(xtl::xoptional<double>, scale_config, maxBandSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, maxFontSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, maxOpacity);
-        XPROPERTY(xtl::xoptional<double>, scale_config, maxSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, maxStrokeWidth);
-        XPROPERTY(xtl::xoptional<double>, scale_config, minBandSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, minFontSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, minOpacity);
-        XPROPERTY(xtl::xoptional<double>, scale_config, minSize);
-        XPROPERTY(xtl::xoptional<double>, scale_config, minStrokeWidth);
-        XPROPERTY(xtl::xoptional<double>, scale_config, pointPadding);
-        XPROPERTY(xtl::xoptional<double>, scale_config, quantileCount);
-        XPROPERTY(xtl::xoptional<double>, scale_config, quantizeCount);
-        XPROPERTY(xtl::xoptional<double>, scale_config, rectBandPaddingInner);
-        XPROPERTY(xtl::xoptional<bool>, scale_config, round);
-        XPROPERTY(xtl::xoptional<bool>, scale_config, useUnaggregatedDomain);
-        XPROPERTY(xtl::xoptional<bool>, scale_config, xReverse);
+        XPROPERTY(std::optional<double>, scale_config, bandPaddingInner);
+        XPROPERTY(std::optional<double>, scale_config, bandPaddingOuter);
+        XPROPERTY(std::optional<double>, scale_config, barBandPaddingInner);
+        XPROPERTY(std::optional<bool>, scale_config, clamp);
+        XPROPERTY(std::optional<double>, scale_config, continuousPadding);
+        XPROPERTY(std::optional<double>, scale_config, maxBandSize);
+        XPROPERTY(std::optional<double>, scale_config, maxFontSize);
+        XPROPERTY(std::optional<double>, scale_config, maxOpacity);
+        XPROPERTY(std::optional<double>, scale_config, maxSize);
+        XPROPERTY(std::optional<double>, scale_config, maxStrokeWidth);
+        XPROPERTY(std::optional<double>, scale_config, minBandSize);
+        XPROPERTY(std::optional<double>, scale_config, minFontSize);
+        XPROPERTY(std::optional<double>, scale_config, minOpacity);
+        XPROPERTY(std::optional<double>, scale_config, minSize);
+        XPROPERTY(std::optional<double>, scale_config, minStrokeWidth);
+        XPROPERTY(std::optional<double>, scale_config, pointPadding);
+        XPROPERTY(std::optional<double>, scale_config, quantileCount);
+        XPROPERTY(std::optional<double>, scale_config, quantizeCount);
+        XPROPERTY(std::optional<double>, scale_config, rectBandPaddingInner);
+        XPROPERTY(std::optional<bool>, scale_config, round);
+        XPROPERTY(std::optional<bool>, scale_config, useUnaggregatedDomain);
+        XPROPERTY(std::optional<bool>, scale_config, xReverse);
     };
 
     XVEGA_API void to_json(nl::json& j, const scale_config& data);

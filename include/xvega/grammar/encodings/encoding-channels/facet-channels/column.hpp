@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_COLUMN_HPP
 #define XVEGA_ENCODING_COLUMN_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -28,17 +27,17 @@ namespace xv
 {
     struct Column : public xp::xobserved<Column>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Column, aggregate);
-        XPROPERTY(xtl::xoptional<std::string>, Column, align);
-        XPROPERTY(xtl::xoptional<bin_type>, Column, bin);
-        XPROPERTY(xtl::xoptional<bool>, Column, center);
-        XPROPERTY(xtl::xoptional<field_type>, Column, field);
-        XPROPERTY(xtl::xoptional<Header>, Column, header);
-        XPROPERTY(xtl::xoptional<sort_type>, Column, sort);
-        XPROPERTY(xtl::xoptional<double>, Column, spacing);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Column, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Column, title);
-        XPROPERTY(xtl::xoptional<std::string>, Column, type);
+        XPROPERTY(std::optional<agg_type>, Column, aggregate);
+        XPROPERTY(std::optional<std::string>, Column, align);
+        XPROPERTY(std::optional<bin_type>, Column, bin);
+        XPROPERTY(std::optional<bool>, Column, center);
+        XPROPERTY(std::optional<field_type>, Column, field);
+        XPROPERTY(std::optional<Header>, Column, header);
+        XPROPERTY(std::optional<sort_type>, Column, sort);
+        XPROPERTY(std::optional<double>, Column, spacing);
+        XPROPERTY(std::optional<time_unit_type>, Column, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Column, title);
+        XPROPERTY(std::optional<std::string>, Column, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Column& data);

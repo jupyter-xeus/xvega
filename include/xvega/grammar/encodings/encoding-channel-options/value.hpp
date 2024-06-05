@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_OPTIONS_VALUE_HPP
 #define XVEGA_ENCODING_OPTIONS_VALUE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,7 +22,7 @@ namespace xv
 {
     struct Value
     {
-        xtl::xoptional<any_type> value;
+        std::optional<any_type> value;
 
         Value(any_type val);
     };

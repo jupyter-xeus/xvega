@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_LOESS_HPP
 #define XVEGA_TRANSFORM_LOESS_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,11 +22,11 @@ namespace xv
 {
     struct transform_loess : public transformation<transform_loess>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_loess, loess);
-        XPROPERTY(xtl::xoptional<std::string>, transform_loess, on);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_loess, groupby);
-        XPROPERTY(xtl::xoptional<double>, transform_loess, bandwidth);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_loess, as);
+        XPROPERTY(std::optional<std::string>, transform_loess, loess);
+        XPROPERTY(std::optional<std::string>, transform_loess, on);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_loess, groupby);
+        XPROPERTY(std::optional<double>, transform_loess, bandwidth);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_loess, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_loess& data);

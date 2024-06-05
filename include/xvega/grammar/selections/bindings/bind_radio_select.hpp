@@ -7,9 +7,9 @@
 #ifndef XVEGA_BIND_RADIO_SELECT_HPP
 #define XVEGA_BIND_RADIO_SELECT_HPP
 
-#include "xproperty/xobserved.hpp"
+#include <optional>
 
-#include "xtl/xoptional.hpp"
+#include "xproperty/xobserved.hpp"
 
 #include "nlohmann/json.hpp"
 
@@ -23,13 +23,13 @@ namespace xv
     struct bind_radio_select : public xp::xobserved<bind_radio_select>
     {
         // Bind Radio Select Properties
-        XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, input);
-        XPROPERTY(xtl::xoptional<any_vector_type>, bind_radio_select, options);
-        XPROPERTY(xtl::xoptional<double>, bind_radio_select, debounce);
-        XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, element);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, bind_radio_select, labels);
-        XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, name);
-        XPROPERTY(xtl::xoptional<std::string>, bind_radio_select, type);
+        XPROPERTY(std::optional<std::string>, bind_radio_select, input);
+        XPROPERTY(std::optional<any_vector_type>, bind_radio_select, options);
+        XPROPERTY(std::optional<double>, bind_radio_select, debounce);
+        XPROPERTY(std::optional<std::string>, bind_radio_select, element);
+        XPROPERTY(std::optional<std::vector<std::string>>, bind_radio_select, labels);
+        XPROPERTY(std::optional<std::string>, bind_radio_select, name);
+        XPROPERTY(std::optional<std::string>, bind_radio_select, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const bind_radio_select& data);

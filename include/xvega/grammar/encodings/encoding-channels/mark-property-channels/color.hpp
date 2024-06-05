@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_COLOR_HPP
 #define XVEGA_ENCODING_COLOR_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct Color : public xp::xobserved<Color>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Color, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Color, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Color, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Color, field);
-        XPROPERTY(xtl::xoptional<legend_type>, Color, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, Color, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Color, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Color, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Color, title);
-        XPROPERTY(xtl::xoptional<std::string>, Color, type);
+        XPROPERTY(std::optional<agg_type>, Color, aggregate);
+        XPROPERTY(std::optional<bin_type>, Color, bin);
+        // XPROPERTY(std::optional<condition_type>, Color, condition);
+        XPROPERTY(std::optional<field_type>, Color, field);
+        XPROPERTY(std::optional<legend_type>, Color, legend);
+        XPROPERTY(std::optional<scale_type>, Color, scale);
+        XPROPERTY(std::optional<sort_type>, Color, sort);
+        XPROPERTY(std::optional<time_unit_type>, Color, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Color, title);
+        XPROPERTY(std::optional<std::string>, Color, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Color& data);

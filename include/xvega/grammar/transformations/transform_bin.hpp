@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_BIN_HPP
 #define XVEGA_TRANSFORM_BIN_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -27,9 +26,9 @@ namespace xv
 
     struct transform_bin : public transformation<transform_bin>
     {
-        XPROPERTY(xtl::xoptional<bin_transform_type>, transform_bin, bin);
-        XPROPERTY(xtl::xoptional<std::string>, transform_bin, field);
-        XPROPERTY(xtl::xoptional<std::vector<std::string>>, transform_bin, as);
+        XPROPERTY(std::optional<bin_transform_type>, transform_bin, bin);
+        XPROPERTY(std::optional<std::string>, transform_bin, field);
+        XPROPERTY(std::optional<std::vector<std::string>>, transform_bin, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_bin& data);

@@ -7,11 +7,9 @@
 #ifndef XVEGA_ENCODING_OPTIONS_DATUM_HPP
 #define XVEGA_ENCODING_OPTIONS_DATUM_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xvariant.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,7 +21,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    using datum_type = xtl::variant<double, int, std::string, DateTime, RepeatRef>;
+    using datum_type = std::variant<double, int, std::string, DateTime, RepeatRef>;
 }
 
 #endif

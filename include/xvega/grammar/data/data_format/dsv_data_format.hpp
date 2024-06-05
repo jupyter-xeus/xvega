@@ -7,13 +7,15 @@
 #ifndef XVEGA_DSV_DATA_FORMAT_HPP
 #define XVEGA_DSV_DATA_FORMAT_HPP
 
+#include <optional>
+
 #include "../data_format.hpp"
 
 namespace xv
 {
     struct dsv_data_format : public data_format<dsv_data_format>
     {
-        XPROPERTY(xtl::xoptional<std::string>, dsv_data_format, delimiter);
+        XPROPERTY(std::optional<std::string>, dsv_data_format, delimiter);
 
         dsv_data_format();
     };

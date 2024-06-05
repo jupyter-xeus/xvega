@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_LINE_HPP
 #define XVEGA_MARK_LINE_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,10 +16,10 @@ namespace xv
     struct mark_line : public mark<mark_line>
     {
         // Line Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_line, orient);
-        XPROPERTY(xtl::xoptional<std::string>, mark_line, interpolate);
-        XPROPERTY(xtl::xoptional<double>, mark_line, tension);
-        XPROPERTY(xtl::xoptional<bool_string_object_type>, mark_line, point);
+        XPROPERTY(std::optional<std::string>, mark_line, orient);
+        XPROPERTY(std::optional<std::string>, mark_line, interpolate);
+        XPROPERTY(std::optional<double>, mark_line, tension);
+        XPROPERTY(std::optional<bool_string_object_type>, mark_line, point);
 
         XVEGA_API mark_line();
     };

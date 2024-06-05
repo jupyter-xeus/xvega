@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_ARC_HPP
 #define XVEGA_MARK_ARC_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,18 +16,18 @@ namespace xv
     struct mark_arc : public mark<mark_arc>
     {
         // Arc Mark Properties
-        XPROPERTY(xtl::xoptional<double>, mark_arc, radius);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, radius2);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, innerRadius);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, outerRadius);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, theta);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, theta2);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, cornerRadius);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, padAngle);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, radiusOffset);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, radius2Offset);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, thetaOffset);
-        XPROPERTY(xtl::xoptional<double>, mark_arc, theta2Offset);
+        XPROPERTY(std::optional<double>, mark_arc, radius);
+        XPROPERTY(std::optional<double>, mark_arc, radius2);
+        XPROPERTY(std::optional<double>, mark_arc, innerRadius);
+        XPROPERTY(std::optional<double>, mark_arc, outerRadius);
+        XPROPERTY(std::optional<double>, mark_arc, theta);
+        XPROPERTY(std::optional<double>, mark_arc, theta2);
+        XPROPERTY(std::optional<double>, mark_arc, cornerRadius);
+        XPROPERTY(std::optional<double>, mark_arc, padAngle);
+        XPROPERTY(std::optional<double>, mark_arc, radiusOffset);
+        XPROPERTY(std::optional<double>, mark_arc, radius2Offset);
+        XPROPERTY(std::optional<double>, mark_arc, thetaOffset);
+        XPROPERTY(std::optional<double>, mark_arc, theta2Offset);
 
         XVEGA_API mark_arc();
     };

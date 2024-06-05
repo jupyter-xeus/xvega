@@ -7,10 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_SORT_HPP
 #define XVEGA_ENCODING_OPTIONS_SORT_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,22 +26,22 @@ namespace xv
 {
     struct FieldSort : public xp::xobserved<FieldSort>
     {
-        XPROPERTY(xtl::xoptional<field_type>, FieldSort, field);
-        XPROPERTY(xtl::xoptional<std::string>, FieldSort, op);
-        XPROPERTY(xtl::xoptional<string_none_type>, FieldSort, order);
+        XPROPERTY(std::optional<field_type>, FieldSort, field);
+        XPROPERTY(std::optional<std::string>, FieldSort, op);
+        XPROPERTY(std::optional<string_none_type>, FieldSort, order);
     };
 
     XVEGA_API void to_json(nl::json& j, const FieldSort& data);
 
     struct EncodingSort : public xp::xobserved<EncodingSort>
     {
-        XPROPERTY(xtl::xoptional<std::string>, EncodingSort, encoding);
-        XPROPERTY(xtl::xoptional<string_none_type>, EncodingSort, order);
+        XPROPERTY(std::optional<std::string>, EncodingSort, encoding);
+        XPROPERTY(std::optional<string_none_type>, EncodingSort, order);
     };
 
     XVEGA_API void to_json(nl::json& j, const EncodingSort& data);
 
-    using sort_type = xtl::variant<any_array_type, std::string, std::nullptr_t, FieldSort, EncodingSort>;
+    using sort_type = std::variant<any_array_type, std::string, std::nullptr_t, FieldSort, EncodingSort>;
 }
 
 #endif

@@ -7,10 +7,9 @@
 #ifndef XVEGA_TRANSFORM_CALCULATE_HPP
 #define XVEGA_TRANSFORM_CALCULATE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -23,8 +22,8 @@ namespace xv
 {
     struct transform_calculate : public transformation<transform_calculate>
     {
-        XPROPERTY(xtl::xoptional<std::string>, transform_calculate, calculate);
-        XPROPERTY(xtl::xoptional<std::string>, transform_calculate, as);
+        XPROPERTY(std::optional<std::string>, transform_calculate, calculate);
+        XPROPERTY(std::optional<std::string>, transform_calculate, as);
     };
 
     XVEGA_API void to_json(nl::json& j, const transform_calculate& data);

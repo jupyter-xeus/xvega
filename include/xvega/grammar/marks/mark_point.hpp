@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_POINT_HPP
 #define XVEGA_MARK_POINT_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,8 +16,8 @@ namespace xv
     struct mark_point : public mark<mark_point>
     {
         // Point Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_point, shape);
-        XPROPERTY(xtl::xoptional<double>, mark_point, size);
+        XPROPERTY(std::optional<std::string>, mark_point, shape);
+        XPROPERTY(std::optional<double>, mark_point, size);
 
         XVEGA_API mark_point();
     };

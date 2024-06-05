@@ -7,6 +7,8 @@
 #ifndef XVEGA_HEADER_CONFIG_HPP
 #define XVEGA_HEADER_CONFIG_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -16,42 +18,42 @@ namespace xv
 {
     struct header_config : public xp::xobserved<header_config>
     {
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, header_config, title);
+        XPROPERTY(std::optional<string_vec_none_type>, header_config, title);
 
-        XPROPERTY(xtl::xoptional<string_object_type>, header_config, format);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, formatType);
+        XPROPERTY(std::optional<string_object_type>, header_config, format);
+        XPROPERTY(std::optional<std::string>, header_config, formatType);
 
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelAlign);
-        XPROPERTY(xtl::xoptional<string_none_type>, header_config, labelAnchor);
-        XPROPERTY(xtl::xoptional<double>, header_config, labelAngle);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelBaseline);
-        XPROPERTY(xtl::xoptional<string_none_type>, header_config, labelColor);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelExpr);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelFont);
-        XPROPERTY(xtl::xoptional<double>, header_config, labelFontSize);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelFontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, header_config, labelFontWeight);
-        XPROPERTY(xtl::xoptional<double>, header_config, labelLimit);
-        XPROPERTY(xtl::xoptional<double>, header_config, labelLineHeight);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, labelOrient);
-        XPROPERTY(xtl::xoptional<double>, header_config, labelPadding);
+        XPROPERTY(std::optional<std::string>, header_config, labelAlign);
+        XPROPERTY(std::optional<string_none_type>, header_config, labelAnchor);
+        XPROPERTY(std::optional<double>, header_config, labelAngle);
+        XPROPERTY(std::optional<std::string>, header_config, labelBaseline);
+        XPROPERTY(std::optional<string_none_type>, header_config, labelColor);
+        XPROPERTY(std::optional<std::string>, header_config, labelExpr);
+        XPROPERTY(std::optional<std::string>, header_config, labelFont);
+        XPROPERTY(std::optional<double>, header_config, labelFontSize);
+        XPROPERTY(std::optional<std::string>, header_config, labelFontStyle);
+        XPROPERTY(std::optional<string_num_type>, header_config, labelFontWeight);
+        XPROPERTY(std::optional<double>, header_config, labelLimit);
+        XPROPERTY(std::optional<double>, header_config, labelLineHeight);
+        XPROPERTY(std::optional<std::string>, header_config, labelOrient);
+        XPROPERTY(std::optional<double>, header_config, labelPadding);
 
-        XPROPERTY(xtl::xoptional<bool>, header_config, labels);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, orient);
+        XPROPERTY(std::optional<bool>, header_config, labels);
+        XPROPERTY(std::optional<std::string>, header_config, orient);
 
-        XPROPERTY(xtl::xoptional<std::string>, header_config, titleAlign);
-        XPROPERTY(xtl::xoptional<string_none_type>, header_config, titleAnchor);
-        XPROPERTY(xtl::xoptional<double>, header_config, titleAngle);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, titleBaseline);
-        XPROPERTY(xtl::xoptional<string_none_type>, header_config, titleColor);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, titleFont);
-        XPROPERTY(xtl::xoptional<double>, header_config, titleFontSize);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, titleFontStyle);
-        XPROPERTY(xtl::xoptional<string_num_type>, header_config, titleFontWeight);
-        XPROPERTY(xtl::xoptional<double>, header_config, titleLimit);
-        XPROPERTY(xtl::xoptional<double>, header_config, titleLineHeight);
-        XPROPERTY(xtl::xoptional<std::string>, header_config, titleOrient);
-        XPROPERTY(xtl::xoptional<double>, header_config, titlePadding);
+        XPROPERTY(std::optional<std::string>, header_config, titleAlign);
+        XPROPERTY(std::optional<string_none_type>, header_config, titleAnchor);
+        XPROPERTY(std::optional<double>, header_config, titleAngle);
+        XPROPERTY(std::optional<std::string>, header_config, titleBaseline);
+        XPROPERTY(std::optional<string_none_type>, header_config, titleColor);
+        XPROPERTY(std::optional<std::string>, header_config, titleFont);
+        XPROPERTY(std::optional<double>, header_config, titleFontSize);
+        XPROPERTY(std::optional<std::string>, header_config, titleFontStyle);
+        XPROPERTY(std::optional<string_num_type>, header_config, titleFontWeight);
+        XPROPERTY(std::optional<double>, header_config, titleLimit);
+        XPROPERTY(std::optional<double>, header_config, titleLineHeight);
+        XPROPERTY(std::optional<std::string>, header_config, titleOrient);
+        XPROPERTY(std::optional<double>, header_config, titlePadding);
     };
 
     XVEGA_API void to_json(nl::json& j, const header_config& data);

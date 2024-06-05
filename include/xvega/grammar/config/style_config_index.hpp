@@ -7,6 +7,8 @@
 #ifndef XVEGA_STYLE_CONFIG_INDEX_HPP
 #define XVEGA_STYLE_CONFIG_INDEX_HPP
 
+#include <optional>
+
 #include "xproperty/xobserved.hpp"
 
 #include "../../xvega_config.hpp"
@@ -23,24 +25,24 @@ namespace xv
 {
     struct style_config_index : public xp::xobserved<style_config_index>
     {
-        XPROPERTY(xtl::xoptional<area_config>, style_config_index, area);
-        XPROPERTY(xtl::xoptional<bar_config>, style_config_index, bar);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, circle);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, geoshape);
-        XPROPERTY(xtl::xoptional<rect_config>, style_config_index, image);
-        XPROPERTY(xtl::xoptional<line_config>, style_config_index, line);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, mark);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, point);
-        XPROPERTY(xtl::xoptional<rect_config>, style_config_index, rect);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, rule);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, square);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, text);
-        XPROPERTY(xtl::xoptional<tick_config>, style_config_index, tick);
-        XPROPERTY(xtl::xoptional<line_config>, style_config_index, trail);
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, group_subtitle); // actual name is group-subtitle
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, group_title); // actual name is group-title
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, guide_label); // actual name is guide-label
-        XPROPERTY(xtl::xoptional<mark_config>, style_config_index, guide_title); // actual name is guide-title
+        XPROPERTY(std::optional<area_config>, style_config_index, area);
+        XPROPERTY(std::optional<bar_config>, style_config_index, bar);
+        XPROPERTY(std::optional<mark_config>, style_config_index, circle);
+        XPROPERTY(std::optional<mark_config>, style_config_index, geoshape);
+        XPROPERTY(std::optional<rect_config>, style_config_index, image);
+        XPROPERTY(std::optional<line_config>, style_config_index, line);
+        XPROPERTY(std::optional<mark_config>, style_config_index, mark);
+        XPROPERTY(std::optional<mark_config>, style_config_index, point);
+        XPROPERTY(std::optional<rect_config>, style_config_index, rect);
+        XPROPERTY(std::optional<mark_config>, style_config_index, rule);
+        XPROPERTY(std::optional<mark_config>, style_config_index, square);
+        XPROPERTY(std::optional<mark_config>, style_config_index, text);
+        XPROPERTY(std::optional<tick_config>, style_config_index, tick);
+        XPROPERTY(std::optional<line_config>, style_config_index, trail);
+        XPROPERTY(std::optional<mark_config>, style_config_index, group_subtitle); // actual name is group-subtitle
+        XPROPERTY(std::optional<mark_config>, style_config_index, group_title); // actual name is group-title
+        XPROPERTY(std::optional<mark_config>, style_config_index, guide_label); // actual name is guide-label
+        XPROPERTY(std::optional<mark_config>, style_config_index, guide_title); // actual name is guide-title
     };
 
     XVEGA_API void to_json(nl::json& j, const style_config_index& data);

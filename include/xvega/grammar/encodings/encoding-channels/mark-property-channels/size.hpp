@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_SIZE_HPP
 #define XVEGA_ENCODING_SIZE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -29,16 +28,16 @@ namespace xv
 {
     struct Size : public xp::xobserved<Size>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Size, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Size, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Size, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Size, field);
-        XPROPERTY(xtl::xoptional<legend_type>, Size, legend);
-        XPROPERTY(xtl::xoptional<scale_type>, Size, scale);
-        XPROPERTY(xtl::xoptional<sort_type>, Size, sort);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Size, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Size, title);
-        XPROPERTY(xtl::xoptional<std::string>, Size, type);
+        XPROPERTY(std::optional<agg_type>, Size, aggregate);
+        XPROPERTY(std::optional<bin_type>, Size, bin);
+        // XPROPERTY(std::optional<condition_type>, Size, condition);
+        XPROPERTY(std::optional<field_type>, Size, field);
+        XPROPERTY(std::optional<legend_type>, Size, legend);
+        XPROPERTY(std::optional<scale_type>, Size, scale);
+        XPROPERTY(std::optional<sort_type>, Size, sort);
+        XPROPERTY(std::optional<time_unit_type>, Size, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Size, title);
+        XPROPERTY(std::optional<std::string>, Size, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Size& data);

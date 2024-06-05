@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_TICK_HPP
 #define XVEGA_MARK_TICK_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,8 +16,8 @@ namespace xv
     struct mark_tick : public mark<mark_tick>
     {
         // Tick Mark Properties
-        XPROPERTY(xtl::xoptional<double>, mark_tick, cornerRadius);
-        XPROPERTY(xtl::xoptional<std::string>, mark_tick, orient);
+        XPROPERTY(std::optional<double>, mark_tick, cornerRadius);
+        XPROPERTY(std::optional<std::string>, mark_tick, orient);
 
         XVEGA_API mark_tick();
     };

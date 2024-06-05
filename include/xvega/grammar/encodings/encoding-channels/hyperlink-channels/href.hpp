@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_HREF_HPP
 #define XVEGA_ENCODING_HREF_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,16 +25,16 @@ namespace xv
 {
     struct Href : public xp::xobserved<Href>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Href, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Href, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Href, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Href, field);
-        XPROPERTY(xtl::xoptional<string_object_type>, Href, format);
-        XPROPERTY(xtl::xoptional<std::string>, Href, formatType);
-        XPROPERTY(xtl::xoptional<std::string>, Href, labelExpr);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Href, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Href, title);
-        XPROPERTY(xtl::xoptional<std::string>, Href, type);
+        XPROPERTY(std::optional<agg_type>, Href, aggregate);
+        XPROPERTY(std::optional<bin_type>, Href, bin);
+        // XPROPERTY(std::optional<condition_type>, Href, condition);
+        XPROPERTY(std::optional<field_type>, Href, field);
+        XPROPERTY(std::optional<string_object_type>, Href, format);
+        XPROPERTY(std::optional<std::string>, Href, formatType);
+        XPROPERTY(std::optional<std::string>, Href, labelExpr);
+        XPROPERTY(std::optional<time_unit_type>, Href, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Href, title);
+        XPROPERTY(std::optional<std::string>, Href, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Href& data);

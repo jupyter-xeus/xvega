@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_BAR_HPP
 #define XVEGA_MARK_BAR_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,16 +16,16 @@ namespace xv
     struct mark_bar : public mark<mark_bar>
     {
         // Bar Mark Properties
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, orient);
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, align);
-        XPROPERTY(xtl::xoptional<std::string>, mark_bar, baseline);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, binSpacing);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadius);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusEnd);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusTopLeft);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusTopRight);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusBottomLeft);
-        XPROPERTY(xtl::xoptional<double>, mark_bar, cornerRadiusBottomRight);
+        XPROPERTY(std::optional<std::string>, mark_bar, orient);
+        XPROPERTY(std::optional<std::string>, mark_bar, align);
+        XPROPERTY(std::optional<std::string>, mark_bar, baseline);
+        XPROPERTY(std::optional<double>, mark_bar, binSpacing);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadius);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadiusEnd);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadiusTopLeft);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadiusTopRight);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadiusBottomLeft);
+        XPROPERTY(std::optional<double>, mark_bar, cornerRadiusBottomRight);
 
         XVEGA_API mark_bar();
     };

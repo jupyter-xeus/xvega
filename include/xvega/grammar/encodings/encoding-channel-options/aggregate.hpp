@@ -7,10 +7,10 @@
 #ifndef XVEGA_ENCODING_OPTIONS_AGGREGATE_HPP
 #define XVEGA_ENCODING_OPTIONS_AGGREGATE_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
+#include <variant>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -22,13 +22,13 @@ namespace xv
 {
     struct Aggregate : public xp::xobserved<Aggregate>
     {
-        XPROPERTY(xtl::xoptional<std::string>, Aggregate, argmax);
-        XPROPERTY(xtl::xoptional<std::string>, Aggregate, argmin);
+        XPROPERTY(std::optional<std::string>, Aggregate, argmax);
+        XPROPERTY(std::optional<std::string>, Aggregate, argmin);
     };
 
     XVEGA_API void to_json(nl::json&, const Aggregate&);
 
-    using agg_type = xtl::variant<Aggregate, std::string>;
+    using agg_type = std::variant<Aggregate, std::string>;
 }
 
 #endif

@@ -7,6 +7,8 @@
 #ifndef XVEGA_MARK_SQUARE_HPP
 #define XVEGA_MARK_SQUARE_HPP
 
+#include <optional>
+
 #include "../marks.hpp"
 
 namespace xv
@@ -14,7 +16,7 @@ namespace xv
     struct mark_square : public mark<mark_square>
     {
         // Square Mark Properties
-        XPROPERTY(xtl::xoptional<double>, mark_square, size);
+        XPROPERTY(std::optional<double>, mark_square, size);
 
         XVEGA_API mark_square();
     };

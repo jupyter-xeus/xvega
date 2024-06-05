@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_LATITUDE2_HPP
 #define XVEGA_ENCODING_LATITUDE2_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,11 +25,11 @@ namespace xv
 {
     struct Latitude2 : public xp::xobserved<Latitude2>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Latitude2, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Latitude2, bin);
-        XPROPERTY(xtl::xoptional<field_type>, Latitude2, field);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Latitude2, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Latitude2, title);
+        XPROPERTY(std::optional<agg_type>, Latitude2, aggregate);
+        XPROPERTY(std::optional<bin_type>, Latitude2, bin);
+        XPROPERTY(std::optional<field_type>, Latitude2, field);
+        XPROPERTY(std::optional<time_unit_type>, Latitude2, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Latitude2, title);
     };
 
     XVEGA_API void to_json(nl::json& j, const Latitude2& data);

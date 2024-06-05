@@ -7,10 +7,9 @@
 #ifndef XVEGA_ENCODING_TEXT_HPP
 #define XVEGA_ENCODING_TEXT_HPP
 
-#include <xproperty/xobserved.hpp>
+#include <optional>
 
-#include <xtl/xoptional.hpp>
-#include <xtl/xjson.hpp>
+#include <xproperty/xobserved.hpp>
 
 #include <nlohmann/json.hpp>
 
@@ -26,16 +25,16 @@ namespace xv
 {
     struct Text : public xp::xobserved<Text>
     {
-        XPROPERTY(xtl::xoptional<agg_type>, Text, aggregate);
-        XPROPERTY(xtl::xoptional<bin_type>, Text, bin);
-        // XPROPERTY(xtl::xoptional<condition_type>, Text, condition);
-        XPROPERTY(xtl::xoptional<field_type>, Text, field);
-        XPROPERTY(xtl::xoptional<string_object_type>, Text, format);
-        XPROPERTY(xtl::xoptional<std::string>, Text, formatType);
-        XPROPERTY(xtl::xoptional<std::string>, Text, labelExpr);
-        XPROPERTY(xtl::xoptional<time_unit_type>, Text, timeUnit);
-        XPROPERTY(xtl::xoptional<string_vec_none_type>, Text, title);
-        XPROPERTY(xtl::xoptional<std::string>, Text, type);
+        XPROPERTY(std::optional<agg_type>, Text, aggregate);
+        XPROPERTY(std::optional<bin_type>, Text, bin);
+        // XPROPERTY(std::optional<condition_type>, Text, condition);
+        XPROPERTY(std::optional<field_type>, Text, field);
+        XPROPERTY(std::optional<string_object_type>, Text, format);
+        XPROPERTY(std::optional<std::string>, Text, formatType);
+        XPROPERTY(std::optional<std::string>, Text, labelExpr);
+        XPROPERTY(std::optional<time_unit_type>, Text, timeUnit);
+        XPROPERTY(std::optional<string_vec_none_type>, Text, title);
+        XPROPERTY(std::optional<std::string>, Text, type);
     };
 
     XVEGA_API void to_json(nl::json& j, const Text& data);
