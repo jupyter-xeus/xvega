@@ -22,8 +22,8 @@
 #endif
 
 #define XVEGA_VERSION_MAJOR 0
-#define XVEGA_VERSION_MINOR 0
-#define XVEGA_VERSION_PATCH 10
+#define XVEGA_VERSION_MINOR 1
+#define XVEGA_VERSION_PATCH 0
 
 #ifdef __CLING__
 #include "xvega_config_cling.hpp"
