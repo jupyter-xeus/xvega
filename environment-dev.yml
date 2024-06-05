@@ -7,7 +7,6 @@ dependencies:
   - cxx-compiler
   - ninja
 # host Dependencies
-  - xtl=0.7.0
   - xproperty=0.12.0
   - nlohmann_json=3.11.3
 # Test dependencies
