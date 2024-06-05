@@ -21,7 +21,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    // using bin_transform_type = xtl::variant<bool, Bin>;
+    // using bin_transform_type = std::variant<bool, Bin>;
     using bin_transform_type = nl::json;
 
     struct transform_bin : public transformation<transform_bin>
