@@ -368,7 +368,7 @@ macro(xvega_set_common_options target_name)
             # PowerPC does not support -march
             if (CMAKE_SYSTEM_PROCESSOR MATCHES "ppc|powerpc")
                 target_compile_options(${target_name} PUBLIC -mtune=native)
-            else ()
+            elseif (NOT EMSCRIPTEN)
                 target_compile_options(${target_name} PUBLIC -march=native)
             endif ()
         endif ()
