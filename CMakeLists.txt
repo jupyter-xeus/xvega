@@ -503,8 +503,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${PROJECT_NAME}Config.cmake
               ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
               DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
 
-if (XVEGA_BUILD_SHARED)
-    install(EXPORT ${PROJECT_NAME}-targets
-            FILE ${PROJECT_NAME}Targets.cmake
-            DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
-endif ()
+install(EXPORT ${PROJECT_NAME}-targets
+        FILE ${PROJECT_NAME}Targets.cmake
+        DESTINATION ${XVEGA_CMAKECONFIG_INSTALL_DIR})
