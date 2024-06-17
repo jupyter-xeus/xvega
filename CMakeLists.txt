@@ -461,20 +461,18 @@ include(CMakePackageConfigHelpers)
 set(XVEGA_CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}" CACHE STRING "install path for xvegaConfig.cmake")
 
 # Install xvega
-if (XVEGA_BUILD_SHARED OR XVEGA_BUILD_STATIC)
-    install(TARGETS ${XVEGA_TARGETS}
-            EXPORT ${PROJECT_NAME}-targets
-            ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-    # This guarantees the headers' folders won't be flatten when
-    # installed
-    install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
-            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-    # Makes the project importable from the build directory
-    export(EXPORT ${PROJECT_NAME}-targets
-           FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
-endif ()
+install(TARGETS ${XVEGA_TARGETS}
+        EXPORT ${PROJECT_NAME}-targets
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+# This guarantees the headers' folders won't be flatten when
+# installed
+install(DIRECTORY ${XVEGA_INCLUDE_DIR}/xvega
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+# Makes the project importable from the build directory
+export(EXPORT ${PROJECT_NAME}-targets
+        FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
 
 # Configure 'xvegaConfig.cmake' for a build tree
 set(XVEGA_CONFIG_CODE "####### Expanded from \@XVEGA_CONFIG_CODE\@ #######\n")
