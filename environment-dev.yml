@@ -8,6 +8,6 @@ dependencies:
   - ninja
 # host Dependencies
   - xproperty=0.12.0
-  - nlohmann_json=3.11.3
+  - nlohmann_json=3.12.0
 # Test dependencies
   - doctest
