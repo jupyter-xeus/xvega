@@ -34,7 +34,8 @@ Use the library by including the following header:
 
 |  `xvega`  |  `nlohmann json`  |  `xproperty`  |
 |-----------|-------------------|---------------|
-|  0.1.0    |      ^3.11.3      |    ^0.12.0    |
+|  0.1.3    |      ^3.12.0      |    ^0.12.1    |
+|  0.1.x    |      ^3.11.3      |    ^0.12.0    |
 
 Prior to version 0.1.0, xvega was also depending on [xtl](https://github.com/xtensor-stack/xtl)
 
