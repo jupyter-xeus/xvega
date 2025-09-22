@@ -4,7 +4,7 @@
 #
 # The full license is in the file LICENSE, distributed with this software.
 
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.20)
 project(xvega)
 
 set(XVEGA_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -50,11 +50,11 @@ OPTION(XVEGA_BUILD_TESTS "xvega test suite" OFF)
 # Dependencies
 # ============
 
-set(xproperty_REQUIRED_VERSION 0.12.0)
+set(xproperty_REQUIRED_VERSION 0.12.1)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
 
-set(nlohmann_json_REQUIRED_VERSION 3.11.3)
+set(nlohmann_json_REQUIRED_VERSION 3.12.0)
 find_package(nlohmann_json ${nlohmann_json_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found nlohmann_json: ${nlohmann_json_INCLUDE_DIRS}/nlohmann_json")
 
