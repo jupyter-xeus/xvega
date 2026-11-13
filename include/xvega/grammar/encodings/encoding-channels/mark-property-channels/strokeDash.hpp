@@ -26,7 +26,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct StrokeDash : public xp::xobserved<StrokeDash>
+    struct StrokeDash : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, StrokeDash, aggregate);
         XPROPERTY(std::optional<bin_type>, StrokeDash, bin);

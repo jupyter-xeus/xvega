@@ -24,7 +24,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct FieldSort : public xp::xobserved<FieldSort>
+    struct FieldSort : public xp::xobserved
     {
         XPROPERTY(std::optional<field_type>, FieldSort, field);
         XPROPERTY(std::optional<std::string>, FieldSort, op);
@@ -33,7 +33,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const FieldSort& data);
 
-    struct EncodingSort : public xp::xobserved<EncodingSort>
+    struct EncodingSort : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, EncodingSort, encoding);
         XPROPERTY(std::optional<string_none_type>, EncodingSort, order);

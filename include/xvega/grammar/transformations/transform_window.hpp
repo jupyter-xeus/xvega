@@ -22,7 +22,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct window_field_def : public xp::xobserved<window_field_def>
+    struct window_field_def : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, window_field_def, op);
         XPROPERTY(std::optional<std::string>, window_field_def, field);

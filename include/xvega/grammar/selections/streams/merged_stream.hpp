@@ -18,7 +18,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct merged_stream : public xp::xobserved<merged_stream>
+    struct merged_stream : public xp::xobserved
     {
         // Merged Stream Properties
         XPROPERTY(std::optional<std::vector<event_stream>>, merged_stream, merge);

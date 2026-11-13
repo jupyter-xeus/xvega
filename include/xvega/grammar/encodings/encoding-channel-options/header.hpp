@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Header : public xp::xobserved<Header>
+    struct Header : public xp::xobserved
     {
         XPROPERTY(std::optional<string_vec_none_type>, Header, title);
 

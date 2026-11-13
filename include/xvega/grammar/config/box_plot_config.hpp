@@ -16,7 +16,7 @@ namespace xv
 {
     using bool_mark_config_type = std::variant<mark_config, bool>;
 
-    struct box_plot_config : public xp::xobserved<box_plot_config>
+    struct box_plot_config : public xp::xobserved
     {
         XPROPERTY(std::optional<bool_mark_config_type>, box_plot_config, box);
         XPROPERTY(std::optional<string_num_type>, box_plot_config, extent);

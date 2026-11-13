@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct scale_config : public xp::xobserved<scale_config>
+    struct scale_config : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, scale_config, bandPaddingInner);
         XPROPERTY(std::optional<double>, scale_config, bandPaddingOuter);

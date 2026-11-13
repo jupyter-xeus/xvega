@@ -24,7 +24,7 @@ namespace xv
 {
     using stream_legend_type = std::variant<std::string, event_stream, derived_stream, merged_stream>;
 
-    struct legend_stream_binding : public xp::xobserved<legend_stream_binding>
+    struct legend_stream_binding : public xp::xobserved
     {
         // Legend Stream Binding Properties
         XPROPERTY(std::optional<stream_legend_type>, legend_stream_binding, legend);

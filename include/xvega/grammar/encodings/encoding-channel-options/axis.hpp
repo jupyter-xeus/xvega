@@ -22,7 +22,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Axis : public xp::xobserved<Axis>
+    struct Axis : public xp::xobserved
     {
         // General Axis Properties
         XPROPERTY(std::optional<bool>, Axis, aria); // Not Present in Altair Docs, but present in Vega-Lite Docs

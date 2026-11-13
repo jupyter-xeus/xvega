@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct header_config : public xp::xobserved<header_config>
+    struct header_config : public xp::xobserved
     {
         XPROPERTY(std::optional<string_vec_none_type>, header_config, title);
 

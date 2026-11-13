@@ -19,7 +19,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct RepeatRef : public xp::xobserved<RepeatRef>
+    struct RepeatRef : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, RepeatRef, repeat);
     };

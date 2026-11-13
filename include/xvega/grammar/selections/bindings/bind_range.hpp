@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct bind_range : public xp::xobserved<bind_range>
+    struct bind_range : public xp::xobserved
     {
         // Bind Range Properties
         XPROPERTY(std::optional<std::string>, bind_range, input);

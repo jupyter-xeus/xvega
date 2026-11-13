@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct axis_config : public xp::xobserved<axis_config>
+    struct axis_config : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, axis_config, bandPosition);
         XPROPERTY(std::optional<bool>, axis_config, disable);

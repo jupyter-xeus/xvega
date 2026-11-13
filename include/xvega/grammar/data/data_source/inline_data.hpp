@@ -36,7 +36,7 @@ namespace xv
                                   nl::json
                                   >;
 
-    struct inline_data : public xp::xobserved<inline_data>
+    struct inline_data : public xp::xobserved
     {
         XPROPERTY(inline_data_type, inline_data, values);
         XPROPERTY(std::optional<std::string>, inline_data, name);

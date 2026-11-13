@@ -7,8 +7,10 @@ TEST_SUITE("JsonSpecOutput")
 {
 TEST_CASE("UrlData")
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
-    auto fig = Chart().data(df);
+    auto df = url_data();
+    df.url = "https://vega.github.io/vega-datasets/data/cars.json";
+    auto fig = Chart();
+    fig.data = df;
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
                     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
@@ -23,9 +25,11 @@ TEST_CASE("Dataframe")
     df_type val;
     val["country"] = {"India", "France", "France", "Germany", "India", "Germany", "France"};
     val["score"]= {25, 57, 23, 19, 8, 47, 8};
-    auto df = data_frame().values(val);
+    auto df = data_frame();
+    df.values = val;
 
-    auto fig = Chart().data(df);
+    auto fig = Chart();
+    fig.data = df;
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
                     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
@@ -47,10 +51,16 @@ TEST_CASE("Dataframe")
 
 TEST_CASE("SequenceGenerator")
 {
-    auto seq = sequence_params().start(0).stop(12.7).step(0.1).as("x");
-    auto df = sequence_generator().sequence(seq);
+    auto seq = sequence_params();
+    seq.start = 0;
+    seq.stop = 12.7;
+    seq.step = 0.1;
+    seq.as = "x";
+    auto df = sequence_generator();
+    df.sequence = seq;
 
-    auto fig = Chart().data(df);
+    auto fig = Chart();
+    fig.data = df;
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
                     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",

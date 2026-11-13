@@ -24,7 +24,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Order : public xp::xobserved<Order>
+    struct Order : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Order, aggregate);
         XPROPERTY(std::optional<bin_type>, Order, bin);

@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct bind_checkbox : public xp::xobserved<bind_checkbox>
+    struct bind_checkbox : public xp::xobserved
     {
         // Bind Checkbox Properties
         XPROPERTY(std::optional<std::string>, bind_checkbox, input);

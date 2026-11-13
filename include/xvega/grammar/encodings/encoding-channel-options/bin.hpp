@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Bin : public xp::xobserved<Bin>
+    struct Bin : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, Bin, anchor);
         XPROPERTY(std::optional<double>, Bin, base);

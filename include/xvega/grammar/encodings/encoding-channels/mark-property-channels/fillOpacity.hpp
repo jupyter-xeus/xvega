@@ -26,7 +26,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct FillOpacity : public xp::xobserved<FillOpacity>
+    struct FillOpacity : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, FillOpacity, aggregate);
         XPROPERTY(std::optional<bin_type>, FillOpacity, bin);

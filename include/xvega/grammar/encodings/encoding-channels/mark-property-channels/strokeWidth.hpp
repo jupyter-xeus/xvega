@@ -26,7 +26,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct StrokeWidth : public xp::xobserved<StrokeWidth>
+    struct StrokeWidth : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, StrokeWidth, aggregate);
         XPROPERTY(std::optional<bin_type>, StrokeWidth, bin);

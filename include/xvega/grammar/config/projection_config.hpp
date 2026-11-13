@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct projection_config : public xp::xobserved<projection_config>
+    struct projection_config : public xp::xobserved
     {
         XPROPERTY(std::optional<std::vector<double>>, projection_config, center);
         XPROPERTY(std::optional<double>, projection_config, clipAngle);

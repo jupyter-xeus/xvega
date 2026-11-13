@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct XError : public xp::xobserved<XError>
+    struct XError : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, XError, aggregate);
         XPROPERTY(std::optional<bin_type>, XError, bin);

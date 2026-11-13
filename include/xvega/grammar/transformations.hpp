@@ -15,7 +15,7 @@
 namespace xv
 {
     template<class D>
-    struct transformation : public xp::xobserved<D>
+    struct transformation : public xp::xobserved
     {
         inline std::string name() const { return ""; }
     };

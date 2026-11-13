@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct view_config : public xp::xobserved<view_config>
+    struct view_config : public xp::xobserved
     {
         XPROPERTY(std::optional<bool>, view_config, clip);
         XPROPERTY(std::optional<double>, view_config, continuousHeight);

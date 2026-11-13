@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct DateTime : public xp::xobserved<DateTime>
+    struct DateTime : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, DateTime, year);
         XPROPERTY(std::optional<double>, DateTime, quarter);

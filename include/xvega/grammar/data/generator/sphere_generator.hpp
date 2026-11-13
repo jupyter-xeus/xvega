@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct sphere_generator : public xp::xobserved<sphere_generator>
+    struct sphere_generator : public xp::xobserved
     {
         XPROPERTY(std::optional<bool_object_type>, sphere_generator, sphere);
         XPROPERTY(std::optional<std::string>, sphere_generator, name);

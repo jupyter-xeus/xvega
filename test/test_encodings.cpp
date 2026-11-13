@@ -6,11 +6,19 @@ TEST_SUITE("JsonSpecOutput")
 {
 TEST_CASE("SingleEncodingChannel")
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
+    auto df = url_data();
+    df.url = "https://vega.github.io/vega-datasets/data/cars.json";
     auto mp = mark_point();
-    auto x_enc = X().field("Miles_per_Gallon").type("quantitative");
-    auto enc = Encodings().x(x_enc);
-    auto fig = Chart().data(df).mark(mp).encoding(enc).width(400);
+    auto x_enc = X();
+    x_enc.field = "Miles_per_Gallon";
+    x_enc.type = "quantitative";
+    auto enc = Encodings();
+    enc.x = x_enc;
+    auto fig = Chart();
+    fig.data = df;
+    fig.mark = mp;
+    fig.encoding = enc;
+    fig.width = 400;
 
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
@@ -25,12 +33,25 @@ TEST_CASE("SingleEncodingChannel")
 
 TEST_CASE("DoubleEncodingChannel")
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
+    auto df = url_data();
+    df.url = "https://vega.github.io/vega-datasets/data/cars.json";
     auto mp = mark_point();
-    auto x_enc = X().field("Miles_per_Gallon").type("quantitative");
-    auto y_enc = Y().field("Horsepower").type("quantitative");
-    auto enc = Encodings().x(x_enc).y(y_enc);
-    auto fig = Chart().data(df).mark(mp).encoding(enc).title("Simple 2D Chart").width(400).height(300);
+    auto x_enc = X();
+    x_enc.field = "Miles_per_Gallon";
+    x_enc.type = "quantitative";
+    auto y_enc = Y();
+    y_enc.field = "Horsepower";
+    y_enc.type = "quantitative";
+    auto enc = Encodings();
+    enc.x = x_enc;
+    enc.y = y_enc;
+    auto fig = Chart();
+    fig.data = df;
+    fig.mark = mp;
+    fig.encoding = enc;
+    fig.title = "Simple 2D Chart";
+    fig.width = 400;
+    fig.height = 300;
 
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
@@ -50,13 +71,28 @@ TEST_CASE("DoubleEncodingChannel")
 
 TEST_CASE("TripleEncodingChannel")
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
+    auto df = url_data();
+    df.url = "https://vega.github.io/vega-datasets/data/cars.json";
     auto mp = mark_point();
-    auto x_enc = X().field("Miles_per_Gallon").type("quantitative");
-    auto y_enc = Y().field("Horsepower").type("quantitative");
-    auto color_enc = Color().field("Origin").type("nominal");
-    auto enc = Encodings().x(x_enc).y(y_enc).color(color_enc);
-    auto fig = Chart().data(df).mark(mp).encoding(enc).width(400).height(300);
+    auto x_enc = X();
+    x_enc.field = "Miles_per_Gallon";
+    x_enc.type = "quantitative";
+    auto y_enc = Y();
+    y_enc.field = "Horsepower";
+    y_enc.type = "quantitative";
+    auto color_enc = Color();
+    color_enc.field = "Origin";
+    color_enc.type = "nominal";
+    auto enc = Encodings();
+    enc.x = x_enc;
+    enc.y = y_enc;
+    enc.color = color_enc;
+    auto fig = Chart();
+    fig.data = df;
+    fig.mark = mp;
+    fig.encoding = enc;
+    fig.width = 400;
+    fig.height = 300;
 
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({
@@ -76,13 +112,26 @@ TEST_CASE("TripleEncodingChannel")
 
 TEST_CASE("DoubleEncodingWithChannelOptions")
 {
-    auto df = url_data().url("https://vega.github.io/vega-datasets/data/cars.json");
+    auto df = url_data();
+    df.url = "https://vega.github.io/vega-datasets/data/cars.json";
     auto mb = mark_bar();
-    auto bin_params = Bin().maxbins(30);
-    auto x_enc = X().field("Miles_per_Gallon").type("quantitative").bin(bin_params);
-    auto y_enc = Y().aggregate("count");
-    auto enc = Encodings().x(x_enc).y(y_enc);
-    auto fig = Chart().data(df).mark(mb).encoding(enc).width(400).height(300);
+    auto bin_params = Bin();
+    bin_params.maxbins = 30;
+    auto x_enc = X();
+    x_enc.field = "Miles_per_Gallon";
+    x_enc.type = "quantitative";
+    x_enc.bin = bin_params;
+    auto y_enc = Y();
+    y_enc.aggregate = "count";
+    auto enc = Encodings();
+    enc.x = x_enc;
+    enc.y = y_enc;
+    auto fig = Chart();
+    fig.data = df;
+    fig.mark = mb;
+    fig.encoding = enc;
+    fig.width = 400;
+    fig.height = 300;
 
     nl::json result = mime_bundle_repr(fig);
     nl::json expected = R"({

@@ -18,7 +18,7 @@
 namespace xv
 {
     template<class D>
-    struct mark : public xp::xobserved<D>
+    struct mark : public xp::xobserved
     {
         // General Mark Properties
         XPROPERTY(std::optional<std::string>, D, type);

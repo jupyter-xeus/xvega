@@ -33,7 +33,7 @@ namespace xv
     using clear_type = std::variant<stream_type, std::string, bool>;
     using on_type = std::variant<stream_type, std::string>;
 
-    struct interval_selection_config : public xp::xobserved<interval_selection_config>
+    struct interval_selection_config : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, interval_selection_config, bind);
         XPROPERTY(std::optional<clear_type>, interval_selection_config, clear);
@@ -52,7 +52,7 @@ namespace xv
 
     using legend_binding_type = std::variant<std::string, legend_stream_binding>;
 
-    struct multi_selection_config : public xp::xobserved<multi_selection_config>
+    struct multi_selection_config : public xp::xobserved
     {
         XPROPERTY(std::optional<legend_binding_type>, multi_selection_config, bind);
         XPROPERTY(std::optional<clear_type>, multi_selection_config, clear);
@@ -71,7 +71,7 @@ namespace xv
     using binding_type = std::variant<bind_checkbox, bind_radio_select, bind_range, bind_input>;
     using selection_bind_type = std::variant<binding_type, nl::json, legend_binding_type>;
 
-    struct single_selection_config : public xp::xobserved<single_selection_config>
+    struct single_selection_config : public xp::xobserved
     {
         XPROPERTY(std::optional<selection_bind_type>, single_selection_config, bind);
         XPROPERTY(std::optional<clear_type>, single_selection_config, clear);
@@ -86,7 +86,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const single_selection_config& data);
 
-    struct selection_config : public xp::xobserved<selection_config>
+    struct selection_config : public xp::xobserved
     {
         XPROPERTY(std::optional<interval_selection_config>, selection_config, interval);
         XPROPERTY(std::optional<multi_selection_config>, selection_config, multi);

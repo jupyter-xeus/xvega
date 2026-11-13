@@ -43,7 +43,7 @@ namespace xv
 
     using data_type_lookup = std::variant<data_source, generator>;
 
-    struct lookup_data : public xp::xobserved<lookup_data>
+    struct lookup_data : public xp::xobserved
     {
         XPROPERTY(std::optional<data_type_lookup>, lookup_data, data);
         XPROPERTY(std::optional<std::string>, lookup_data, key);
@@ -54,7 +54,7 @@ namespace xv
 
     using selection_type = xany<selection>;
 
-    struct lookup_selection : public xp::xobserved<lookup_selection>
+    struct lookup_selection : public xp::xobserved
     {
         XPROPERTY(std::optional<selection_type>, lookup_selection, selection);
         XPROPERTY(std::optional<std::string>, lookup_selection, key);

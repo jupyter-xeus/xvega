@@ -26,7 +26,7 @@ namespace xv
                                   topo_data_format
                                   >;
 
-    struct url_data : public xp::xobserved<url_data>
+    struct url_data : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, url_data, url);
         XPROPERTY(std::optional<std::string>, url_data, name);

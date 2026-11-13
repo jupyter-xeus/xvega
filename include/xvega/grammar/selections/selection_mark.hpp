@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct selection_mark : public xp::xobserved<selection_mark>
+    struct selection_mark : public xp::xobserved
     {
         // Mark Selection Properties
         XPROPERTY(std::optional<std::string>, selection_mark, cursor);

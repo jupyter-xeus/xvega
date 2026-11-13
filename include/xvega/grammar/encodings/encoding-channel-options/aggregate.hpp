@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Aggregate : public xp::xobserved<Aggregate>
+    struct Aggregate : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, Aggregate, argmax);
         XPROPERTY(std::optional<std::string>, Aggregate, argmin);

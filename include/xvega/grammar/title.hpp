@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct Title : public xp::xobserved<Title>
+    struct Title : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, Title, text);
         XPROPERTY(std::optional<std::string>, Title, align);
