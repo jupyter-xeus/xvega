@@ -25,7 +25,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Row : public xp::xobserved<Row>
+    struct Row : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Row, aggregate);
         XPROPERTY(std::optional<std::string>, Row, align);

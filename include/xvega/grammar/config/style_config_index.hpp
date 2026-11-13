@@ -23,7 +23,7 @@
 
 namespace xv
 {
-    struct style_config_index : public xp::xobserved<style_config_index>
+    struct style_config_index : public xp::xobserved
     {
         XPROPERTY(std::optional<area_config>, style_config_index, area);
         XPROPERTY(std::optional<bar_config>, style_config_index, bar);

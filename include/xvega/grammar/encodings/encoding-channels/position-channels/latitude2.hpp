@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Latitude2 : public xp::xobserved<Latitude2>
+    struct Latitude2 : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Latitude2, aggregate);
         XPROPERTY(std::optional<bin_type>, Latitude2, bin);

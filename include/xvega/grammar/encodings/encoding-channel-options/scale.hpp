@@ -30,7 +30,7 @@ namespace xv
                                   nl::json
                                   >;
 
-    struct DomainUnionWith : public xp::xobserved<DomainUnionWith>
+    struct DomainUnionWith : public xp::xobserved
     {
         XPROPERTY(std::optional<any_array_type>, DomainUnionWith, unionWith);
     };
@@ -48,7 +48,7 @@ namespace xv
                                    DomainUnionWith
                                    >;
 
-    struct ScaleBin : public xp::xobserved<ScaleBin>
+    struct ScaleBin : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, ScaleBin, start);
         XPROPERTY(std::optional<double>, ScaleBin, stop);
@@ -59,7 +59,7 @@ namespace xv
 
     using scale_bin_type = std::variant<std::vector<double>, std::vector<int>, ScaleBin>;
 
-    struct Scheme : public xp::xobserved<Scheme>
+    struct Scheme : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, Scheme, name);
         XPROPERTY(std::optional<std::vector<double>>, Scheme, extent);
@@ -70,7 +70,7 @@ namespace xv
 
     using scale_scheme_type = std::variant<std::string, Scheme>;
 
-    struct ScaleInterpolate : public xp::xobserved<ScaleInterpolate>
+    struct ScaleInterpolate : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, ScaleInterpolate, type);
         XPROPERTY(std::optional<double>, ScaleInterpolate, gamma);
@@ -80,7 +80,7 @@ namespace xv
 
     using scale_interpolate_type = std::variant<std::string, ScaleInterpolate>;
 
-    struct TimeIntervalStep : public xp::xobserved<TimeIntervalStep>
+    struct TimeIntervalStep : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, TimeIntervalStep, interval);
         XPROPERTY(std::optional<double>, TimeIntervalStep, step);
@@ -90,7 +90,7 @@ namespace xv
 
     using nice_type = std::variant<double, int, std::string, bool, TimeIntervalStep>;
 
-    struct Scale : public xp::xobserved<Scale>
+    struct Scale : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, Scale, type);
         XPROPERTY(std::optional<scale_domain_type>, Scale, domain);

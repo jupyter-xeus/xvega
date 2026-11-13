@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct YError2 : public xp::xobserved<YError2>
+    struct YError2 : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, YError2, aggregate);
         XPROPERTY(std::optional<bin_type>, YError2, bin);

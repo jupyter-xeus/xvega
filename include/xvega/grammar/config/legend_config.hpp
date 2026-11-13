@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct legend_config : public xp::xobserved<legend_config>
+    struct legend_config : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, legend_config, clipHeight);
         XPROPERTY(std::optional<double>, legend_config, columnPadding);

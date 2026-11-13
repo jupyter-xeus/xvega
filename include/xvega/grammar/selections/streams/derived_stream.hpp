@@ -18,7 +18,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct derived_stream : public xp::xobserved<derived_stream>
+    struct derived_stream : public xp::xobserved
     {
         // Derived Stream Properties
         XPROPERTY(std::optional<event_stream>, derived_stream, stream);

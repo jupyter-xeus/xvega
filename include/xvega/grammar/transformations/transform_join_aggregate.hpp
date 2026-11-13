@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct join_aggregate_field_def : public xp::xobserved<join_aggregate_field_def>
+    struct join_aggregate_field_def : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, join_aggregate_field_def, as);
         XPROPERTY(std::optional<std::string>, join_aggregate_field_def, field);

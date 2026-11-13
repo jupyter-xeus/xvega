@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct event_stream : public xp::xobserved<event_stream>
+    struct event_stream : public xp::xobserved
     {
         // Event Stream Properties
         XPROPERTY(std::optional<std::string>, event_stream, source);

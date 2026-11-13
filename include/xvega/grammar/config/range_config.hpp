@@ -19,7 +19,7 @@ namespace xv
 {
     using range_scheme_string_type = std::variant<std::string, std::vector<std::string>, nl::json, std::vector<any_type>>;
 
-    struct range_config : public xp::xobserved<range_config>
+    struct range_config : public xp::xobserved
     {
         XPROPERTY(std::optional<range_scheme_string_type>, range_config, category);
         XPROPERTY(std::optional<range_scheme_string_type>, range_config, diverging);

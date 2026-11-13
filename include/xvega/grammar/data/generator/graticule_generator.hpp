@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct graticule_params : public xp::xobserved<graticule_params>
+    struct graticule_params : public xp::xobserved
     {
         XPROPERTY(std::optional<std::vector<double>>, graticule_params, extent);
         XPROPERTY(std::optional<std::vector<double>>, graticule_params, extentMajor);
@@ -35,7 +35,7 @@ namespace xv
 
     using graticule_type = std::variant<bool, graticule_params>;
 
-    struct graticule_generator : public xp::xobserved<graticule_generator>
+    struct graticule_generator : public xp::xobserved
     {
         XPROPERTY(std::optional<graticule_type>, graticule_generator, graticule);
         XPROPERTY(std::optional<std::string>, graticule_generator, name);

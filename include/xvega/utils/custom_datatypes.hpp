@@ -22,7 +22,7 @@ namespace xv
 {
     using df_type = std::map<std::string, std::vector<std::variant<double, int, std::string, std::nullptr_t>>>;
 
-    struct data_frame : public xp::xobserved<data_frame>
+    struct data_frame : public xp::xobserved
     {
         XPROPERTY(std::optional<df_type>, data_frame, values);
     };
@@ -65,7 +65,7 @@ namespace xv
     using num_none_type = nl::json;
 
 
-    struct GradientStop : public xp::xobserved<GradientStop>
+    struct GradientStop : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, GradientStop, color);
         XPROPERTY(std::optional<double>, GradientStop, offset);
@@ -73,7 +73,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const GradientStop& data);
 
-    struct LinearGradient : public xp::xobserved<LinearGradient>
+    struct LinearGradient : public xp::xobserved
     {
         XPROPERTY(std::string, LinearGradient, gradient, "linear");
         XPROPERTY(std::optional<double>, LinearGradient, x1);
@@ -85,7 +85,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const LinearGradient& data);
 
-    struct RadialGradient : public xp::xobserved<RadialGradient>
+    struct RadialGradient : public xp::xobserved
     {
         XPROPERTY(std::string, RadialGradient, gradient, "radial");
         XPROPERTY(std::optional<double>, RadialGradient, x1);
@@ -99,7 +99,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const RadialGradient& data);
 
-    struct TooltipContent : public xp::xobserved<TooltipContent>
+    struct TooltipContent : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, TooltipContent, content);
     };

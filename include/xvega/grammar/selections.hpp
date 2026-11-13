@@ -26,7 +26,7 @@ namespace xv
     using on_type = std::variant<stream_type, std::string>;
 
     template<class D>
-    struct selection : public xp::xobserved<D>
+    struct selection : public xp::xobserved
     {
         XPROPERTY(std::string, D, name);
         XPROPERTY(std::optional<std::string>, D, type);

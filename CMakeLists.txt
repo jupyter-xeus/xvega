@@ -50,7 +50,7 @@ OPTION(XVEGA_BUILD_TESTS "xvega test suite" OFF)
 # Dependencies
 # ============
 
-set(xproperty_REQUIRED_VERSION 0.12.1)
+set(xproperty_REQUIRED_VERSION 0.13.1)
 find_package(xproperty ${xproperty_REQUIRED_VERSION} REQUIRED)
 message(STATUS "Found xproperty: ${xproperty_INCLUDE_DIRS}/xproperty")
 

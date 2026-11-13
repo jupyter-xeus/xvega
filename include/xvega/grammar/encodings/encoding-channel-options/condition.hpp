@@ -33,7 +33,7 @@ namespace xv
                                             std::vector<std::nullptr_t>
                                             >;
 
-    struct FieldPredicate : public xp::xobserved<FieldPredicate>
+    struct FieldPredicate : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, FieldPredicate, field);
         XPROPERTY(std::optional<TimeUnit>, FieldPredicate, timeUnit);
@@ -49,7 +49,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const FieldPredicate& data);
 
-    struct SelectionPredicate : public xp::xobserved<SelectionPredicate>
+    struct SelectionPredicate : public xp::xobserved
     {
         XPROPERTY(std::optional<string_object_type>, SelectionPredicate, selection);
     };

@@ -26,7 +26,7 @@ namespace xv
                                   topo_data_format
                                   >;
 
-    struct named_data : public xp::xobserved<named_data>
+    struct named_data : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, named_data, name);
         XPROPERTY(std::optional<data_format_type>, named_data, format);

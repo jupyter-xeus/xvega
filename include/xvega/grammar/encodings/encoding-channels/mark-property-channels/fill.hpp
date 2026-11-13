@@ -26,7 +26,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Fill : public xp::xobserved<Fill>
+    struct Fill : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Fill, aggregate);
         XPROPERTY(std::optional<bin_type>, Fill, bin);

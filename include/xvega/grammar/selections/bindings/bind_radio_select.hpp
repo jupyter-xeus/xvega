@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct bind_radio_select : public xp::xobserved<bind_radio_select>
+    struct bind_radio_select : public xp::xobserved
     {
         // Bind Radio Select Properties
         XPROPERTY(std::optional<std::string>, bind_radio_select, input);

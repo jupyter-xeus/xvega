@@ -42,7 +42,7 @@ namespace xv
 {
     using autosize_type = std::variant<std::string, auto_size_params>;
 
-    struct Config : public xp::xobserved<Config>
+    struct Config : public xp::xobserved
     {
         XPROPERTY(std::optional<area_config>, Config, area);
         XPROPERTY(std::optional<autosize_type>, Config, autosize);

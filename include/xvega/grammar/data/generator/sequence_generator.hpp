@@ -19,7 +19,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct sequence_params : public xp::xobserved<sequence_params>
+    struct sequence_params : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, sequence_params, start);
         XPROPERTY(std::optional<double>, sequence_params, stop);
@@ -29,7 +29,7 @@ namespace xv
 
     XVEGA_API void to_json(nl::json& j, const sequence_params& data);
 
-    struct sequence_generator : public xp::xobserved<sequence_generator>
+    struct sequence_generator : public xp::xobserved
     {
         XPROPERTY(std::optional<sequence_params>, sequence_generator, sequence);
         XPROPERTY(std::optional<std::string>, sequence_generator, name);

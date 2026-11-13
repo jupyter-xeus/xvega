@@ -21,7 +21,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct sort_field_def : public xp::xobserved<sort_field_def>
+    struct sort_field_def : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, sort_field_def, field);
         XPROPERTY(std::optional<string_none_type>, sort_field_def, order);

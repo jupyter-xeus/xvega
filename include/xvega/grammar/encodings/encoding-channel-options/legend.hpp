@@ -22,7 +22,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Legend : public xp::xobserved<Legend>
+    struct Legend : public xp::xobserved
     {
         // General Legend Properties
         XPROPERTY(std::optional<bool>, Legend, aria);

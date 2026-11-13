@@ -16,7 +16,7 @@ namespace xv
 {
     using bool_mark_config_type = std::variant<mark_config, bool>;
 
-    struct error_bar_config : public xp::xobserved<error_bar_config>
+    struct error_bar_config : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, error_bar_config, extent);
         XPROPERTY(std::optional<bool_mark_config_type>, error_bar_config, rule);

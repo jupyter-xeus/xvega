@@ -126,13 +126,13 @@ namespace xv
 
             xany_owning(const CRTP<D>& value)
                 : base_type(),
-                  m_value(value.derived_cast())
+                  m_value(static_cast<const D&>(value))
             {
             }
 
             xany_owning(CRTP<D>&& value)
                 : base_type(),
-                  m_value(std::move(value.derived_cast()))
+                  m_value(std::move(static_cast<D&>(value)))
             {
             }
 

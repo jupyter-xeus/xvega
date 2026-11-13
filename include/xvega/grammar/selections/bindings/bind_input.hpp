@@ -17,7 +17,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct bind_input : public xp::xobserved<bind_input>
+    struct bind_input : public xp::xobserved
     {
         // Bind Input Properties
         XPROPERTY(std::optional<std::string>, bind_input, autocomplete);

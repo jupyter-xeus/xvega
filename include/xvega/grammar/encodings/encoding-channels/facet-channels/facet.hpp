@@ -25,7 +25,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Facet : public xp::xobserved<Facet>
+    struct Facet : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Facet, aggregate);
         XPROPERTY(std::optional<std::string>, Facet, align);

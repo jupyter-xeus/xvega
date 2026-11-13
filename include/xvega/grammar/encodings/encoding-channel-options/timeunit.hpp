@@ -20,7 +20,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct TimeUnit : public xp::xobserved<TimeUnit>
+    struct TimeUnit : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, TimeUnit, unit);
         XPROPERTY(std::optional<double>, TimeUnit, maxbins);

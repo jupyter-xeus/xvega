@@ -21,7 +21,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct ImputeSequence : public xp::xobserved<ImputeSequence>
+    struct ImputeSequence : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, ImputeSequence, start);
         XPROPERTY(std::optional<double>, ImputeSequence, stop);
@@ -32,7 +32,7 @@ namespace xv
 
     using impute_key_vals_type = std::variant<std::vector<any_type>, ImputeSequence>;
 
-    struct Impute : public xp::xobserved<Impute>
+    struct Impute : public xp::xobserved
     {
         XPROPERTY(std::optional<std::vector<num_none_type>>, Impute, frame);
         XPROPERTY(std::optional<impute_key_vals_type>, Impute, keyvals);

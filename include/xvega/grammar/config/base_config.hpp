@@ -17,7 +17,7 @@
 namespace xv
 {
     template<class D>
-    struct base_config : public xp::xobserved<D>
+    struct base_config : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, D, align);
         XPROPERTY(std::optional<double>, D, angle);

@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct auto_size_params : public xp::xobserved<auto_size_params>
+    struct auto_size_params : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, auto_size_params, contains);
         XPROPERTY(std::optional<bool>, auto_size_params, resize);

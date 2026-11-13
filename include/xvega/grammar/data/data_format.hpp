@@ -20,7 +20,7 @@ namespace xv
     using object_none_type = std::variant<std::nullptr_t, nl::json>;
 
     template<class D>
-    struct data_format : public xp::xobserved<D>
+    struct data_format : public xp::xobserved
     {
         XPROPERTY(std::optional<std::string>, D, type);
         XPROPERTY(std::optional<object_none_type>, D, parse);

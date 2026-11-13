@@ -16,7 +16,7 @@
 
 namespace xv
 {
-    struct composition_config : public xp::xobserved<composition_config>
+    struct composition_config : public xp::xobserved
     {
         XPROPERTY(std::optional<double>, composition_config, columns);
         XPROPERTY(std::optional<double>, composition_config, spacing);

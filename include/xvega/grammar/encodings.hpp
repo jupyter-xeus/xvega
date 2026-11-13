@@ -54,7 +54,7 @@
 
 namespace xv
 {
-    struct Encodings : public xp::xobserved<Encodings>
+    struct Encodings : public xp::xobserved
     {
         XPROPERTY(std::optional<X>, Encodings, x);
         XPROPERTY(std::optional<Y>, Encodings, y);

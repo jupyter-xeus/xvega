@@ -47,7 +47,7 @@ namespace xv
     using transform_type = xany<transformation>;
     using title_type = std::variant<std::string, Title>;
 
-    struct Chart : public xp::xobserved<Chart>
+    struct Chart : public xp::xobserved
     {
         XPROPERTY(data_type, Chart, data);
         XPROPERTY(marks_type, Chart, mark);

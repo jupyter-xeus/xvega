@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Longitude : public xp::xobserved<Longitude>
+    struct Longitude : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Longitude, aggregate);
         XPROPERTY(std::optional<bin_type>, Longitude, bin);

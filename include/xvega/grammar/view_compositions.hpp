@@ -20,17 +20,17 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct hconcat : public xp::xobserved<hconcat>
+    struct hconcat : public xp::xobserved
     {
         XPROPERTY(std::vector<Chart>, hconcat, charts);
     };
 
-    struct vconcat : public xp::xobserved<vconcat>
+    struct vconcat : public xp::xobserved
     {
         XPROPERTY(std::vector<Chart>, vconcat, charts);
     };
 
-    struct layer : public xp::xobserved<layer>
+    struct layer : public xp::xobserved
     {
         XPROPERTY(std::vector<Chart>, layer, charts);
     };

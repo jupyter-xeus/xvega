@@ -23,7 +23,7 @@ namespace nl = nlohmann;
 
 namespace xv
 {
-    struct Tooltip : public xp::xobserved<Tooltip>
+    struct Tooltip : public xp::xobserved
     {
         XPROPERTY(std::optional<agg_type>, Tooltip, aggregate);
         XPROPERTY(std::optional<bin_type>, Tooltip, bin);
